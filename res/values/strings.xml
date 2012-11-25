@@ -5476,6 +5476,7 @@
 
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
+<<<<<<< HEAD
 
     <!-- Title for SIM card settings during Setup Wizard.  [CHAR LIMIT=40] -->
     <string name="sim_setup_wizard_title">SIM cards</string>
