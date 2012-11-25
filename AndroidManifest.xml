@@ -69,6 +69,7 @@
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
     <uses-permission android:name="android.permission.READ_SEARCH_INDEXABLES" />
     <uses-permission android:name="android.permission.OEM_UNLOCK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <permission
         android:name="cyanogenmod.permission.PROTECTED_APP"
@@ -2107,6 +2108,11 @@
                   android:label="@string/protected_apps"
                   android:excludeFromRecents="true"
                   android:configChanges="orientation|keyboardHidden|screenSize">
+
+        <!-- CyanogenMod activities Start -->
+
+        <activity android:name=".cyanogenmod.PerformanceSettings" />
+		
             <intent-filter>
                 <action android:name=".applications.ProtectedAppsActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
