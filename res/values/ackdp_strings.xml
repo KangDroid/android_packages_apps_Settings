@@ -602,5 +602,7 @@
     <string name="display_density">Display density</string>
     <string name="display_density_summary">Overrides the default display density (0 to disable, requires a reboot)</string>
 
+    <!-- Restart SystemUI -->
+    <string name="restart_systemui">Restart SystemUI</string>
 
 </resources>
