@@ -167,6 +167,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String ADVANCED_REBOOT_KEY = "advanced_reboot";
 
     private static final String HEADS_UP_TICKER_EXP_KEY = "heads_up_ticker_exp";
+    private static final String DEVELOPMENT_SHORTCUT_KEY = "development_shortcut";
 
     private static final int RESULT_DEBUG_APP = 1000;
 
@@ -248,6 +249,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private ListPreference mRootAccess;
     private Object mSelectedRootValue;
 
+    private CheckBoxPreference mDevelopmentShortcut;
+
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
     private final ArrayList<SwitchPreference> mResetSwitchPrefs
@@ -316,6 +319,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mAllPrefs.add(mPassword);
         mAdvancedReboot = findAndInitSwitchPref(ADVANCED_REBOOT_KEY);
         mHeadsUpTicker = findAndInitSwitchPref(HEADS_UP_TICKER_EXP_KEY);
+        mDevelopmentShortcut = findAndInitSwitchPref(DEVELOPMENT_SHORTCUT_KEY);
 
 
         if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
@@ -325,6 +329,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             disableForUser(mPassword);
             disableForUser(mAdvancedReboot);
             disableForUser(mHeadsUpTicker);
+            disableForUser(mDevelopmentShortcut);
         }
 
         mDebugAppPref = findPreference(DEBUG_APP_KEY);
@@ -587,6 +592,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         updateAdvancedRebootOptions();
         updateHeadsUpTickerOptions();
 		updateRootAccessOptions();
+		updateDevelopmentShortcutOptions();
     }
 
     private void resetAdvancedRebootOptions() {
@@ -608,6 +614,22 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private void resetHeadsUpTickerOptions() {
         Settings.System.putInt(getActivity().getContentResolver(),
                 Settings.System.HEADS_UP_TICKER_ENABLED, 0);
+    }
+
+    private void resetDevelopmentShortcutOptions() {
+        Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.Secure.DEVELOPMENT_SHORTCUT, 0);
+    }
+
+    private void writeDevelopmentShortcutOptions() {
+        Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.Secure.DEVELOPMENT_SHORTCUT,
+                mDevelopmentShortcut.isChecked() ? 1 : 0);
+    }
+
+    private void updateDevelopmentShortcutOptions() {
+        mAdvancedReboot.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.DEVELOPMENT_SHORTCUT, 0) != 0);
     }
 
     private void writeHeadsUpTickerOptions() {
@@ -635,6 +657,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         resetAdvancedRebootOptions();
         resetHeadsUpTickerOptions();
         resetRootAccessOptions();
+        resetDevelopmentShortcutOptions();
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
         writeAnimationScaleOption(2, mAnimatorDurationScale, null);
@@ -1568,6 +1591,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             writeAdvancedRebootOptions();
         } else if (preference == mHeadsUpTicker) {
             writeHeadsUpTickerOptions();
+        } else if (preference == mDevelopmentShortcut) {
+            writeDevelopmentShortcutOptions();
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
