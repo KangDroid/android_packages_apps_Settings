@@ -610,4 +610,8 @@
     <string name="qs_transparent_shade_summary">Ability to apply color alpha value and make notification shade transparent.</string>
 	<string name="qs_color_switch_title">Custom color switch</string>
 	<string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string>
+	
+    <!-- Development shortcut -->
+    <string name="development_shortcut_title">Development shortcut</string>
+    <string name="development_shortcut_summary">Enable application management shortcuts in notification area and recent apps list</string>
 </resources>
