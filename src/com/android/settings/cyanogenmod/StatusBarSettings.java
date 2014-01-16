@@ -83,6 +83,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_DATE = "status_bar_date";
     private static final String STATUS_BAR_DATE_STYLE = "status_bar_date_style";
     private static final String STATUS_BAR_DATE_FORMAT = "status_bar_date_format";
+    private static final String PREF_FONT_STYLE = "font_style";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 	private static final String CLOCK_USE_SECOND = "clock_use_second";
@@ -107,6 +108,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ListPreference mStatusBarDate;
     private ListPreference mStatusBarDateStyle;
     private ListPreference mStatusBarDateFormat;
+	private ListPreference mFontStyle;
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
 	private SwitchPreference mStatusBarGreeting;
@@ -289,6 +291,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             mStatusBarBatteryShowPercent.setSummary(
                     mStatusBarBatteryShowPercent.getEntries()[index]);
             return true;
+        } else if (preference == mFontStyle) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_FONT_STYLE, val);
+            mFontStyle.setSummary(mFontStyle.getEntries()[index]);
+            return true;
         }
         return false;
     }
@@ -423,6 +432,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             mColorPicker.setSummary(hexColor);
         }
         mColorPicker.setNewPreviewColor(intColor);
+		
+        mFontStyle = (ListPreference) findPreference(PREF_FONT_STYLE);
+        mFontStyle.setOnPreferenceChangeListener(this);
+        mFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUSBAR_CLOCK_FONT_STYLE,
+                4)));
+        mFontStyle.setSummary(mFontStyle.getEntry());
 		
         setHasOptionsMenu(true);
         mCheckPreferences = true;

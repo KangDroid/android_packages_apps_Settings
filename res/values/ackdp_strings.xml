@@ -828,6 +828,12 @@
     <string name="clock_use_second_summary">Show second in clock</string>
     <string name="clock_color_title">Color</string>
     <string name="status_bar_clock_style_reset">Reset color</string>
+    <string name="clock_font_style_title">Font</string>
+    <string name="clock_font_bold">Bold</string>
+    <string name="clock_font_condensed">Condensed</string>
+    <string name="clock_font_light">Light</string>
+    <string name="clock_font_light_italic">Light Italic</string>
+    <string name="clock_font_normal">Normal</string>
 
     <!-- Unaccounted and overcounted battery stats -->
     <string name="show_unac_and_overcounted_stats_title">Show unaccounted/overcounted stats</string>

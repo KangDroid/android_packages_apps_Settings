@@ -47,6 +47,12 @@
         android:summary="@string/clock_use_second_summary"
         android:defaultValue="false" />
 		
+    <ListPreference
+        android:key="font_style"
+        android:entries="@array/clock_font_style_entries"
+        android:entryValues="@array/clock_font_style_values"
+        android:title="@string/clock_font_style_title" />
+		
     <PreferenceScreen
         android:key="status_bar_expanded_header_settings"
         android:fragment="com.android.settings.kangdroid.StatusBarExpandedHeaderSettings"
