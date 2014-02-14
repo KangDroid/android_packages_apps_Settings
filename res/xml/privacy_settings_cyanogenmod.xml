@@ -44,4 +44,12 @@
             android:summary="@string/anonymous_statistics_summary"
             android:fragment="com.android.settings.cmstats.AnonymousStats" >
         </PreferenceScreen>
+
+        <!-- SlimSizer -->
+        <PreferenceScreen
+            android:key="system_app_remover"
+            android:title="@string/system_app_remover"
+            android:summary="@string/systemappremover_summary"
+            android:fragment="com.android.settings.kangdroid.fragments.SystemappRemover" />
+
 </PreferenceScreen>

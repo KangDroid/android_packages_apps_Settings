@@ -1947,6 +1947,9 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                        android:resource="@id/security_settings" />
         </activity-alias>
+		
+        <!-- SystemApp Remover -->
+        <activity android:name="com.android.settings.kangdroid.fragments.SystemappRemover" />
 
         <!-- Display rotation -->
         <activity android:name="Settings$DisplayRotationActivity"
