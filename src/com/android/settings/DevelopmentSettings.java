@@ -1404,7 +1404,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private void writeAnimationScaleOption(int which, AnimationScalePreference pref,
             Object newValue) {
         try {
-            float scale = newValue != null ? Float.parseFloat(newValue.toString()) : 1;
+            float scale = newValue != null ? Float.parseFloat(newValue.toString()) : 0.75f;
 if (which == 3) {
     Settings.System.putIntForUser(getContentResolver(),
             Settings.System.LONG_PRESS_KILL_DELAY, ((int) (scale * 1000)),
