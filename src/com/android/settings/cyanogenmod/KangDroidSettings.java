@@ -16,21 +16,58 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.content.ContentResolver;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.widget.Toast;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class KangDroidSettings extends SettingsPreferenceFragment{
+public class KangDroidSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+
+	private static final String KEY_TOAST_ANIMATION = "toast_animation";
+	private ListPreference mToastAnimation;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.kangdroid_settings);
+
+	PreferenceScreen prefSet = getPreferenceScreen();
+
+        mToastAnimation = (ListPreference)findPreference(KEY_TOAST_ANIMATION);
+        mToastAnimation.setSummary(mToastAnimation.getEntry());
+        int CurrentToastAnimation = Settings.System.getInt(getContentResolver(), Settings.System.TOAST_ANIMATION, 1);
+        mToastAnimation.setValueIndex(CurrentToastAnimation);
+        mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
+        mToastAnimation.setOnPreferenceChangeListener(this);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+    
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+		if (preference == mToastAnimation) {
+	         int index = mToastAnimation.findIndexOfValue((String) newValue);
+	         Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) newValue);
+	         mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
+	         Toast.makeText(getActivity(), "Toast Test", Toast.LENGTH_SHORT).show();
+	         return true;
+        }
+        return false;
     }
 }
+
