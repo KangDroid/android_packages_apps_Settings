@@ -55,7 +55,7 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
     private SeekBarPreference mOffsetTop;
     private AppMultiSelectListPreference mExcludedAppsPref;
     private ColorPickerPreference mNotificationColor;
-
+    
     private Context mContext;
 
     @Override
