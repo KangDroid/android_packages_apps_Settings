@@ -291,7 +291,7 @@ public class InstalledAppDetails extends Fragment
     }
 
     private void initMoveButton() {
-        if (Environment.isExternalStorageEmulated()) {
+        if (!Environment.isNoEmulatedStorageExist()) {
             mMoveAppButton.setVisibility(View.INVISIBLE);
             return;
         }
