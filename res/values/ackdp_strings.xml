@@ -598,4 +598,9 @@
     <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
     <string name="media_scanner_on_boot_disabled">Do not scan media</string>
 
+    <!-- Display desity -->
+    <string name="display_density">Display density</string>
+    <string name="display_density_summary">Overrides the default display density (0 to disable, requires a reboot)</string>
+
+
 </resources>
