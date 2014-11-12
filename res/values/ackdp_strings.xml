@@ -1089,6 +1089,12 @@
 	
 	<!-- Clean Recents task by shaking device -->
     <string name="shake_clean_recent">Clean by shake</string>
-    <string name="shake_clean_recent_summary">Clean recent task by shake</string>
+    <string name="shake_clean_recent_summary">Clean recent task by shaking device</string>
+	
+    <!--User preferences settings-->
+    <string name="personalization">Personalization</string>
+    <string name="reset_user_preferences_title">Reset preferences</string>
+    <string name="reset_user_preferences_summary">Restores user interface preferences to default values</string>
+    <string name="reset_user_preferences_dialog">Are you sure you want to reset your preferences?</string>
 
 </resources>
