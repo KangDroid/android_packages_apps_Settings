@@ -376,11 +376,14 @@
     <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss</string>
 	
     <!-- Notification hide labels -->	
-      <string name="notification_hide_labels_title">Hide notification labels</string>	
-      <string name="notification_hide_labels_disable">Show all labels</string>	
-      <string name="notification_hide_labels_carrier">Hide Carrier label</string>	
-      <string name="notification_hide_labels_wifi">Hide Wi-Fi label</string>	
-      <string name="notification_hide_labels_all">Hide all labels</string>	
-      <string name="notification_hide_labels_text">in the notification panel</string>
+    <string name="notification_hide_labels_title">Hide notification labels</string>	
+    <string name="notification_hide_labels_disable">Show all labels</string>	
+    <string name="notification_hide_labels_carrier">Hide Carrier label</string>	
+    <string name="notification_hide_labels_wifi">Hide Wi-Fi label</string>	
+    <string name="notification_hide_labels_all">Hide all labels</string>	
+    <string name="notification_hide_labels_text">in the notification panel</string>
+	  
+   <!--Back to kill timeout -->
+    <string name="long_press_kill_delay">App kill delay</string>
 
 </resources>
