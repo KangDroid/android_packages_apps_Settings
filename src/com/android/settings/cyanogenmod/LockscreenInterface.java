@@ -217,7 +217,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         } else if (preference == mSeeThrough) {
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SEE_THROUGH,
                     mSeeThrough.isChecked() ? 1 : 0);
-			mBlurRadius.setEnabled(mSeeThrough.isChecked()););
+			mBlurRadius.setEnabled(mSeeThrough.isChecked());;
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
