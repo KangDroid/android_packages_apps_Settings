@@ -169,6 +169,8 @@ public class ProfilesSettings extends SettingsPreferenceFragment
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         menu.add(0, MENU_RESET, 0, R.string.profile_reset_title)
+
+                .setIcon(R.drawable.ic_settings_reset_teal)
                 .setAlphabeticShortcut('r')
                 .setEnabled(mEnabled)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);

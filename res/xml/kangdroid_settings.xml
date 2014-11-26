@@ -61,6 +61,11 @@
                 android:title="@string/screenshot_sound_title"
                 android:summary="@string/screenshot_sound_summary"
                 android:defaultValue="true" />
+				
+		        <PreferenceScreen
+		            android:fragment="com.android.settings.liquid.StatusBarClockStyle"
+		            android:key="clock_style_pref"
+		            android:title="@string/status_bar_clock" />
 
     </PreferenceCategory>
 </PreferenceScreen>
