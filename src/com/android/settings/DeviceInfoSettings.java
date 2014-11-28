@@ -76,7 +76,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
-    private static final String KEY_CM_UPDATES = "cm_updates";
+    private static final String KEY_ACKDP_UPDATES = "ackdp_ota";
     private static final String KEY_STATUS = "status_info";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
@@ -133,9 +133,9 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
         // Only the owner should see the Updater settings, if it exists
         if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
-            removePreferenceIfPackageNotInstalled(findPreference(KEY_CM_UPDATES));
+            removePreferenceIfPackageNotInstalled(findPreference(KEY_ACKDP_UPDATES));
         } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_CM_UPDATES));
+            getPreferenceScreen().removePreference(findPreference(KEY_ACKDP_UPDATES));
         }
 
         if (cpuInfo != null) {
