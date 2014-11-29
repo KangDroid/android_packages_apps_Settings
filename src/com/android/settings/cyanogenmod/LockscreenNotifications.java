@@ -57,6 +57,8 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
     private SeekBarPreference mOffsetTop;
     private AppMultiSelectListPreference mExcludedAppsPref;
 
+    private Context mContext;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
