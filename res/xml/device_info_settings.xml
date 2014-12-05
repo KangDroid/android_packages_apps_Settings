@@ -30,8 +30,8 @@
         <PreferenceScreen android:key="ackdp_ota"
                 android:title="@string/ackdp_ota">
             <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.ackdp.otaupdater"
-                    android:targetClass="com.ackdp.otaupdater.OTAUpdaterActivity" />
+                    android:targetPackage="com.otaupdater"
+                    android:targetClass="com.otaupdater.OTAUpdaterActivity" />
         </PreferenceScreen>
 
         <!-- Change Log -->
