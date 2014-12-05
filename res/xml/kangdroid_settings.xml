@@ -105,7 +105,7 @@
         android:key="gesture_anywhere"
         android:fragment="com.android.settings.crdroid.gestureanywhere.GestureAnywhereSettings"
         android:title="@string/gesture_anywhere_title" />
-		
+
     <!-- Wakelock blocker -->
     <PreferenceScreen
         android:key="wakelock_blocker"
