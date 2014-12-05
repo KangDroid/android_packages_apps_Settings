@@ -52,17 +52,23 @@
         android:fragment="com.android.settings.cyanogenmod.Listview"
         android:title="@string/listview_category" />
 		
-	    <!-- Gesture anywhere -->
-	     <PreferenceScreen
-	         android:key="gesture_anywhere"
-	         android:fragment="com.android.settings.crdroid.gestureanywhere.GestureAnywhereSettings"
-	         android:title="@string/gesture_anywhere_title" />
+   <!-- Gesture anywhere -->
+    <PreferenceScreen
+        android:key="gesture_anywhere"
+        android:fragment="com.android.settings.crdroid.gestureanywhere.GestureAnywhereSettings"
+        android:title="@string/gesture_anywhere_title" />
 		
-	     <!-- Wakelock blocker -->
-	     <PreferenceScreen
-	         android:key="wakelock_blocker"
-	         android:fragment="com.android.settings.crdroid.WakeLockBlocker"
-	         android:title="@string/wakelock_blocker_title" />
+    <!-- Wakelock blocker -->
+    <PreferenceScreen
+        android:key="wakelock_blocker"
+        android:fragment="com.android.settings.crdroid.WakeLockBlocker"
+        android:title="@string/wakelock_blocker_title" />
+
+     <!-- Density Changer -->
+	<PreferenceScreen
+        android:key="density_changer"
+        android:title="@string/lcd_density_title"
+        android:fragment="com.android.settings.candy.Density" /> 
 
     <!-- Toast Animation -->
      <ListPreference
