@@ -641,6 +641,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Change Log strings -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_error">Unable to load changelog</string>
+    
+    <!-- Bug List Strings -->
+    <string name="buglist_title">Buglist</string>
+    <string name="buglist_error">Unable to load Buglist!</string>
 
     <string name="contributor_cloud_title">Contributors</string>
 
@@ -1511,6 +1515,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Label for are-halo-notifications-allowed checkbox in app details [CHAR LIMIT=20] -->
     <string name="app_halo_label_black">Blacklist from HALO</string>
     <string name="app_halo_label_white">Whitelist from HALO</string>
+    
+    <!-- Import HALO Application -->
+    <string name="halo_sysetting">Halo Application</string>
 
     <!-- Lockscreen Notifications -->
     <!-- Categories --> 
@@ -1610,6 +1617,5 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="set">Set</string>
     <string name="hex">Hex:</string>
     <string name="color_default">Default</string>
-    <string name="halo_sysetting">Halo Application</string>
 </resources>
 
