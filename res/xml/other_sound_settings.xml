@@ -96,4 +96,15 @@
                 android:persistent="false" />
     </PreferenceCategory>
 
+	<PreferenceCategory
+		android:key="kdp_advanced_option_sounds"
+		android:title="@string/category_kdp_sound" >
+		
+	<PreferenceScreen
+        android:key="volume_steps_settings"
+        android:fragment="com.android.settings.kangdroid.VolumeSteps"
+        android:title="@string/volume_steps_title" />
+		
+	</PreferenceCategory>
+
 </PreferenceScreen>
