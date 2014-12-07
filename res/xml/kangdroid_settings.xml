@@ -31,7 +31,7 @@
     <!-- Status Bar -->
     <PreferenceScreen
         android:key="status_bar_settings"
-        android:fragment="com.android.settings.cyanogenmod.StatusBar"
+        android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
         android:title="@string/status_bar_title" />
 
     </PreferenceCategory>
