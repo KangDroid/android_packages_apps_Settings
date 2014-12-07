@@ -88,6 +88,11 @@
                 android:persistent="false"
                 android:ringtoneType="notification" />
 
+	<PreferenceScreen
+        android:key="volume_steps_settings"
+        android:fragment="com.android.settings.cyanogenmod.VolumeSteps"
+        android:title="@string/volume_steps_title" />
+
         <!-- Other sounds -->
         <Preference
                 android:key="other_sounds"
