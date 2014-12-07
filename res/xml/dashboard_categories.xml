@@ -106,6 +106,20 @@
         </dashboard-tile>
 
     </dashboard-category>
+	
+	<!-- Personalization -->
+	<dashboard-category
+		android:id="@+id/personalization_kangdroid_section"
+		android:title="@string/header_kangdroid_personalization">
+	
+    <!-- KangDroid Advanced Settings -->
+     <dashboard-tile
+         android:id="@+id/kangdroid_settings"
+         android:title="@string/kangdroid_settings"
+         android:fragment="com.android.settings.kangdroid.KangDroidSettings"
+         android:icon="@drawable/kangdroid_settings" />
+		 
+	 </dashboard-category>
 
     <!-- DEVICE -->
     <dashboard-category
@@ -230,24 +244,6 @@
                 android:fragment="com.android.settings.profiles.ProfilesSettings"
                 android:title="@string/profiles_settings_title"
                 android:icon="@drawable/ic_settings_profiles"
-                />
-
-        <!-- Status bar -->
-        <dashboard-tile
-                android:id="@+id/status_bar_settings"
-                android:title="@string/status_bar_title"
-                android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
-                android:icon="@drawable/ic_settings_extdesk_hidenavbar"
-                settings:advanced="true"
-                />
-
-        <!-- Notification drawer -->
-        <dashboard-tile
-                android:id="@+id/notification_drawer_settings"
-                android:title="@string/notification_drawer_title"
-                android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
-                android:icon="@drawable/ic_settings_notification_drawer"
-                settings:advanced="true"
                 />
 
         <!-- Application Settings -->
