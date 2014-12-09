@@ -28,6 +28,8 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.widget.Toast;
+import android.content.pm.PackageManager;
+import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -35,7 +37,10 @@ import com.android.settings.SettingsPreferenceFragment;
 public class KangDroidSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
 	private static final String KEY_TOAST_ANIMATION = "toast_animation";
+	private static final String TAG = "CustomSettings";
+	private static final String KEY_STATUS_BAR_TICKER = "status_bar_ticker_enabled";
 	private ListPreference mToastAnimation;
+	private SwitchPreference mTicker;
 
 
     @Override
@@ -44,6 +49,14 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
         addPreferencesFromResource(R.xml.kangdroid_settings);
 
 	PreferenceScreen prefSet = getPreferenceScreen();
+        PackageManager pm = getPackageManager();
+        Resources systemUiResources;
+        try {
+            systemUiResources = pm.getResourcesForApplication("com.android.systemui");
+        } catch (Exception e) {
+            Log.e(TAG, "can't access systemui resources",e);
+            return;
+        }
 
         mToastAnimation = (ListPreference)findPreference(KEY_TOAST_ANIMATION);
         mToastAnimation.setSummary(mToastAnimation.getEntry());
@@ -52,6 +65,12 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
         mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
         mToastAnimation.setOnPreferenceChangeListener(this);
 
+        mTicker = (SwitchPreference) prefSet.findPreference(KEY_STATUS_BAR_TICKER);
+        final boolean tickerEnabled = systemUiResources.getBoolean(systemUiResources.getIdentifier(
+                    "com.android.systemui:bool/enable_ticker", null, null));
+        mTicker.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_TICKER_ENABLED, tickerEnabled ? 1 : 0) == 1);
+        mTicker.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -66,7 +85,12 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
 	         mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
 	         Toast.makeText(getActivity(), "Toast Test", Toast.LENGTH_SHORT).show();
 	         return true;
-        }
+        } else if (preference == mTicker) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_TICKER_ENABLED,
+                    (Boolean) objValue ? 1 : 0);
+            return true;
+		}
         return false;
     }
 }
