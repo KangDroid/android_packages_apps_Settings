@@ -30,7 +30,11 @@ import android.provider.Settings;
 import android.widget.Toast;
 import android.content.pm.PackageManager;
 import android.util.Log;
-import com.android.internal.util.crdroid.DeviceUtils
+import com.android.internal.util.crdroid.DeviceUtils;
+import android.preference.SwitchPreference;
+import java.util.Locale;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
