@@ -102,7 +102,7 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
         } else if (preference == mTicker) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_TICKER_ENABLED,
-                    (Boolean) objValue ? 1 : 0);
+                    (Boolean) newValue ? 1 : 0);
             return true;
 		}
         return false;
