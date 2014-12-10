@@ -39,6 +39,8 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
 	private static final String KEY_TOAST_ANIMATION = "toast_animation";
 	private static final String TAG = "CustomSettings";
 	private static final String KEY_STATUS_BAR_TICKER = "status_bar_ticker_enabled";
+	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
+	private ListPreference mSmartPulldown;
 	private ListPreference mToastAnimation;
 	private SwitchPreference mTicker;
 
@@ -71,6 +73,17 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
         mTicker.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.STATUS_BAR_TICKER_ENABLED, tickerEnabled ? 1 : 0) == 1);
         mTicker.setOnPreferenceChangeListener(this);
+		mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
+		if (!DeviceUtils.isPhone(getActivity())) {
+			prefSet.removePreference(mSmartPulldown);
+		} else {
+            // Smart Pulldown
+            mSmartPulldown.setOnPreferenceChangeListener(this);
+            int smartPulldown = Settings.System.getInt(getContentResolver(),
+                    Settings.System.QS_SMART_PULLDOWN, 0);
+            mSmartPulldown.setValue(String.valueOf(smartPulldown));
+            updateSmartPulldownSummary(smartPulldown);
+		}
     }
 
     @Override
@@ -92,5 +105,29 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
             return true;
 		}
         return false;
+    }
+    private void updateSmartPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Smart pulldown deactivated
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
+        } else {
+            String type = null;
+            switch (value) {
+                case 1:
+                    type = res.getString(R.string.smart_pulldown_dismissable);
+                    break;
+                case 2:
+                    type = res.getString(R.string.smart_pulldown_persistent);
+                    break;
+                default:
+                    type = res.getString(R.string.smart_pulldown_all);
+                    break;
+            }
+            // Remove title capitalized formatting
+            type = type.toLowerCase();
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+        }
     }
 }
