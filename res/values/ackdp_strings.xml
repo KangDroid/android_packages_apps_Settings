@@ -548,4 +548,11 @@
    <string name="reset_message">Reset</string>
    <string name="rr_lockscreen_title">Lock Screen</string>
 
+   <!-- Lockscreen pin shuffle -->
+   <string name="lock_numpad_random_title">Change the order of PIN pad numbers</string>
+   <string name="lock_numpad_random_off">Disabled</string>
+   <string name="lock_numpad_random_dialog_title">PIN pad random order</string>
+   <string name="lock_numpad_random_always">Always</string>
+   <string name="lock_numpad_random_on_request">On request</string>
+
 </resources>
