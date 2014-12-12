@@ -89,6 +89,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_CM_UPDATES = "cm_updates";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
+	private static final String KEY_KDP_VERSION = "kdp_version";
 
 
 
@@ -107,6 +108,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_FIRMWARE_VERSION, Build.VERSION.RELEASE);
         findPreference(KEY_FIRMWARE_VERSION).setEnabled(true);
         setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
+		setValueSummary(KEY_KDP_VERSION, "ro.kdp.version");
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + getMsvSuffix());
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
@@ -237,6 +239,19 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
             }
+		} else if (preference.getKey().equals(KEY_KDP_VERSION)) {
+	            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
+	            mHits[mHits.length-1] = SystemClock.uptimeMillis();
+	            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
+	                Intent intent = new Intent(Intent.ACTION_MAIN);
+	                intent.setClassName("android",
+	                        com.android.internal.app.PlatLogoActivity.class.getName());
+	                try {
+	                    startActivity(intent);
+	                } catch (Exception e) {
+	                    Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
+	                }
+	            }
         } else if (preference.getKey().equals(KEY_BUILD_NUMBER)) {
             // Don't enable developer options for secondary users.
             if (UserHandle.myUserId() != UserHandle.USER_OWNER) return true;
