@@ -213,4 +213,9 @@
     <string name="network_traffic_autohide_summary">Hide the traffic monitor when there is no activity</string>
     <string name="network_traffic_autohide_threshold">Inactivity threshold</string> 
 
+    <!-- Search Bar Switcher -->
+    <string name="recents_show_searchbar">Show Search Bar in Recents</string>
+    <string name="recents_show_searchbar_summary">Enable or disable the Google search bar in the recents menu</string>
+
+
 </resources>
