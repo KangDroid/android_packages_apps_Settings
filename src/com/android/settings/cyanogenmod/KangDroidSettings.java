@@ -109,7 +109,7 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
                     (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mSmartPulldown) {
-            int smartPulldown = Integer.valueOf((String) objValue);
+            int smartPulldown = Integer.valueOf((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.QS_SMART_PULLDOWN,
                     smartPulldown);
