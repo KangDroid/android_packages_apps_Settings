@@ -79,5 +79,8 @@
         <item>120000</item>
         <item>300000</item>
     </string-array>
+	
+    <!-- Minimum prediction score required to pass a gesture as recognized -->
+    <integer name="min_gesture_prediction_score">2</integer>
    
 </resources>
