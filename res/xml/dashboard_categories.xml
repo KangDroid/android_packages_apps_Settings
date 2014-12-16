@@ -281,14 +281,6 @@
                 android:icon="@drawable/ic_settings_development"
                 />
 
-		<!-- Performance -->
-		<dashboard-tile
-				android:id="@+id/performance_settings"
-            	android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
-	        	android:icon="@drawable/ic_settings_performance"
-				android:title="@string/performance_settings_title" 
-				/>
-
         <!-- About Device -->
         <dashboard-tile
                 android:id="@+id/about_settings"
