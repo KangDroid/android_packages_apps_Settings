@@ -80,11 +80,6 @@ import com.android.settings.dashboard.DashboardCategory;
 import com.android.settings.dashboard.DashboardTile;
 import com.android.settings.drawable.CircleFramedDrawable;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
@@ -95,8 +90,6 @@ import java.util.List;
 import java.util.Locale;
 
 public final class Utils {
-
-    private static final String TAG = "Utils";
 
     /**
      * Set the preference's title to the matching activity's label.
@@ -474,43 +467,6 @@ public final class Utils {
         } else {
             return R.string.tether_settings_title_bluetooth;
         }
-    }
-
-    public static boolean fileExists(String filename) {
-        return new File(filename).exists();
-    }
-
-    public static String fileReadOneLine(String fname) {
-        BufferedReader br;
-        String line = null;
-
-        try {
-            br = new BufferedReader(new FileReader(fname), 512);
-            try {
-                line = br.readLine();
-            } finally {
-                br.close();
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "IO Exception when reading /sys/ file", e);
-        }
-        return line;
-    }
-
-    public static boolean fileWriteOneLine(String fname, String value) {
-        try {
-            FileWriter fw = new FileWriter(fname);
-            try {
-                fw.write(value);
-            } finally {
-                fw.close();
-            }
-        } catch (IOException e) {
-            String Error = "Error writing to " + fname + ". Exception: ";
-            Log.e(TAG, Error, e);
-            return false;
-        }
-        return true;
     }
 
     /* Used by UserSettings as well. Call this on a non-ui thread. */
