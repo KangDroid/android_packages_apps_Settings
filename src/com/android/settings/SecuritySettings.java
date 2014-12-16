@@ -206,15 +206,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (root != null) {
             root.removeAll();
         }
-		
-        // Quick Unlock Screen Control
-        mQuickUnlockScreen = (SwitchPreference) root
-                .findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
-        if (mQuickUnlockScreen != null) {
-            mQuickUnlockScreen.setChecked(Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 1) == 1);
-			mQuickUnlockScreen.setOnPreferenceChangeListener(this);
-        }
         addPreferencesFromResource(R.xml.security_settings);
         root = getPreferenceScreen();
 
@@ -311,6 +302,15 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (securityCategory != null && mVisiblePattern != null) {
                 securityCategory.removePreference(root.findPreference(KEY_VISIBLE_PATTERN));
             }
+        }
+		
+        // Quick Unlock Screen Control
+        mQuickUnlockScreen = (SwitchPreference) root
+                .findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
+        if (mQuickUnlockScreen != null) {
+            mQuickUnlockScreen.setChecked(Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 1) == 1);
+			mQuickUnlockScreen.setOnPreferenceChangeListener(this);
         }
 
         // Append the rest of the settings
