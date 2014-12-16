@@ -95,7 +95,6 @@ import java.util.List;
 import java.util.Locale;
 
 public final class Utils {
-    private static final String TAG = "Settings";
 
     private static final String TAG = "Utils";
 
