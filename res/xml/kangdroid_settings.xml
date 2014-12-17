@@ -20,19 +20,39 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="status_bar_category"
-        android:title="@string/status_bar_title" >
-
-     <PreferenceScreen
-                android:key="listview"
-                android:fragment="com.android.settings.cyanogenmod.Listview"
-                android:title="@string/listview_category" />
+       android:key="status_bar_category"
+       android:title="@string/status_bar_title" >
 
     <!-- Status Bar -->
     <PreferenceScreen
         android:key="status_bar_settings"
         android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
         android:title="@string/status_bar_title" />
+		
+    </PreferenceCategory>
+	
+    <PreferenceCategory
+        android:key="navigation_bar_category"
+        android:title="@string/navigation_customization_title" >
+		
+   <!-- Navigation Bar Settings -->
+	<PreferenceScreen
+	    android:key="navigation_bar"
+	    android:fragment="com.android.settings.cyanogenmod.NavigationBarSettings"
+	    android:title="@string/navigation_bar_title"
+        android:summary="@string/navigation_bar_summary" />
+			
+	</PreferenceCategory>
+	
+    <PreferenceCategory
+        android:key="misc_settings"
+        android:title="@string/misc_settings_title" >
+	
+   <!-- ListView Animation -->
+    <PreferenceScreen
+        android:key="listview"
+        android:fragment="com.android.settings.cyanogenmod.Listview"
+        android:title="@string/listview_category" />
 
     <!-- Toast Animation -->
      <ListPreference
@@ -41,49 +61,21 @@
         android:entries="@array/toast_animation_entries"
         android:entryValues="@array/toast_animation_values"
         android:persistent="false" />
+
+    <!-- Screenshot tone -->
+     <com.android.settings.liquid.SystemCheckBoxPreference
+        android:key="screenshot_sound"
+        android:title="@string/screenshot_sound_title"
+        android:summary="@string/screenshot_sound_summary"
+        android:defaultValue="true" />
 		
-        <SwitchPreference
-            android:key="status_bar_ticker_enabled"
-            android:title="@string/status_bar_ticker_title"
-            android:summary="@string/status_bar_ticker_summary"
-            android:defaultValue="true" />
-
-        <ListPreference
-            android:key="smart_pulldown"
-            android:title="@string/smart_pulldown_title"
-            android:entries="@array/smart_pulldown_entries"
-            android:entryValues="@array/smart_pulldown_values"
-            android:persistent="false" />
-
-        <!-- Screenshot tone -->
-        <com.android.settings.liquid.SystemCheckBoxPreference
-                android:key="screenshot_sound"
-                android:title="@string/screenshot_sound_title"
-                android:summary="@string/screenshot_sound_summary"
-                android:defaultValue="true" />
-				
-		        <PreferenceScreen
-		            android:fragment="com.android.settings.liquid.StatusBarClockStyle"
-		            android:key="clock_style_pref"
-		            android:title="@string/status_bar_clock" />
-					
-        <PreferenceScreen
-	        android:key="network_traffic_state"
-	        android:fragment="com.android.settings.liquid.NetworkTraffic"
- 	        android:summary="@string/network_traffic_summary"
-	        android:title="@string/network_traffic_title" />
-			
+   <!-- Recents Searchbar -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="recents_show_hide_search_bar"
         android:title="@string/recents_show_searchbar"
         android:summary="@string/recents_show_searchbar_summary"
         android:defaultValue="false" />
 		
-	<PreferenceScreen
-	        android:key="navigation_bar"
-	        android:fragment="com.android.settings.cyanogenmod.NavigationBarSettings"
-	        android:title="@string/navigation_bar_title"
-                android:summary="@string/navigation_bar_summary" />
-
-    </PreferenceCategory>
+	</PreferenceCategory>
+				
 </PreferenceScreen>

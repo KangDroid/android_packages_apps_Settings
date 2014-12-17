@@ -44,6 +44,8 @@
 
     <!-- KangDroid Settings -->
     <string name="kangdroid_settings">Customization</string>
+	<string name="misc_settings_title">Miscellaneous Settings</string>
+	<string name="navigation_customization_title">Navigation Bar</string>
 
 	<!-- Volume Steps -->
     <string name="volume_steps_title">Volume Steps</string>
