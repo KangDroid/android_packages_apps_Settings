@@ -567,6 +567,7 @@
         <item>Messaging</item>
         <item>Media</item>
         <item>Device</item>
+		<item>SuperUser</item>
     </string-array>
 
     <!-- User display names for app ops codes -->
@@ -618,6 +619,7 @@
         <item>mute/unmute microphone</item>
         <item>project media</item>
         <item>activate VPN</item>
+		<item>SuperUser</item>
     </string-array>
 
     <!-- User display names for app ops codes -->
@@ -669,6 +671,7 @@
         <item>Mute/unmute microphone</item>
         <item>Project media</item>
         <item>Activate VPN</item>
+		<item>Root Acess</item>
     </string-array>
 
     <!-- Titles for the list of long press timeout options. -->
