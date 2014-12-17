@@ -90,6 +90,7 @@ import java.util.List;
 import java.util.Locale;
 
 public final class Utils {
+private static final String TAG = "Settings";
 
     /**
      * Set the preference's title to the matching activity's label.
