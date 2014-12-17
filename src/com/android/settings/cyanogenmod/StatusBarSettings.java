@@ -57,6 +57,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 		
         PackageManager pm = getPackageManager();
         Resources systemUiResources;
+		PreferenceScreen prefSet = getPreferenceScreen();
         try {
             systemUiResources = pm.getResourcesForApplication("com.android.systemui");
         } catch (Exception e) {
