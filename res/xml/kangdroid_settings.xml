@@ -34,13 +34,6 @@
     <PreferenceCategory
         android:key="navigation_bar_category"
         android:title="@string/navigation_customization_title" >
-		
-   <!-- Navigation Bar Settings -->
-	<PreferenceScreen
-	    android:key="navigation_bar"
-	    android:fragment="com.android.settings.cyanogenmod.NavigationBarSettings"
-	    android:title="@string/navigation_bar_title"
-        android:summary="@string/navigation_bar_summary" />
 			
 	</PreferenceCategory>
 	
@@ -83,5 +76,5 @@
         android:title="@string/gesture_anywhere_title" />
 		
 	</PreferenceCategory>
-				
+
 </PreferenceScreen>
