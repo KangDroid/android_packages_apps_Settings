@@ -268,6 +268,34 @@
         <item>0</item>
     </string-array>
 	
+    <!--- Navigation bar -->
+    <!--- Navigation bar width -->
+    <string-array name="navigation_bar_width_entries" translatable="false">
+        <item>@string/navigation_bar_width_48</item>
+        <item>@string/navigation_bar_width_44</item>
+        <item>@string/navigation_bar_width_40</item>
+        <item>@string/navigation_bar_width_36</item>
+        <item>@string/navigation_bar_width_32</item>
+        <item>@string/navigation_bar_width_30</item>
+        <item>@string/navigation_bar_width_28</item>
+        <item>@string/navigation_bar_width_24</item>
+        <item>@string/navigation_bar_width_20</item>
+        <item>@string/navigation_bar_width_0</item>
+    </string-array>
+
+    <string-array name="navigation_bar_width_values" translatable="false">
+        <item>48</item>
+        <item>44</item>
+        <item>40</item>
+        <item>36</item>
+        <item>32</item>
+        <item>30</item>
+        <item>28</item>
+        <item>24</item>
+        <item>20</item>
+        <item>0</item>
+    </string-array>
+	
     <!-- Gesture Anywhere -->
     <string-array name="gesture_anywhere_position_entries" translatable="false">
         <item>@string/gesture_anywhere_position_left</item>

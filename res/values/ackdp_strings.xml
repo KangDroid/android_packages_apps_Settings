@@ -306,6 +306,19 @@
     <string name="navigation_bar_title">Navigation bar</string>
     <string name="navigation_bar_summary">Navigation bar customizzation</string>
 	
+    <!-- Navigation Bar Height -->
+    <string name="navigation_bar_width">Navigation bar width</string>
+    <string name="navigation_bar_width_48">48dp (default)</string>
+    <string name="navigation_bar_width_44">44dp</string>
+    <string name="navigation_bar_width_40">40dp</string>
+    <string name="navigation_bar_width_36">36dp</string>
+    <string name="navigation_bar_width_32">32dp</string>
+    <string name="navigation_bar_width_30">30dp</string>
+    <string name="navigation_bar_width_28">28dp</string>
+    <string name="navigation_bar_width_24">24dp</string>
+    <string name="navigation_bar_width_20">20dp</string>
+    <string name="navigation_bar_width_0">0dp (hide)</string>
+	
     <!-- Gesture Anywhere -->
     <string name="gesture_anywhere_title">Gesture Anywhere</string>
     <string name="gesture_anywhere_enabled_title">Gesture Anywhere</string>
