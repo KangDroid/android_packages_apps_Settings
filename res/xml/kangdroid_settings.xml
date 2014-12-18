@@ -35,11 +35,11 @@
         android:key="navigation_bar_category"
         android:title="@string/navigation_customization_title" >
 		
-	    <PreferenceScreen
-	        android:key="navbar_dimensions"
-	        android:fragment="com.android.settings.crdroid.NavBarDimensions"
-	        android:title="@string/navbar_style_dimen_title"
-	        android:dependency="enable_nav_bar" />
+    <PreferenceScreen
+        android:key="navbar_dimensions"
+        android:fragment="com.android.settings.crdroid.NavBarDimensions"
+        android:title="@string/navbar_style_dimen_title"
+        android:dependency="enable_nav_bar" />
 			
 	</PreferenceCategory>
 	
@@ -80,6 +80,12 @@
         android:key="gesture_anywhere"
         android:fragment="com.android.settings.crdroid.gestureanywhere.GestureAnywhereSettings"
         android:title="@string/gesture_anywhere_title" />
+		
+    <!-- Wakelock blocker -->
+    <PreferenceScreen
+        android:key="wakelock_blocker"
+        android:fragment="com.android.settings.crdroid.WakeLockBlocker"
+        android:title="@string/wakelock_blocker_title" />
 		
 	</PreferenceCategory>
 
