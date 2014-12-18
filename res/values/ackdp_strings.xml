@@ -22,6 +22,7 @@
 	<string name="header_kangdroid_personalization">Personalization</string>
 	<string name="quick_settings_title">Notification Drawer</string>
 	<string name="category_kdp_sound">KangDroid Sound Option</string>
+	<string name="misc_settings_title">Miscellaneous Settings</string>
     
     <!-- ListView animation -->
     <string name="listview_category">ListView Animation</string>
@@ -124,5 +125,14 @@
 	<!-- Screenshot sound -->
     <string name="screenshot_sound_title">Screenshot sound</string>
     <string name="screenshot_sound_summary">Plays sound effect when screenshot is taken</string>
+
+    <!-- Wakelock blocker -->
+    <string name="wakelock_blocker_title">Wakelock blocker</string>
+    <string name="wakelock_blocker_summary">Block system wakelocks</string>
+    <string name="wakelock_blocker_save">Save</string>
+    <string name="wakelock_list_header">Available wakelocks</string>
+    <string name="wakelock_blocker_reload">Reload</string>
+    <string name="wakelock_blocker_warning_title">Proceed with caution</string>
+    <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss</string>
 
 </resources>
