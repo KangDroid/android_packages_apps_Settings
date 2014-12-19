@@ -146,6 +146,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         return false;
     }
 	
+    private void enableStatusBarBatteryDependents(String value) {
+        boolean enabled = !(value.equals(STATUS_BAR_BATTERY_STYLE_TEXT)
+                || value.equals(STATUS_BAR_BATTERY_STYLE_HIDDEN));
+        mStatusBarBatteryShowPercent.setEnabled(enabled);
+    }
+	
     private void updateSmartPulldownSummary(int value) {
         Resources res = getResources();
 
@@ -169,10 +175,5 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             type = type.toLowerCase();
             mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
         }
-		
-    private void enableStatusBarBatteryDependents(String value) {
-        boolean enabled = !(value.equals(STATUS_BAR_BATTERY_STYLE_TEXT)
-                || value.equals(STATUS_BAR_BATTERY_STYLE_HIDDEN));
-        mStatusBarBatteryShowPercent.setEnabled(enabled);
-    }
+	}
 }
