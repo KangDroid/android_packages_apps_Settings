@@ -70,6 +70,12 @@
 	         android:key="wakelock_blocker"
 	         android:fragment="com.android.settings.crdroid.WakeLockBlocker"
 	         android:title="@string/wakelock_blocker_title" />
+			 
+			 <!-- PowerMenu Customization -->
+	         <PreferenceScreen
+	                 android:id="@+id/power_menu"
+	                 android:title="@string/power_menu_settings"
+	                 android:fragment="com.android.settings.vanir.PowerMenuActions" />
 
     <!-- Toast Animation -->
      <ListPreference
