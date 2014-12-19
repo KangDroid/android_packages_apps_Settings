@@ -51,6 +51,18 @@
         android:key="listview"
         android:fragment="com.android.settings.cyanogenmod.Listview"
         android:title="@string/listview_category" />
+		
+	    <!-- Gesture anywhere -->
+	     <PreferenceScreen
+	         android:key="gesture_anywhere"
+	         android:fragment="com.android.settings.crdroid.gestureanywhere.GestureAnywhereSettings"
+	         android:title="@string/gesture_anywhere_title" />
+		
+	     <!-- Wakelock blocker -->
+	     <PreferenceScreen
+	         android:key="wakelock_blocker"
+	         android:fragment="com.android.settings.crdroid.WakeLockBlocker"
+	         android:title="@string/wakelock_blocker_title" />
 
     <!-- Toast Animation -->
      <ListPreference
@@ -73,18 +85,6 @@
         android:title="@string/recents_show_searchbar"
         android:summary="@string/recents_show_searchbar_summary"
         android:defaultValue="false" />
-		
-   <!-- Gesture anywhere -->
-    <PreferenceScreen
-        android:key="gesture_anywhere"
-        android:fragment="com.android.settings.crdroid.gestureanywhere.GestureAnywhereSettings"
-        android:title="@string/gesture_anywhere_title" />
-		
-    <!-- Wakelock blocker -->
-    <PreferenceScreen
-        android:key="wakelock_blocker"
-        android:fragment="com.android.settings.crdroid.WakeLockBlocker"
-        android:title="@string/wakelock_blocker_title" />
 		
 	</PreferenceCategory>
 
