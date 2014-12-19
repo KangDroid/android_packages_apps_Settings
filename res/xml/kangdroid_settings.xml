@@ -38,8 +38,7 @@
     <PreferenceScreen
         android:key="navbar_dimensions"
         android:fragment="com.android.settings.crdroid.NavBarDimensions"
-        android:title="@string/navbar_style_dimen_title"
-        android:dependency="enable_nav_bar" />
+        android:title="@string/navbar_style_dimen_title" />
 			
 	</PreferenceCategory>
 	
