@@ -29,6 +29,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.support.v4.view.ViewPager;
 import android.support.v13.app.FragmentStatePagerAdapter;
@@ -217,6 +218,11 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
         mAddProfileFab.setVisibility(mEnabled ? View.VISIBLE : View.GONE);
         mViewPager.setVisibility(mEnabled ? View.VISIBLE : View.GONE);
         mEmptyText.setVisibility(mEnabled ? View.GONE : View.VISIBLE);
+		
+        // update the reboot dialog state
+        Intent u = new Intent();
+        u.setAction(Intent.UPDATE_POWER_MENU);
+        getActivity().sendBroadcastAsUser(u, UserHandle.ALL);
     }
 
     class ProfilesPagerAdapter extends FragmentStatePagerAdapter {
