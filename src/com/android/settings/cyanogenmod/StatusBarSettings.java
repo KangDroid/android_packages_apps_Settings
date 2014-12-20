@@ -50,12 +50,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 	
 	private static final String KEY_STATUS_BAR_TICKER = "status_bar_ticker_enabled";
 	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
+	private static final String PREF_NOTIFICATION_HIDE_LABELS = "notification_hide_labels";
 	
 	private ListPreference mSmartPulldown;
 	private SwitchPreference mTicker;
 
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
+	ListPreference mHideLabels;
+	
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -64,6 +67,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 		
         PackageManager pm = getPackageManager();
         Resources systemUiResources;
+		PreferenceScreen prefs = getPreferenceScreen();
 		PreferenceScreen prefSet = getPreferenceScreen();
         try {
             systemUiResources = pm.getResourcesForApplication("com.android.systemui");
