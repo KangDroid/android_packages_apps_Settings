@@ -97,6 +97,19 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_TICKER_ENABLED, tickerEnabled ? 1 : 0) == 1);
         mTicker.setOnPreferenceChangeListener(this);
 		
+        mHideLabels = (ListPreference) findPreference(PREF_NOTIFICATION_HIDE_LABELS);
+        int hideCarrier = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIFICATION_HIDE_LABELS, 0);
+        mHideLabels.setValue(String.valueOf(hideCarrier));
+        mHideLabels.setOnPreferenceChangeListener(this);
+        updateHideNotificationLabelsSummary(hideCarrier);
+
+        if (!DeviceUtils.isPhone(getActivity())) {
+            // Nothing for tablets and large screen devices which doesn't show
+            // information in notification drawer.....remove option
+            prefs.removePreference(mHideLabels);
+        }
+		
 		mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
 		if (!DeviceUtils.isPhone(getActivity())) {
 			prefSet.removePreference(mSmartPulldown);
@@ -142,10 +155,37 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     smartPulldown);
             updateSmartPulldownSummary(smartPulldown);
             return true;
+	     } else if (preference == mHideLabels) {
+	            int hideLabels = Integer.valueOf((String) newValue);
+	            Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_HIDE_LABELS,
+	                    hideLabels);
+	            updateHideNotificationLabelsSummary(hideLabels);
+	            return true;
       }
         return false;
     }
 	
+    private void updateHideNotificationLabelsSummary(int value) {
+        Resources res = getResources();
+        StringBuilder text = new StringBuilder();
+        switch (value) {
+            case 1:
+                text.append(res.getString(R.string.notification_hide_labels_carrier));
+                break;
+            case 2:
+                text.append(res.getString(R.string.notification_hide_labels_wifi));
+                break;
+            case 3:
+                text.append(res.getString(R.string.notification_hide_labels_all));
+                break;
+            default:
+                text.append(res.getString(R.string.notification_hide_labels_disable));
+                break;
+        }
+        text.append(" " + res.getString(R.string.notification_hide_labels_text));
+        mHideLabels.setSummary(text.toString());
+    }
+
     private void enableStatusBarBatteryDependents(String value) {
         boolean enabled = !(value.equals(STATUS_BAR_BATTERY_STYLE_TEXT)
                 || value.equals(STATUS_BAR_BATTERY_STYLE_HIDDEN));
