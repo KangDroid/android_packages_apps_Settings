@@ -473,7 +473,6 @@
         <item>**wake_device**</item>
         <item>**null**</item>
     </string-array>
-</resources>
 
     <!-- Heads up -->
   <string-array name="heads_up_snooze_entries">
