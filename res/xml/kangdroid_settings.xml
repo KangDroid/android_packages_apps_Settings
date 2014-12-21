@@ -43,8 +43,19 @@
     </PreferenceCategory>
 	
 	<PreferenceCategory
+		android:key="lockscreen_settings"
+		android:title="@string/lockscreen_settings_title">
+		
+    <PreferenceScreen
+        android:id="@+id/lock_settings"
+        android:title="@string/rr_lockscreen_title"
+        android:fragment="com.android.settings.rr.LockSettings" /> 
+		
+	</PreferenceCategory> 
+	
+	<PreferenceCategory
 		android:key="animation_category"
-		android:title="@string/anim_settings_title" >
+		android:title="@string/anim_settings_title">
 		
     <!-- Toast Animation -->
      <ListPreference
