@@ -21,6 +21,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -92,7 +93,7 @@ public class Listview extends SettingsPreferenceFragment
             return true;
         } else if (preference == mScrollingCachePref) {
             if (objValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
+                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) objValue);
             }
             return true;
         }

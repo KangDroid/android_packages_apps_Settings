@@ -30,7 +30,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.android.internal.util.liquid.DeviceUtils;
+import com.android.internal.util.crdroid.DeviceUtils;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
