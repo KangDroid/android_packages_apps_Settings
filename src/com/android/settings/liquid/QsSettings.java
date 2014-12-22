@@ -58,7 +58,7 @@ public class QsSettings extends SettingsPreferenceFragment
 		
 		mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
 		if (!DeviceUtils.isPhone(getActivity())) {
-			prefSet.removePreference(mSmartPulldown);
+			prefs.removePreference(mSmartPulldown);
 		} else {
             // Smart Pulldown
             mSmartPulldown.setOnPreferenceChangeListener(this);
