@@ -37,9 +37,13 @@ public class Listview extends SettingsPreferenceFragment
 
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
+    private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
+    private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
+    private static final String SCROLLINGCACHE_DEFAULT = "1";
 
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
+	private ListPreference mScrollingCachePref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,12 @@ public class Listview extends SettingsPreferenceFragment
         mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
+		
+		//Advanced Settings:Option to enable/disable Scrolling Cache. --> Thanks to Temasek
+        mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
+        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
+                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+        mScrollingCachePref.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -79,6 +89,11 @@ public class Listview extends SettingsPreferenceFragment
                     Settings.System.LISTVIEW_INTERPOLATOR,
                     listviewinterpolator);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+            return true;
+        } else if (preference == mScrollingCachePref) {
+            if (objValue != null) {
+                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
+            }
             return true;
         }
         return false;
