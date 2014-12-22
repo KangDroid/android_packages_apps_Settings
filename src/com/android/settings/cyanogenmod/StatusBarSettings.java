@@ -49,10 +49,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_BATTERY_STYLE_TEXT = "6";
 	
 	private static final String KEY_STATUS_BAR_TICKER = "status_bar_ticker_enabled";
-	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
 	private static final String PREF_NOTIFICATION_HIDE_LABELS = "notification_hide_labels";
 	
-	private ListPreference mSmartPulldown;
 	private SwitchPreference mTicker;
 
     private ListPreference mStatusBarBattery;
@@ -113,18 +111,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             // information in notification drawer.....remove option
             prefs.removePreference(mHideLabels);
         }
-		
-		mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
-		if (!DeviceUtils.isPhone(getActivity())) {
-			prefSet.removePreference(mSmartPulldown);
-		} else {
-            // Smart Pulldown
-            mSmartPulldown.setOnPreferenceChangeListener(this);
-            int smartPulldown = Settings.System.getInt(getContentResolver(),
-                    Settings.System.QS_SMART_PULLDOWN, 0);
-            mSmartPulldown.setValue(String.valueOf(smartPulldown));
-            updateSmartPulldownSummary(smartPulldown);
-		}
     }
 
     @Override
@@ -151,13 +137,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_TICKER_ENABLED,
                     (Boolean) newValue ? 1 : 0);
-            return true;
-        } else if (preference == mSmartPulldown) {
-            int smartPulldown = Integer.valueOf((String) newValue);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_SMART_PULLDOWN,
-                    smartPulldown);
-            updateSmartPulldownSummary(smartPulldown);
             return true;
 	     } else if (preference == mHideLabels) {
 	            int hideLabels = Integer.valueOf((String) newValue);
@@ -196,28 +175,4 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBatteryShowPercent.setEnabled(enabled);
     }
 	
-    private void updateSmartPulldownSummary(int value) {
-        Resources res = getResources();
-
-        if (value == 0) {
-            // Smart pulldown deactivated
-            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
-        } else {
-            String type = null;
-            switch (value) {
-                case 1:
-                    type = res.getString(R.string.smart_pulldown_dismissable);
-                    break;
-                case 2:
-                    type = res.getString(R.string.smart_pulldown_persistent);
-                    break;
-                default:
-                    type = res.getString(R.string.smart_pulldown_all);
-                    break;
-            }
-            // Remove title capitalized formatting
-            type = type.toLowerCase();
-            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
-        }
-	}
 }

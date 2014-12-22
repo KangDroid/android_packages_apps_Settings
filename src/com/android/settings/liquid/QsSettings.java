@@ -43,8 +43,10 @@ public class QsSettings extends SettingsPreferenceFragment
     public static final String TAG = "QsSettings";
 
     private static final String PRE_QUICK_PULLDOWN = "quick_pulldown";
+	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
 
     ListPreference mQuickPulldown;
+	private ListPreference mSmartPulldown;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,18 @@ public class QsSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.qs_settings);
 
         PreferenceScreen prefs = getPreferenceScreen();
+		
+		mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
+		if (!DeviceUtils.isPhone(getActivity())) {
+			prefSet.removePreference(mSmartPulldown);
+		} else {
+            // Smart Pulldown
+            mSmartPulldown.setOnPreferenceChangeListener(this);
+            int smartPulldown = Settings.System.getInt(getContentResolver(),
+                    Settings.System.QS_SMART_PULLDOWN, 0);
+            mSmartPulldown.setValue(String.valueOf(smartPulldown));
+            updateSmartPulldownSummary(smartPulldown);
+		}
 
         mQuickPulldown = (ListPreference) findPreference(PRE_QUICK_PULLDOWN);
         if (!DeviceUtils.isPhone(getActivity())) {
@@ -81,9 +95,41 @@ public class QsSettings extends SettingsPreferenceFragment
                     statusQuickPulldown);
             updateQuickPulldownSummary(statusQuickPulldown);
             return true;
+        } else if (preference == mSmartPulldown) {
+            int smartPulldown = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QS_SMART_PULLDOWN,
+                    smartPulldown);
+            updateSmartPulldownSummary(smartPulldown);
+            return true;
         }
         return false;
     }
+
+    private void updateSmartPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Smart pulldown deactivated
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
+        } else {
+            String type = null;
+            switch (value) {
+                case 1:
+                    type = res.getString(R.string.smart_pulldown_dismissable);
+                    break;
+                case 2:
+                    type = res.getString(R.string.smart_pulldown_persistent);
+                    break;
+                default:
+                    type = res.getString(R.string.smart_pulldown_all);
+                    break;
+            }
+            // Remove title capitalized formatting
+            type = type.toLowerCase();
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+        }
+	}
 
     private void updateQuickPulldownSummary(int value) {
         Resources res = getResources();
