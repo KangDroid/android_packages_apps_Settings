@@ -79,7 +79,7 @@
 		            android:key="volume_adjust_sound"
 		            android:title="@string/volume_adjust_sound_title"
 		            android:switchTextOff=""
-		            android:switchTextOn=""
+		            android:switchTextOn="" />
 
     <!-- Dock speaker plays -->
     <com.android.settings.notification.DropDownPreference
