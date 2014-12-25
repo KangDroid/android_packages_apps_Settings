@@ -16,7 +16,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
  	
-    <com.android.settings.screwd.SystemCheckBoxPreference
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="double_tap_sleep_navbar"
         android:title="@string/double_tap_sleep_nav_bar_title"
         android:summary="@string/double_tap_sleep_nav_bar_summary"
