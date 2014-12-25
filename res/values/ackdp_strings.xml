@@ -642,5 +642,12 @@
     <string name="expanded_desktop_system_bars_visibility_summary">Show status and navigation bar on lock screen during expanded desktop mode</string>
     <string name="default_power_menu_options">Default options</string>
     <string name="custom_power_menu_title">Custom options</string>
+	
+	<!-- KangDroid Recents Category -->
+	<string name="kangdroid_recetns_category_title">Recent options</string>
+
+	<!-- Clear all recents on navbar enabler strings -->
+    <string name="clear_all_recents_navbar_enabled_title">Clear all recents button on Navbar</string>
+    <string name="clear_all_recents_navbar_enabled_summary">Show clear all recents button in navigation bar</string>
 
 </resources>

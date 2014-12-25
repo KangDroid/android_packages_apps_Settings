@@ -42,7 +42,10 @@ import com.android.settings.SettingsPreferenceFragment;
 public class KangDroidSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
 	private static final String KEY_TOAST_ANIMATION = "toast_animation";
+	private static final String KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED = "clear_all_recents_navbar_enabled";
+	
 	private ListPreference mToastAnimation;
+	private SwitchPreference mClearAllRecentsNavbar;
 
 
     @Override
@@ -51,6 +54,7 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
         addPreferencesFromResource(R.xml.kangdroid_settings);
 
 	PreferenceScreen prefSet = getPreferenceScreen();
+	ContentResolver resolver = getActivity().getContentResolver();
 
         mToastAnimation = (ListPreference)findPreference(KEY_TOAST_ANIMATION);
         mToastAnimation.setSummary(mToastAnimation.getEntry());
@@ -58,6 +62,11 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
         mToastAnimation.setValueIndex(CurrentToastAnimation);
         mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
         mToastAnimation.setOnPreferenceChangeListener(this);
+		
+		// Recent Navigation Bar button
+		mClearAllRecentsNavbar = (SwitchPreference) prefSet.findPreference(KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED);
+        	mClearAllRecentsNavbar.setChecked(Settings.System.getInt(resolver,
+            			Settings.System.CLEAR_ALL_RECENTS_NAVBAR_ENABLED, 1) == 1);	//End of Recent navigation bar button
     }
 
     @Override
@@ -74,5 +83,16 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements OnP
 	         return true;
 		}
         return false;
+    }
+   @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mClearAllRecentsNavbar) {
+            Settings.System.putInt(resolver, Settings.System.CLEAR_ALL_RECENTS_NAVBAR_ENABLED,
+                    mClearAllRecentsNavbar.isChecked() ? 1 : 0);
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+        return true;
     }
 }
