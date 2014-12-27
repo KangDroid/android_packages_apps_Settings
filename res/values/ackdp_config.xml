@@ -14,17 +14,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-	<!-- Expanded Desktop :Port from CyanogenMod Gerrit -->
-    <drawable name="expanded_item_bg_activated">#ffEEEEEE</drawable>
-    <drawable name="expanded_item_bg">@android:color/background_light</drawable>
-    <color name="expanded_button_color_normal">#4CAF50</color>
-    <color name="expanded_button_color_close">#F44336</color>
-	
-    <!-- Gesture Anywhere -->
-    <color name="ga_gesture_color">@android:color/holo_blue_light</color>
-	
-    <!-- DSLV colors -->
-    <color name="dslv_icon_dark">#ff009688</color>
-    <color name="dslv_float_cackground_color">#ffe1e1e0</color>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- maximum value for the custom display density -->
+    <integer name="display_density_max">480</integer>
+    <!-- minimum value for the custom display density -->
+    <integer name="display_density_min">240</integer>
+
 </resources>
