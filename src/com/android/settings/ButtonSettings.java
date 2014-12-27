@@ -58,6 +58,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_APP_SWITCH_LONG_PRESS = "hardware_keys_app_switch_long_press";
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+    private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_ENABLE_NAVIGATION_BAR = "enable_nav_bar";
@@ -104,6 +105,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAppSwitchLongPressAction;
     private ListPreference mVolumeKeyCursorControl;
     private SwitchPreference mSwapVolumeButtons;
+    private SwitchPreference mNavigationBarLeftPref;
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mEnableNavigationBar;
@@ -170,6 +172,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mEnableNavigationBar = (SwitchPreference) prefScreen.findPreference(KEY_ENABLE_NAVIGATION_BAR);
         mEnableNavigationBar.setChecked(enableNavigationBar);
         mEnableNavigationBar.setOnPreferenceChangeListener(this);
+
+        // Navigation bar left
+        mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
 
         if (hasPowerKey) {
             if (!Utils.isVoiceCapable(getActivity())) {
@@ -441,6 +446,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (appSwitchCategory != null) {
             appSwitchCategory.setEnabled(!enabled);
         }
+        if (mNavigationBarLeftPref != null) {
+            mNavigationBarLeftPref.setEnabled(enabled);
+        }
     }
 
     public static void restoreKeyDisabler(Context context) {
@@ -469,6 +477,15 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    private static boolean isKeyDisablerSupported() {
+        try {
+            return KeyDisabler.isSupported();
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework not installed
+            return false;
+        }
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
