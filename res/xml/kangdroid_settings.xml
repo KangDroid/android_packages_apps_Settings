@@ -64,6 +64,13 @@
     <PreferenceCategory
         android:key="misc_settings"
         android:title="@string/misc_settings_title" >
+		
+	<!-- AOKP Animation Settings -->
+    <PreferenceScreen
+        android:key="aokp_animation"
+        android:title="@string/aokp_animation_title"
+        android:summary="@string/aokp_animation_summary"
+        android:fragment="com.android.settings.crdroid.fragments.AnimationControls" />
 	
    <!-- ListView Animation -->
     <PreferenceScreen

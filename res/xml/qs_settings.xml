@@ -31,4 +31,6 @@
 		        android:entryValues="@array/smart_pulldown_values"
 		        android:persistent="false" />
 
+    </PreferenceCategory>
+
 </PreferenceScreen>
