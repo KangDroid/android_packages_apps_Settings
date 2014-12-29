@@ -57,6 +57,13 @@
 		android:key="animation_category"
 		android:title="@string/anim_settings_title">
 		
+	<!-- AOKP Animation Settings -->
+    <PreferenceScreen
+        android:key="aokp_animation"
+        android:title="@string/aokp_animation_title"
+        android:summary="@string/aokp_animation_summary"
+        android:fragment="com.android.settings.crdroid.fragments.AnimationControls" />
+		
     <!-- Toast Animation -->
      <ListPreference
         android:key="toast_animation"
