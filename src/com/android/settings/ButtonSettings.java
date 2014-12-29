@@ -298,6 +298,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (!backlight.isButtonSupported() && !backlight.isKeyboardSupported()) {
             prefScreen.removePreference(backlight);
         }
+
+        final ButtonBacklightBrightness backlight =
+                (ButtonBacklightBrightness) findPreference(KEY_BUTTON_BACKLIGHT);
+        if (!backlight.isButtonSupported() && !backlight.isKeyboardSupported()) {
+            prefScreen.removePreference(backlight);
+        }
     }
 
     @Override
@@ -474,7 +480,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     }
 
     public static void restoreKeyDisabler(Context context) {
-        if (!KeyDisabler.isSupported()) {
+        if (!isKeyDisablerSupported()) {
             return;
         }
 
