@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The CyanogenMod Project
+ * Copyright (C) 2012 The CyanogenMod Project, Modified by KangDroid-Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cyanogenmod;
+package com.android.settings.kangdroid;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ChangeLog extends Fragment {
-    private static final String CHANGELOG_PATH = "/system/etc/CHANGELOG-CM.txt";
+    private static final String CHANGELOG_PATH = "/system/etc/KangDroid-Project_ChangeLog.txt";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
