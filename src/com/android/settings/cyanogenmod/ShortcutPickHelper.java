@@ -321,4 +321,7 @@ public class ShortcutPickHelper {
 
         return uri;
     }
+
 }
+
+
