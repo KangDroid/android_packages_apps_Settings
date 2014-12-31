@@ -182,7 +182,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         mNavigationPreferencesCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
 
-        mOverflowButtonMode = (ListPreference) prefs.findPreference(KEYS_OVERFLOW_BUTTON);
+        mOverflowButtonMode = (ListPreference) prefScreen.findPreference(KEYS_OVERFLOW_BUTTON);
         mOverflowButtonMode.setOnPreferenceChangeListener(this);
 
         // Navigation bar left
