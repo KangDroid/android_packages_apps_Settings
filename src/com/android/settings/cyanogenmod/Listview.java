@@ -75,6 +75,7 @@ public class Listview extends SettingsPreferenceFragment
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+		final String key = preference.getKey();
 		if (preference == mScrollingCachePref) {
             if (objValue != null) {
                 SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) objValue);
