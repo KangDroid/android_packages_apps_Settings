@@ -59,6 +59,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_MENU_PRESS = "hardware_keys_menu_press";
     private static final String KEY_MENU_LONG_PRESS = "hardware_keys_menu_long_press";
     private static final String KEYS_OVERFLOW_BUTTON = "keys_overflow_button";
+    private static final String KEY_ASSIST_PRESS = "hardware_keys_assist_press";
+    private static final String KEY_ASSIST_LONG_PRESS = "hardware_keys_assist_long_press";
     private static final String KEY_APP_SWITCH_PRESS = "hardware_keys_app_switch_press";
     private static final String KEY_APP_SWITCH_LONG_PRESS = "hardware_keys_app_switch_long_press";
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
@@ -108,6 +110,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mMenuLongPressAction;
 
     private ListPreference mOverflowButtonMode;
+    private ListPreference mAssistPressAction;
+    private ListPreference mAssistLongPressAction;
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
     private ListPreference mVolumeKeyCursorControl;
@@ -158,6 +162,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_BACK);
         final PreferenceCategory menuCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_MENU);
+        final PreferenceCategory assistCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_ASSIST);
         final PreferenceCategory appSwitchCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_APPSWITCH);
         final PreferenceCategory volumeCategory =
@@ -262,6 +268,20 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             hasAnyBindableKey = true;
         } else {
             prefScreen.removePreference(menuCategory);
+        }
+
+        if (hasAssistKey) {
+            int pressAction = Settings.System.getInt(resolver,
+                    Settings.System.KEY_ASSIST_ACTION, ACTION_SEARCH);
+            mAssistPressAction = initActionList(KEY_ASSIST_PRESS, pressAction);
+
+            int longPressAction = Settings.System.getInt(resolver,
+                    Settings.System.KEY_ASSIST_LONG_PRESS_ACTION, ACTION_VOICE_SEARCH);
+            mAssistLongPressAction = initActionList(KEY_ASSIST_LONG_PRESS, longPressAction);
+
+            hasAnyBindableKey = true;
+        } else {
+            prefScreen.removePreference(assistCategory);
         }
 
         if (hasAppSwitchKey) {
@@ -394,6 +414,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else if (preference == mMenuLongPressAction) {
             handleActionListChange(mMenuLongPressAction, newValue,
                     Settings.System.KEY_MENU_LONG_PRESS_ACTION);
+            return true;
+        } else if (preference == mAssistPressAction) {
+            handleActionListChange(mAssistPressAction, newValue,
+                    Settings.System.KEY_ASSIST_ACTION);
+            return true;
+        } else if (preference == mAssistLongPressAction) {
+            handleActionListChange(mAssistLongPressAction, newValue,
+                    Settings.System.KEY_ASSIST_LONG_PRESS_ACTION);
             return true;
         } else if (preference == mAppSwitchPressAction) {
             handleActionListChange(mAppSwitchPressAction, newValue,
