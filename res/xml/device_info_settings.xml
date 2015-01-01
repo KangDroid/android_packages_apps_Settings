@@ -98,6 +98,14 @@
                 android:title="@string/device_feedback">
         </PreferenceScreen>
 
+		<!-- Bug Report:KangDroid-Project Addition. -->
+		<PreferenceScreen
+			android:key="sendbugreport_kangdroid"
+			android:title="@string/kangdroid_bugreport"
+			android:summary="@string/kangdroid_bugreport_summary"
+			android:onClick="sendBugReport">
+		</PreferenceScreen>
+			
         <!-- Change Log -->
         <PreferenceScreen android:key="changelog"
             android:title="@string/changelog_title"

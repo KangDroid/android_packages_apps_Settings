@@ -24,6 +24,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
@@ -608,5 +609,11 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             }
         }
         return false;
+    }
+	
+    public void sendBugReport(View view) {
+		Uri uri = Uri.parse("mailto:kangdroid@naver.com"); 
+		Intent it = new Intent(Intent.ACTION_SENDTO, uri); 
+		startActivity(it); 
     }
 }
