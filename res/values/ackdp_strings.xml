@@ -759,5 +759,15 @@
 	<!-- KangDroid Bug Report -->
 	<string name="kangdroid_bugreport">Report Bug.</string>
 	<string name="kangdroid_bugreport_summary">Report a bug with Email.</string>
+	
+    <string name="cast_screen">Cast screen</string>
+    <string name="hotspot">Hotspot</string>
+
+    <string name="qs_settings_title">Quick Settings</string>
+    <string name="qs_settings_summary">Customize the Quick Settings panel</string>
+    <string name="qs_order">Change tiles and order</string>
+    <string name="qs_order_summary">Add new tiles or reorder them</string>
+    <string name="add_qs">Add new tile</string>
+    <string name="qs_already_added_all">There aren\'t any more tiles to add.</string>
 
 </resources>
