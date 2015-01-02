@@ -32,6 +32,7 @@
 	<string name="icon_customizations_category">Various UI Settings</string>
 	<string name="advanced_clock_settings_category">Advanced clock settings</string>
 	<string name="category_general_title">General options</string>
+	<string name="quick_settings_category_title">QS UI Settings</string>
 	
 	<!-- KangDroid Settings - Default -->
     <string name="ok">OK</string>

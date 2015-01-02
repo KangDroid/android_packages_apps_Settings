@@ -75,6 +75,7 @@ import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ProcessStatsUi;
 import com.android.settings.bluetooth.BluetoothSettings;
+import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.settings.dashboard.DashboardCategory;
 import com.android.settings.dashboard.DashboardSummary;
 import com.android.settings.dashboard.DashboardTile;
@@ -125,6 +126,7 @@ import com.android.settings.kangdroid.KangDroidStatusBarSettings;
 import com.android.settings.kangdroid.KangDroidClockSettings;
 import com.android.settings.kangdroid.KangDroidAppSideBar;
 import com.android.settings.profiles.ProfilesSettings;
+import com.android.settings.slim.DisplayRotation;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -326,7 +328,9 @@ public class SettingsActivity extends Activity
 			KangDroidStatusBarSettings.class.getName(),
 			KangDroidClockSettings.class.getName(),
 			KangDroidAppSideBar.class.getName(),
-			ProfilesSettings.class.getName()
+			ProfilesSettings.class.getName(),
+			DisplayRotation.class.getName(),
+            QSTiles.class.getName()
     };
 
 
