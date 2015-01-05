@@ -88,8 +88,7 @@
     <PreferenceScreen
         android:id="@+id/lock_settings"
         android:title="@string/rr_lockscreen_title"
-        android:fragment="com.android.settings.rr.LockSettings"
-        android:icon="@drawable/ic_rrlocked_tint" />  
+        android:fragment="com.android.settings.rr.LockSettings" />  
 		
     <!-- Gesture anywhere -->
     <PreferenceScreen
