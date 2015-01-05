@@ -30,12 +30,5 @@
 		        android:entries="@array/smart_pulldown_entries"
 		        android:entryValues="@array/smart_pulldown_values"
 		        android:persistent="false" />
-				
-			    <PreferenceScreen
-			            android:key="qs_order"
-			            android:title="@string/qs_order"
-			            android:summary="@string/qs_order_summary"
-			            android:fragment="com.android.settings.cyanogenmod.qs.QSTiles"
-			            />
 
 </PreferenceScreen>
