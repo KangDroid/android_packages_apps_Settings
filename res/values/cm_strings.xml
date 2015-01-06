@@ -922,4 +922,9 @@
     <string name="qs_already_added_all">There aren\'t any more tiles to add.</string>
     <string name="notification_drawer_title">Notification Drawer</string>
 
+    <!-- CM Legal -->
+    <string name="cmlicense_title">CyanogenMod Legal</string>
+    <string name="settings_cmlicense_activity_title">CyanogenMod Legal</string>
+    <string name="settings_cmlicense_activity_unreachable">You don\'t have a data connection. To view this information now, go to %s from any computer connected to the Internet.</string>
+
 </resources>
