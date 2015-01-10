@@ -32,6 +32,18 @@
     </PreferenceCategory>
 	
     <PreferenceCategory
+       android:key="lockscreen_settings"
+       android:title="@string/lockscreen_settings_title" >
+	
+    <!-- Lock Settings -->
+     <PreferenceScreen
+         android:key="lock_settings"
+         android:title="@string/rr_lockscreen_title"
+         android:fragment="com.android.settings.rr.LockSettings" />  
+	
+	</PreferenceCategory>
+	
+    <PreferenceCategory
        android:key="quick_settings_category"
        android:title="@string/quick_settings_title" >
 
@@ -83,6 +95,8 @@
         android:key="anim_settings"
         android:fragment="com.android.settings.kangdroid.AnimationSettings"
         android:title="@string/kangdroid_anim_settings_title" />
+		
+	</PreferenceCategory>
 	
     <PreferenceCategory
         android:key="misc_settings"
@@ -93,12 +107,6 @@
             android:key="screen_recorder"
             android:title="@string/screen_recorder_title"
             android:fragment="com.android.settings.temasek.ScreenRecorderSettings" />
-
-   <!-- Lock Settings -->
-    <PreferenceScreen
-        android:id="@+id/lock_settings"
-        android:title="@string/rr_lockscreen_title"
-        android:fragment="com.android.settings.rr.LockSettings" />  
 		
     <!-- Gesture anywhere -->
     <PreferenceScreen
