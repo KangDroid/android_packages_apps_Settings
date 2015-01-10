@@ -312,15 +312,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
 		
-        // Quick Unlock Screen Control
-        mQuickUnlockScreen = (SwitchPreference) root
-                .findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
-        if (mQuickUnlockScreen != null) {
-            mQuickUnlockScreen.setChecked(Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 1) == 1);
-            mQuickUnlockScreen.setOnPreferenceChangeListener(this);
-        }
-        
         // Lock Numpad Random
         mLockNumpadRandom = (ListPreference) root.findPreference(LOCK_NUMPAD_RANDOM);
         if (mLockNumpadRandom != null) {
