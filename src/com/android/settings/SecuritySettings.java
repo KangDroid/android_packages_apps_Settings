@@ -115,9 +115,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     // Only allow one trust agent on the platform.
     private static final boolean ONLY_ONE_TRUST_AGENT = true;
-	
-	// Quick Unlock
-	private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
 
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
@@ -138,7 +135,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private SwitchPreference mToggleAppInstallation;
     private DialogInterface mWarnInstallApps;
     private SwitchPreference mPowerButtonInstantlyLocks;
-	private SwitchPreference mQuickUnlockScreen;
     private ListPreference mLockNumpadRandom;
     private ListPreference mSmsSecurityCheck;
 
@@ -764,10 +760,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             } else {
                 setNonMarketAppsAllowed(false);
             }
-        } else if (preference == mQuickUnlockScreen) {
-            Settings.Secure.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.Secure.LOCKSCREEN_QUICK_UNLOCK_CONTROL,
-                    (Boolean) value ? 1 : 0);
         } else if (KEY_SMS_SECURITY_CHECK_PREF.equals(key)) {
             int smsSecurityCheck = Integer.valueOf((String) value);
             Settings.Secure.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
