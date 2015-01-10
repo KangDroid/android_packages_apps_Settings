@@ -338,7 +338,7 @@
     <string name="animation_duration_title">Animation duration</string>
     <string name="task_open_behind_title">Task open behind animation</string>
     <string name="animation_duration_default">Default</string>
-	
+
     <!-- Network traffic -->
     <string name="network_traffic_title">Network traffic</string>
     <string name="show_network_traffic_state">Status bar traffic monitor</string>
@@ -354,4 +354,10 @@
     <string name="show_network_traffic_1000">1000 ms</string>
     <string name="show_network_traffic_1500">1500 ms</string>
     <string name="show_network_traffic_2000">2000 ms</string>    
+	
+    <!-- carrier label -->
+    <string name="show_status_bar_carrier_title">Carrier label</string>
+    <string name="show_status_bar_carrier_summary">Shows carrier label in status bar</string>
+    <string name="status_bar_carrier_color">Carrier label Color</string>    
+
 </resources>
