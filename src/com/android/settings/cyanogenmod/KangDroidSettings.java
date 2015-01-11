@@ -39,7 +39,7 @@ import android.text.TextUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class KangDroidSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class KangDroidSettings extends SettingsPreferenceFragment {
 
 	private static final String KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED = "clear_all_recents_navbar_enabled";
 	private SwitchPreference mClearAllRecentsNavbar;
