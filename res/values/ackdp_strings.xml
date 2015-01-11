@@ -50,6 +50,7 @@
 	<string name="kangdroid_anim_settings_title">Animation Settings</string>
 	<string name="kangdroid_anim_settings_titlee">KangDroid Animation Settings</string>
 	<string name="lockscreen_settings_title">LockScreen Settings</string>
+	<string name="kangdroid_info_settings_title">KangDroid Information</string>
 
 	<!-- Volume Steps -->
     <string name="volume_steps_title">Volume Steps</string>

@@ -17,10 +17,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/about_settings">
 
-        <PreferenceScreen android:key="kangdroid_logo"
-                          android:enabled="false"
-                          android:layout="@layout/kangdroid_logo_row" />
-
         <!-- System update settings - launches activity -->
         <PreferenceScreen android:key="system_update_settings"
                 android:title="@string/system_update_settings_list_item_title" 
@@ -37,6 +33,12 @@
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen>
 
+        <!-- KangDroid Information Settings -->
+        <PreferenceScreen android:key="kangdroid_info_settings"
+            android:title="@string/kangdroid_info_settings_title"
+            android:fragment="com.android.settings.kangdroid.KangDroidInfoSettings" >
+        </PreferenceScreen>
+
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
                 android:title="@string/device_status" 
@@ -44,12 +46,6 @@
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.deviceinfo.Status" />
-        </PreferenceScreen>
-
-        <!-- Contributors cloud -->
-        <PreferenceScreen android:key="contributor_cloud"
-            android:title="@string/contributor_cloud_title"
-            android:fragment="com.android.settings.cyanogenmod.ContributorsCloud" >
         </PreferenceScreen>
 
         <!-- Legal Information -->
@@ -115,37 +111,11 @@
                 android:title="@string/device_feedback">
         </PreferenceScreen>
 
-		<!-- Bug Report:KangDroid-Project Addition. -->
-		<PreferenceScreen
-			android:key="sendbugreport_kangdroid"
-			android:title="@string/kangdroid_bugreport"
-			android:summary="@string/kangdroid_bugreport_summary"
-			android:onClick="sendBugReport">
-		</PreferenceScreen>
-			
-        <!-- Change Log -->
-        <PreferenceScreen android:key="changelog"
-            android:title="@string/changelog_title"
-            android:fragment="com.android.settings.kangdroid.ChangeLog" >
-        </PreferenceScreen>
-
         <!-- Device hardware model -->
         <Preference android:key="device_model" 
                 style="?android:preferenceInformationStyle"
                 android:title="@string/model_name"
                 android:summary="@string/device_info_default"/>
-				
-        <!-- KangDroid-Project firmware version -->
-        <Preference android:key="kdp_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/kdp_version_title"
-                android:summary="@string/kdp_version_default"/>
-
-        <!-- Mod version -->
-        <Preference android:key="mod_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/mod_version"
-                android:summary="@string/mod_version_default" />
 
         <!-- Device firmware version -->
         <Preference android:key="firmware_version" 
@@ -158,18 +128,6 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/fcc_equipment_id"
                 android:summary="@string/device_info_default"/>
-				
-        <!-- Device cpu info -->
-        <Preference android:key="device_cpu"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/cpu_info"
-                android:summary="@string/device_info_default"/>
-
-        <!-- Device mem info -->
-        <Preference android:key="device_memory"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/mem_info"
-				android:summary="@string/device_info_default"/>
 
         <!-- Device Baseband version -->
         <Preference android:key="baseband_version" 
@@ -194,11 +152,5 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/build_number"
                 android:summary="@string/device_info_default"/>
-
-        <!-- SELinux status information -->
-        <Preference android:key="selinux_status"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/selinux_status"
-                android:summary="@string/selinux_status_enforcing"/>
 
 </PreferenceScreen>
