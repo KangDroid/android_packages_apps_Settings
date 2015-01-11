@@ -29,5 +29,18 @@
         android:summaryOn="@string/qs_main_tiles_summary_on"
         android:summaryOff="@string/qs_main_tiles_summary_off"
         android:defaultValue="true" />
-
+		
+    <ListPreference
+        android:key="quick_pulldown"
+        android:title="@string/title_quick_pulldown"
+        android:entries="@array/quick_pulldown_entries"
+        android:entryValues="@array/quick_pulldown_values"
+        android:persistent="false" />
+			
+    <ListPreference
+        android:key="smart_pulldown"
+        android:title="@string/smart_pulldown_title"
+        android:entries="@array/smart_pulldown_entries"
+        android:entryValues="@array/smart_pulldown_values"
+        android:persistent="false" />
 </PreferenceScreen>
