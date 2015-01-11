@@ -126,13 +126,6 @@
         android:title="@string/hfm_pref_screen_title"
         android:fragment="com.android.settings.screwd.hfm.HfmSettings" />   
 
-    <!-- Screenshot tone -->
-     <com.android.settings.liquid.SystemCheckBoxPreference
-        android:key="screenshot_sound"
-        android:title="@string/screenshot_sound_title"
-        android:summary="@string/screenshot_sound_summary"
-        android:defaultValue="true" />
-		
 	</PreferenceCategory>
 
 </PreferenceScreen>
