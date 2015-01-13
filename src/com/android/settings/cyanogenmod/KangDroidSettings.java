@@ -53,10 +53,6 @@ public class KangDroidSettings extends SettingsPreferenceFragment {
 	PreferenceScreen prefSet = getPreferenceScreen();
 	ContentResolver resolver = getActivity().getContentResolver();
 		
-		// Recent Navigation Bar button
-		mClearAllRecentsNavbar = (SwitchPreference) prefSet.findPreference(KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED);
-        	mClearAllRecentsNavbar.setChecked(Settings.System.getInt(resolver,
-            			Settings.System.CLEAR_ALL_RECENTS_NAVBAR_ENABLED, 1) == 1);	//End of Recent navigation bar button
     }
 
     @Override
@@ -64,15 +60,4 @@ public class KangDroidSettings extends SettingsPreferenceFragment {
         super.onResume();
     }
     
-   @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mClearAllRecentsNavbar) {
-            Settings.System.putInt(resolver, Settings.System.CLEAR_ALL_RECENTS_NAVBAR_ENABLED,
-                    mClearAllRecentsNavbar.isChecked() ? 1 : 0);
-        } else {
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
-        }
-        return true;
-    }
 }
