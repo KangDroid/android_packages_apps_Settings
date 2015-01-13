@@ -166,6 +166,14 @@
             </intent>
         </dashboard-tile>
 
+		<!-- Recents: KDP Customizations -->
+        <dashboard-tile
+                android:id="@+id/kdp_recents_settings"
+                android:title="@string/dashboard_recents_title"
+                android:fragment="com.android.settings.kangdroid.RecentsActivitySettings"
+                android:icon="@drawable/ic_settings_notification_drawer"
+                />
+
         <!-- Location -->
         <dashboard-tile
                 android:id="@+id/location_settings"

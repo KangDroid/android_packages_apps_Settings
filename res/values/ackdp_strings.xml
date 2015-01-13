@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+	
 	<!-- Volume Steps -->
     <string name="volume_steps_title">Volume Steps</string>
     <string name="volume_steps_60">60</string>
@@ -49,4 +50,16 @@
     <string name="toast_Translucent_animation">Translucent Animation</string>
     <string name="toast_SlideLeftRight_animation">Slide Left To Right Animation</string>
     <string name="toast_SlideRightLeft_animation">Slide Right To Left Animation</string>
+	
+	<!-- Recents Settings: Default -->
+	<string name="dashboard_recents_title">Recents</string>
+	<!-- Recents Settings: OmniSwitch -->
+    <string name="omniswitch_settings_title">OmniSwitch</string>
+    <string name="recents_use_omniswitch_title">Use for recents</string>
+    <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
+    <string name="omniswitch_start_settings_title">Settings</string>
+    <string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
+    <string name="omniswitch_first_time_title">Information</string>
+    <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
+ 
 </resources>
