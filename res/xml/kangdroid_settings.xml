@@ -43,6 +43,17 @@
     </PreferenceCategory>
 	
 	<PreferenceCategory
+		android:key="kangdroid_recents_activity_category"
+		android:title="@string/kangdroid_recents_category_title">
+		
+	<PreferenceScreen
+		android:key="kangdroid_recent_activity"
+		android:title="@string/omniswitch_settings_title"
+		android:fragment="com.android.settings.kangdroid.RecentsActivitySettings" />
+		
+	</PreferenceCategory>
+	
+	<PreferenceCategory
 		android:key="lockscreen_settings"
 		android:title="@string/lockscreen_settings_title">
 		
