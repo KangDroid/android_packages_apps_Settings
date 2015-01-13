@@ -43,6 +43,7 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
 
     private static final String RECENTS_USE_OMNISWITCH = "recents_use_omniswitch";
     private static final String OMNISWITCH_START_SETTINGS = "omniswitch_start_settings";
+	private static final String KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED = "clear_all_recents_navbar_enabled";
 
     // Package name of the omnniswitch app
     public static final String OMNISWITCH_PACKAGE_NAME = "org.omnirom.omniswitch";
@@ -53,6 +54,7 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
     private SwitchPreference mRecentsUseOmniSwitch;
     private Preference mOmniSwitchSettings;
     private boolean mOmniSwitchInitCalled;
+	private SwitchPreference mClearAllRecentsNavbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,14 +79,24 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
         mOmniSwitchSettings = (Preference)
                 prefSet.findPreference(OMNISWITCH_START_SETTINGS);
         mOmniSwitchSettings.setEnabled(mRecentsUseOmniSwitch.isChecked());
+		
+		// Recent Navigation Bar button
+		mClearAllRecentsNavbar = (SwitchPreference) prefSet.findPreference(KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED);
+        	mClearAllRecentsNavbar.setChecked(Settings.System.getInt(resolver,
+            			Settings.System.CLEAR_ALL_RECENTS_NAVBAR_ENABLED, 1) == 1);	//End of Recent navigation bar button
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+		ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mOmniSwitchSettings){
             startActivity(INTENT_OMNISWITCH_SETTINGS);
             return true;
         }
+        if (preference == mClearAllRecentsNavbar) {
+            Settings.System.putInt(resolver, Settings.System.CLEAR_ALL_RECENTS_NAVBAR_ENABLED,
+                    mClearAllRecentsNavbar.isChecked() ? 1 : 0);
+		}
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
