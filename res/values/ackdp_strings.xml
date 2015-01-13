@@ -745,5 +745,14 @@
     <string name="show_status_bar_carrier_title">Carrier label</string>
     <string name="show_status_bar_carrier_summary">Shows carrier label in status bar</string>
     <string name="status_bar_carrier_color">Carrier label Color</string>    
+	
+	<!-- OmniSwitch -->
+    <string name="omniswitch_settings_title">OmniSwitch</string>
+    <string name="recents_use_omniswitch_title">Use for recents</string>
+    <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
+    <string name="omniswitch_start_settings_title">Settings</string>
+    <string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
+    <string name="omniswitch_first_time_title">Information</string>
+    <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
 
 </resources>

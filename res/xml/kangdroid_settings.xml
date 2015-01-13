@@ -83,6 +83,11 @@
         android:key="kangdroid_recents"
         android:title="@string/kangdroid_recetns_category_title" >
 		
+	<PreferenceScreen
+		android:key="kangdroid_recent_activity"
+		android:title="@string/omniswitch_settings_title"
+		android:fragment="com.android.settings.kangdroid.RecentsActivitySettings" />
+		
     <!-- Recents Searchbar -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="recents_show_hide_search_bar"
