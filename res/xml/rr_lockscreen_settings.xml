@@ -14,9 +14,8 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/rr_lockscreen_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-    
-        
+	android:key="kangdroid_lockscreen_settings"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">     
          <PreferenceScreen
                  android:key="lockscreen_shortcuts"
                  android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
@@ -27,7 +26,11 @@
              <extra android:name="disableLongpress" android:value="true" />
              <extra android:name="useAppPickerOnly" android:value="true" />
              <extra android:name="fragment" android:value="com.android.settings.slim.LockscreenShortcut" />
-        
-
       </PreferenceScreen>
+	  
+        <!-- Disable camera swipe -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="camera_widget_hide"
+            android:title="@string/camera_widget_hide"
+            android:summary="@string/camera_widget_hide_summary" />
 </PreferenceScreen>
