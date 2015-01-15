@@ -89,7 +89,6 @@ public class LockSettings extends SettingsPreferenceFragment {
         super.onPause();
     }
 
-    @Override
     public void onSharedPreferenceChanged(SharedPreferences preferences, String key) {
     }
 
