@@ -41,9 +41,11 @@ import com.android.settings.Utils;
 public class LockSettings extends SettingsPreferenceFragment {
 	
 	private static final String KEY_LOCKSCREEN_CAMERA_WIDGET_HIDE = "camera_widget_hide";
+	private static final String KEY_LOCKSCREEN_DIALER_WIDGET_HIDE = "dialer_widget_hide";
 	
 	private SwitchPreference mCameraWidgetHide;
 	private PreferenceScreen mLockScreen;
+	private SwitchPreference mDialerWidgetHide;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,13 @@ public class LockSettings extends SettingsPreferenceFragment {
         if (mCameraDisabled){
             mLockScreen.removePreference(mCameraWidgetHide);
         }
+
+        // Dialer widget hide
+        mDialerWidgetHide = (SwitchPreference) findPreference("dialer_widget_hide");
+        if (!Utils.isVoiceCapable(getActivity())){
+            mLockScreen.removePreference(mDialerWidgetHide);
+        }
+		
     }
 
     @Override
