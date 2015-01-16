@@ -17,6 +17,7 @@ package com.android.settings.cyanogenmod;
 
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.media.Ringtone;
@@ -33,7 +34,7 @@ import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.internal.util.crdroid.DeviceUtils;
 import java.util.Locale;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment {
+public class NotificationDrawerSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
     private static final String PRE_QUICK_PULLDOWN = "quick_pulldown";
 	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
 	
