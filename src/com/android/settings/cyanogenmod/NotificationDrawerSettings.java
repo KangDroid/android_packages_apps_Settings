@@ -24,8 +24,6 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import java.util.Locale;
-
 public class NotificationDrawerSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
 
