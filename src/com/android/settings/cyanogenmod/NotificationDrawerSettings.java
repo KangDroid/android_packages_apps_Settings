@@ -32,6 +32,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.internal.util.crdroid.DeviceUtils;
+import android.provider.Settings;
 import java.util.Locale;
 
 public class NotificationDrawerSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
@@ -86,7 +87,6 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                     qsTileCount, qsTileCount));
     }
 	
-    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 		if (preference == mSmartPulldown) {
 		             int smartPulldown = Integer.valueOf((String) newValue);
