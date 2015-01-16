@@ -85,7 +85,7 @@
 		
 	<PreferenceScreen
 		android:key="kangdroid_recent_activity"
-		android:title="@string/omniswitch_settings_title"
+		android:title="@string/kangdroid_recents_settings"
 		android:fragment="com.android.settings.kangdroid.RecentsActivitySettings" />
 		
 	</PreferenceCategory>

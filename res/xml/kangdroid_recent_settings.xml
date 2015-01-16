@@ -15,8 +15,12 @@
  -->
  
  <PreferenceScreen
-     xmlns:android="http://schemas.android.com/apk/res/android"
-     android:title="@string/omniswitch_settings_title">
+	 android:key="recents_kang"
+     xmlns:android="http://schemas.android.com/apk/res/android">
+	 
+	 <PreferenceCategory
+		 android:key="kangdroid_omniswitch"
+		 android:title="@string/omniswitch_settings_title">
 
     <SwitchPreference
             android:key="recents_use_omniswitch"
@@ -30,6 +34,12 @@
             android:summary="@string/omniswitch_start_settings_summary"
             android:persistent="false" />
 			
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:key="kangdroid_other_recents"
+		android:title="@string/recents_misc_settings">
+		
     <!-- Recents Searchbar -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="recents_show_hide_search_bar"
@@ -42,5 +52,7 @@
         android:key="clear_all_recents_navbar_enabled"
         android:title="@string/clear_all_recents_navbar_enabled_title"
         android:summary="@string/clear_all_recents_navbar_enabled_summary" />
+		
+	</PreferenceCategory>
 
  </PreferenceScreen>
