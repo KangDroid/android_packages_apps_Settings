@@ -47,8 +47,6 @@ import android.widget.Toast;
 
 import org.cyanogenmod.hardware.KeyDisabler;
 
-import com.android.internal.util.crdroid.CrUtils;
-
 public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "SystemSettings";
@@ -66,9 +64,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
+    private static final String DISABLE_NAV_KEYS = "disable_nav_keys";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
-    private static final String KEY_ENABLE_NAVIGATION_BAR = "enable_nav_bar";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -120,6 +118,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mEnableNavigationBar;
+    private SwitchPreference mDisableNavigationKeys;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
@@ -179,14 +178,28 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         mHandler = new Handler();
 
-        // Enable/disable navigation bar
-        boolean hasNavBarByDefault = getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar);
-        boolean enableNavigationBar = Settings.System.getInt(getContentResolver(),
-                Settings.System.NAVIGATION_BAR_SHOW, hasNavBarByDefault ? 1 : 0) == 1;
-        mEnableNavigationBar = (SwitchPreference) prefScreen.findPreference(KEY_ENABLE_NAVIGATION_BAR);
-        mEnableNavigationBar.setChecked(enableNavigationBar);
-        mEnableNavigationBar.setOnPreferenceChangeListener(this);
+        // Force Navigation bar related options
+        mDisableNavigationKeys = (SwitchPreference) findPreference(DISABLE_NAV_KEYS);
+
+        // Only visible on devices that does not have a navigation bar already,
+        // and don't even try unless the existing keys can be disabled
+        boolean needsNavigationBar = false;
+        if (KeyDisabler.isSupported()) {
+            try {
+                IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
+                needsNavigationBar = wm.needsNavigationBar();
+            } catch (RemoteException e) {
+            }
+
+            if (needsNavigationBar) {
+                prefScreen.removePreference(mDisableNavigationKeys);
+            } else {
+                // Remove keys that can be provided by the navbar
+                updateDisableNavkeysOption();
+            }
+        } else {
+            prefScreen.removePreference(mDisableNavigationKeys);
+        }
 
         mNavigationPreferencesCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
 
@@ -327,8 +340,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else {
             prefScreen.removePreference(volumeCategory);
         }
-        updateDisableNavkeysOption();
-        updateNavBarSettings();
 
 		// Forward port button/keyboard backlight options.
         final ButtonBacklightBrightness backlight =
@@ -398,19 +409,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mEnableNavigationBar) {
-            mEnableNavigationBar.setEnabled(true);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.NAVIGATION_BAR_SHOW,
-                        ((Boolean) newValue) ? 1 : 0);
-            // Enable overflow button
-            Settings.System.putInt(getContentResolver(), Settings.System.UI_OVERFLOW_BUTTON, 2);
-            if (mOverflowButtonMode != null) {
-                mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntries()[2]);
-            }
-            updateDisableNavkeysOption();
-            return true;
-        } else if (preference == mHomeLongPressAction) {
+		if (preference == mHomeLongPressAction) {
             handleActionListChange(mHomeLongPressAction, newValue,
                     Settings.System.KEY_HOME_LONG_PRESS_ACTION);
             return true;
@@ -464,11 +463,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 com.android.internal.R.integer.config_buttonBrightnessSettingDefault);
 
         Settings.System.putInt(context.getContentResolver(),
-                Settings.System.NAVIGATION_BAR_SHOW, enabled ? 1 : 0);
-
-        if (KeyDisabler.isSupported()) {
-            KeyDisabler.setActive(enabled);
-        }
+                Settings.System.DEV_FORCE_SHOW_NAVBAR, enabled ? 1 : 0);
+        KeyDisabler.setActive(enabled);
 
         /* Save/restore button timeouts to disable them in softkey mode */
         Editor editor = prefs.edit();
@@ -494,9 +490,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     private void updateDisableNavkeysOption() {
         boolean enabled = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.NAVIGATION_BAR_SHOW, 0) != 0;
+                Settings.System.DEV_FORCE_SHOW_NAVBAR, 0) != 0;
 
-        mEnableNavigationBar.setChecked(enabled);
+        mDisableNavigationKeys.setChecked(enabled);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
@@ -543,7 +539,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         writeDisableNavkeysOption(context, Settings.System.getInt(context.getContentResolver(),
-                Settings.System.NAVIGATION_BAR_SHOW, 0) != 0);
+                Settings.System.DEV_FORCE_SHOW_NAVBAR, 0) != 0);
     }
 
 
@@ -554,6 +550,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     ? (Utils.isTablet(getActivity()) ? 2 : 1) : 0;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
+		} else if (preference == mDisableNavigationKeys) {
+            writeDisableNavkeysOption(getActivity(), mDisableNavigationKeys.isChecked());
+            updateDisableNavkeysOption();
         } else if (preference == mPowerEndCall) {
             handleTogglePowerButtonEndsCallPreferenceClick();
             return true;
