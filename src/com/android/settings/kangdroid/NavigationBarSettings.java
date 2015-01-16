@@ -32,11 +32,11 @@ import android.widget.Toast;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class AnimationSettings extends SettingsPreferenceFragment {
+public class NavigationBarSettings extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.animation_settings);
+        addPreferencesFromResource(R.xml.kangdroid_nav_bar_settings);
     }
 }
