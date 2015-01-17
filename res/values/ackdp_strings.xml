@@ -29,6 +29,7 @@
     <string name="reset_kangdroid">KangDroid</string>
     <string name="more_string">More</string>
     <string name="colors_title">Colors</string>
+	<string name="color_title">Color</string>
     <string name="icons_title">Icons</string>
     <string name="text_title">Text</string>
     <string name="reset_message">Reset all entries to default?</string>
@@ -408,5 +409,16 @@
     <string name="expanded_header_show_weather_summary">Enable to show the weather</string>
     <string name="expanded_header_show_weather_location_title">Show location</string>
     <string name="expanded_header_show_weather_location_summary">Enable to show the location</string>
+	
+    <!-- Status bar signals icon settings  -->
+    <string name="status_bar_signal_settings_title">Mobile &amp; Wifi network icons</string>
+    <string name="status_bar_signal_settings_summary">Customize the status bar Mobile and Wifi network icons</string>
+    <string name="signal_wifi_show_activity_title">Show network activity</string>
+    <string name="signal_wifi_show_activity_summary">Enable to show the network activity</string>
+    <string name="cat_network_icons_title">Network icons</string>
+    <string name="cat_network_activity_icons_title">Activity icons</string>
+    <string name="cat_airplane_mode_icon_title">Airplane mode icon</string>
+    <string name="color_normal_title">Normal</string>
+    <string name="color_fully_title">Fully connected</string>
 
 </resources>
