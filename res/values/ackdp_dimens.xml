@@ -15,9 +15,6 @@
      limitations under the License.
 -->
 <resources>
-	<!-- Expanded Desktop: Port from CyanogenMod Gerrit -->
-    <dimen name="fab_line_width">2dp</dimen>
-	
     <!-- Gesture Anywhere -->
     <dimen name="ga_gesture_thumbnail_inset">8dip</dimen>
     <dimen name="ga_gesture_thumbnail_size">64dip</dimen>
