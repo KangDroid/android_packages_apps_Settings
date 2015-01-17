@@ -62,6 +62,7 @@
     <string name="text_title">Text</string>
     <string name="reset_message">Reset all entries to default?</string>
     <string name="reset_option_message">Reset values to\nAndroid- or Settings default?</string>   
+	<string name="category_colors_title">Customize colors</string>
 	
 
 	<!-- Volume Steps -->
@@ -131,9 +132,6 @@
     <string name="toast_Translucent_animation">Translucent Animation</string>
     <string name="toast_SlideLeftRight_animation">Slide Left To Right Animation</string>
     <string name="toast_SlideRightLeft_animation">Slide Right To Left Animation</string>
-    <!-- Status bar ticker -->
-    <string name="status_bar_ticker_title">Notification Ticker</string>
-    <string name="status_bar_ticker_summary">Notification text animation in the statusbar</string>
 	
     <!-- QuickSettings: Smart Pulldown -->
     <string name="smart_pulldown_title">Smart pulldown</string>
@@ -780,6 +778,23 @@
     <string name="animation_no_scroll_summary_on">Enabled</string>
     <string name="animation_no_scroll_summary_off">Disabled</string>
     <string name="scroll_disclaimer_summary">Note: Most apps need to be restarted for custom values to take effect</string>
-    <string name="animation_settings_reset_message">Reset all animation settings to default?</string>     
+    <string name="animation_settings_reset_message">Reset all animation settings to default?</string> 
+	
+    <!-- Status bar notifications and system icons -->
+    <string name="notif_system_icons_colorize_notif_icons_title">Colorize notification icons</string>
+    <!-- <string name="notif_system_icons_colorize_notif_icons_title_phone">Colorize notif. icons</string> -->
+    <string name="notif_system_icons_colorize_notif_icons_summary">Enable to colorize the notification icons color</string>
+    <string name="notif_system_icons_show_ticker_title">Notification ticker</string>
+    <string name="notif_system_icons_show_ticker_summary">Notification text animation in the statusbar</string>
+    <string name="notif_system_icons_show_count_title">Show notification count</string>
+    <string name="notif_system_icons_show_count_summary">Display the number of pending notifications</string>
+    <string name="notif_system_icons_icon_color_title">Icons</string>
+    <string name="notif_system_icons_notif_text_color_title">Ticker text</string>
+    <string name="notif_system_icons_count_icon_color_title">Notification count icon</string>
+    <string name="notif_system_icons_count_text_color_title">Notification count Text</string>
+
+    <string name="status_bar_notif_system_icons_settings_title">Notifications &amp; system icons</string>
+    <!-- <string name="status_bar_notif_system_icons_settings_title_phone">Notif. &amp; system icons</string> -->
+    <string name="status_bar_notif_system_icons_settings_summary">Customize the notifications &amp; system icons</string>    
 
 </resources>

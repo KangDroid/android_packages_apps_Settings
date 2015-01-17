@@ -104,13 +104,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBatteryShowPercent.setSummary(mStatusBarBatteryShowPercent.getEntry());
         enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
-
-        mTicker = (SwitchPreference) prefSet.findPreference(KEY_STATUS_BAR_TICKER);
-        final boolean tickerEnabled = systemUiResources.getBoolean(systemUiResources.getIdentifier(
-                    "com.android.systemui:bool/enable_ticker", null, null));
-        mTicker.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_TICKER_ENABLED, tickerEnabled ? 1 : 0) == 1);
-        mTicker.setOnPreferenceChangeListener(this);
 		
         //carrier Label
         mStatusBarCarrier = (SwitchPreference) findPreference(STATUS_BAR_CARRIER);
@@ -163,11 +156,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     resolver, Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, batteryShowPercent);
             mStatusBarBatteryShowPercent.setSummary(
                     mStatusBarBatteryShowPercent.getEntries()[index]);
-            return true;
-        } else if (preference == mTicker) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_TICKER_ENABLED,
-                    (Boolean) newValue ? 1 : 0);
             return true;
       }
         return false;
