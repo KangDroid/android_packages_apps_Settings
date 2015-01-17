@@ -27,6 +27,7 @@
 	<string name-"kangdroid_recents_category_title">Recents Settings</string>
     <string name="reset_android">Android</string>
     <string name="reset_kangdroid">KangDroid</string>
+	<string name="reset_bliss">KangDroid</string>
     <string name="more_string">More</string>
     <string name="colors_title">Colors</string>
 	<string name="color_title">Color</string>
@@ -35,6 +36,7 @@
     <string name="reset_message">Reset all entries to default?</string>
     <string name="reset_option_message">Reset values to\nAndroid- or Settings default?</string>  
 	<string name="category_colors_title">Customize colors</string> 
+	<string name="category_general_title">General options</string>
     
     <!-- ListView animation -->
     <string name="listview_category">ListView Animation</string>

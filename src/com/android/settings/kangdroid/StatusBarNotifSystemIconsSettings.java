@@ -31,7 +31,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.android.internal.util.bliss.DeviceUtils;
+import com.android.internal.util.crdroid.DeviceUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -286,7 +286,7 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
                             getOwner().refreshSettings();
                         }
                     })
-                    .setPositiveButton(R.string.reset_fusion,
+                    .setPositiveButton(R.string.reset_bliss,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
