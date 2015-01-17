@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.bliss;
+package com.android.settings.kangdroid;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
