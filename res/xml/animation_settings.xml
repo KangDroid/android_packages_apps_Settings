@@ -23,6 +23,12 @@
         android:key="aokp_animation"
         android:title="@string/aokp_animation_title"
         android:fragment="com.android.settings.crdroid.fragments.AnimationControls" />
+		
+    <PreferenceScreen
+        android:key="interface_animation_scroll"
+        android:fragment="com.android.settings.kangdroid.ScrollAnimationInterfaceSettings"
+        android:title="@string/scrolling_title"
+        android:summary="@string/scrolling_summary" />   
 
     <!-- ListView Animation -->
     <PreferenceScreen
