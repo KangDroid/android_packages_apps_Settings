@@ -27,7 +27,7 @@
 	<string name="date_settings_category">Date Settings</string>
 	<string name="main_clock_category_title">Main clock settings</string>
 	<string name="category_colors_title">Customize colors</string>
-	<string name="icon_customizations_category">Icon Settings</string>
+	<string name="icon_customizations_category">Various UI Settings</string>
 	
 	<!-- KangDroid Settings - Default -->
 	
@@ -272,6 +272,13 @@
 
     <string name="status_bar_notif_system_icons_settings_title">Notifications &amp; system icons</string>
     <!-- <string name="status_bar_notif_system_icons_settings_title_phone">Notif. &amp; system icons</string> -->
-    <string name="status_bar_notif_system_icons_settings_summary">Customize the notifications &amp; system icons</string>    
+    <string name="status_bar_notif_system_icons_settings_summary">Customize the notifications &amp; system icons</string>   
+	
+    <!-- Status bar Header -->
+    <string name="status_bar_expanded_header_settings_title">Status bar Header</string>
+    <string name="expanded_header_show_weather_title">Show weather</string>
+    <string name="expanded_header_show_weather_summary">Enable to show the weather</string>
+    <string name="expanded_header_show_weather_location_title">Show location</string>
+    <string name="expanded_header_show_weather_location_summary">Enable to show the location</string> 
 	
 </resources>
