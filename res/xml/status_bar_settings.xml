@@ -25,6 +25,12 @@
         android:title="@string/status_bar_clock"
 		android:summary="@string/status_bar_clock_title" />
 		
+         <PreferenceScreen
+            android:key="status_bar_signal_settings"
+            android:title="@string/status_bar_signal_settings_title"
+            android:summary="@string/status_bar_signal_settings_summary"
+            android:fragment="com.android.settings.kangdroid.StatusBarSignalSettings" />	  
+		
         <PreferenceScreen
             android:key="status_bar_expanded_header_settings"
             android:fragment="com.android.settings.kangdroid.StatusBarExpandedHeaderSettings"
