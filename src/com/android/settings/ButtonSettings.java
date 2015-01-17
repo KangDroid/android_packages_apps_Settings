@@ -347,6 +347,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (!backlight.isButtonSupported() && !backlight.isKeyboardSupported()) {
             prefScreen.removePreference(backlight);
         }
+		
+        String overflowButtonMode = Integer.toString(Settings.System.getInt(getContentResolver(),
+                Settings.System.UI_OVERFLOW_BUTTON, 2));
+        mOverflowButtonMode.setValue(overflowButtonMode);
+        mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntry());
+		
     }
 
     @Override
@@ -388,23 +394,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         int index = pref.findIndexOfValue(value);
         pref.setSummary(pref.getEntries()[index]);
         Settings.System.putInt(getContentResolver(), setting, Integer.valueOf(value));
-    }
-
-    private void updateNavBarSettings() {
-        boolean enableNavigationBar = Settings.System.getInt(getContentResolver(),
-                Settings.System.NAVIGATION_BAR_SHOW,
-                CrUtils.isNavBarDefault(getActivity()) ? 1 : 0) == 1;
-        mEnableNavigationBar.setChecked(enableNavigationBar);
-
-        String overflowButtonMode = Integer.toString(Settings.System.getInt(getContentResolver(),
-                Settings.System.UI_OVERFLOW_BUTTON, 2));
-        mOverflowButtonMode.setValue(overflowButtonMode);
-        mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntry());
-
-        updateNavbarPreferences(enableNavigationBar);
-    }
-
-    private void updateNavbarPreferences(boolean show) {
     }
 
     @Override
