@@ -432,8 +432,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         // Doze timeout
         if (mDozeTimeout != null) {
-            final int statusDozeTimeout = Settings.KDP.getInt(getContentResolver(),
-                    Settings.KDP.DOZE_TIMEOUT, 3000);
+            final int statusDozeTimeout = Settings.System.getInt(getContentResolver(),
+                    Settings.System.DOZE_TIMEOUT, 3000);
             // minimum 100 is 1 interval of the 100 multiplier
             mDozeTimeout.setInitValue((statusDozeTimeout / 100) - 1);
         }
@@ -652,8 +652,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         if (preference == mDozeTimeout) {
             int dozeTimeout = Integer.valueOf((String) objValue);
-            Settings.KDP.putInt(getContentResolver(),
-                    Settings.KDP.DOZE_TIMEOUT, dozeTimeout);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.DOZE_TIMEOUT, dozeTimeout);
         }
         return true;
     }
