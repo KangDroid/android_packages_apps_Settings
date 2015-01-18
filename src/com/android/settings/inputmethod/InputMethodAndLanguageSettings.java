@@ -174,9 +174,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
 
         mPointerSettingsCategory = (PreferenceCategory)findPreference("pointer_settings_category");
 
-        mHighTouchSensitivity = (SwitchPreference)
-                pointerSettingsCategory.findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
-		
+        mHighTouchSensitivity = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
         if (!isHighTouchSensitivitySupported()) {
             mPointerSettingsCategory.removePreference(mHighTouchSensitivity);
             mHighTouchSensitivity = null;
