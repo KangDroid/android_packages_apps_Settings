@@ -172,15 +172,21 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         mIm = (InputManager)activity.getSystemService(Context.INPUT_SERVICE);
         updateInputDevices();
 
-        mPointerSettingsCategory = (PreferenceCategory)findPreference("pointer_settings_category");
+        PreferenceCategory pointerSettingsCategory = (PreferenceCategory)
+                        findPreference(KEY_POINTER_SETTINGS_CATEGORY);
 
         mHighTouchSensitivity = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
-        if (!isHighTouchSensitivitySupported()) {
-            mPointerSettingsCategory.removePreference(mHighTouchSensitivity);
-            mHighTouchSensitivity = null;
-        } else {
-            mHighTouchSensitivity.setChecked(HighTouchSensitivity.isEnabled());
-        }
+        if (pointerSettingsCategory != null) {
+            if (!isHighTouchSensitivitySupported()) {
+                pointerSettingsCategory.removePreference(mHighTouchSensitivity);
+                mHighTouchSensitivity = null;
+            } else {
+                mHighTouchSensitivity.setChecked(HighTouchSensitivity.isEnabled());
+            }
+            if (pointerSettingsCategory.getPreferenceCount() == 0) {
+                getPreferenceScreen().removePreference(pointerSettingsCategory);
+            }
+		}
 
         // Enable or disable mStatusBarImeSwitcher based on boolean: config_show_cmIMESwitcher
         boolean showCmImeSwitcher = getResources().getBoolean(
