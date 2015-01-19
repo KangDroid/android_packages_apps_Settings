@@ -172,7 +172,8 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         mIm = (InputManager)activity.getSystemService(Context.INPUT_SERVICE);
         updateInputDevices();
 
-        mPointerSettingsCategory = (PreferenceCategory)findPreference("pointer_settings_category");
+    PreferenceCategory pointerSettingsCategory = (PreferenceCategory)
+                    findPreference(KEY_POINTER_SETTINGS_CATEGORY);
         mHighTouchSensitivity = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
 
         if (pointerSettingsCategory != null) {
