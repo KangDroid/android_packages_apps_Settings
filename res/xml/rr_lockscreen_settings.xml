@@ -28,6 +28,11 @@
              <extra android:name="fragment" android:value="com.android.settings.slim.LockscreenShortcut" />
       </PreferenceScreen>
 	  
+        <PreferenceScreen
+            android:key="lockscreen_shortcuts_settings"
+            android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
+            android:title="@string/lockscreen_targets_message" />
+	  
         <!-- Disable camera swipe -->
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="camera_widget_hide"
