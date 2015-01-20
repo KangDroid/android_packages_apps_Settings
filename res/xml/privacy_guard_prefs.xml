@@ -17,6 +17,12 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="privacy_guard_notification"
+        android:title="@string/privacy_guard_notification_title"
+        android:summary="@string/privacy_guard_notifiation_summary"
+        android:defaultValue="true"/>
+
     <SwitchPreference
         android:key="privacy_guard_default"
         android:title="@string/privacy_guard_default_title"
