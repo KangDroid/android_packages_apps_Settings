@@ -18,12 +18,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 	
-        <!-- Pie control -->
-        <PreferenceScreen
-            android:key="pie_settings"
-            android:fragment="com.android.settings.kangdroid.PieControl"
-            android:title="@string/pie_control_title" />
-	
     <PreferenceScreen
         android:key="navigation_ring"
         android:fragment="com.android.settings.cyanogenmod.NavRing"
