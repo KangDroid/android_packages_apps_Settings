@@ -44,6 +44,7 @@ import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
@@ -100,6 +101,8 @@ import java.util.Locale;
 
 public final class Utils {
 private static final String TAG = "Settings";
+
+    public static final String SYSTEM_UI_PACKAGE_NAME = "com.android.systemui";
 
     /**
      * Set the preference's title to the matching activity's label.
@@ -1093,7 +1096,6 @@ private static final String TAG = "Settings";
         return isPackageInstalled(context, pkg, true);
     }
 
-
     /**
      * Locks the activity orientation to the current device orientation
      * @param activity
@@ -1125,6 +1127,18 @@ private static final String TAG = "Settings";
                 break;
         }
         activity.setRequestedOrientation(frozenRotation);
+	}
+	
+    public static Drawable getNamedDrawableFromSystemUI(Resources res, String name) {
+        if (res == null) {
+            return null;
+        }
+        int resId = res.getIdentifier(name, "drawable", SYSTEM_UI_PACKAGE_NAME);
+        if (resId > 0) {
+            Drawable d = res.getDrawable(resId);
+            return d;
+        }
+        return null;
     }
 
 }
