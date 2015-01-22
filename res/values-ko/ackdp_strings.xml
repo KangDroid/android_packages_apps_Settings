@@ -208,7 +208,7 @@
 
     <!-- Search Bar Switcher -->
     <string name="recents_show_searchbar">Show Search Bar in Recents</string>
-    <string name="recents_show_searchbar_summary">구글 검색 바를 '최근 앱' 창에 표시합니다.</string>
+    <string name="recents_show_searchbar_summary">구글 검색 바를 \'최근 앱\' 창에 표시합니다.</string>
 
     <!-- Lock Gesture settings -->
     <!-- Security & location settings screen, setting option name -->
@@ -345,7 +345,7 @@
     <string name="wakelock_list_header">사용 가능한 WakeLock</string>
     <string name="wakelock_blocker_reload">새로고침</string>
     <string name="wakelock_blocker_warning_title">Proceed with caution</string>
-    <string name="wakelock_blocker_warning">이 기능을 사용함으로써 어플리케이션 데이타가 사라질수 있습니다. 조심있게 사용하세요.<string>
+    <string name="wakelock_blocker_warning">이 기능을 사용함으로써 어플리케이션 데이타가 사라질수 있습니다. 조심있게 사용하세요.</string>
 	  
    <!--Back to kill timeout -->
     <string name="long_press_kill_delay">App kill delay</string>
@@ -611,7 +611,7 @@
 
     <!-- Change Log strings -->
     <string name="changelog_title">체인지로그 보기</string>
-    <string name="changelog_loading">체인지로그 가져오는중..<string>
+    <string name="changelog_loading">체인지로그 가져오는중..</string>
     <string name="changelog_error">체인지로그를 가져오지 못합니다</string>
     <string name="changelog_unknown">모름</string>
     <string name="changelog_version">버전</string>
