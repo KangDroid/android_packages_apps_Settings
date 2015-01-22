@@ -1048,22 +1048,6 @@
     <string name="heads_up_disabled_notice">To allow applications to display interactive notifications in a pop-up window on your screen, enable Heads up.</string>
     <string name="heads_up_swype_summary">Swype notification to hide</string>
     <string name="heads_up_swype_title">Disable to delete notifications instead of hiding</string>
-	
-    <!-- SpinnerBar -->
-    <string name="spinner_inflated_text"></string>
-
-    <string name="power_menu_expanded_desktop">Expanded desktop</string>
-    <string name="expanded_hide_nothing">Hide nothing</string>
-    <string name="expanded_hide_status">Hide statusbar</string>
-    <string name="expanded_hide_navigation">Hide navigation</string>
-    <string name="expanded_hide_both">Hide both</string>
-    <string name="expanded_nothing_to_show">To add a custom per-app configuration for expanded state, switch to "User Configuration"</string>
-    <string name="expanded_close">X</string>
-
-    <string name="expanded_desktop_state">Expanded state</string>
-    <string name="expanded_disabled_for_all">Disabled for all</string>
-    <string name="expanded_enabled_for_all">Enabled for all</string>
-    <string name="expanded_user_configurable">User configurable</string>
 
     <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
     <string name="regulatory_information_dialog_title">@string/regulatory_information</string>
