@@ -52,39 +52,43 @@ public class QSTileHolder {
                 break;
             case QSConstants.TILE_WIFI:
                 resourceName = "ic_qs_wifi_full_4";
-                stringId = R.string.wifi_quick_toggle_title;
+                stringId = R.string.qs_tile_wifi;
                 break;
             case QSConstants.TILE_BLUETOOTH:
                 resourceName = "ic_qs_bluetooth_on";
-                stringId = R.string.bluetooth_settings_title;
+                stringId = R.string.qs_tile_bluetooth;
                 break;
             case QSConstants.TILE_INVERSION:
                 resourceName = "ic_invert_colors_disable";
-                stringId = R.string.accessibility_display_inversion_preference_title;
+                stringId = R.string.qs_tile_display_inversion;
                 break;
             case QSConstants.TILE_CELLULAR:
                 resourceName = "ic_qs_signal_full_4";
-                stringId = R.string.cellular_data_title;
+                stringId = R.string.qs_tile_cellular_data;
                 break;
             case QSConstants.TILE_AIRPLANE:
                 resourceName = "ic_signal_airplane_disable";
-                stringId = R.string.airplane_mode;
+                stringId = R.string.qs_tile_airplane_mode;
                 break;
             case QSConstants.TILE_ROTATION:
                 resourceName = "ic_portrait_to_auto_rotate";
-                stringId = R.string.display_rotation_title;
+                stringId = R.string.qs_tile_display_rotation;
                 break;
             case QSConstants.TILE_FLASHLIGHT:
                 resourceName = "ic_signal_flashlight_disable";
-                stringId = R.string.power_flashlight;
+                stringId = R.string.qs_tile_flashlight;
                 break;
             case QSConstants.TILE_LOCATION:
                 resourceName = "ic_qs_location_on";
-                stringId = R.string.location_title;
+                stringId = R.string.qs_tile_location;
                 break;
             case QSConstants.TILE_CAST:
                 resourceName = "ic_qs_cast_on";
-                stringId = R.string.cast_screen;
+                stringId = R.string.qs_tile_cast_screen;
+                break;
+            case QSConstants.TILE_HOTSPOT:
+                resourceName = "ic_hotspot_disable";
+                stringId = R.string.qs_tile_hotspot;
                 break;
             case QSConstants.TILE_USB_TETHER:
                 resourceName = "ic_qs_usb_tether_on";
@@ -92,19 +96,19 @@ public class QSTileHolder {
                 break;
             case QSConstants.TILE_PROFILES:
                 resourceName = "ic_qs_system_profiles";
-                stringId = R.string.qs_title_profiles;
+                stringId = R.string.qs_tile_profiles;
                 break;
             case QSConstants.TILE_PERFORMANCE:
                 resourceName = "ic_qs_perf_profile_highperf_avd";
-                stringId = R.string.qs_title_performance;
+                stringId = R.string.qs_tile_performance;
                 break;
             case QSConstants.TILE_NFC:
                 resourceName = "ic_qs_nfc_on";
-                stringId = R.string.qs_title_nfc;
+                stringId = R.string.qs_tile_nfc;
                 break;
             case QSConstants.TILE_COMPASS:
                 resourceName = "ic_qs_compass_on";
-                stringId = R.string.qs_title_compass;
+                stringId = R.string.qs_tile_compass;
                 break;
             default:
                 return null;
