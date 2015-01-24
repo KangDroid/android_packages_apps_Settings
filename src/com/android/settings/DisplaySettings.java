@@ -174,8 +174,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
         int defaultDensity = DisplayMetrics.DENSITY_DEVICE;
-        String[] densityEntries = new String[15];
-        for (int idx = 0; idx < 15; ++idx) {
+        String[] densityEntries = new String[7];
+        for (int idx = 0; idx < 7; ++idx) {
             int pct = (75 + idx*5);
             densityEntries[idx] = Integer.toString(defaultDensity * pct / 100);
         }
