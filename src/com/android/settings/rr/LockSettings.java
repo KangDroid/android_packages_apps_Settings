@@ -47,6 +47,8 @@ public class LockSettings extends SettingsPreferenceFragment {
 	private PreferenceScreen mLockScreen;
 	private SwitchPreference mDialerWidgetHide;
 	private SwitchPreference mLockscreenWeather;
+	
+	private Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,7 @@ public class LockSettings extends SettingsPreferenceFragment {
         PreferenceScreen prefSet = getPreferenceScreen();
         PackageManager pm = getPackageManager();
         Resources res = getResources();
+		mContext = getActivity();
 
 		mLockScreen = (PreferenceScreen) findPreference("kangdroid_lockscreen_settings");
 		
@@ -74,7 +77,7 @@ public class LockSettings extends SettingsPreferenceFragment {
 
         // Dialer widget hide
         mDialerWidgetHide = (SwitchPreference) findPreference("dialer_widget_hide");
-        if (!Utils.isVoiceCapable(getActivity())){
+        if ((!Utils.isVoiceCapable(mContext) || Utils.isWifiOnly(mContext))) {
             mLockScreen.removePreference(mDialerWidgetHide);
         }
 		
