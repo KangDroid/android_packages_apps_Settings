@@ -46,6 +46,7 @@ public class LockSettings extends SettingsPreferenceFragment {
 	private SwitchPreference mCameraWidgetHide;
 	private PreferenceScreen mLockScreen;
 	private SwitchPreference mDialerWidgetHide;
+	private SwitchPreference mLockscreenWeather;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,12 @@ public class LockSettings extends SettingsPreferenceFragment {
             mLockScreen.removePreference(mDialerWidgetHide);
         }
 		
+        // Lockscreen weather
+        mLockscreenWeather = (SwitchPreference) findPreference(KEY_LOCKSCREEN_WEATHER);
+        mLockscreenWeather.setChecked(Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_WEATHER, 1, UserHandle.USER_CURRENT) == 1);
+        mLockscreenWeather.setOnPreferenceChangeListener(this);
+		
     }
 
     @Override
@@ -94,6 +101,12 @@ public class LockSettings extends SettingsPreferenceFragment {
 
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+		if (preference == mLockscreenWeather) {
+        boolean value = (Boolean) objValue;
+        Settings.System.putIntForUser(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_WEATHER, value ? 1 : 0, UserHandle.USER_CURRENT);
+        Helpers.restartSystem();
+	}
         return false;
     }
 

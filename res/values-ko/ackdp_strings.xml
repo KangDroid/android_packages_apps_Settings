@@ -747,4 +747,8 @@
     <!-- Privacy guard notification -->
     <string name="privacy_guard_notification_title">알림</string>
     <string name="privacy_guard_notifiation_summary">Privacy Guard가 활성화되있으면 알림을 표시합니다</string>
+	
+    <!-- Lockscreen weather -->
+    <string name="lockscreen_weather_title">잠금화면 날씨</string>
+    <string name="lockscreen_weather_summary">SystemUI 가 재부팅됩니다!</string>
 </resources>
