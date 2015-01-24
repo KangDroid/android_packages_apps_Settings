@@ -751,4 +751,7 @@
     <!-- Lockscreen weather -->
     <string name="lockscreen_weather_title">잠금화면 날씨</string>
     <string name="lockscreen_weather_summary">SystemUI 가 재부팅됩니다!</string>
+	
+	<!-- Bug List -->
+	<string name="buglist_title">버그 목록</string>
 </resources>

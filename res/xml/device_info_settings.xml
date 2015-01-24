@@ -36,6 +36,15 @@
                     android:targetPackage="@string/additional_system_update"
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen>
+
+        <!-- Device status - launches activity -->
+        <PreferenceScreen android:key="status_info"
+                android:title="@string/device_status" 
+                android:summary="@string/device_status_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.deviceinfo.Status" />
+        </PreferenceScreen>
 		
         <!-- Liquid Extra Info -->
         <PreferenceScreen android:key="extrainfo"
@@ -45,14 +54,17 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.liquid.extrainfo.MainActivity" />
         </PreferenceScreen>
-
-        <!-- Device status - launches activity -->
-        <PreferenceScreen android:key="status_info"
-                android:title="@string/device_status" 
-                android:summary="@string/device_status_summary">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.deviceinfo.Status" />
+		
+        <!-- Change Log -->
+        <PreferenceScreen android:key="changelog"
+            android:title="@string/changelog_title"
+            android:fragment="com.android.settings.kangdroid.ChangeLog" >
+        </PreferenceScreen>
+		
+        <!-- Bug List -->
+        <PreferenceScreen android:key="buglist"
+            android:title="@string/buglist_title"
+            android:fragment="com.android.settings.kangdroid.BugList" >
         </PreferenceScreen>
 
         <!-- Contributors cloud -->
@@ -131,12 +143,6 @@
 			android:summary="@string/kangdroid_bugreport_summary"
 			android:onClick="sendBugReport">
 		</PreferenceScreen>
-			
-        <!-- Change Log -->
-        <PreferenceScreen android:key="changelog"
-            android:title="@string/changelog_title"
-            android:fragment="com.android.settings.kangdroid.ChangeLog" >
-        </PreferenceScreen>
 
         <!-- Device hardware model -->
         <Preference android:key="device_model" 
