@@ -24,5 +24,4 @@
     <dimen name="navbar_search_outerring_radius">170dp</dimen>
     <!-- Diameter of outer shape drawable shown in navbar search-->
     <dimen name="navbar_search_outerring_diameter">340dp</dimen>
-    <dimen name="fab_line_width">2dp</dimen>
 </resources>
