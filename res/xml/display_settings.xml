@@ -60,11 +60,11 @@
 		                android:key="expanded_desktop"
 		                android:title="@string/power_menu_expanded_desktop"
 		                android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
-				
-        <ListPreference
-                android:key="lcd_density"
-                android:title="@string/lcd_density"
-                android:summary="@string/lcd_density_summary"
+
+        <SwitchPreference
+                android:key="doze"
+                android:title="@string/doze_title"
+                android:summary="@string/doze_summary"
                 android:persistent="false" />
 
         <com.android.settings.FontDialogPreference
@@ -162,10 +162,5 @@
                 android:targetPackage="com.android.settings"
                 android:targetClass="com.android.settings.ScreenColorSettings" />
          </PreferenceScreen>
-
-        <PreferenceScreen
-                android:key="expanded_desktop"
-                android:title="@string/power_menu_expanded_desktop"
-                android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
 
 </PreferenceScreen>
