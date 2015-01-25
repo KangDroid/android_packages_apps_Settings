@@ -507,4 +507,8 @@
     <string name="navigation_menu_always_show">Always show</string>
     <string name="title_pref_menu_display">Menu visibility</string>
     <string name="summary_pref_menu_display">How and when do you want the menu buttons to appear?</string>
+	
+    <!-- Text for forcing expanded notifications -->
+    <string name="disable_fc_notifications_title">Diable FC Notifications</string>
+    <string name="disable_fc_notifications_summary">This will hide all force close notificaitons</string>
 </resources>
