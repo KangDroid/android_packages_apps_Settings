@@ -40,10 +40,6 @@ import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.rr.util.CMDProcessor;
-import com.android.settings.rr.util.CommandResult;
-import com.android.settings.rr.util.Helpers;
-import com.android.settings.rr.util.AbstractAsyncSuCMDProcessor;
 
 public class Density extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -199,16 +195,21 @@ public class Density extends SettingsPreferenceFragment implements
     }
 
     private boolean setLcdDensity(int newDensity) {
-        Helpers.getMount("rw");
-        if (!CMDProcessor.runSuCommand(
-        "busybox sed -i 's|persist.sys.lcd_density=.*|" + "persist.sys.lcd_density" + "=" + newDensity + "|' " + "/system/build.prop")
-        .success()) 
-        {
-            showRootDeniedInfoDialog();
-            return false;
+        try {
+            SystemProperties.set("persist.sys.lcd_density", Integer.toString(newDensity));
         }
-        Helpers.getMount("ro");
-        return true;
+        catch (Exception e) {
+            Log.w(TAG, "Unable to save LCD density");
+        }
+        try {
+            final IActivityManager am = ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
+            if (am != null) {
+                am.restart();
+            }
+        }
+        catch (RemoteException e) {
+            Log.e(TAG, "Failed to restart");
+        }
     }
 
     private void showRootDeniedInfoDialog() {
