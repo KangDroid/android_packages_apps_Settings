@@ -67,6 +67,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String DISABLE_NAV_KEYS = "disable_nav_keys";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
+    private static final String KEY_BLUETOOTH_INPUT_SETTINGS = "bluetooth_input_settings";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -352,7 +353,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 Settings.System.UI_OVERFLOW_BUTTON, 2));
         mOverflowButtonMode.setValue(overflowButtonMode);
         mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntry());
-		
+
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_BLUETOOTH_INPUT_SETTINGS);
     }
 
     @Override
