@@ -200,7 +200,7 @@ public class Density extends SettingsPreferenceFragment implements
 
     private boolean setLcdDensity(int newDensity) {
         try {
-            SystemProperties.set("persist.sys.lcd_density", Integer.toString(newDensity));
+           SystemProperties.set("persist.sys.lcd_density", Integer.toString(newDensity));
         }
         catch (Exception e) {
             Log.w(TAG, "Unable to save LCD density");
