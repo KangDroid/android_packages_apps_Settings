@@ -21,6 +21,7 @@ import android.app.Dialog;
 import android.app.IActivityManager;
 import android.os.ServiceManager;
 import android.os.RemoteException;
+import android.app.ActivityManagerNative;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
