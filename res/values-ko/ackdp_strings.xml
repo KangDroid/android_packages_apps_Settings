@@ -779,5 +779,9 @@
     <!-- QuickSettings collapse panel -->
     <string name="quick_settings_collapse_title">자동으로 패널 닫기</string>
     <string name="quick_settings_collapse_summary">토글이 눌렸을시 바로 패널을 닫습니다</string>
+	
+    <!-- Text for forcing expanded notifications -->
+    <string name="disable_fc_notifications_title">FC알림 숨기기</string>
+    <string name="disable_fc_notifications_summary">강제종료 알림을 숨깁니다</string>
 
 </resources>
