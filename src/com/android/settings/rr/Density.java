@@ -214,6 +214,8 @@ public class Density extends SettingsPreferenceFragment implements
         catch (RemoteException e) {
             Log.e(TAG, "Failed to restart");
         }
+		
+		return true;
     }
 
     private void showRootDeniedInfoDialog() {
