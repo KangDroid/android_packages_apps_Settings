@@ -124,7 +124,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
 
 		// KangDroid Bug Report
-		mBugReport = findPreference("sendbugreport_kangdroid")
+		mBugReport = findPreference("sendbugreport_kangdroid");
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);

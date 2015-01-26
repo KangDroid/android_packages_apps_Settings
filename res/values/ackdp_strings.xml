@@ -874,4 +874,6 @@
 	
 	<!-- Bug List -->
 	<string name="buglist_title">Bug List</string>
+	
+	<string name="custom_density_dialog_button_reboot">Reboot now</string>
 </resources>
