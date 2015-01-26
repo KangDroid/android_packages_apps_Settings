@@ -783,5 +783,9 @@
     <!-- Text for forcing expanded notifications -->
     <string name="disable_fc_notifications_title">FC알림 숨기기</string>
     <string name="disable_fc_notifications_summary">강제종료 알림을 숨깁니다</string>
+	
+    <string name="qs_screentimeout_tile">화면 잠금 제한 시간</string>
+    <string name="qs_screentimeout_mode_title">화면 잠금 제한시간 모드</string>
+
 
 </resources>
