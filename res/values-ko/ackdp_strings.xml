@@ -754,4 +754,25 @@
 	
 	<!-- Bug List -->
 	<string name="buglist_title">버그 목록</string>
+	
+    <!-- Density changer -->
+    <string name="dpi">DPI</string>
+    <string name="su_dialog_error_title">경고</string>
+    <string name="su_dialog_error_message">에러가 발생하였습니다.\n\n루트 권한이 있는지 확인하세요. 루트권한을 활성화 시키려면 KDP롬에서 개발자 옵션에서 설정하세요.</string>
+    <string name="lcd_density_title">LCD DPI</string>
+    <string name="lcd_density_category">옵션</string>
+    <string name="follow_through_summary">LCD DPI를 바꾸는것은 가끔씩 앱들이 작동을 잘 안하거나 플레이스토어에서 이 기기에 지원이 안되는 앱을 보여줄수도 있습니다</string>
+    <string name="stock_density_title">순정 값에서 바꾸기</string>
+    <string name="stock_density_summary">태블릿 PC는 160 dpi를 쓰고 하이엔드 기기는 320 or 480 dpi를 씁니다. 옛날 기종은 240 dpi를 씁니다.</string>
+    <string name="stock_density_changed_summary">"DPI Set To: "</string>
+    <string name="reboot_title">재부팅</string>
+    <string name="reboot_summary">어차피 알아서 재부팅 될태니 패스 ㄱㄱ</string>
+    <string name="custom_density_title">자기가 원하는 값으로 바꾸기</string>
+    <string name="custom_density_summary_invalid">"지원되지 않는 DPI!"</string>
+    <string name="custom_density">커스텀</string>
+    <string name="set_custom_density_title">커스텀 DPI 설정</string>
+    <string name="set_custom_density_set">설정하기</string>
+    <string name="custom_density_dialog_title">경고!</string>
+    <string name="custom_density_dialog_summary">LCD DPI를 바꿀때 특정한 앱의 기능이나 앱 전체가 작동하지 않을수도 있습니다. DPI를 바꾸는데로 기기는 자동적으로 리부팅이 됩니다. (Soft Reboot)</string>
+    <string name="custom_density_dialog_button_got">OK!</string>
 </resources>

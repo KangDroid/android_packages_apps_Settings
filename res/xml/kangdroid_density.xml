@@ -27,9 +27,4 @@
         android:key="lcd_density"
         android:title="@string/custom_density_title" />
 
-    <Preference
-        android:key="reboot"
-        android:title="@string/reboot_title"
-        android:summary="@string/reboot_summary" />
-
 </PreferenceScreen>

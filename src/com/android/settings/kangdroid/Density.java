@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.rr;
+package com.android.settings.kangdroid;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -51,7 +51,6 @@ public class Density extends SettingsPreferenceFragment implements
     private static final String TAG = "Density";
 
     ListPreference mStockDensity;
-    Preference mReboot;
     ListPreference mCustomDensity;
 
     private static final int DIALOG_DENSITY = 101;
@@ -64,7 +63,7 @@ public class Density extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.density);
+        addPreferencesFromResource(R.xml.kangdroid_density);
 
         mContext = getActivity().getApplicationContext();
 
@@ -73,8 +72,6 @@ public class Density extends SettingsPreferenceFragment implements
 
         mStockDensity = (ListPreference) findPreference("stock_density");
         mStockDensity.setOnPreferenceChangeListener(this);
-
-        mReboot = findPreference("reboot");
 
         mCustomDensity = (ListPreference) findPreference("lcd_density");
         mCustomDensity.setOnPreferenceChangeListener(this);
@@ -92,14 +89,6 @@ public class Density extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mReboot) {
-            PowerManager pm = (PowerManager) getActivity()
-                    .getSystemService(Context.POWER_SERVICE);
-            pm.reboot("Resetting density");
-            return true;
-
-        }
-
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 

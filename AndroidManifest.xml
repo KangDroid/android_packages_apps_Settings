@@ -643,7 +643,7 @@
                 android:value="true" />
         </activity>
         
-        <activity android:name=".rr.Density" />
+        <activity android:name=".kangdroid.Density" />
         
         <activity android:name="Settings$HomeSettingsActivity"
                 android:label="@string/home_settings"
