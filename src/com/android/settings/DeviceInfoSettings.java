@@ -58,6 +58,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Calendar;
+import java.util.HashMap;
 
 public class DeviceInfoSettings extends SettingsPreferenceFragment implements Indexable {
 
@@ -99,6 +101,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     long[] mHits = new long[3];
     int mDevHitCountdown;
     Toast mDevHitToast;
+	Preference mBugReport;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -119,6 +122,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_MOD_VERSION, "ro.cm.display.version");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
+
+		// KangDroid Bug Report
+		mBugReport = findPreference("sendbugreport_kangdroid")
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
@@ -220,6 +226,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+		String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
         if (preference.getKey().equals(KEY_FIRMWARE_VERSION)) {
             System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
             mHits[mHits.length-1] = SystemClock.uptimeMillis();
@@ -233,6 +240,17 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
             }
+		} else if (preference == mBugReport) {
+			// Sort out damn BugReport Section
+            Intent it= new Intent(Intent.ACTION_SEND);
+            String[] mailaddr = {"kangdroid@naver.com"};
+
+            it.setType("plaine/text");
+            it.putExtra(Intent.EXTRA_EMAIL, mailaddr);
+            it.putExtra(Intent.EXTRA_SUBJECT, "[BugReport]" + mydate);
+            it.putExtra(Intent.EXTRA_TEXT, "\n\n" + "KDP Version=" + KEY_KDP_VERSION + "\n\n" + "Please Write a Bug and Send.");
+
+            startActivity(it);
 		} else if (preference.getKey().equals(KEY_KDP_VERSION)) {
 	            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
 	            mHits[mHits.length-1] = SystemClock.uptimeMillis();
