@@ -876,4 +876,8 @@
 	<string name="buglist_title">Bug List</string>
 	
 	<string name="custom_density_dialog_button_reboot">Reboot now</string>
+	
+    <!-- QuickSettings collapse panel -->
+    <string name="quick_settings_collapse_title">Auto close panel</string>
+    <string name="quick_settings_collapse_summary">Close the Quick Settings panel upon toggle</string>
 </resources>
