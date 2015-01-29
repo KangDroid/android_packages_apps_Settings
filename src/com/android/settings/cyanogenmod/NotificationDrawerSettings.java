@@ -38,12 +38,10 @@ import java.util.Locale;
 public class NotificationDrawerSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
     private static final String PRE_QUICK_PULLDOWN = "quick_pulldown";
 	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
-	private static final String PREF_QS_SCREENTIMEOUT_MODE = "qs_expanded_screentimeout_mode";
 	
     private Preference mQSTiles;
     ListPreference mQuickPulldown;
 	private ListPreference mSmartPulldown;
-	private ListPreference mScreenTimeoutMode;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -78,12 +76,6 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             mQuickPulldown.setValue(String.valueOf(statusQuickPulldown));
             updateQuickPulldownSummary(statusQuickPulldown);
         }
-		
-	// Screen timeout mode
-        mScreenTimeoutMode = (ListPreference) prefs.findPreference(PREF_QS_SCREENTIMEOUT_MODE);
-        mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntry());
-        mScreenTimeoutMode.setOnPreferenceChangeListener(this);
-		
     }
 
     @Override
@@ -102,14 +94,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 		                     Settings.System.QS_SMART_PULLDOWN,
 		                     smartPulldown);
 		             updateSmartPulldownSummary(smartPulldown);
-		             return true;					 
-				 } else if (preference == mScreenTimeoutMode) {
-					 int value = Integer.valueOf((String) newValue);
-					 int index = mScreenTimeoutMode.findIndexOfValue((String) newValue);
-					 Settings.System.putInt(getContentResolver(),
-						 Settings.System.QS_EXPANDED_SCREENTIMEOUT_MODE, value);
-					 mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntries()[index]);
-					 return true;
+		             return true;
 		 		} else if (preference == mQuickPulldown) {
 		             int statusQuickPulldown = Integer.valueOf((String) newValue);
 		             Settings.System.putInt(getContentResolver(),

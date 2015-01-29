@@ -30,6 +30,24 @@
         android:entries="@array/smart_pulldown_entries"
         android:entryValues="@array/smart_pulldown_values"
         android:persistent="false" />
+		
+         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="quick_settings_collapse_panel"
+            android:title="@string/quick_settings_collapse_title"
+            android:summary="@string/quick_settings_collapse_summary"
+            android:defaultValue="false"/>
+			
+	        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+	            android:key="qs_wifi_detail"
+	            android:title="@string/qs_wifi_detail_title"
+	            android:summary="@string/qs_wifi_detail_summary"
+	            android:defaultValue="false" />
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="status_bar_show_weather"
+        android:title="@string/status_bar_show_weather_title"
+        android:summary="@string/status_bar_show_weather_summary"
+        android:defaultValue="true" />
 
     <PreferenceCategory
         android:title="@string/qs_category_title">
@@ -39,31 +57,12 @@
             android:title="@string/qs_order_title"
             android:fragment="com.android.settings.cyanogenmod.qs.QSTiles" />
 
-			<ListPreference
-		            android:key="qs_expanded_screentimeout_mode"
-		            android:dialogTitle="@string/qs_screentimeout_mode_title"
-		            android:title="@string/qs_screentimeout_mode_title"
-		            android:entries="@array/entries_screentimeout_widget"
-		            android:entryValues="@array/values_screentimeout_widget" />
-
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="sysui_qs_main_tiles"
             android:title="@string/qs_main_tiles_title"
             android:summaryOn="@string/qs_main_tiles_summary_on"
             android:summaryOff="@string/qs_main_tiles_summary_off"
             android:defaultValue="true" />
-			
-            <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-               android:key="quick_settings_collapse_panel"
-               android:title="@string/quick_settings_collapse_title"
-               android:summary="@string/quick_settings_collapse_summary"
-               android:defaultValue="false"/>
-			
-   	        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-   	            android:key="qs_wifi_detail"
-   	            android:title="@string/qs_wifi_detail_title"
-   	            android:summary="@string/qs_wifi_detail_summary"
-   	            android:defaultValue="false" />
 
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="qs_show_brightness_slider"
