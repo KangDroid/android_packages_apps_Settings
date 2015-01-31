@@ -31,6 +31,9 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 
 import android.util.Log;
 import android.view.IWindowManager;
@@ -50,6 +53,11 @@ import com.android.internal.util.crdroid.CrUtils;
 import android.widget.Toast;
 
 import org.cyanogenmod.hardware.KeyDisabler;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -71,7 +79,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_ENABLE_NAVIGATION_BAR = "enable_nav_bar";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
-    private static final String KEY_BLUETOOTH_INPUT_SETTINGS = "bluetooth_input_settings";
 	private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
 
     private static final String CATEGORY_POWER = "power_key";
@@ -83,7 +90,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_CAMERA = "camera_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
-    private static final String CATEGORY_NAVBAR = "navigation_bar";
+    private static final String CATEGORY_NAVBAR = "navigation_bar_category";
 
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
@@ -332,7 +339,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, 0);
             mSwapVolumeButtons = (SwitchPreference)
                     prefScreen.findPreference(KEY_SWAP_VOLUME_BUTTONS);
-            mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
+            if (mSwapVolumeButtons != null) {
+               mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
+            }
         } else {
             prefScreen.removePreference(volumeCategory);
         }
@@ -348,9 +357,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 Settings.System.UI_OVERFLOW_BUTTON, 2));
         mOverflowButtonMode.setValue(overflowButtonMode);
         mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntry());
-
-        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
-                getPreferenceScreen(), KEY_BLUETOOTH_INPUT_SETTINGS);
 				
         updateDisableNavkeysOption();
         updateNavBarSettings();
@@ -388,6 +394,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     private ListPreference initActionList(String key, int value) {
         ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
+        if (list == null) return null;
         list.setValue(Integer.toString(value));
         list.setSummary(list.getEntry());
         list.setOnPreferenceChangeListener(this);
@@ -605,4 +612,5 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                         ? Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
                         : Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
     }
+
 }
