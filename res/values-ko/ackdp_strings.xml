@@ -783,5 +783,28 @@
     <!-- Text for forcing expanded notifications -->
     <string name="disable_fc_notifications_title">FC알림 숨기기</string>
     <string name="disable_fc_notifications_summary">강제종료 알림을 숨깁니다</string>
+	
+    <!-- Navigation bar -->
+    <string name="navbar_enable_bar_title">네비게이션 바를 활성화 합니다</string>
+    <string name="navbar_enable_bar_summary">네비게이션 바를 활성화하고 하드웨어 키를 비활성화 합니다</string>
+    <string name="navbar_style_dimen_title">네비게이션 바 DPI</string>
+    <string name="navbar_dimensions_reset_message">DPI 를 기본값으로 초기화 시킬까요?</string>
+    <string name="navigation_bar_height_title">네비게이션 바 높이</string>
+    <string name="navigation_bar_height_summary">기기가 세로로 있을때 네비게이션 바의 높이를 수정합니다</string>
+    <string name="navigation_bar_width_title">네비게이션 바 폭</string>
+    <string name="navigation_bar_width_summary">기기가 회전(가로) 되있을때 네비게이션 바의 높이를 수정합니다</string>
+    <string name="navigation_bar_size_42_dp_default">42 dp (기본)</string>
+    <string name="navigation_bar_size_36_dp">36 dp</string>
+    <string name="navigation_bar_size_30_dp">30 dp</string>
+    <string name="navigation_bar_size_24_dp">24 dp</string>
+    <string name="navigation_bar_size_48_dp_default">48 dp (기본)</string>
+    <string name="navigation_bar_size_44_dp">44 dp</string>
+    <string name="navigation_bar_size_40_dp">40 dp</string>
+    <string name="navigation_bar_size_42_dp">42 dp</string>
+    <string name="navigation_bar_size_0_dp">0 dp (비활성화)</string>
+	<string name="category_nav_dpi_title">네비게이션 바 DPI 설정</string>
+	<string name="category_pie_title">PIE 설정</string>
+	<string name="category_ringandcuston_title">네비게이션 바 링 &amp; 바 설정</string>
+	<string name="category_misc_navbar_title">더 많은 네비게이션 바 설정</string>
 
 </resources>
