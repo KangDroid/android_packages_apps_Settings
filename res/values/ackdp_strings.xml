@@ -514,4 +514,7 @@
 	
     <!-- Navigation bar button color -->
     <string name="navbar_button_tint_title">Navigation button tint</string>
+	
+	<!-- Quick Settings -->
+	<string name="qs_four_columns_title">Show four tiles per row</string>
 </resources>
