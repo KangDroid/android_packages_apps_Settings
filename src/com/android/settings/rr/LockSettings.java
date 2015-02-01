@@ -16,7 +16,6 @@ package com.android.settings.rr;
 
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.content.ContentResolver;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -24,73 +23,19 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
-import android.app.admin.DevicePolicyManager;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.os.Bundle;
-import android.os.UserHandle;
-import android.preference.SwitchPreference;
-import com.android.settings.util.Helpers;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class LockSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
-	
-	private static final String KEY_LOCKSCREEN_CAMERA_WIDGET_HIDE = "camera_widget_hide";
-	
-	private SwitchPreference mCameraWidgetHide;
-	private PreferenceScreen mLockScreen;
-	
-	private Context mContext;
+public class LockSettings extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_lockscreen_settings);
-		
-        PreferenceScreen prefSet = getPreferenceScreen();
-        PackageManager pm = getPackageManager();
-        Resources res = getResources();
-		mContext = getActivity();
-		ContentResolver resolver = getActivity().getContentResolver();
-
-		mLockScreen = (PreferenceScreen) findPreference("kangdroid_lockscreen_settings");
-		
-        // Camera widget hide
-        mCameraWidgetHide = (SwitchPreference) findPreference("camera_widget_hide");
-        boolean mCameraDisabled = false;
-        DevicePolicyManager dpm =
-            (DevicePolicyManager) getActivity().getSystemService(Context.DEVICE_POLICY_SERVICE);
-        if (dpm != null) {
-            mCameraDisabled = dpm.getCameraDisabled(null);
-        }
-        if (mCameraDisabled){
-            mLockScreen.removePreference(mCameraWidgetHide);
-        }
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    public void onSharedPreferenceChanged(SharedPreferences preferences, String key) {
-    }
-
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         return false;

@@ -14,8 +14,9 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/rr_lockscreen_title"
-	android:key="kangdroid_lockscreen_settings"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">     
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    
+        
          <PreferenceScreen
                  android:key="lockscreen_shortcuts"
                  android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
@@ -32,23 +33,4 @@
             android:key="lockscreen_shortcuts_settings"
             android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
             android:title="@string/lockscreen_targets_message" />
-	  
-        <!-- Disable camera swipe -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="camera_widget_hide"
-            android:title="@string/camera_widget_hide"
-            android:summary="@string/camera_widget_hide_summary" />
-			
-        <!-- Disable dialer swipe -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="dialer_widget_hide"
-            android:title="@string/dialer_widget_hide"
-            android:summary="@string/dialer_widget_hide_summary" />
-
-	        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-	            android:key="lockscreen_weather"
-	            android:title="@string/lockscreen_weather_title"
-	            android:summary="@string/lockscreen_weather_summary"
-	            android:defaultValue="true" />
-
 </PreferenceScreen>

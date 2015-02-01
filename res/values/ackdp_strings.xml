@@ -739,14 +739,6 @@
     <string name="omniswitch_first_time_title">Information</string>
     <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
 	
-    <!-- Camera lockscreen swipe -->
-    <string name="camera_widget_hide">Disable lockscreen camera</string>
-    <string name="camera_widget_hide_summary">Allows you to disable swipe to open camera in lockscreen</string>
-	
-    <!-- Dialer lockscreen swipe -->
-    <string name="dialer_widget_hide">Disable lockscreen dialer</string>
-    <string name="dialer_widget_hide_summary">Allows you to disable swipe to open dialer in lockscreen</string>
-	
     <!-- Status bar Header -->
     <string name="status_bar_expanded_header_settings_title">Status bar Header</string>
     <string name="expanded_header_show_weather_title">Show weather</string>
@@ -867,10 +859,6 @@
     <string name="privacy_guard_notification_title">Notification</string>
     <string name="privacy_guard_notifiation_summary">Show a notification if privacy guard is active</string>
 	<string name="spinner_inflated_text"></string>
-	
-    <!-- Lockscreen weather -->
-    <string name="lockscreen_weather_title">Lockscreen weather</string>
-    <string name="lockscreen_weather_summary">SystemUI will be restarted!</string>
 	
 	<!-- Bug List -->
 	<string name="buglist_title">Bug List</string>

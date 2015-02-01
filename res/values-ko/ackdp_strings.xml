@@ -684,13 +684,6 @@
     <string name="omniswitch_first_time_title">정보</string>
     <string name="omniswitch_first_time_message">OminSwitch를 정확히 켰는지 확인해주세요. 이걸 \"설정\" 에서 설정할수 있습니다</string>
 	
-    <!-- Camera lockscreen swipe -->
-    <string name="camera_widget_hide">잠금화면 카메라를 비활성화합니다</string>
-    <string name="camera_widget_hide_summary">잠금화면에 있는 카메라를 없앨수 있습니다</string>
-	
-    <!-- Dialer lockscreen swipe -->
-    <string name="dialer_widget_hide">잠금화면 다이얼러를 비활성화 합니다</string>
-    <string name="dialer_widget_hide_summary">잠금화면에 있는 다이얼러를 없앨수 있습니다</string>
 	
     <!-- Status bar Header -->
     <string name="status_bar_expanded_header_settings_title">상단바 헤더</string>
@@ -747,10 +740,6 @@
     <!-- Privacy guard notification -->
     <string name="privacy_guard_notification_title">알림</string>
     <string name="privacy_guard_notifiation_summary">Privacy Guard가 활성화되있으면 알림을 표시합니다</string>
-	
-    <!-- Lockscreen weather -->
-    <string name="lockscreen_weather_title">잠금화면 날씨</string>
-    <string name="lockscreen_weather_summary">SystemUI 가 재부팅됩니다!</string>
 	
 	<!-- Bug List -->
 	<string name="buglist_title">버그 목록</string>
