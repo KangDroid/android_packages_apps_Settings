@@ -915,6 +915,7 @@
     <string name="captive_portal_detection_summary">If disabled, a connection to google servers is not required in order to detect data connection.</string>
 	
 	<!-- Quick Settings -->
+	<string name="qs_four_columns_title">Show four tiles per row</string>
     <string name="qs_screenshot_tile">Screenshot</string>
     <string name="qs_sync_tile">Sync</string>
 	
