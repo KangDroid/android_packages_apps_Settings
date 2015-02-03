@@ -16,6 +16,7 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.Preference;
@@ -33,11 +34,17 @@ import android.view.View;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.qs.QSTiles;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 import com.android.internal.util.crdroid.DeviceUtils;
 import android.provider.Settings;
-import java.util.Locale;
+import android.provider.SearchIndexableResource;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+import java.util.Locale;
+import java.util.ArrayList;
+import java.util.List;
+
+public class NotificationDrawerSettings extends SettingsPreferenceFragment implements Indexable, Preference.OnPreferenceChangeListener {
 	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
 	private static final String QUICK_PULLDOWN = "quick_pulldown";
 	
@@ -51,6 +58,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         addPreferencesFromResource(R.xml.notification_drawer_settings);
 		
 		PreferenceScreen prefs = getPreferenceScreen();
+		ContentResolver resolver = getActivity().getContentResolver();
 
         mQSTiles = findPreference("qs_order");
 		
@@ -61,7 +69,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 		} else {
             // Smart Pulldown
             mSmartPulldown.setOnPreferenceChangeListener(this);
-            int smartPulldown = Settings.System.getInt(getContentResolver(),
+            int smartPulldown = Settings.System.getInt(resolver,
                     Settings.System.QS_SMART_PULLDOWN, 0);
             mSmartPulldown.setValue(String.valueOf(smartPulldown));
             updateSmartPulldownSummary(smartPulldown);
@@ -96,7 +104,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 		ContentResolver resolver = getContentResolver();
 		if (preference == mSmartPulldown) {
 		             int smartPulldown = Integer.valueOf((String) newValue);
-		             Settings.System.putInt(getContentResolver(),
+		             Settings.System.putInt(resolver,
 		                     Settings.System.QS_SMART_PULLDOWN,
 		                     smartPulldown);
 		             updateSmartPulldownSummary(smartPulldown);
@@ -149,4 +157,25 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 		            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
 		        }
 			}
+			
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.notification_drawer_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    return new ArrayList<String>();
+                }
+            };
 }
