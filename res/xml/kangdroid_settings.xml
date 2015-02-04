@@ -71,11 +71,6 @@
     <PreferenceCategory
         android:key="navigation_bar_category"
         android:title="@string/navigation_customization_title" >
-		
-    <PreferenceScreen
-        android:key="navigation_bar_set_kang"
-        android:fragment="com.android.settings.kangdroid.NavigationBarSettings"
-        android:title="@string/navigation_customization_title" />
 
 	</PreferenceCategory>
 	
