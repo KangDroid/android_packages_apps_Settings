@@ -18,8 +18,8 @@
 
     <CheckBoxPreference
         android:key="heads_up_swipe_action"
-        android:title="@string/heads_up_swipe_title"
-        android:summary="@string/heads_up_swipe_summary"
+        android:title="@string/heads_up_swype_title"
+        android:summary="@string/heads_up_swype_summary"
         android:defaultValue="true" />
 
     <ListPreference
