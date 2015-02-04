@@ -796,4 +796,15 @@
 	<string name="category_ringandcuston_title">네비게이션 바 링 &amp; 바 설정</string>
 	<string name="category_misc_navbar_title">더 많은 네비게이션 바 설정</string>
 
+    <!-- Heads up timeout -->
+    <string name="heads_up_time_out_title">시간 제한</string>
+    <string name="heads_up_time_out_summary">알림이 <xliff:g id="number">%d</xliff:g> 초동안 보여집니다</string>
+    <string name="heads_up_time_out_never_summary">알림을 읽기 전까지는 알림이 계속 표시됩니다</string>
+    <string name="heads_up_time_out_2sec">2 초</string>
+    <string name="heads_up_time_out_4sec">4 초</string>
+    <string name="heads_up_time_out_6sec">6 초</string>
+    <string name="heads_up_time_out_8sec">8 초</string>
+    <string name="heads_up_time_out_10sec">10 초</string>
+    <string name="heads_up_time_out_never">시간제한 설정하지 않기</string>
+
 </resources>
