@@ -607,6 +607,11 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         switchPref.setChecked(value);
         mHaveDebugSettings |= value;
     }
+	
+    void updateSwitch(SwitchPreference Switch, boolean value) {
+        Switch.setChecked(value);
+        mHaveDebugSettings |= value;
+    }
 
     private void updateAllOptions() {
         final Context context = getActivity();
