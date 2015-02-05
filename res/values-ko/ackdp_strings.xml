@@ -807,4 +807,6 @@
     <string name="heads_up_time_out_10sec">10 초</string>
     <string name="heads_up_time_out_never">시간제한 설정하지 않기</string>
 
+    <!-- Navigation bar button color -->
+    <string name="navbar_button_tint_title">네비게이션 버튼 색</string>
 </resources>
