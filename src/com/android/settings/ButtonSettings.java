@@ -494,7 +494,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             KeyDisabler.setActive(enabled);
         }
 
-
         /* Save/restore button timeouts to disable them in softkey mode */
         Editor editor = prefs.edit();
 
