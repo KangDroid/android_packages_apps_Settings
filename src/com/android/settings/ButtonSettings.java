@@ -358,6 +358,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(volumeCategory);
         }
 
+            if (!ScreenType.isPhone(context)) {
+                result.put(KEY_NAVIGATION_BAR_LEFT, CATEGORY_NAVBAR);
+            }
 
         mVolumeWakeScreen = (SwitchPreference) findPreference(Settings.System.VOLUME_WAKE_SCREEN);
         mVolumeMusicControls = (SwitchPreference) findPreference(KEY_VOLUME_MUSIC_CONTROLS);
