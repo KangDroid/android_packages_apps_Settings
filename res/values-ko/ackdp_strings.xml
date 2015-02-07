@@ -809,4 +809,8 @@
 
     <!-- Navigation bar button color -->
     <string name="navbar_button_tint_title">네비게이션 버튼 색</string>
+	
+	<!-- Quick Settings Vibrate -->
+	<string name="quick_settings_on_vibrate">타일 진동</string>
+	<string name="quick_settings_on_vibrate_summary">타일 선택/터치시 진동합니다.</string>
 </resources>
