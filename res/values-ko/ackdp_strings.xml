@@ -374,14 +374,8 @@
     <string name="less_notification_sounds_5m">5 분</string>
 
 	<!-- Volume Keys Media Control -->
-    <string name="volume_keys_control_media_stream">미디아 설정</string>
+    <string name="volume_keys_control_media_stream">미디어 설정</string>
     <string name="volume_keys_control_media_stream_summary">Volume keys control media volume rather than notifications</string>
-
-    <!-- Notifications on keyguard -->
-    <string name="app_notification_show_on_keyguard_title">잠금화면에 보이기</string>
-    <string name="app_notification_show_on_keyguard_summary">이 엡의 알림을 잠금화면에 보이게 합니다</string>
-    <string name="app_notification_no_ongoing_on_keyguard_title">지속적인 알림을 비활성화합니다</string>
-    <string name="app_notification_no_ongoing_on_keyguard_summary">절대 지속적인 알림을 이 앱에서 더이상 수신하지 않습니다</string>    
 
     <!-- Slim lockscreen shortcuts -->
     <string name="shortcut_action_none">없음</string>

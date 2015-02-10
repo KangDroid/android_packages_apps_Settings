@@ -431,12 +431,7 @@
     <string name="custom_density_dialog_title">WARNING!</string>
     <string name="custom_density_dialog_summary">Changing your default LCD density can sometimes cause certain apps to not function properly. And Soon as you change your density, Device will automatically reboot (Soft Reboot)</string>
     <string name="custom_density_dialog_button_got">Got it!</string>
-
-    <!-- Notifications on keyguard -->
-    <string name="app_notification_show_on_keyguard_title">Show on lockscreen</string>
-    <string name="app_notification_show_on_keyguard_summary">Show notifications from this app on the lockscreen</string>
-    <string name="app_notification_no_ongoing_on_keyguard_title">Disable ongoing on lockscreen</string>
-    <string name="app_notification_no_ongoing_on_keyguard_summary">Never show ongoing notifications from this app on the lockscreen</string>    
+    <string name="custom_density_dialog_button_reboot">Reboot now</string>
 
    <!-- Slim lockscreen shortcuts -->
    <string name="shortcut_action_none">None</string>
