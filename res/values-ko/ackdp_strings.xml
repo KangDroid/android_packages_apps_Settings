@@ -206,10 +206,6 @@
     <string name="network_traffic_color_reset">색깔 초기화</string>
     <string name="network_traffic_color_reset_message">정말 네트워크 트레픽 색깔을 초기화(기본)으로 번경시킬까요?</string>
 
-    <!-- Search Bar Switcher -->
-    <string name="recents_show_searchbar">Show Search Bar in Recents</string>
-    <string name="recents_show_searchbar_summary">구글 검색 바를 \'최근 앱\' 창에 표시합니다.</string>
-
     <!-- Lock Gesture settings -->
     <!-- Security & location settings screen, setting option name -->
     <string name="lockgesture_change_lock_pattern_label">잠금화면 제스쳐를 바꿉니다.</string>

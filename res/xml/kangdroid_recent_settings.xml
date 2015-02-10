@@ -40,13 +40,6 @@
 		android:key="kangdroid_other_recents"
 		android:title="@string/recents_misc_settings">
 		
-    <!-- Recents Searchbar -->
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="recents_show_hide_search_bar"
-        android:title="@string/recents_show_searchbar"
-        android:summary="@string/recents_show_searchbar_summary"
-        android:defaultValue="false" />
-		
 	<!-- Clear button on Navigation Bar -->
 	<SwitchPreference
         android:key="clear_all_recents_navbar_enabled"
