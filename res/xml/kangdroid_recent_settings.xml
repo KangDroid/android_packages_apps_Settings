@@ -43,7 +43,6 @@
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="recents_show_search_bar"
                 android:title="@string/recents_show_searchbar"
-                settings:keywords="@string/keywords_recents_show_searchbar"
                 android:defaultValue="true" />
 		
 	<!-- Clear button on Navigation Bar -->
