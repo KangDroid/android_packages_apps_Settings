@@ -59,11 +59,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.liquid_sound_settings);
-		
-		mScreenshotSound = (SwitchPreference) findPreference(KEY_SCREENSHOT_SOUND);
-        mScreenshotSound.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.SCREENSHOT_SOUND, 0) != 0);
-        mScreenshotSound.setOnPreferenceChangeListener(this);
 
         mSafeHeadsetVolume = (SwitchPreference) findPreference(KEY_SAFE_HEADSET_VOLUME);
         mSafeHeadsetVolume.setChecked(Settings.System.getInt(getContentResolver(),
@@ -108,11 +103,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 showDialogInner(DLG_SAFE_HEADSET_VOLUME);
             }
         }
-		if (KEY_SCREENSHOT_SOUND.equals(key)) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREENSHOT_SOUND,
-                    (Boolean) objValue ? 1 : 0);
-		}
         if (PREF_LESS_NOTIFICATION_SOUNDS.equals(key)) {
             final int val = Integer.valueOf((String) objValue);
             Settings.System.putInt(getContentResolver(),

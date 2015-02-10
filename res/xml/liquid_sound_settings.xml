@@ -26,7 +26,7 @@
         android:defaultValue="true" />
 				
    <!-- Screenshot tone -->
-	<SwitchPreference
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
 	    android:key="screenshot_sound"
 	    android:title="@string/screenshot_sound_title"
 	    android:summary="@string/screenshot_sound_summary"
