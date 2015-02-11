@@ -15,9 +15,14 @@
 */
 package com.android.settings.cyanogenmod;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.telephony.TelephonyManager;
+import android.text.Spannable;
 import android.database.ContentObserver;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -36,6 +41,7 @@ import android.preference.SwitchPreference;
 import java.util.Locale;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -56,6 +62,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 	
 	private static final String KEY_STATUS_BAR_TICKER = "status_bar_ticker_enabled";
 	private static final String PREF_NOTIFICATION_HIDE_LABELS = "notification_hide_labels";
+	private static final String KEY_STATUS_BAR_GREETING = "status_bar_greeting";
 	
 	static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 	
@@ -66,6 +73,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 	ListPreference mHideLabels;
     SwitchPreference mStatusBarCarrier;
     ColorPickerPreference mCarrierColorPicker;
+	private SwitchPreference mStatusBarGreeting;
+	private String mCustomGreetingText = "";    
 
         int intColor;
         String hexColor;
@@ -119,17 +128,58 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mCarrierColorPicker.setSummary(hexColor);
         mCarrierColorPicker.setNewPreviewColor(intColor);
 		
+        mStatusBarGreeting = (SwitchPreference) findPreference(KEY_STATUS_BAR_GREETING);
+        mCustomGreetingText = Settings.System.getString(resolver, Settings.System.STATUS_BAR_GREETING);
+        boolean greeting = mCustomGreetingText != null && !TextUtils.isEmpty(mCustomGreetingText);
+        mStatusBarGreeting.setChecked(greeting);      
+		
     }
 	
      @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+		final ContentResolver resolver = getActivity().getContentResolver();
        if (preference == mStatusBarCarrier) {
            Settings.System.putInt(getContentResolver(),
                    Settings.System.STATUS_BAR_CARRIER, mStatusBarCarrier.isChecked() ? 1 : 0);
            return true;
-        }
+       } else  if (preference == mStatusBarGreeting) {
+          boolean enabled = mStatusBarGreeting.isChecked();
+          if (enabled) {
+               AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+
+               alert.setTitle(R.string.status_bar_greeting_title);
+               alert.setMessage(R.string.status_bar_greeting_dialog);
+
+               // Set an EditText view to get user input
+               final EditText input = new EditText(getActivity());
+               input.setText(mCustomGreetingText != null ? mCustomGreetingText : "Welcome to Bliss");
+               alert.setView(input);
+               alert.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int whichButton) {
+                       String value = ((Spannable) input.getText()).toString();
+                       Settings.System.putString(getActivity().getContentResolver(),
+                               Settings.System.STATUS_BAR_GREETING, value);
+                       updateCheckState(value);
+                   }
+               });
+               alert.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int whichButton) {
+                       // Canceled.
+                   }
+               });
+
+               alert.show();
+           } else {
+               Settings.System.putString(getActivity().getContentResolver(),
+                               Settings.System.STATUS_BAR_GREETING, "");
+           }
+	   }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
+	
+    private void updateCheckState(String value) {
+		if (value == null || TextUtils.isEmpty(value)) mStatusBarGreeting.setChecked(false);
+	}       
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
