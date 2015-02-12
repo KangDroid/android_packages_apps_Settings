@@ -29,6 +29,11 @@
              <extra android:name="fragment" android:value="com.android.settings.slim.LockscreenShortcut" />
       </PreferenceScreen>
 	  
+      <PreferenceScreen
+          android:key="doze_ambient_or_active_display"
+          android:fragment="com.android.settings.kangdroid.KangDroidDozeSettings"
+          android:title="@string/doze_or_ambient_or_active_display" />
+	  
         <PreferenceScreen
             android:key="lockscreen_shortcuts_settings"
             android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
