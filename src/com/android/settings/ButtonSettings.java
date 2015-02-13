@@ -72,6 +72,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_BLUETOOTH_INPUT_SETTINGS = "bluetooth_input_settings";
+	private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -123,6 +124,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mEnableNavigationBar;
+	private SwitchPreference mVolumeAnswerCall;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
@@ -195,6 +197,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         mOverflowButtonMode = (ListPreference) prefScreen.findPreference(KEYS_OVERFLOW_BUTTON);
         mOverflowButtonMode.setOnPreferenceChangeListener(this);
+		
+        // Volume button answers calls.
+        mVolumeAnswerCall = (SwitchPreference) findPreference(KEY_VOLUME_ANSWER_CALL);
+        mVolumeAnswerCall.setOnPreferenceChangeListener(this);
 
         // Navigation bar left
         mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
@@ -373,6 +379,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 (incallHomeBehavior == Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER);
             mHomeAnswerCall.setChecked(homeButtonAnswersCall);
         }
+		
+        // Volume button answers calls.
+        mVolumeAnswerCall.setChecked((Settings.System.getInt(getContentResolver(),
+                  Settings.System.ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER, 0) == 1));
 
     }
 
@@ -455,6 +465,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.UI_OVERFLOW_BUTTON, val);
             mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntries()[index]);
             Toast.makeText(getActivity(), R.string.keys_overflow_toast, Toast.LENGTH_LONG).show();
+            return true;
+        } else if (preference == mVolumeAnswerCall) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                   Settings.System.ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER, value ? 1 : 0);
             return true;
 		}
         return false;

@@ -987,4 +987,8 @@
     <string name="pulse_only_mode">Pulse only (default)</string>
 	<string name="doze_or_ambient_or_active_display">Doze Options</string>
 	
+    <!-- The volume key answer -->
+    <string name="volume_answer_call_title">Volume key Answer</string>
+    <string name="volume_answer_call_summary">Volume up key Answer</string>
+	
 </resources>
