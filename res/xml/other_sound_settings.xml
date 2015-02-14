@@ -18,6 +18,13 @@
         android:title="@string/other_sound_settings"
         android:key="other_sound_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+		
+   <!-- LiquidSmooth options -->
+   <PreferenceScreen
+           android:key="advanced_sound_settings"
+           android:title="@string/advanced_sound_title"
+           android:persistent="false"
+           android:fragment="com.android.settings.liquid.SoundSettings" />
 
     <!-- Dial pad tones -->
     <SwitchPreference

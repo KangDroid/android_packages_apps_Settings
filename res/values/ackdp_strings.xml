@@ -53,6 +53,18 @@
 	<string name="lockscreen_settings_title">LockScreen Settings</string>
 	<string name="kangdroid_recents_settings">Recents Settings</string>
 	<string name="recents_misc_settings">Other Settings</string>
+	<string name="doze_or_ambient_or_active_display">Doze Options</string>
+	<string name="qs_kangdroid_misc">Miscellaneous QS Settings</string>
+	<string name="statusbar_icon_settings">Icon Customization</string>
+	<string name="statusbar_battery_options">Battery Styles</string>
+	<string name="statusbar_carrier_options">Carrier Customization</string>
+	<string name="statusbar_main_options">Main Customization</string>
+	<string name="statusbar_network_state_options">Network Customization</string>
+	<string name="statusbar_misc_options">Miscellaneous Settings</string>
+	<string name="lockscreen_doze_category">Doze Options</string>
+	<string name="lockscreen_shorcuts_category">Locscreen Shortcuts</string>
+	<string name="kangdroid_default_sound_settings">Default Sound Settings</string>
+	<string name="kangdroid_advanced_sound_options">Advanced Sound Settings</string>
     <string name="reset_android">Android</string>
     <string name="reset_kangdroid">KangDroid</string>
 	<string name="reset_bliss">KangDroid</string>
@@ -985,7 +997,6 @@
     <string name="pocket_only_mode">Pocket only</string>
     <string name="shake_pulse_mode">Shake and pulse only</string>
     <string name="pulse_only_mode">Pulse only (default)</string>
-	<string name="doze_or_ambient_or_active_display">Doze Options</string>
 	
     <!-- The volume key answer -->
     <string name="volume_answer_call_title">Volume key Answer</string>
