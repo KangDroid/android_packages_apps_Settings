@@ -61,7 +61,8 @@ public class MediaFormat extends Activity {
         Resources resourcesObj = context.getResources();
         if (resourcesObj == null) { return false; }
 
-        boolean isUsb = volumeObj.getDescriptionId() == com.android.internal.R.string.storage_usb;
+        boolean isUsb = volumeObj.getDescription(context).equalsIgnoreCase(
+                resourcesObj.getString(R.string.storage_usb));
 
         return isUsb;
     }
@@ -75,7 +76,8 @@ public class MediaFormat extends Activity {
         Resources resourcesObj = context.getResources();
         if (resourcesObj == null) { return false; }
 
-        boolean isUicc = volumeObj.getDescriptionId() == com.android.internal.R.string.storage_uicc;
+        boolean isUicc = volumeObj.getDescription(context).equalsIgnoreCase(
+                resourcesObj.getString(R.string.storage_uicc));
 
         return isUicc;
     }
