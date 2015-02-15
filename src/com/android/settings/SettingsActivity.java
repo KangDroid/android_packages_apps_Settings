@@ -69,6 +69,7 @@ import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
+import com.android.settings.kangdroid.KangDroidInfoSettings;
 import com.android.settings.accounts.AccountSettings;
 import com.android.settings.accounts.AccountSyncSettings;
 import com.android.settings.applications.ExpandedDesktopPreferenceFragment;
@@ -272,6 +273,7 @@ public class SettingsActivity extends Activity
             HomeSettings.class.getName(),
             DisplaySettings.class.getName(),
             DeviceInfoSettings.class.getName(),
+			KangDroidInfoSettings.class.getName(),
             ManageApplications.class.getName(),
             ProcessStatsUi.class.getName(),
             NotificationStation.class.getName(),

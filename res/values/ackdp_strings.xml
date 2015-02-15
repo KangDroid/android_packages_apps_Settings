@@ -65,6 +65,8 @@
 	<string name="lockscreen_shorcuts_category">Locscreen Shortcuts</string>
 	<string name="kangdroid_default_sound_settings">Default Sound Settings</string>
 	<string name="kangdroid_advanced_sound_options">Advanced Sound Settings</string>
+	<string name="info_kangdroid_settings">About KangDroid-Project</string>
+	<string name="kangdroid_device_info_settings_summary">Show information about this ROM</string>
     <string name="reset_android">Android</string>
     <string name="reset_kangdroid">KangDroid</string>
 	<string name="reset_bliss">KangDroid</string>
