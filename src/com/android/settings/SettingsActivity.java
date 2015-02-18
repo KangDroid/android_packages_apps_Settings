@@ -93,6 +93,7 @@ import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.cyanogenmod.DisplayRotation;
 import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.settings.kangdroid.VolumeSteps;
+import com.android.settings.livedisplay.LiveDisplay;
 import com.android.settings.lockscreen.LockScreenSettings;
 import com.android.settings.notification.NotificationAppList;
 import com.android.settings.notification.NotificationManagerSettings;
@@ -330,7 +331,8 @@ public class SettingsActivity extends Activity
             LockScreenSettings.class.getName(),
 			VolumeSteps.class.getName(),
 			KangDroidCarrierLabel.class.getName(),
-            KangDroidDozeSettings.class.getName()
+            KangDroidDozeSettings.class.getName(),
+            LiveDisplay.class.getName()
     };
 
 
