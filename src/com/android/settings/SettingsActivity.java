@@ -92,6 +92,7 @@ import com.android.settings.fuelgauge.BatterySaverSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.cyanogenmod.DisplayRotation;
 import com.android.settings.cyanogenmod.qs.QSTiles;
+import com.android.settings.kangdroid.VolumeSteps;
 import com.android.settings.lockscreen.LockScreenSettings;
 import com.android.settings.notification.NotificationAppList;
 import com.android.settings.notification.NotificationManagerSettings;
@@ -324,7 +325,8 @@ public class SettingsActivity extends Activity
             DisplayRotation.class.getName(),
             ExpandedDesktopPreferenceFragment.class.getName(),
             NotificationManagerSettings.class.getName(),
-            LockScreenSettings.class.getName()
+            LockScreenSettings.class.getName(),
+			VolumeSteps.class.getName()
     };
 
 
