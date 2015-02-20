@@ -43,6 +43,7 @@ import android.widget.Button;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.kangdroid.ShakeSensorManager;
+import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -451,7 +452,7 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.ambient_settings;
+                    sir.xmlResId = R.xml.kangdroid_doze;
                     result.add(sir);
 
                     return result;
