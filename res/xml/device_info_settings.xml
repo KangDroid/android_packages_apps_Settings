@@ -15,6 +15,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+  	  	xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/about_settings">
 
         <!-- System update settings - launches activity -->
@@ -50,7 +51,8 @@
 		<PreferenceScreen
 			android:title="@string/info_kangdroid_settings"
 			android:summary="@string/kangdroid_device_info_settings_summary"
-			android:fragment="com.android.settings.kangdroid.KangDroidInfoSettings" >
+			android:fragment="com.android.settings.kangdroid.KangDroidInfoSettings"
+			settings:advanced="true" >
 		</PreferenceScreen>
 
         <!-- Legal Information -->
