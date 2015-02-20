@@ -32,17 +32,17 @@ import android.os.SystemProperties;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 import android.preference.PreferenceScreen;
 import android.preference.PreferenceCategory;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.widget.Toast;
+import android.widget.Button;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.kangdroid.ShakeSensorManager;
-import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,25 +59,29 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE_PULSE_OUT = "doze_pulse_out";
     private static final String KEY_DOZE_LIST_MODE = "doze_list_mode";
     private static final String KEY_DOZE_PULSE_MODE = "doze_pulse_on_notifications";
+    private static final String KEY_DOZE_SHAKE_CATEGORY = "doze_shake_category";
     private static final String KEY_DOZE_SHAKE_THRESHOLD = "doze_shake_threshold";
+    private static final String KEY_DOZE_TIME_MODE = "doze_time_mode";
 
-    int mAccValue;
+    private int mAccValue;
+    private int mOldAccValue;
     private SwitchPreference mDozePreference;
     private ListPreference mDozeListMode;
     private ListPreference mDozePulseIn;
     private ListPreference mDozePulseVisible;
     private ListPreference mDozePulseOut;
     private ListPreference mDozeShakeThreshold;
-
+    private SystemSettingSwitchPreference mDozeTimeMode;
     private ShakeSensorManager mShakeSensorManager;
+    private AlertDialog mDialog;
+    private Button mShakeFoundButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final Activity activity = getActivity();
-        final ContentResolver resolver = activity.getContentResolver();
 
-        addPreferencesFromResource(R.xml.kangdroid_doze);
+		addPreferencesFromResource(R.xml.kangdroid_doze);
 
         mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
         mDozePreference.setOnPreferenceChangeListener(this);
@@ -95,13 +99,17 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
             mDozeListMode = (ListPreference) findPreference(KEY_DOZE_LIST_MODE);
             mDozeListMode.setOnPreferenceChangeListener(this);
 
+            mDozeTimeMode = (SystemSettingSwitchPreference) findPreference(KEY_DOZE_TIME_MODE);
+
             mDozeShakeThreshold = (ListPreference) findPreference(KEY_DOZE_SHAKE_THRESHOLD);
             mDozeShakeThreshold.setOnPreferenceChangeListener(this);
 
             removePreference(KEY_DOZE_PULSE_MODE);
         } else {
             removePreference(KEY_DOZE_LIST_MODE);
+            removePreference(KEY_DOZE_TIME_MODE);
             removePreference(KEY_DOZE_SHAKE_THRESHOLD);
+            removePreference(KEY_DOZE_SHAKE_CATEGORY);
         }
         updateDozeListMode();
         updateDozeOptions();
@@ -150,8 +158,19 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
             listMode = 6;
             enableShakeThreshold(false);
         }
+        enabledTimeMode(pocketMode);
         if (mDozeListMode != null) {
             mDozeListMode.setValue(String.valueOf(listMode));
+            int index = mDozeListMode.findIndexOfValue(String.valueOf(listMode));
+            if (index != -1) {
+                mDozeListMode.setSummary(mDozeListMode.getEntries()[index]);
+            }
+        }
+    }
+
+    private void enabledTimeMode(boolean enable) {
+        if (mDozeTimeMode != null) {
+            mDozeTimeMode.setEnabled(enable);
         }
     }
 
@@ -169,55 +188,70 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
                 stopAcctest();
             }
         });
-        alertDialog.create().show();
+        mDialog = alertDialog.create();
+        mDialog.show();
     }
 
     @Override
     public synchronized void onShake() {
-        Toast.makeText(getActivity(),
-              getActivity().getResources().getString(R.string.doze_shake_it), Toast.LENGTH_SHORT).show();
-        resultAcctest();
+        String msg1 = getResources().getString(R.string.doze_shake_it);
+        String msg2 = getResources().getString(R.string.doze_shake_mode_test_result);
+
+        String msg = msg1 + "\n" + msg2;
+        mDialog.setMessage(msg);
+        Button shakeCancelButton = mDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+        if (shakeCancelButton != null) {
+            shakeCancelButton.setText(R.string.no);
+        }
+        if (mShakeFoundButton != null) {
+            mShakeFoundButton.setEnabled(true);
+        }
         mShakeSensorManager.disable();
     }
 
-    private void resultAcctest() {
+    private void startAcctest() {
+        mShakeSensorManager.enable(mAccValue);
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setTitle(R.string.doze_shake_mode_title);
-        alertDialog.setMessage(R.string.doze_shake_mode_test_result);
+        alertDialog.setMessage(R.string.doze_shake_test);
         alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 stopAcctest();
             }
         });
-        alertDialog.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 revertAcctest();
             }
         });
-        alertDialog.create().show();
-    }
+        mDialog = alertDialog.create();
+        mDialog.show();
 
-    private void startAcctest() {
-        Toast.makeText(getActivity(),
-              getActivity().getResources().getString(R.string.doze_shake_test), Toast.LENGTH_SHORT).show();
-        mShakeSensorManager.enable(mAccValue);
+        mShakeFoundButton = mDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        if (mShakeFoundButton != null) {
+            mShakeFoundButton.setEnabled(false);
+        }
     }
 
     private void revertAcctest() {
-        Toast.makeText(getActivity(),
-              getActivity().getResources().getString(R.string.doze_shake_mode_revert), Toast.LENGTH_SHORT).show();
+        mAccValue = mOldAccValue;
+        mDozeShakeThreshold.setValue(String.valueOf(mOldAccValue));
+        mShakeSensorManager.disable();
     }
 
     private void stopAcctest() {
-        Toast.makeText(getActivity(),
-              getActivity().getResources().getString(R.string.doze_shake_mode_apply), Toast.LENGTH_SHORT).show();
         appliedAccTest();
+        mShakeSensorManager.disable();
     }
 
     private void appliedAccTest() {
         Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_SHAKE_ACC_THRESHOLD, mAccValue);
         mDozeShakeThreshold.setValue(String.valueOf(mAccValue));
+        int index = mDozeShakeThreshold.findIndexOfValue(String.valueOf(mAccValue));
+        if (index != -1) {
+            mDozeShakeThreshold.setSummary(mDozeShakeThreshold.getEntries()[index]);
+        }
     }
 
     private void enableShakeThreshold(boolean enabled) {
@@ -231,6 +265,7 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
     private void updateDozeListModeValue(int listMode) {
         if (listMode == 1) {
             enableShakeThreshold(true);
+            enabledTimeMode(true);
             Settings.System.putInt(getContentResolver(),
                    Settings.System.DOZE_POCKET_MODE, 1);
             Settings.System.putInt(getContentResolver(),
@@ -239,6 +274,7 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
                    Settings.System.DOZE_PULSE_ON_NOTIFICATIONS, 1);
         } else if (listMode == 2) {
             enableShakeThreshold(true);
+            enabledTimeMode(true);
             Settings.System.putInt(getContentResolver(),
                    Settings.System.DOZE_POCKET_MODE, 1);
             Settings.System.putInt(getContentResolver(),
@@ -247,6 +283,7 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
                    Settings.System.DOZE_PULSE_ON_NOTIFICATIONS, 0);
         } else if (listMode == 3) {
             enableShakeThreshold(false);
+            enabledTimeMode(true);
             Settings.System.putInt(getContentResolver(),
                    Settings.System.DOZE_POCKET_MODE, 1);
             Settings.System.putInt(getContentResolver(),
@@ -255,6 +292,7 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
                    Settings.System.DOZE_PULSE_ON_NOTIFICATIONS, 1);
         } else if (listMode == 4) {
             enableShakeThreshold(false);
+            enabledTimeMode(true);
             Settings.System.putInt(getContentResolver(),
                    Settings.System.DOZE_POCKET_MODE, 1);
             Settings.System.putInt(getContentResolver(),
@@ -263,6 +301,7 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
                    Settings.System.DOZE_PULSE_ON_NOTIFICATIONS, 0);
         } else if (listMode == 5) {
             enableShakeThreshold(true);
+            enabledTimeMode(false);
             Settings.System.putInt(getContentResolver(),
                    Settings.System.DOZE_POCKET_MODE, 0);
             Settings.System.putInt(getContentResolver(),
@@ -271,6 +310,7 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
                    Settings.System.DOZE_PULSE_ON_NOTIFICATIONS, 1);
         } else if (listMode == 6) {
             enableShakeThreshold(false);
+            enabledTimeMode(false);
             Settings.System.putInt(getContentResolver(),
                    Settings.System.DOZE_POCKET_MODE, 0);
             Settings.System.putInt(getContentResolver(),
@@ -285,21 +325,37 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
             final int statusDozePulseIn = Settings.System.getInt(getContentResolver(),
                     Settings.System.DOZE_PULSE_DURATION_IN, 1000);
             mDozePulseIn.setValue(String.valueOf(statusDozePulseIn));
+            int index = mDozePulseIn.findIndexOfValue(String.valueOf(statusDozePulseIn));
+            if (index != -1) {
+                mDozePulseIn.setSummary(mDozePulseIn.getEntries()[index]);
+            }
         }
         if (mDozePulseVisible != null) {
             final int statusDozePulseVisible = Settings.System.getInt(getContentResolver(),
                     Settings.System.DOZE_PULSE_DURATION_VISIBLE, 3000);
             mDozePulseVisible.setValue(String.valueOf(statusDozePulseVisible));
+            int index = mDozePulseVisible.findIndexOfValue(String.valueOf(statusDozePulseVisible));
+            if (index != -1) {
+                mDozePulseVisible.setSummary(mDozePulseVisible.getEntries()[index]);
+            }
         }
         if (mDozePulseOut != null) {
             final int statusDozePulseOut = Settings.System.getInt(getContentResolver(),
                     Settings.System.DOZE_PULSE_DURATION_OUT, 1000);
             mDozePulseOut.setValue(String.valueOf(statusDozePulseOut));
+            int index = mDozePulseOut.findIndexOfValue(String.valueOf(statusDozePulseOut));
+            if (index != -1) {
+               mDozePulseOut.setSummary(mDozePulseOut.getEntries()[index]);
+            }
         }
         if (mDozeShakeThreshold != null) {
             mAccValue = Settings.System.getInt(getContentResolver(),
                     Settings.System.DOZE_SHAKE_ACC_THRESHOLD, 10);
             mDozeShakeThreshold.setValue(String.valueOf(mAccValue));
+            int index = mDozeShakeThreshold.findIndexOfValue(String.valueOf(mAccValue));
+            if (index != -1) {
+                mDozeShakeThreshold.setSummary(mDozeShakeThreshold.getEntries()[index]);
+            }
         }
     }
 
@@ -314,6 +370,10 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
     @Override
     public void onPause() {
         super.onPause();
+        mShakeSensorManager.disable();
+        if (mDialog != null) {
+            mDialog.dismiss();
+        }
     }
 
     private void updateState() {
@@ -341,22 +401,29 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
         }
         if (preference == mDozePulseIn) {
             int dozePulseIn = Integer.parseInt((String)objValue);
+            int index = mDozePulseIn.findIndexOfValue((String) objValue);
+            mDozePulseIn.setSummary(mDozePulseIn.getEntries()[index]);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_PULSE_DURATION_IN, dozePulseIn);
         }
         if (preference == mDozePulseVisible) {
             int dozePulseVisible = Integer.parseInt((String)objValue);
+            int index = mDozePulseVisible.findIndexOfValue((String) objValue);
+            mDozePulseVisible.setSummary(mDozePulseVisible.getEntries()[index]);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_PULSE_DURATION_VISIBLE, dozePulseVisible);
         }
         if (preference == mDozePulseOut) {
             int dozePulseOut = Integer.parseInt((String)objValue);
+            int index = mDozePulseOut.findIndexOfValue((String) objValue);
+            mDozePulseOut.setSummary(mDozePulseOut.getEntries()[index]);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_PULSE_DURATION_OUT, dozePulseOut);
         }
         if (preference == mDozeShakeThreshold) {
             int accValue = Integer.parseInt((String)objValue);
             if (accValue != mAccValue) {
+                mOldAccValue = mAccValue;
                 mAccValue = accValue;
                 showAccDialog();
             }
@@ -364,6 +431,8 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
         if (preference == mDozeListMode) {
             int dozeListMode = Integer.parseInt((String)objValue);
             updateDozeListModeValue(dozeListMode);
+            int index = mDozeListMode.findIndexOfValue((String) objValue);
+            mDozeListMode.setSummary(mDozeListMode.getEntries()[index]);
         }
         return true;
     }
@@ -382,7 +451,7 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.kangdroid_doze;
+                    sir.xmlResId = R.xml.ambient_settings;
                     result.add(sir);
 
                     return result;
@@ -391,6 +460,25 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     ArrayList<String> result = new ArrayList<String>();
+                    if (!isDozeAvailable(context)) {
+                        result.add(KEY_DOZE);
+                        result.add(KEY_DOZE_LIST_MODE);
+                        result.add(KEY_DOZE_TIME_MODE);
+                        result.add(KEY_DOZE_OVERWRITE_VALUE);
+                        result.add(KEY_DOZE_PULSE_MODE);
+                        result.add(KEY_DOZE_PULSE_IN);
+                        result.add(KEY_DOZE_PULSE_VISIBLE);
+                        result.add(KEY_DOZE_PULSE_OUT);
+                        result.add(KEY_DOZE_SHAKE_THRESHOLD);
+                    } else {
+                       if (!isAccelerometerAvailable(context)) {
+                           result.add(KEY_DOZE_LIST_MODE);
+                           result.add(KEY_DOZE_SHAKE_THRESHOLD);
+                       }
+                       if (isAccelerometerAvailable(context)) {
+                           result.add(KEY_DOZE_PULSE_MODE);
+                       }
+                    }
                     return result;
                 }
             };

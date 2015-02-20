@@ -78,13 +78,6 @@
                 android:entries="@array/screen_timeout_entries"
                 android:entryValues="@array/screen_timeout_values" />
 
-        <!-- Doze // Ambient display -->
-        <SwitchPreference
-                android:key="doze"
-                android:title="@string/doze_title"
-                android:summary="@string/doze_summary"
-                android:persistent="false" />
-
         <!-- Cast screen -->
         <PreferenceScreen
                 android:key="wifi_display"

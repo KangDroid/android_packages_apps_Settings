@@ -832,7 +832,7 @@
     <string-array name="doze_pulse_duration_in_entries" translatable="false">
         <item>@string/twohundred_ms</item>
         <item>@string/fivehundred_ms</item>
-        <item>@string/one_second</item>
+        <item>@string/one_second_default</item>
         <item>@string/onehalf_second</item>
         <item>@string/two_second</item>
     </string-array>
@@ -850,7 +850,7 @@
         <item>@string/onehalf_second</item>
         <item>@string/two_second</item>
         <item>@string/twohalf_second</item>
-        <item>@string/three_second</item>
+        <item>@string/three_second_default</item>
         <item>@string/threehalf_second</item>
         <item>@string/four_second</item>
         <item>@string/fourhalf_second</item>
