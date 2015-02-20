@@ -50,7 +50,8 @@
 		<PreferenceScreen
 			android:title="@string/info_kangdroid_settings"
 			android:summary="@string/kangdroid_device_info_settings_summary"
-			android:fragment="com.android.settings.kangdroid.KangDroidInfoSettings" >
+			android:fragment="com.android.settings.kangdroid.KangDroidInfoSettings"
+			settings:advanced="true" >
 		</PreferenceScreen>
 
         <!-- Legal Information -->
