@@ -2156,6 +2156,8 @@
 		<activity android:name=".kangdroid.ChangeLog" />
 		
 		<activity android:name=".kangdroid.BugList" />
+		
+		<activity android:name=".kangdroid.VolumeSteps" />
 
         <!-- Liquid Extra info -->
         <activity android:name="com.android.settings.liquid.extrainfo.MainActivity"
