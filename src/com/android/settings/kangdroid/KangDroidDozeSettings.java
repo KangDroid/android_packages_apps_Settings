@@ -43,6 +43,7 @@ import android.widget.Button;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.kangdroid.ShakeSensorManager;
+import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.List;
