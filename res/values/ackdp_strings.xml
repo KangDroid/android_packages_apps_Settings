@@ -44,6 +44,7 @@
     <string name="listview_bounce_interpolator">bounce_interpolator</string>
 
     <!-- KangDroid Settings -->
+	<string name="dashboard_kdp_title">Personalization</string>
     <string name="kangdroid_settings">Customization</string>
 	<string name="misc_settings_title">Miscellaneous Settings</string>
 	<string name="navigation_customization_title">Navigation Bar</string>
