@@ -24,7 +24,8 @@
            android:key="advanced_sound_settings"
            android:title="@string/advanced_sound_title"
            android:persistent="false"
-           android:fragment="com.android.settings.liquid.SoundSettings" />
+           android:fragment="com.android.settings.liquid.SoundSettings"
+		   settings:advanced="true" />
 
     <!-- Dial pad tones -->
     <SwitchPreference
