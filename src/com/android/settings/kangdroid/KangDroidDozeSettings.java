@@ -32,7 +32,6 @@ import android.os.SystemProperties;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
-import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 import android.preference.PreferenceScreen;
 import android.preference.PreferenceCategory;
 import android.preference.SwitchPreference;
@@ -41,6 +40,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.widget.Button;
 
+import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.kangdroid.ShakeSensorManager;
 import com.android.settings.R;
@@ -48,7 +48,7 @@ import com.android.settings.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
+public class AmbientSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, OnPreferenceClickListener,
         Indexable, ShakeSensorManager.ShakeListener {
     private static final String TAG = "AmbientSettings";
@@ -82,7 +82,7 @@ public class KangDroidDozeSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         final Activity activity = getActivity();
 
-		addPreferencesFromResource(R.xml.kangdroid_doze);
+        addPreferencesFromResource(R.xml.kangdroid_doze);
 
         mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
         mDozePreference.setOnPreferenceChangeListener(this);
