@@ -915,6 +915,7 @@
     <string name="unlock_scramble_pin_layout_summary">Scramble PIN layout when unlocking device</string>
 
     <!-- Notification drawer -->
+<<<<<<< HEAD
     <string name="notification_drawer_title">Notification drawer</string>
     <string name="qs_order">Quick Settings</string>
     <string name="qs_order_summary">Add new tiles or reorder them</string>
@@ -978,6 +979,7 @@
     <string name="qs_advanced_location_summary">Enable advanced settings for location in Quick Settings</string>
     <string name="qs_wifi_detail_title">Detailed Wi\u2011Fi view</string>
     <string name="qs_wifi_detail_summary">Enable detailed view for Wi\u2011Fi in Quick Settings</string>
+	<string name="qs_navbar_tile">Navigation Bar</string>
 
     <!-- Gesture Settings -->
     <!-- Settings main menu entry -->
