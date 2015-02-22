@@ -31,6 +31,15 @@
                 android:targetClass="com.android.settings.liquid.extrainfo.MainActivity" />
     </PreferenceScreen>
 	
+    <!-- KangDroid-Project Updates -->
+    <PreferenceScreen android:key="kdp_updates"
+            android:title="@string/kdp_update_title"
+            android:summary="@string/system_update_settings_list_item_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.ackdp.otaupdater"
+                android:targetClass="com.ackdp.otaupdater.OTAUpdaterActivity" />
+    </PreferenceScreen>
+	
     <!-- CM License information -->
     <PreferenceScreen
             android:key="cmlicense"
