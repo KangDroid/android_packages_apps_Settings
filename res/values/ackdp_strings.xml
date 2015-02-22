@@ -1009,6 +1009,6 @@
     <string name="shake_pulse_mode">Shake and pulse</string>
     <string name="pulse_only_mode">Pulse (default)</string>
 	<string name="kdp_update_title">Update KangDroid-Project</string>
-
+	<string name="left_clock">Left clock</string>
 	
 </resources>
