@@ -537,4 +537,6 @@
     <string name="background_title">Background</string>
     <string name="icon_title">Icon</string>
 	<string name="qs_colors_title">Custom Color Options</string>
+	<string name="qs_appcirclebar_tile">App Circle Bar</string>
+	
 </resources>
