@@ -40,12 +40,6 @@
             android:summary="@string/navigation_bar_left_summary"
             android:defaultValue="false" />
 
-       <ListPreference
-            android:key="keys_overflow_button"
-            android:title="@string/keys_overflow_title"
-            android:entries="@array/overflow_button_entries"
-            android:entryValues="@array/overflow_button_values" />
-
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="navigation_bar_menu_arrow_keys"
             android:title="@string/navigation_bar_arrow_keys_title"
@@ -218,15 +212,13 @@
             android:key="volume_wake_screen"
             android:title="@string/button_wake_title"
             android:summary="@string/button_wake_summary"
-            android:defaultValue="false"
-            android:disableDependentsState="true" />
+            android:defaultValue="false" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="volbtn_music_controls"
             android:title="@string/volbtn_music_controls_title"
             android:summary="@string/volbtn_music_controls_summary"
-            android:defaultValue="true"
-            android:dependency="volume_wake_screen" />
+            android:defaultValue="true" />
 
         <ListPreference
             android:key="volume_key_cursor_control"
