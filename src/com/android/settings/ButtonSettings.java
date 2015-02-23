@@ -25,6 +25,7 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.hardware.CmHardwareManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.Handler;
@@ -59,7 +60,6 @@ import android.widget.Toast;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-import org.cyanogenmod.hardware.KeyDisabler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -88,6 +88,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
 	private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
+    private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -134,6 +135,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
     private ListPreference mVolumeKeyCursorControl;
+    private SwitchPreference mVolumeWakeScreen;
+    private SwitchPreference mVolumeMusicControls;
     private SwitchPreference mSwapVolumeButtons;
     private SwitchPreference mNavigationBarLeftPref;
     private ListPreference mNavigationRecentsLongPressAction;
@@ -182,9 +185,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         // Navigation bar left
         mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
-		
-		// Navigation bar recents long press activity needs custom setup
-        mNavigationRecentsLongPressAction = initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
+
+        // Navigation bar recents long press activity needs custom setup
+        mNavigationRecentsLongPressAction =
+                initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
 
         HashMap<String, String> prefsToRemove = (HashMap<String, String>)
                 getPreferencesToRemove(this, getActivity());
@@ -223,6 +227,15 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_BLUETOOTH_INPUT_SETTINGS);
 
+        mVolumeWakeScreen = (SwitchPreference) findPreference(Settings.System.VOLUME_WAKE_SCREEN);
+        mVolumeMusicControls = (SwitchPreference) findPreference(KEY_VOLUME_MUSIC_CONTROLS);
+
+        if (mVolumeWakeScreen != null) {
+            if (mVolumeMusicControls != null) {
+                mVolumeMusicControls.setDependency(Settings.System.VOLUME_WAKE_SCREEN);
+                mVolumeWakeScreen.setDisableDependentsState(true);
+            }
+        }
         updateDisableHwKeysOption();
         updateNavBarSettings();
     }
@@ -252,6 +265,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         final boolean showAssistWake = (deviceWakeKeys & KEY_MASK_ASSIST) != 0;
         final boolean showAppSwitchWake = (deviceWakeKeys & KEY_MASK_APP_SWITCH) != 0;
         final boolean showVolumeWake = (deviceWakeKeys & KEY_MASK_VOLUME) != 0;
+
+        final CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
 
         if (hasPowerKey) {
             if (!Utils.isVoiceCapable(context)) {
@@ -452,15 +468,17 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             targetComponent = ComponentName.unflattenFromString(componentString);
         }
 
-        // Dyanamically generate the list array, query PackageManager for all Activites that are registered for
-        // ACTION_RECENTS_LONG_PRESS
+        // Dyanamically generate the list array,
+        // query PackageManager for all Activites that are registered for ACTION_RECENTS_LONG_PRESS
         PackageManager pm = getPackageManager();
         Intent intent = new Intent(Intent.ACTION_RECENTS_LONG_PRESS);
-        List<ResolveInfo> recentsActivities = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        List<ResolveInfo> recentsActivities = pm.queryIntentActivities(intent,
+                PackageManager.MATCH_DEFAULT_ONLY);
         if (recentsActivities.size() == 0) {
             // No entries available, disable
             list.setSummary(getString(R.string.hardware_keys_action_last_app));
-            Settings.Secure.putString(getContentResolver(), Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, null);
+            Settings.Secure.putString(getContentResolver(),
+                    Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, null);
             list.setEnabled(false);
             return list;
         }
@@ -474,8 +492,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         int i = 1;
         for (ResolveInfo info : recentsActivities) {
             try {
-                // Use pm.getApplicationInfo for the label, we cannot rely on ResolveInfo that comes back from
-                // queryIntentActivities.
+                // Use pm.getApplicationInfo for the label,
+                // we cannot rely on ResolveInfo that comes back from queryIntentActivities.
                 entries[i] = pm.getApplicationInfo(info.activityInfo.packageName, 0).loadLabel(pm);
             } catch (PackageManager.NameNotFoundException e) {
                 Log.e(TAG, "Error package not found: " + info.activityInfo.packageName, e);
@@ -484,7 +502,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             }
 
             // Set the value to the ComponentName that will handle this intent
-            ComponentName entryComponent = new ComponentName(info.activityInfo.packageName, info.activityInfo.name);
+            ComponentName entryComponent = new ComponentName(info.activityInfo.packageName,
+                    info.activityInfo.name);
             values[i] = entryComponent.flattenToString();
             if (targetComponent != null) {
                 if (entryComponent.equals(targetComponent)) {
@@ -565,8 +584,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL);
             return true;
         } else if (preference == mNavigationRecentsLongPressAction) {
-            // RecentsLongPressAction is handled differently because it intentionally uses Settings.
-            // Settings.System.
+            // RecentsLongPressAction is handled differently because it intentionally uses
+            // Settings.System
             String putString = (String) newValue;
             int index = mNavigationRecentsLongPressAction.findIndexOfValue(putString);
             CharSequence summary = mNavigationRecentsLongPressAction.getEntries()[index];
@@ -575,7 +594,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             if (putString.length() == 0) {
                 putString = null;
             }
-            Settings.Secure.putString(getContentResolver(), Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
+            Settings.Secure.putString(getContentResolver(),
+                    Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
             return true;			
         } else if (preference == mOverflowButtonMode) {
             int val = Integer.parseInt((String) newValue);
@@ -601,27 +621,27 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         Settings.System.putInt(context.getContentResolver(),
                 Settings.System.NAVIGATION_BAR_SHOW, enabled ? 1 : 0);
 
-        if (KeyDisabler.isSupported()) {
-            KeyDisabler.setActive(enabled);
-        }
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        cmHardwareManager.set(CmHardwareManager.FEATURE_KEY_DISABLE, !enabled);
 
 
         /* Save/restore button timeouts to disable them in softkey mode */
         Editor editor = prefs.edit();
 
         if (enabled) {
-            int currentBrightness = Settings.System.getInt(context.getContentResolver(),
-                    Settings.System.BUTTON_BRIGHTNESS, defaultBrightness);
+            int currentBrightness = Settings.Secure.getInt(context.getContentResolver(),
+                    Settings.Secure.BUTTON_BRIGHTNESS, defaultBrightness);
             if (!prefs.contains("pre_navbar_button_backlight")) {
                 editor.putInt("pre_navbar_button_backlight", currentBrightness);
             }
-            Settings.System.putInt(context.getContentResolver(),
-                    Settings.System.BUTTON_BRIGHTNESS, 0);
+            Settings.Secure.putInt(context.getContentResolver(),
+                    Settings.Secure.BUTTON_BRIGHTNESS, 0);
         } else {
             int oldBright = prefs.getInt("pre_navbar_button_backlight", -1);
             if (oldBright != -1) {
-                Settings.System.putInt(context.getContentResolver(),
-                        Settings.System.BUTTON_BRIGHTNESS, oldBright);
+                Settings.Secure.putInt(context.getContentResolver(),
+                        Settings.Secure.BUTTON_BRIGHTNESS, oldBright);
                 editor.remove("pre_navbar_button_backlight");
             }
         }
@@ -674,7 +694,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     }
 
     public static void restoreKeyDisabler(Context context) {
-        if (!isKeyDisablerSupported()) {
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        if (!cmHardwareManager.isSupported(CmHardwareManager.FEATURE_KEY_DISABLE)) {
             return;
         }
 
@@ -699,15 +721,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    private static boolean isKeyDisablerSupported() {
-        try {
-            return KeyDisabler.isSupported();
-        } catch (NoClassDefFoundError e) {
-            // Hardware abstraction framework not installed
-            return false;
-        }
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
