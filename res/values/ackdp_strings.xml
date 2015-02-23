@@ -1009,7 +1009,6 @@
     <string name="shake_pulse_mode">Shake and pulse</string>
     <string name="pulse_only_mode">Pulse (default)</string>
 	<string name="kdp_update_title">Update KangDroid-Project</string>
-
 	
     <!-- Volume panel timeout -->
     <string name="category_panel_time_out">Panel timeout</string>
@@ -1020,5 +1019,8 @@
     <string name="volume_panel_time_out_8sec">8 seconds</string>
     <string name="volume_panel_time_out_12sec">12 seconds</string>
     <string name="volume_panel_time_out_15sec">15 seconds</string>
+    <string name="background_title">Background</string>
+    <string name="icon_title">Icon</string>
+	<string name="qs_colors_title">Custom Color Options</string>
 	
 </resources>
