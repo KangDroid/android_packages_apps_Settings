@@ -533,4 +533,8 @@
     <string name="volume_answer_call_title">Volume key Answer</string>
     <string name="volume_answer_call_summary">Volume up key Answer</string>
 	
+	<!-- Quick Settings Customize Colors -->
+    <string name="background_title">Background</string>
+    <string name="icon_title">Icon</string>
+	<string name="qs_colors_title">Custom Color Options</string>
 </resources>
