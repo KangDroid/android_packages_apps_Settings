@@ -127,6 +127,7 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
+import com.android.settings.kangdroid.KangDroidCarrierLabel;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -326,7 +327,8 @@ public class SettingsActivity extends Activity
             ExpandedDesktopPreferenceFragment.class.getName(),
             NotificationManagerSettings.class.getName(),
             LockScreenSettings.class.getName(),
-			VolumeSteps.class.getName()
+			VolumeSteps.class.getName(),
+			KangDroidCarrierLabel.class.getName()
     };
 
 
