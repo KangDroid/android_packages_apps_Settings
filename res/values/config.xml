@@ -84,8 +84,6 @@
     <string name="ic_code" translatable="false"></string>
     <string name="ic_model" translatable="false"></string>
 
-    <bool name="config_default_advanced_mode_enabled">false</bool>
-
     <!-- The default value of whether to check "Show password" in the WiFi AP dialog -->
     <bool name="config_showWifiApPasswordDefault">false</bool>
 
