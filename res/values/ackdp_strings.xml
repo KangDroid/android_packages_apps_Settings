@@ -581,6 +581,7 @@
     <string name="qs_notifications_tile">Notifications</string>
 	<string name="qs_screenrecord_tile">Screenrecord</string>
 	<string name="qs_ambient_display_tile">Ambient display</string>
+	<string name="qs_tile_headsup">Heads up</string>
 	
     <!-- Status bar greeting -->
 	<string name="category_greeting_title">Greeting Options</string>
