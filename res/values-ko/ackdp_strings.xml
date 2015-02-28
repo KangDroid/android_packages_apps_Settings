@@ -487,14 +487,6 @@
     <string name="lock_numpad_random_dialog_title">PIN pad가 무작위로 섞입니다</string>
     <string name="lock_numpad_random_always">언제나</string>
     <string name="lock_numpad_random_on_request">요청이 들어올떄</string>
-
-    <!-- QuickSettings: Quick Pulldown -->
-    <string name="qs_title">Quick settings</string>
-    <string name="title_quick_pulldown">Quick pulldown</string>
-    <string name="summary_quick_pulldown">%1$s edge of the status bar pulls down Quick Settings</string>
-    <string name="quick_pulldown_off">끄기</string>
-    <string name="quick_pulldown_left">왼쪽</string>
-    <string name="quick_pulldown_right">오른쪽</string>
 	
     <!-- Option to enable/disable scrolling cache -->
     <string name="pref_scrollingcache_title">Scrolling cache</string>

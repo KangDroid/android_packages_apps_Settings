@@ -15,7 +15,9 @@
  */
 package com.android.settings.cyanogenmod;
 
+import android.content.ContentResolver;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.content.pm.PackageManager;
@@ -35,17 +37,17 @@ import com.android.internal.util.crdroid.DeviceUtils;
 import android.provider.Settings;
 import java.util.Locale;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
-    private static final String PRE_QUICK_PULLDOWN = "quick_pulldown";
+public class NotificationDrawerSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
+	private static final String QUICK_PULLDOWN = "quick_pulldown";
 	
     private Preference mQSTiles;
-    ListPreference mQuickPulldown;
 	private ListPreference mSmartPulldown;
+	private ListPreference mQuickPulldown;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notification_drawer_settings);
 		
 		PreferenceScreen prefs = getPreferenceScreen();
@@ -64,18 +66,21 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             mSmartPulldown.setValue(String.valueOf(smartPulldown));
             updateSmartPulldownSummary(smartPulldown);
 		}
+    }
+	
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-         mQuickPulldown = (ListPreference) findPreference(PRE_QUICK_PULLDOWN);
-        if (!DeviceUtils.isPhone(getActivity())) {
-            prefs.removePreference(mQuickPulldown);
-        } else {
-            // Quick Pulldown
-            mQuickPulldown.setOnPreferenceChangeListener(this);
-            int statusQuickPulldown = Settings.System.getInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
-            mQuickPulldown.setValue(String.valueOf(statusQuickPulldown));
-            updateQuickPulldownSummary(statusQuickPulldown);
-        }
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+        mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
+
+        mQuickPulldown.setOnPreferenceChangeListener(this);
+        int quickPulldownValue = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_QUICK_PULLDOWN, 0, UserHandle.USER_CURRENT);
+        mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
+        updatePulldownSummary(quickPulldownValue);
     }
 
     @Override
@@ -88,6 +93,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     }
 	
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+		ContentResolver resolver = getContentResolver();
 		if (preference == mSmartPulldown) {
 		             int smartPulldown = Integer.valueOf((String) newValue);
 		             Settings.System.putInt(getContentResolver(),
@@ -95,16 +101,29 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 		                     smartPulldown);
 		             updateSmartPulldownSummary(smartPulldown);
 		             return true;
-		 		} else if (preference == mQuickPulldown) {
-		             int statusQuickPulldown = Integer.valueOf((String) newValue);
-		             Settings.System.putInt(getContentResolver(),
-		                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
-		                     statusQuickPulldown);
-		             updateQuickPulldownSummary(statusQuickPulldown);
-		             return true;
-		 		}
-		        return false;
-		    }
+ 		} else if (preference == mQuickPulldown) {
+           int quickPulldownValue = Integer.valueOf((String) newValue);
+           Settings.System.putIntForUser(resolver, Settings.System.QS_QUICK_PULLDOWN,
+                   quickPulldownValue, UserHandle.USER_CURRENT);
+           updatePulldownSummary(quickPulldownValue);
+           return true;
+		}
+        return false;
+    }
+		
+    private void updatePulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // quick pulldown deactivated
+            mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_off));
+        } else {
+            String direction = res.getString(value == 2
+                    ? R.string.quick_pulldown_summary_left
+                    : R.string.quick_pulldown_summary_right);
+            mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_summary, direction));
+        }
+    }
 			
 		    private void updateSmartPulldownSummary(int value) {
 		        Resources res = getResources();
@@ -130,21 +149,4 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 		            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
 		        }
 			}
-
-		    private void updateQuickPulldownSummary(int value) {
-		        Resources res = getResources();
-
-		        if (value == 0) {
-		            // quick pulldown deactivated
-		            mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_off));
-		        } else {
-		            Locale l = Locale.getDefault();
-		            boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
-		            String direction = res.getString(value == 2
-		                    ? (isRtl ? R.string.quick_pulldown_right : R.string.quick_pulldown_left)
-		                    : (isRtl ? R.string.quick_pulldown_left : R.string.quick_pulldown_right));
-		            mQuickPulldown.setSummary(res.getString(R.string.summary_quick_pulldown, direction));
-		        }
-		    }
-			
 }
