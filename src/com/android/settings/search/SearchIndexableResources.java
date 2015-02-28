@@ -180,13 +180,6 @@ public final class SearchIndexableResources {
                         PowerUsageSummary.class.getName(),
                         R.drawable.ic_settings_battery));
 
-        sResMap.put(BatterySaverSettings.class.getName(),
-                new SearchIndexableResource(
-                        Ranking.getRankForClassName(BatterySaverSettings.class.getName()),
-                        R.xml.battery_saver_settings,
-                        BatterySaverSettings.class.getName(),
-                        R.drawable.ic_settings_battery));
-
         sResMap.put(UserSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(UserSettings.class.getName()),
