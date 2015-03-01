@@ -538,6 +538,8 @@
     <string name="icon_title">Icon</string>
 	<string name="qs_colors_title">Custom Color Options</string>
 	<string name="qs_appcirclebar_tile">App Circle Bar</string>
+	<string name="qs_transparent_shade_title">Shade alpha</string>
+    <string name="qs_transparent_shade_summary">Ability to apply color alpha value and make notification shade transparent.</string>
 	
     <!-- Show carrier label and custom -->
     <string name="carrier_options">Carrier Label</string>
