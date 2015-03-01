@@ -93,6 +93,12 @@
     <PreferenceCategory
         android:key="misc_settings"
         android:title="@string/misc_settings_title" >
+		
+    <!-- Smart Control -->
+    <PreferenceScreen
+         android:key="smartcontrol_settings"
+         android:title="@string/smartcontrol_settings_title"
+         android:fragment="com.android.settings.kangdroid.KangDroidSmartControl" />
 	
         <!-- Screen Recorder -->
         <PreferenceScreen
