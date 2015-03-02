@@ -889,7 +889,7 @@
 	<string name="category_pie_title">PIE Settings</string>
 	<string name="category_ringandcuston_title">Navigation Bar Ring &amp; Bar Customization</string>
 	<string name="category_misc_navbar_title">Misc NavBar Settings</string>
-	
+
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Time out</string>
     <string name="heads_up_time_out_summary">Notification will show for <xliff:g id="number">%d</xliff:g> seconds</string>
@@ -998,6 +998,7 @@
     <string name="shake_pulse_mode">Shake and pulse</string>
     <string name="pulse_only_mode">Pulse (default)</string>
 	<string name="kdp_update_title">Update KangDroid-Project</string>
+
 	
     <!-- Volume panel timeout -->
     <string name="category_panel_time_out">Panel timeout</string>
@@ -1008,9 +1009,6 @@
     <string name="volume_panel_time_out_8sec">8 seconds</string>
     <string name="volume_panel_time_out_12sec">12 seconds</string>
     <string name="volume_panel_time_out_15sec">15 seconds</string>
-    <string name="background_title">Background</string>
-    <string name="icon_title">Icon</string>
-	<string name="qs_colors_title">Custom Color Options</string>
 	<string name="qs_appcirclebar_tile">App Circle Bar</string>
 	
     <!-- Show carrier label and custom -->
@@ -1030,10 +1028,6 @@
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
 	
-	<!-- QS Customization: KangDroid Addition -->
-	<string name="qs_transparent_shade_title">Shade alpha</string>
-    <string name="qs_transparent_shade_summary">Ability to apply color alpha value and make notification shade transparent.</string>
-	
 	<!-- Show bluetooth icon when disconnected -->
     <string name="status_bar_bluetooth_icon">Show Bluetooth icon</string>
     <string name="status_bar_bluetooth_icon_summary">Display the bluetooth icon when it is enabled but not connected</string>
@@ -1042,5 +1036,15 @@
     <string name="recents_clear_all_dismiss_all_title">Clear all tasks</string>
     <string name="recents_clear_all_dismiss_all_summary">Choose whether to dismiss all tasks or ignore the foreground task</string>
 
-	
+    <!-- QuickSettings colors -->
+    <string name="background_title">Background</string>
+    <string name="icon_title">Icon</string>
+    <string name="qs_colors_title">Custom Color Options</string>
+    <string name="reset_android">Android</string>
+    <string name="reset_swag">Swag</string>
+    <string name="colors_title">Colors</string>
+    <string name="text_title">Text</string>
+    <string name="qs_transparent_shade_title">Shade alpha</string>
+    <string name="qs_transparent_shade_summary">Ability to apply color alpha value and make notification shade transparent.</string>
+
 </resources>
