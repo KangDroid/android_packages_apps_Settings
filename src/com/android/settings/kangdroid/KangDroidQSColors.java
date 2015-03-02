@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 DarkKat
+ * Copyright (C) 2015 AICP
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +22,6 @@ import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.SwitchPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -36,7 +36,7 @@ import com.android.settings.cyanogenmod.qs.QSTiles;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class QSColors extends SettingsPreferenceFragment implements
+public class KangDroidQSColors extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_QS_BACKGROUND_COLOR =
@@ -45,12 +45,12 @@ public class QSColors extends SettingsPreferenceFragment implements
             "qs_icon_color";
     private static final String PREF_QS_TEXT_COLOR =
             "qs_text_color";
-	private static final String PREF_QS_TRANSPARENT_SHADE =
+    private static final String PREF_QS_TRANSPARENT_SHADE =
             "qs_transparent_shade";
 
     private static final int DEFAULT_BACKGROUND_COLOR = 0xff263238;
     private static final int WHITE = 0xffffffff;
-    private static final int CYANIDE_BLUE = 0xff1976D2;
+    private static final int SWAG_TEAL = 0xfff700ff;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -58,7 +58,7 @@ public class QSColors extends SettingsPreferenceFragment implements
     private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSTextColor;
-	private SwitchPreference mQSShadeTransparency;
+    private SwitchPreference mQSShadeTransparency;
 
     private ContentResolver mResolver;
 
@@ -84,7 +84,7 @@ public class QSColors extends SettingsPreferenceFragment implements
                 (ColorPickerPreference) findPreference(PREF_QS_BACKGROUND_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.QS_BACKGROUND_COLOR,
-                DEFAULT_BACKGROUND_COLOR); 
+                DEFAULT_BACKGROUND_COLOR);
         mQSBackgroundColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mQSBackgroundColor.setSummary(hexColor);
@@ -94,7 +94,7 @@ public class QSColors extends SettingsPreferenceFragment implements
         mQSIconColor =
                 (ColorPickerPreference) findPreference(PREF_QS_ICON_COLOR);
         intColor = Settings.System.getInt(mResolver,
-                Settings.System.QS_ICON_COLOR, WHITE); 
+                Settings.System.QS_ICON_COLOR, WHITE);
         mQSIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mQSIconColor.setSummary(hexColor);
@@ -103,13 +103,13 @@ public class QSColors extends SettingsPreferenceFragment implements
         mQSTextColor =
                 (ColorPickerPreference) findPreference(PREF_QS_TEXT_COLOR);
         intColor = Settings.System.getInt(mResolver,
-                Settings.System.QS_TEXT_COLOR, WHITE); 
+                Settings.System.QS_TEXT_COLOR, WHITE);
         mQSTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mQSTextColor.setSummary(hexColor);
         mQSTextColor.setOnPreferenceChangeListener(this);
-		
-		mQSShadeTransparency = (SwitchPreference) findPreference(PREF_QS_TRANSPARENT_SHADE);
+
+        mQSShadeTransparency = (SwitchPreference) findPreference(PREF_QS_TRANSPARENT_SHADE);
         mQSShadeTransparency.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.QS_TRANSPARENT_SHADE, 0) == 1));
         mQSShadeTransparency.setOnPreferenceChangeListener(this);
@@ -168,7 +168,7 @@ public class QSColors extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.QS_TRANSPARENT_SHADE, value ? 1 : 0);
             return true;
-		}
+        }
         return false;
     }
 
@@ -211,24 +211,24 @@ public class QSColors extends SettingsPreferenceFragment implements
                                     Settings.System.QS_ICON_COLOR, WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TEXT_COLOR, WHITE);
-							Settings.System.putInt(getOwner().mResolver,
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TRANSPARENT_SHADE, 0);
                             getOwner().refreshSettings();
                         }
                     })
-                    .setPositiveButton(R.string.reset_kangdroid,
+                    .setPositiveButton(R.string.reset_swag,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BACKGROUND_COLOR,
-                                    0xff1b1f23);
+                                    WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR,
-                                    CYANIDE_BLUE);
+                                    SWAG_TEAL);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TEXT_COLOR,
-                                    CYANIDE_BLUE);
-							Settings.System.putInt(getOwner().mResolver,
+                                    SWAG_TEAL);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TRANSPARENT_SHADE, 0);
                             getOwner().refreshSettings();
                         }

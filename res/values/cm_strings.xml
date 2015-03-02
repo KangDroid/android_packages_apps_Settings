@@ -1009,6 +1009,7 @@
     <string name="qs_wifi_detail_title">Detailed Wi\u2011Fi view</string>
     <string name="qs_wifi_detail_summary">Enable detailed view for Wi\u2011Fi in Quick Settings</string>
 	<string name="qs_navbar_tile">Navigation Bar</string>
+    <string name="qs_ambient_display_tile">Ambient display</string>
 
     <!-- Gesture Settings -->
     <!-- Settings main menu entry -->
