@@ -117,7 +117,6 @@ import com.android.settings.notification.ZenModeSettings;
 import com.android.settings.print.PrintJobSettingsFragment;
 import com.android.settings.print.PrintSettingsFragment;
 import com.android.settings.sim.SimSettings;
-import com.android.settings.temasek.ambientdisplay.AmbientSettings;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
 import com.android.settings.voice.VoiceInputSettings;
@@ -129,6 +128,7 @@ import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.kangdroid.KangDroidCarrierLabel;
+import com.android.settings.kangdroid.KangDroidDozeSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -330,7 +330,7 @@ public class SettingsActivity extends Activity
             LockScreenSettings.class.getName(),
 			VolumeSteps.class.getName(),
 			KangDroidCarrierLabel.class.getName(),
-            AmbientSettings.class.getName()
+            KangDroidDozeSettings.class.getName()
     };
 
 

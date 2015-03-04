@@ -45,6 +45,7 @@ import android.widget.EditText;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.android.settings.crdroid.SeekBarPreference;
 
 public class StatusBarSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
@@ -60,6 +61,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 	private static final String KEY_STATUS_BAR_TICKER = "status_bar_ticker_enabled";
 	private static final String PREF_NOTIFICATION_HIDE_LABELS = "notification_hide_labels";
 	private static final String KEY_STATUS_BAR_GREETING = "status_bar_greeting";
+	private static final String KEY_STATUS_BAR_GREETING_TIMEOUT = "status_bar_greeting_timeout";
 	
 	private SwitchPreference mTicker;
 
@@ -67,6 +69,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ListPreference mStatusBarBatteryShowPercent;
 	ListPreference mHideLabels;
 	private SwitchPreference mStatusBarGreeting;
+	private SeekBarPreference mStatusBarGreetingTimeout;
 	private String mCustomGreetingText = "";    
 
     @Override
@@ -104,10 +107,17 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
 		
-        mStatusBarGreeting = (SwitchPreference) findPreference(KEY_STATUS_BAR_GREETING);
+        mStatusBarGreeting = (SwitchPreference) prefSet.findPreference(KEY_STATUS_BAR_GREETING);
         mCustomGreetingText = Settings.System.getString(resolver, Settings.System.STATUS_BAR_GREETING);
         boolean greeting = mCustomGreetingText != null && !TextUtils.isEmpty(mCustomGreetingText);
-        mStatusBarGreeting.setChecked(greeting);      
+        mStatusBarGreeting.setChecked(greeting);    
+		
+        mStatusBarGreetingTimeout =
+                (SeekBarPreference) prefSet.findPreference(KEY_STATUS_BAR_GREETING_TIMEOUT);
+        int statusBarGreetingTimeout = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_GREETING_TIMEOUT, 400);
+        mStatusBarGreetingTimeout.setValue(statusBarGreetingTimeout / 1);
+        mStatusBarGreetingTimeout.setOnPreferenceChangeListener(this);  
 		
     }
 	
@@ -124,7 +134,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
                // Set an EditText view to get user input
                final EditText input = new EditText(getActivity());
-               input.setText(mCustomGreetingText != null ? mCustomGreetingText : "Welcome to Bliss");
+			   input.setText(mCustomGreetingText != null ? mCustomGreetingText :
+                        getResources().getString(R.string.status_bar_greeting_main));
                alert.setView(input);
                alert.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int whichButton) {
@@ -163,6 +174,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     resolver, Settings.System.STATUS_BAR_BATTERY_STYLE, batteryStyle);
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
             enableStatusBarBatteryDependents(batteryStyle);
+            return true;
+        } else if (preference == mStatusBarGreetingTimeout) {
+            int timeout = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_GREETING_TIMEOUT, timeout * 1);
             return true;
         } else if (preference == mStatusBarBatteryShowPercent) {
             int batteryShowPercent = Integer.valueOf((String) newValue);
