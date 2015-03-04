@@ -202,8 +202,8 @@ public class KangDroidQSColors extends SettingsPreferenceFragment implements
             return frag;
         }
 
-        QSColors getOwner() {
-            return (QSColors) getTargetFragment();
+        KangDroidQSColors getOwner() {
+            return (KangDroidQSColors) getTargetFragment();
         }
 
         @Override

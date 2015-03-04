@@ -16,7 +16,8 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_title">
+    android:title="@string/status_bar_title"
+	xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 	
 	<PreferenceCategory
 		android:title="@string/statusbar_main_options">
@@ -109,6 +110,28 @@
 		
 	</PreferenceCategory>
 	
+    <PreferenceCategory
+            android:title="@string/status_bar_greeting_category_title">
+
+		    <!-- Greeting -->
+		     <SwitchPreference
+		         android:key="status_bar_greeting"
+		         android:title="@string/status_bar_greeting_title"
+		         android:summary="@string/status_bar_greeting_summary"	
+		         android:defaultValue="true" />  
+
+        <com.android.settings.crdroid.SeekBarPreference
+                android:key="status_bar_greeting_timeout"
+                android:title="@string/status_bar_greeting_timeout_title"
+                android:max="10000"
+                settings:min="100"
+                settings:unitsLeft=""
+                settings:unitsRight="ms"
+                android:dependency="status_bar_greeting"
+                android:persistent="false" />
+
+    </PreferenceCategory>
+	
 	<PreferenceCategory
 		android:title="@string/statusbar_misc_options">
 		
@@ -123,13 +146,6 @@
         android:title="@string/su_indicator"	
         android:summary="@string/su_indicator_summary"	
         android:defaultValue="true" />
-		
-   <!-- Greeting -->
-    <SwitchPreference
-        android:key="status_bar_greeting"
-        android:title="@string/status_bar_greeting_title"
-        android:summary="@string/status_bar_greeting_summary"	
-        android:defaultValue="true" />  
 		 
 	 </PreferenceCategory>
 		
