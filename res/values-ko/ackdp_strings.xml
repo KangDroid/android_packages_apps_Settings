@@ -795,4 +795,83 @@
 	<!-- Quick Settings Vibrate -->
 	<string name="quick_settings_on_vibrate">타일 진동</string>
 	<string name="quick_settings_on_vibrate_summary">타일 선택/터치시 진동합니다.</string>
+	
+	<!-- Quick Settings -->
+	<string name="qs_four_columns_title">한줄에 4개의 타일을 보여줍니다</string>
+    <string name="qs_screenshot_tile">스크린샷</string>
+    <string name="qs_sync_tile">동기화</string>
+    <string name="qs_battery_saver_tile">베터리 세이버</string>
+    <string name="qs_brightness_tile">밝기</string>
+    <string name="qs_expanded_desktop_tile">데스크탑 확장</string>
+    <string name="qs_notifications_tile">알림</string>
+    <string name="qs_screen_off_tile">화면 잠그기</string>
+	
+    <!-- Status bar greeting -->
+	<string name="status_bar_greeting_category_title">Statusbar greeting</string>
+    <string name="status_bar_greeting_title">Greeting</string>
+    <string name="status_bar_greeting_summary">상단바에 커스텀 맞이 인사를 표시합니다</string>
+    <string name="status_bar_greeting_dialog">Set your greeting</string>   
+	<string name="status_bar_greeting_main">Flash ON!!!</string>
+    <string name="status_bar_greeting_timeout_title">Greeting timeout</string> 
+	
+    <!-- The volume key answer -->
+    <string name="volume_answer_call_title">볼륨 키 응답</string>
+    <string name="volume_answer_call_summary">볼륨 업 키 응답</string>
+	
+    <!-- Doze pulse (ambient display) options -->
+    <string name="doze_overwrite_value_title">기본값 덮어쓰기</string>
+    <string name="doze_overwrite_value_summary">기본값을 사용자 커스텀값으로 덮어씁니다</string>
+
+    <string name="doze_list_mode_title">Doze mode</string>
+    <string name="doze_list_mode_summary">Option to configure doze mode</string>
+
+    <string name="doze_pulse_title">시간 설정</string>
+    <string name="doze_pulse_duration_in_title">페이드 인</string>
+    <string name="doze_pulse_duration_in_summary"></string>
+
+    <string name="doze_pulse_duration_visible_title">Visible duration</string>
+    <string name="doze_pulse_duration_visible_summary"></string>
+
+    <string name="doze_pulse_duration_out_title">페이드 아웃</string>
+    <string name="doze_pulse_duration_out_summary"></string>
+
+    <string name="doze_pulse_on_notifications_title">알림올때 깜빡이기</string>
+    <string name="doze_pulse_on_notifications_summary">알림이 있을때만 엑티브 디스플레이를 표시합니다.</string>
+
+    <string name="doze_shake_title">흔들기 설정</string>
+    <string name="doze_shake_mode_title">흔들기 모드</string>
+    <string name="doze_shake_mode_summary">엑티브 디스플레이를 표시하기 위해서 흔들기를 합니다.</string>
+    <string name="doze_shake_mode_test_summary">흔들기 센서를 테스트 하시겠습니까?</string>
+    <string name="doze_shake_mode_test_result">현재 값을 설정할까요?</string>
+    <string name="doze_shake_test">기기를 흔들어주세요</string>
+    <string name="doze_shake_it">Shake detected!</string>
+
+    <string name="doze_shake_acc_threshold_title">Shake threshold</string>
+    <string name="doze_shake_acc_threshold_summary">Configure shake strength required to trigger activation</string>
+
+    <string name="doze_time_mode_title">Show clock and date</string>
+    <string name="doze_time_mode_summary">Force showing time when there is no notification</string>
+
+    <string name="twohundred_ms">200 ms</string>
+    <string name="fivehundred_ms">500 ms</string>
+    <string name="one_second">1 s</string>
+    <string name="one_second_default">1 s (기본)</string>
+    <string name="onehalf_second">1.5 s</string>
+    <string name="two_second">2 s</string>
+    <string name="twohalf_second">2.5 s</string>
+    <string name="three_second">3 s</string>
+    <string name="three_second_default">3 s (기본)</string>
+    <string name="threehalf_second">3.5 s</string>
+    <string name="four_second">4 s</string>
+    <string name="fourhalf_second">4.5 s</string>
+    <string name="five_second">5 s</string>
+
+    <string name="veryeasy_shake">아주 쉽게</string>
+    <string name="easy_shake">쉡게</string>
+    <string name="medium_shake">기본</string>
+    <string name="hard_shake">어렵게</string>
+    <string name="veryhard_shake">아주 어렵게</string>
+    <string name="strong_shake">아주 센 흔들기</string>
+
+	<string name="kdp_update_title">KangDroid-Project을 업데이트 합니다.</string>
 </resources>
