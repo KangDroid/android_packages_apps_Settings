@@ -237,6 +237,9 @@
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
     <string name="shortcuts_applications">Applications</string>
+    <string name="shortcut_action_kill">Kill app</string>
+    <string name="shortcut_action_lastapp">Last app</string>
+    <string name="shortcut_action_screenshot">Screenshot</string>
     <string name="shortcuts_select_custom_app_title">Select custom application</string>
     <string name="shortcuts_icon_picker_type">Select icon type:</string>
     <string name="shortcuts_icon_default">Default</string>
