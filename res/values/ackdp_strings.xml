@@ -1057,5 +1057,10 @@
     <string name="direct_call_for_dialer_summary">Lift phone to ear after entering number in dialer to call directly</string>
     <string name="direct_call_for_mms_title">Direct call in MMS</string>
     <string name="direct_call_for_mms_summary">Lifting phone to ear will automatically call current contact</string>
+	
+	<!-- Force expand notifications -->
+    <string name="notification_force_expand_title">Force expanded notification</string>
+    <string name="notification_force_expand_summary">Force expanded notifications on all apps that support it</string>
+
 
 </resources>
