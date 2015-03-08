@@ -1062,5 +1062,9 @@
 	<!-- Force expand notifications -->
     <string name="notification_force_expand_title">Force expanded notification</string>
     <string name="notification_force_expand_summary">Force expanded notifications on all apps that support it</string>
+	
+	<!-- Lockscreen Weather Disabler -->
+	<string name="lockscreen_weather_title">Lockscreen Weather</string>
+	<string name="lockscreen_weather_summary">Disable or Enable Lockscreen Weather</string>
 
 </resources>
