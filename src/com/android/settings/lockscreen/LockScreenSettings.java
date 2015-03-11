@@ -17,6 +17,7 @@
 package com.android.settings.lockscreen;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
@@ -70,6 +71,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_MANAGE_TRUST_AGENTS = "manage_trust_agents";
 	private static final String KEY_VISIBLE_GESTURE = "visiblegesture";
+    private static final String KEY_SHOW_VISUALIZER = "lockscreen_visualizer";
 
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
@@ -198,6 +200,15 @@ public class LockScreenSettings extends SettingsPreferenceFragment
                         DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
             if (securityCategory != null && mVisiblePattern != null) {
                 securityCategory.removePreference(root.findPreference(KEY_VISIBLE_PATTERN));
+            }
+        }
+
+        // remove lockscreen visualizer option on low end gfx devices
+        if (!ActivityManager.isHighEndGfx() && securityCategory != null) {
+            SwitchPreference displayVisualizer = (SwitchPreference)
+                    securityCategory.findPreference(KEY_SHOW_VISUALIZER);
+            if (displayVisualizer != null) {
+                securityCategory.removePreference(displayVisualizer);
             }
         }
 
@@ -565,6 +576,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment
             if (!lockPatternUtils.isSecure()) {
                 keys.add(KEY_TRUST_AGENT);
                 keys.add(KEY_MANAGE_TRUST_AGENTS);
+            }
+
+            // hidden on low end gfx devices.
+            if (!ActivityManager.isHighEndGfx()) {
+                keys.add(KEY_SHOW_VISUALIZER);
             }
 
             return keys;
