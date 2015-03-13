@@ -27,7 +27,10 @@
              <extra android:name="disableLongpress" android:value="true" />
              <extra android:name="useAppPickerOnly" android:value="true" />
              <extra android:name="fragment" android:value="com.android.settings.slim.LockscreenShortcut" />
-        
-
       </PreferenceScreen>
+	  
+        <PreferenceScreen
+            android:key="lockscreen_weather"
+            android:title="@string/lock_screen_weather_settings_title"
+            android:fragment="com.android.settings.kangdroid.LockScreenWeatherSettings" />
 </PreferenceScreen>
