@@ -49,11 +49,10 @@
 			android:summary="@string/quick_settings_collapse_summary"
 			android:defaultValue="false"/>
 			
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="quick_settings_vibrate"
-            android:title="@string/quick_settings_on_vibrate"
-            android:summary="@string/quick_settings_on_vibrate_summary"
-            android:defaultValue="true"/>
+		<com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+			android:key="qs_tiles_vibrate"
+			android:title="@string/qs_tiles_vibrate_title"
+			android:defaultValue="true" />
 
 	    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
 	        android:key="qs_use_four_columns"

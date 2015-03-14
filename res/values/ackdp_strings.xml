@@ -909,9 +909,8 @@
     <string name="heads_up_touch_outside_summary_enabled">Hide notification on touch outside and on home button press</string>
     <string name="heads_up_touch_outside_summary_disabled">Do not hide notification after touch outside or on home button press</string>
 	
-	<!-- Quick Settings Vibrate -->
-	<string name="quick_settings_on_vibrate">Vibrate Tile</string>
-	<string name="quick_settings_on_vibrate_summary">Vibrate tile when touch QS Tile.</string>
+	<!-- Quick settings -->
+    <string name="qs_tiles_vibrate_title">Vibrate on touch</string>
 	
     <!-- Captive Portal -->
     <string name="captive_portal_detection">Captive portal detection</string>
