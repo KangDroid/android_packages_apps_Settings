@@ -50,7 +50,7 @@
 			android:defaultValue="false"/>
 			
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="quick_settings_vibrate"
+            android:key="qs_tiles_vibrate"
             android:title="@string/quick_settings_on_vibrate"
             android:summary="@string/quick_settings_on_vibrate_summary"
             android:defaultValue="true"/>
