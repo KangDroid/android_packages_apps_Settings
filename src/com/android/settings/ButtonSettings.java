@@ -88,7 +88,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
 	private static final String KEY_BLUETOOTH_INPUT_SETTINGS = "bluetooth_input_settings";
-	private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
 
     private static final String CATEGORY_POWER = "power_key";
@@ -142,7 +141,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mEnableNavigationBar;
-	private SwitchPreference mVolumeAnswerCall;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
@@ -174,10 +172,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mEnableNavigationBar.setOnPreferenceChangeListener(this);
 
         mNavigationPreferencesCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
-		
-        // Volume button answers calls.
-        mVolumeAnswerCall = (SwitchPreference) findPreference(KEY_VOLUME_ANSWER_CALL);
-        mVolumeAnswerCall.setOnPreferenceChangeListener(this);
 
         // Navigation bar left
         mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
@@ -429,10 +423,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 (incallHomeBehavior == Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER);
             mHomeAnswerCall.setChecked(homeButtonAnswersCall);
         }
-		
-        // Volume button answers calls.
-        mVolumeAnswerCall.setChecked((Settings.System.getInt(getContentResolver(),
-                  Settings.System.ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER, 0) == 1));
 
     }
 
@@ -588,13 +578,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             }
             Settings.Secure.putString(getContentResolver(),
                     Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
-            return true;			
-        } else if (preference == mVolumeAnswerCall) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(),
-                   Settings.System.ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER, value ? 1 : 0);
             return true;
-		}
+			}			
         return false;
     }
 

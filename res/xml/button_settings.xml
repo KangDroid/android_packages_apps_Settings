@@ -21,7 +21,8 @@
         android:key="enable_nav_bar"
         android:title="@string/navbar_enable_bar_title"
         android:summary="@string/navbar_enable_bar_summary"
-        android:defaultValue="false" />
+        android:defaultValue="false"
+		settings:advanced="true"/>
 
     <com.android.settings.cyanogenmod.ButtonBacklightBrightness
         android:key="button_backlight"
@@ -233,8 +234,8 @@
             android:title="@string/swap_volume_buttons_title"
             android:summary="@string/swap_volume_buttons_summary" />
 			
-        <SwitchPreference
-            android:key="volume_answer_call"
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="answer_volume_button_behavior_answer"
             android:title="@string/volume_answer_call_title"
             android:summary="@string/volume_answer_call_summary"
             android:defaultValue="false" />
