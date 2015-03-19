@@ -36,6 +36,20 @@
 			
 	</PreferenceCategory>
 	
+    <PreferenceCategory
+        android:key="recents_panel"
+        android:title="@string/recents_panel_category" >
+
+        <ListPreference
+            android:key="recents_clear_all_location"
+            android:title="@string/recents_clear_all_location_title"
+            android:entries="@array/recents_clear_all_location_entries"
+            android:entryValues="@array/recents_clear_all_location_values"
+            android:defaultValue="3"
+            android:dependency="recent_button_choose" />
+			
+    </PreferenceCategory>
+	
 	<PreferenceCategory
 		android:key="kangdroid_other_recents"
 		android:title="@string/recents_misc_settings">
@@ -51,6 +65,11 @@
                 android:key="recents_show_search_bar"
                 android:title="@string/recents_show_searchbar"
                 android:defaultValue="true" />
+				
+		<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+			android:key="recent_button_choose"
+			android:title="@string/recents_choose_button"
+			android:summary="@string/recents_choose_button_summary" />
 		
 	<!-- Clear button on Navigation Bar -->
 	<SwitchPreference
