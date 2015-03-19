@@ -51,6 +51,11 @@
                 android:key="recents_show_search_bar"
                 android:title="@string/recents_show_searchbar"
                 android:defaultValue="true" />
+				
+		<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+			android:key="recent_button_choose"
+			android:title="@string/recents_choose_button"
+			android:summary="@string/recents_choose_button_summary" />
 		
 	<!-- Clear button on Navigation Bar -->
 	<SwitchPreference
