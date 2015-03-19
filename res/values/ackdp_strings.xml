@@ -1092,5 +1092,7 @@
     <string name="lid_controls_sleep_summary">Turn screen off when lid closes</string>
     <string name="lid_controls_wake_title">Control wake</string>
     <string name="lid_controls_wake_summary">Turn screen on when lid opens</string>
+	<string name="recents_choose_button">Use CM\'s Recent</string>
+	<string name="recents_choose_button_summary">Use CM\'s Recents clear button</string>
 
 </resources>
