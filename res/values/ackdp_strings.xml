@@ -1092,5 +1092,16 @@
     <string name="lid_controls_sleep_summary">Turn screen off when lid closes</string>
     <string name="lid_controls_wake_title">Control wake</string>
     <string name="lid_controls_wake_summary">Turn screen on when lid opens</string>
-
+	<string name="recents_choose_button">Use CM\'s Recent</string>
+	<string name="recents_choose_button_summary">Use CM\'s Recents clear button</string>
+	
+    <!-- Recents panel -->
+    <string name="cm_recent_category">CM\'s Recents Settings</string>
+    <string name="recents_clear_all_location_title">Clear all location</string>
+    <string name="recents_clear_all_location_top_right">Top right</string>
+    <string name="recents_clear_all_location_top_left">Top left</string>
+	<string name="recents_clear_all_location_top_center">Top center</string>
+    <string name="recents_clear_all_location_bottom_right">Bottom right</string>
+    <string name="recents_clear_all_location_bottom_left">Bottom left</string>
+	<string name="recents_clear_all_location_bottom_center">Bottom center</string>
 </resources>

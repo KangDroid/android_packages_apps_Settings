@@ -36,6 +36,25 @@
 			
 	</PreferenceCategory>
 	
+    <PreferenceCategory
+        android:key="cm_recent_settings"
+        android:title="@string/cm_recent_category" >
+		
+		<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+			android:key="recent_button_choose"
+			android:title="@string/recents_choose_button"
+			android:summary="@string/recents_choose_button_summary" />
+
+        <ListPreference
+            android:key="recents_clear_all_location"
+            android:title="@string/recents_clear_all_location_title"
+            android:entries="@array/recents_clear_all_location_entries"
+            android:entryValues="@array/recents_clear_all_location_values"
+            android:defaultValue="3"
+            android:dependency="recent_button_choose" />
+			
+    </PreferenceCategory>
+	
 	<PreferenceCategory
 		android:key="kangdroid_other_recents"
 		android:title="@string/recents_misc_settings">
