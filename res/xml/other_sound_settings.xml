@@ -104,6 +104,12 @@
         android:key="volume_steps_settings"
         android:fragment="com.android.settings.kangdroid.VolumeSteps"
         android:title="@string/volume_steps_title" />
+
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="screenshot_sound"
+        android:title="@string/screenshot_sound_title"
+        android:summary="@string/screenshot_sound_summary"
+        android:defaultValue="true" />
 		
 	</PreferenceCategory>
 
