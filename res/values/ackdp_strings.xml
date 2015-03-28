@@ -380,4 +380,8 @@
     <string name="show_status_bar_carrier_summary">Shows carrier label in status bar</string>
     <string name="status_bar_carrier_color">Carrier label Color</string>    
 
+	<!-- Double tap nav bar  2 sleep -->
+    <string name="double_tap_sleep_nav_bar_title">Double tap to sleep</string>
+    <string name="double_tap_sleep_nav_bar_summary">Double tap anywhere on the navigation bar to force sleep</string>
+
 </resources>
