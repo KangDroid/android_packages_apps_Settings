@@ -339,5 +339,9 @@
     <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
     <string name="trigger_bottom_title">Trigger height</string>
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+	
+	<!-- Double tap nav bar  2 sleep -->
+    <string name="double_tap_sleep_nav_bar_title">Double tap to sleep</string>
+    <string name="double_tap_sleep_nav_bar_summary">Double tap anywhere on the navigation bar to force sleep</string>
 
 </resources>
