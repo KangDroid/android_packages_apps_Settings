@@ -576,4 +576,7 @@
     <string name="dlg_reset_values_message">Reset values to\nAndroid- or KangDroid default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_kangdroid">KangDroid</string>
+	
+    <!-- Quick settings -->
+    <string name="qs_tiles_vibrate_title">Vibrate on touch</string>
 </resources>
