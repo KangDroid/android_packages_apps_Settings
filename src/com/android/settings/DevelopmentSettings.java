@@ -168,8 +168,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
 
-    private static final String LONG_PRESS_KILL_DELAY = "long_press_kill_delay";
-
     private static final String PROCESS_STATS = "proc_stats";
 
     private static final String TAG_CONFIRM_ENFORCE = "confirm_enforce";
@@ -261,7 +259,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private SwitchPreference mShowAllANRs;
     private SwitchPreference mKillAppLongpressBack;
-    private AnimationScalePreference mKillAppLongpressDelay;
+
     private PreferenceScreen mProcessStats;
     private ListPreference mRootAccess;
     private Object mSelectedRootValue;
@@ -423,7 +421,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mResetSwitchPrefs.add(mShowAllANRs);
 
         mKillAppLongpressBack = findAndInitSwitchPref(KILL_APP_LONGPRESS_BACK);
-        mKillAppLongpressDelay = findAndInitAnimationScalePreference(LONG_PRESS_KILL_DELAY);
 
         Preference hdcpChecking = findPreference(HDCP_CHECKING_KEY);
         if (hdcpChecking != null) {
@@ -455,14 +452,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             pref.setEnabled(false);
             mDisabledPrefs.add(pref);
         }
-    }
-	
-    private AnimationScalePreference findAndInitAnimationScalePreference(String key) {
-        AnimationScalePreference pref = (AnimationScalePreference) findPreference(key);
-        pref.setOnPreferenceChangeListener(this);
-        pref.setOnPreferenceClickListener(this);
-        mAllPrefs.add(pref);
-        return pref;
     }
 
     private SwitchPreference findAndInitSwitchPref(String key) {
@@ -730,7 +719,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
         writeAnimationScaleOption(2, mAnimatorDurationScale, null);
-        writeAnimationScaleOption(3, mKillAppLongpressDelay, null);
         // Only poke the color space setting if we control it.
         if (usingDevelopmentColorSpace()) {
             writeSimulateColorSpace(-1);
@@ -1386,21 +1374,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private void updateAnimationScaleValue(int which, ListPreference pref) {
         try {
-            float scale;
-            if (which == 3) {
-                try {
-                    scale = Settings.System.getIntForUser(getContentResolver(),
-                            Settings.System.LONG_PRESS_KILL_DELAY,
-                            UserHandle.USER_CURRENT);
-                    scale = ((float) (scale) / 1000);
-                } catch (Settings.SettingNotFoundException exc) {
-                    scale = 1.0f;
-                }
-            } else {
-                scale = mWindowManager.getAnimationScale(which);
-                if (scale != 1) {
-                    mHaveDebugSettings = true;
-                }
+            float scale = mWindowManager.getAnimationScale(which);
+            if (scale != 1) {
+                mHaveDebugSettings = true;
             }
             CharSequence[] values = pref.getEntryValues();
             for (int i=0; i<values.length; i++) {
@@ -1413,28 +1389,23 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             }
             pref.setValueIndex(values.length-1);
             pref.setSummary(pref.getEntries()[0]);
-        } catch (RemoteException ignored) { /* ignored */ }
+        } catch (RemoteException e) {
+        }
     }
 
     private void updateAnimationScaleOptions() {
         updateAnimationScaleValue(0, mWindowAnimationScale);
         updateAnimationScaleValue(1, mTransitionAnimationScale);
         updateAnimationScaleValue(2, mAnimatorDurationScale);
-        updateAnimationScaleValue(3, mKillAppLongpressDelay);
     }
 
     private void writeAnimationScaleOption(int which, ListPreference pref, Object newValue) {
         try {
             float scale = newValue != null ? Float.parseFloat(newValue.toString()) : 1;
-if (which == 3) {
-    Settings.System.putIntForUser(getContentResolver(),
-            Settings.System.LONG_PRESS_KILL_DELAY, ((int) (scale * 1000)),
-            UserHandle.USER_CURRENT);
-} else {
-    mWindowManager.setAnimationScale(which, scale);
-}
+            mWindowManager.setAnimationScale(which, scale);
             updateAnimationScaleValue(which, pref);
-        } catch (RemoteException ignored) { /* ignored */ }
+        } catch (RemoteException e) {
+        }
     }
 
     private void updateOverlayDisplayDevicesOptions() {
@@ -1617,14 +1588,6 @@ if (which == 3) {
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }
-
-    @Override
-    public boolean onPreferenceClick(Preference preference) {
-        if (preference == mKillAppLongpressDelay) {
-            ((AnimationScalePreference) preference).click();
-        }
-        return false;
     }
 
     @Override
@@ -1845,9 +1808,6 @@ if (which == 3) {
             return true;
         } else if (preference == mSimulateColorSpace) {
             writeSimulateColorSpace(newValue);
-            return true;
-        } else if (preference == mKillAppLongpressDelay) {
-            writeAnimationScaleOption(3, mKillAppLongpressDelay, newValue);
             return true;
         } else if (preference == mRootAccess) {
             if ("0".equals(SystemProperties.get(ROOT_ACCESS_PROPERTY, "0"))
