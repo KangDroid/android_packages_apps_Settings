@@ -17,6 +17,10 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_title">
+	
+	<PreferenceCategory
+		android:key="main_statusbar_settings_category"
+		android:title="@string/main_category_statusbar">
 
     <ListPreference
         android:key="status_bar_clock"
@@ -33,15 +37,50 @@
         android:entryValues="@array/status_bar_am_pm_values" />
 		
     <PreferenceScreen
+        android:key="status_bar_expanded_header_settings"
+        android:fragment="com.android.settings.kangdroid.StatusBarExpandedHeaderSettings"
+        android:title="@string/status_bar_expanded_header_settings_title" />
+		
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="status_bar_brightness_control"
+        android:title="@string/status_bar_toggle_brightness"
+        android:summary="@string/status_bar_toggle_brightness_summary"
+        android:defaultValue="false" />
+		
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:key="network_settings_statusbar"
+		android:title="@string/network_category_statusbar">
+		
+    <PreferenceScreen
         android:fragment="com.android.settings.applications.NetworkTraffic"
         android:key="status_bar_network_traffic"
         android:title="@string/network_traffic_title" />
-        <!-- Greeting -->
-        <SwitchPreference
-            android:key="status_bar_greeting"
-            android:title="@string/status_bar_greeting_title"
-            android:summary="@string/status_bar_greeting_summary"	
-            android:defaultValue="true" />  
+		
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:key="icon_customizations_key"
+		android:title="@string/category_icon_customization_statusbar">
+		
+    <PreferenceScreen
+        android:key="status_bar_signal_settings"
+        android:title="@string/status_bar_signal_settings_title"
+        android:summary="@string/status_bar_signal_settings_summary"
+        android:fragment="com.android.settings.kangdroid.StatusBarSignalSettings" />	
+		
+    <PreferenceScreen
+        android:key="status_bar_notif_system_icons_settings"
+        android:title="@string/status_bar_notif_system_icons_settings_title"
+        android:summary="@string/status_bar_notif_system_icons_settings_summary"
+        android:fragment="com.android.settings.kangdroid.StatusBarNotifSystemIconsSettings" />	
+
+	</PreferenceCategory>
+
+	<PreferenceCategory
+		andorid:key="category_battery"
+		android:title="@string/battery_category_statusbar">
 
     <ListPreference
         android:key="status_bar_battery_style"
@@ -56,6 +95,12 @@
         android:dialogTitle="@string/status_bar_battery_percentage_title"
         android:entries="@array/status_bar_battery_percentage_entries"
         android:entryValues="@array/status_bar_battery_percentage_values" />
+		
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:key="category_misc_statusbar"
+		android:title="@string/misc_settings_title">
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="status_bar_show_empty_sims"
@@ -64,26 +109,12 @@
         android:summaryOn="@string/status_bar_show_unused_sims_title_summary_on"
         android:summaryOff="@string/status_bar_show_unused_sims_title_summary_off" />
 
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="status_bar_brightness_control"
-        android:title="@string/status_bar_toggle_brightness"
-        android:summary="@string/status_bar_toggle_brightness_summary"
-        android:defaultValue="false" />
-		
-    <PreferenceScreen
-        android:key="status_bar_expanded_header_settings"
-        android:fragment="com.android.settings.kangdroid.StatusBarExpandedHeaderSettings"
-        android:title="@string/status_bar_expanded_header_settings_title" />
-
-    <PreferenceScreen
-        android:key="status_bar_signal_settings"
-        android:title="@string/status_bar_signal_settings_title"
-        android:summary="@string/status_bar_signal_settings_summary"
-        android:fragment="com.android.settings.kangdroid.StatusBarSignalSettings" />	
-		
-    <PreferenceScreen
-        android:key="status_bar_notif_system_icons_settings"
-        android:title="@string/status_bar_notif_system_icons_settings_title"
-        android:summary="@string/status_bar_notif_system_icons_settings_summary"
-        android:fragment="com.android.settings.kangdroid.StatusBarNotifSystemIconsSettings" />	
+    <!-- Greeting -->
+    <SwitchPreference
+        android:key="status_bar_greeting"
+        android:title="@string/status_bar_greeting_title"
+        android:summary="@string/status_bar_greeting_summary"	
+        android:defaultValue="true" />  
+			
+	</PreferenceCategory>
 </PreferenceScreen>
