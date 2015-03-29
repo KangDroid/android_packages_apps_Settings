@@ -123,6 +123,7 @@ import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.kangdroid.KangDroidCarrierLabel;
+import com.android.settings.kangdroid.KangDroidSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -253,7 +254,6 @@ public class SettingsActivity extends Activity
             R.id.accessibility_settings,
             R.id.print_settings,
             R.id.home_settings,
-            R.id.status_bar_settings,
             R.id.dashboard,
             R.id.privacy_settings_cyanogenmod
     };
@@ -326,7 +326,8 @@ public class SettingsActivity extends Activity
             LockScreenSettings.class.getName(),
             LiveDisplay.class.getName(),
             ExpandedDesktopPreferenceFragment.class.getName(),
-			KangDroidCarrierLabel.class.getName()
+			KangDroidCarrierLabel.class.getName(),
+			KangDroidSettings.class.getName()
     };
 
 

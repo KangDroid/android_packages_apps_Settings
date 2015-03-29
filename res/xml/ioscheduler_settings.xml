@@ -29,6 +29,4 @@
         android:title="@string/performance_set_on_boot"
         android:summary="@string/performance_set_on_boot_summary"/>
 
-    </PreferenceCategory>
-
 </PreferenceScreen>

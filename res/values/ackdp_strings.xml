@@ -24,7 +24,7 @@
 	<string name="category_kdp_sound">KangDroid Sound Option</string>
 	<string name="misc_settings_title">Miscellaneous Settings</string>
 	<string name="lockscreen_settings_title">Lockscreen Settings</string>
-	<string name-"kangdroid_recents_category_title">Recents Settings</string>
+	<string name="kangdroid_recents_category_title">Recents Settings</string>
     <string name="reset_android">Android</string>
     <string name="reset_kangdroid">KangDroid</string>
 	<string name="reset_bliss">KangDroid</string>
@@ -37,7 +37,23 @@
     <string name="reset_option_message">Reset values to\nAndroid- or Settings default?</string>  
 	<string name="category_colors_title">Customize colors</string> 
 	<string name="category_general_title">General options</string>
+	<string name="main_category_statusbar">Main Customizations</string>
+	<string name="network_category_statusbar">Network Customizations</string>
+	<string name="battery_category_statusbar">Battery Styles</string>
+	<string name="carrier_custom">Carrier Customizations</string>
+	<string name="category_icon_customization_statusbar">Icon Customization</string>
+	<string name="advanced_notification_drawer_settings">Advanced QS Customization</string>
     
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="color_default">Default</string>
+	
     <!-- ListView animation -->
     <string name="listview_category">ListView Animation</string>
     <string name="listview_animation_title">ListView Animation</string>
@@ -164,9 +180,6 @@
     <string name="wakelock_blocker_reload">Reload</string>
     <string name="wakelock_blocker_warning_title">Proceed with caution</string>
     <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss</string>
-	  
-   <!--Back to kill timeout -->
-    <string name="long_press_kill_delay">App kill delay</string>
 	
     <!-- Slim lockscreen shortcuts -->
     <string name="shortcut_action_none">None</string>
