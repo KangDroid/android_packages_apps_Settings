@@ -213,4 +213,6 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         public void onCancel(DialogInterface dialog) {
 
         }
+		
+	}
 }
