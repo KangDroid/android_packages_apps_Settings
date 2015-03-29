@@ -17,6 +17,65 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/notification_drawer_title">
 
+    <PreferenceCategory
+        android:title="@string/qs_category_title">
+
+    <PreferenceScreen
+        android:key="qs_order"
+        android:title="@string/qs_order_title"
+        android:fragment="com.android.settings.cyanogenmod.qs.QSTiles" />
+
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="sysui_qs_main_tiles"
+        android:title="@string/qs_main_tiles_title"
+        android:summaryOn="@string/qs_main_tiles_summary_on"
+        android:summaryOff="@string/qs_main_tiles_summary_off"
+        android:defaultValue="true" />
+
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_show_brightness_slider"
+        android:title="@string/qs_brightness_slider_title"
+        android:defaultValue="true"/>
+
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_location_advanced"
+        android:title="@string/qs_advanced_location_title"
+        android:summary="@string/qs_advanced_location_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
+	
+	<PreferenceCategory
+		android:key="category_advanced"
+		android:title="@string/advanced_notification_drawer_settings">
+		
+	<PreferenceScreen
+		android:key="qs_colors"
+		android:title="@string/qs_colors_title"
+		android:fragment="com.android.settings.kangdroid.QSColors" />
+		
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_use_four_columns"
+        android:title="@string/qs_four_columns_title"
+        android:defaultValue="false" />
+
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_tiles_vibrate"
+        android:title="@string/qs_tiles_vibrate_title"
+        android:defaultValue="true" />
+		
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_wifi_detail"
+        android:title="@string/qs_wifi_detail_title"
+        android:summary="@string/qs_wifi_detail_summary"
+        android:defaultValue="false" />
+		
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:key="category_misc_settings_notification_drawer"
+		android:title="@string/misc_settings_title">
+		
     <ListPreference
         android:key="quick_pulldown"
         android:title="@string/quick_pulldown_title"
@@ -24,53 +83,6 @@
         android:entryValues="@array/quick_pulldown_values"
         android:persistent="false" />
 		
-        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-            android:key="qs_wifi_detail"
-            android:title="@string/qs_wifi_detail_title"
-            android:summary="@string/qs_wifi_detail_summary"
-            android:defaultValue="false" />
-
-		    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-		        android:key="qs_use_four_columns"
-		        android:title="@string/qs_four_columns_title"
-		        android:defaultValue="false" />
-
-    <PreferenceCategory
-        android:title="@string/qs_category_title">
-
-        <PreferenceScreen
-            android:key="qs_order"
-            android:title="@string/qs_order_title"
-            android:fragment="com.android.settings.cyanogenmod.qs.QSTiles" />
-
- 		<PreferenceScreen
-			android:key="qs_colors"
-			android:title="@string/qs_colors_title"
-			android:fragment="com.android.settings.kangdroid.QSColors" />
-			
-    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-        android:key="qs_tiles_vibrate"
-        android:title="@string/qs_tiles_vibrate_title"
-        android:defaultValue="true" />
-
-        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-            android:key="sysui_qs_main_tiles"
-            android:title="@string/qs_main_tiles_title"
-            android:summaryOn="@string/qs_main_tiles_summary_on"
-            android:summaryOff="@string/qs_main_tiles_summary_off"
-            android:defaultValue="true" />
-
-        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-            android:key="qs_show_brightness_slider"
-            android:title="@string/qs_brightness_slider_title"
-            android:defaultValue="true"/>
-
-        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-            android:key="qs_location_advanced"
-            android:title="@string/qs_advanced_location_title"
-            android:summary="@string/qs_advanced_location_summary"
-            android:defaultValue="false" />
-
-    </PreferenceCategory>
+	</PreferenceCategory>
 
 </PreferenceScreen>
