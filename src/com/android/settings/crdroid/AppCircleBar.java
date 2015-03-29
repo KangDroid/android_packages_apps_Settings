@@ -38,6 +38,7 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
+import android.preference.SeekBarPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.TextUtils;
@@ -48,11 +49,11 @@ import java.util.ArrayList;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.temasek.SeekBarPreference;
 import com.android.settings.Utils;
 import com.android.settings.util.CMDProcessor;
 import com.android.settings.util.Helpers;
 import com.android.settings.util.AppMultiSelectListPreference;
+import com.android.settings.crdroid.SeekBarPreference;
 
 import java.io.File;
 import java.lang.Thread;

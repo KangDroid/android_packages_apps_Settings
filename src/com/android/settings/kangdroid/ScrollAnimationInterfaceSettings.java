@@ -40,7 +40,8 @@ import android.view.MenuItem;
 import android.util.Log;
 import android.text.TextUtils;
 
-import com.android.settings.liquid.SeekBarPreference;
+import android.preference.SeekBarPreference;
+import com.android.settings.crdroid.SeekBarPreference;
 
 public class ScrollAnimationInterfaceSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
