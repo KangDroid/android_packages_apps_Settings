@@ -60,7 +60,7 @@
     <PreferenceScreen
         android:id="@+id/lock_settings"
         android:title="@string/rr_lockscreen_title"
-        android:fragment="com.android.settings.rr.LockSettings" /> 
+        android:fragment="com.android.settings.kangdroid.KangDroidLockScreenSettings" /> 
 		
 	</PreferenceCategory> 
 	
