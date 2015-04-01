@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.SwitchPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -49,10 +50,14 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
     // Intent for launching the omniswitch settings actvity
     public static Intent INTENT_OMNISWITCH_SETTINGS = new Intent(Intent.ACTION_MAIN)
             .setClassName(OMNISWITCH_PACKAGE_NAME, OMNISWITCH_PACKAGE_NAME + ".SettingsActivity");
+	private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
+    private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
     private SwitchPreference mRecentsUseOmniSwitch;
     private Preference mOmniSwitchSettings;
     private boolean mOmniSwitchInitCalled;
+	private SwitchPreference mRecentsClearAll;
+    private ListPreference mRecentsClearAllLocation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,7 +82,25 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
         mOmniSwitchSettings = (Preference)
                 prefSet.findPreference(OMNISWITCH_START_SETTINGS);
         mOmniSwitchSettings.setEnabled(mRecentsUseOmniSwitch.isChecked());
+		initalizerecentsSettings();
     }
+	
+	public void initalizerecentsSettings() {
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+		
+        mRecentsClearAll = (SwitchPreference) prefSet.findPreference(SHOW_CLEAR_ALL_RECENTS);
+        mRecentsClearAll.setChecked(Settings.System.getIntForUser(resolver,
+            Settings.System.SHOW_CLEAR_ALL_RECENTS, 1, UserHandle.USER_CURRENT) == 1);
+        mRecentsClearAll.setOnPreferenceChangeListener(this);
+
+        mRecentsClearAllLocation = (ListPreference) prefSet.findPreference(RECENTS_CLEAR_ALL_LOCATION);
+        int location = Settings.System.getIntForUser(resolver,
+                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 2, UserHandle.USER_CURRENT);
+        mRecentsClearAllLocation.setValue(String.valueOf(location));
+		mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntry());
+        mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
+	}
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -88,25 +111,32 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mRecentsUseOmniSwitch) {
-            boolean value = (Boolean) objValue;
-
+            boolean value = (Boolean) newValue;
             // if value has never been set before
             if (value && !mOmniSwitchInitCalled){
                 openOmniSwitchFirstTimeWarning();
                 mOmniSwitchInitCalled = true;
             }
-
             Settings.System.putInt(
                     resolver, Settings.System.RECENTS_USE_OMNISWITCH, value ? 1 : 0);
             mOmniSwitchSettings.setEnabled(value);
-        } else {
-            return false;
-        }
-
-        return true;
+			return true;
+        } else if (preference == mRecentsClearAll) {
+            boolean show = (Boolean) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.SHOW_CLEAR_ALL_RECENTS, show ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mRecentsClearAllLocation) {
+            int location = Integer.valueOf((String) newValue);
+			int index = mRecentsClearAllLocation.findIndexOfValue((String) newValue);
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
+            mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
+            return true;
+		}
     }
 
     private void openOmniSwitchFirstTimeWarning() {
@@ -118,5 +148,4 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
                         }
                 }).show();
     }
-
 }
