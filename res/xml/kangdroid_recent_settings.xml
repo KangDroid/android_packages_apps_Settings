@@ -17,17 +17,43 @@
  <PreferenceScreen
      xmlns:android="http://schemas.android.com/apk/res/android"
      android:title="@string/omniswitch_settings_title">
+	 
+	 <PreferenceCategory
+		 android:key="category_omni_recents"
+		 android:title="@string/category_omni">
 
     <SwitchPreference
-            android:key="recents_use_omniswitch"
-            android:title="@string/recents_use_omniswitch_title"
-            android:summary="@string/recents_use_omniswitch_summary"
-            android:persistent="false" />
+         android:key="recents_use_omniswitch"
+         android:title="@string/recents_use_omniswitch_title"
+         android:summary="@string/recents_use_omniswitch_summary"
+         android:persistent="false" />
 
     <Preference
-            android:key="omniswitch_start_settings"
-            android:title="@string/omniswitch_start_settings_title"
-            android:summary="@string/omniswitch_start_settings_summary"
-            android:persistent="false" />
+         android:key="omniswitch_start_settings"
+         android:title="@string/omniswitch_start_settings_title"
+         android:summary="@string/omniswitch_start_settings_summary"
+         android:persistent="false" />
+			
+	</PreferenceCategory>
+	
+    <PreferenceCategory
+        android:key="recents_panel"
+        android:title="@string/recents_panel_category" >
+
+    <SwitchPreference
+        android:key="show_clear_all_recents"
+        android:title="@string/show_clear_all_recents_button_title"
+        android:summary="@string/show_clear_all_recents_button_summary"
+        android:defaultValue="true" />
+
+    <ListPreference
+        android:key="recents_clear_all_location"
+        android:title="@string/recents_clear_all_location_title"
+        android:entries="@array/recents_clear_all_location_entries"
+        android:entryValues="@array/recents_clear_all_location_values"
+        android:defaultValue="0"
+        android:dependency="show_clear_all_recents" />
+
+    </PreferenceCategory>
 
  </PreferenceScreen>
