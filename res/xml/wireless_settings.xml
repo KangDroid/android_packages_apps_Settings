@@ -56,6 +56,15 @@
         android:fragment="com.android.settings.vpn2.VpnSettings"
         android:key="vpn_settings"
         android:title="@string/vpn_settings_title" />
+		
+    <PreferenceScreen
+        android:key="wifi_calling_settings"
+        android:title="@string/wifi_calling_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.WifiCallingSettings" />
+    </PreferenceScreen>
 
     <Preference
         android:key="manage_mobile_plan"
