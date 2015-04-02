@@ -40,6 +40,7 @@ import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.provider.SearchIndexableResource;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManagerGlobal;
@@ -53,16 +54,19 @@ import com.android.settings.util.CMDProcessor;
 import com.android.settings.util.Helpers;
 import com.android.settings.util.AppMultiSelectListPreference;
 import com.android.settings.crdroid.SeekBarPreference;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 
 import java.io.File;
 import java.lang.Thread;
+import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AppCircleBar extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
+        Preference.OnPreferenceChangeListener, OnPreferenceClickListener, Indexable {
 
     private static final String TAG = "AppCircleSidebar";
 
@@ -181,4 +185,25 @@ public class AppCircleBar extends SettingsPreferenceFragment implements
         Settings.System.putInt(getContentResolver(),
                 Settings.System.APP_CIRCLE_BAR_SHOW_TRIGGER, 1);
     }
+	
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.notification_drawer_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    return new ArrayList<String>();
+                }
+            };
 }

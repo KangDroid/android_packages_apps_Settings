@@ -18,6 +18,7 @@ package com.android.settings.crdroid.gestureanywhere;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -25,13 +26,20 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.provider.SearchIndexableResource;
 import android.view.Gravity;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.crdroid.SeekBarPreference;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GestureAnywhereSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        OnPreferenceChangeListener, Indexable {
     private static final String TAG = "GestureAnywhereSettings";
 
     private static final String KEY_ENABLED = "gesture_anywhere_enabled";
@@ -161,4 +169,25 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
         Settings.System.putInt(getContentResolver(),
                 Settings.System.GESTURE_ANYWHERE_SHOW_TRIGGER, 1);
     }
+	
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.gesture_anywhere;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    return new ArrayList<String>();
+                }
+            };
 }

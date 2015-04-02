@@ -30,21 +30,24 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.provider.SearchIndexableResource;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
 import com.android.internal.util.crdroid.DeviceUtils;
-
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class NavigationBarSettings extends SettingsPreferenceFragment implements
-	 	 OnPreferenceChangeListener {
+	 	 OnPreferenceChangeListener, Indexable {
 			 
     private static final String TAG = "NavBarSettingsKangDroid";
     private static final String KEY_DIMEN_OPTIONS = "navbar_dimensions";
@@ -215,4 +218,25 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         }
 		
 	}
+
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.kangdroid_nav_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    return new ArrayList<String>();
+                }
+            };	
 }
