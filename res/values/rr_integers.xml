@@ -13,4 +13,6 @@
     <integer name="maskDown">0x00000002</integer>
     <integer name="maskUnit">0x00000004</integer>
     <integer name="maskPeriod">0xFFFF0000</integer>
+	<attr name="maximum" format="integer" />
+    <attr name="minimum" format="integer" />
 </resources>
