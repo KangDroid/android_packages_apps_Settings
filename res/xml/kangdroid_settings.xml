@@ -79,32 +79,10 @@
 		android:key="animation_category"
 		android:title="@string/anim_settings_title">
 		
-	<!-- AOKP Animation Settings -->
     <PreferenceScreen
-        android:key="aokp_animation"
-        android:title="@string/aokp_animation_title"
-        android:summary="@string/aokp_animation_summary"
-        android:fragment="com.android.settings.crdroid.fragments.AnimationControls" />
-		
-    <PreferenceScreen
-        android:key="interface_animation_scroll"
-        android:fragment="com.android.settings.kangdroid.ScrollAnimationInterfaceSettings"
-        android:title="@string/scrolling_title"
-        android:summary="@string/scrolling_summary" />   
-		
-    <!-- Toast Animation -->
-     <ListPreference
-        android:key="toast_animation"
-        android:title="@string/toast_animation_title"
-        android:entries="@array/toast_animation_entries"
-        android:entryValues="@array/toast_animation_values"
-        android:persistent="false" />
-		
-	<!-- ListView Animation -->	
-    <PreferenceScreen
-        android:key="listview"
-        android:fragment="com.android.settings.kangdroid.Listview"
-        android:title="@string/listview_category" />
+        android:key="kdp_main_animation"
+        android:title="@string/animation_settings_title"
+        android:fragment="com.android.settings.kangdroid.KangDroidAnimationSettings" />
 		
 	</PreferenceCategory>
 	
@@ -112,23 +90,23 @@
 		android:key="misc_settings"
 		android:title="@string/misc_settings_title">
 		
+    <!-- Circle app bar -->
+     <PreferenceScreen
+         android:key="app_circle_bar"
+         android:fragment="com.android.settings.crdroid.AppCircleBar"
+         android:title="@string/app_circle_bar_title"/>
+		 
+     <!-- Gesture anywhere -->
+      <PreferenceScreen
+          android:key="gesture_anywhere"
+          android:fragment="com.android.settings.crdroid.gestureanywhere.GestureAnywhereSettings"
+          android:title="@string/gesture_anywhere_title" />
+		
 	<!-- Wakelock blocker -->
     <PreferenceScreen
         android:key="wakelock_blocker"
         android:fragment="com.android.settings.crdroid.WakeLockBlocker"
         android:title="@string/wakelock_blocker_title" />
-		
-   <!-- Gesture anywhere -->
-    <PreferenceScreen
-        android:key="gesture_anywhere"
-        android:fragment="com.android.settings.crdroid.gestureanywhere.GestureAnywhereSettings"
-        android:title="@string/gesture_anywhere_title" />
-		
-   <!-- Circle app bar -->
-    <PreferenceScreen
-        android:key="app_circle_bar"
-        android:fragment="com.android.settings.crdroid.AppCircleBar"
-        android:title="@string/app_circle_bar_title"/>
 		
 	</PreferenceCategory>
 		
