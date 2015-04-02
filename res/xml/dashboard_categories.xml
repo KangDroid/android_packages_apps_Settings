@@ -121,7 +121,20 @@
          android:id="@+id/kangdroid_settings"
          android:title="@string/kangdroid_settings"
          android:fragment="com.android.settings.kangdroid.KangDroidSettings"
-         android:icon="@drawable/kangdroid_settings" />
+         android:icon="@drawable/kangdroid_settings"
+		 settings:advanced="true" />
+		 
+     <!-- Themes -->
+     <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
+     <dashboard-tile
+             android:id="@+id/theme_settings"
+             android:title="@string/themes_settings_title"
+             android:icon="@drawable/ic_settings_themes">
+         <intent
+                 android:action="android.intent.action.MAIN" >
+             <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
+         </intent>
+     </dashboard-tile>
 		 
 	 </dashboard-category>
 
@@ -145,18 +158,6 @@
                 android:fragment="com.android.settings.DisplaySettings"
                 android:icon="@drawable/ic_settings_display"
                 />
-
-        <!-- Themes -->
-        <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
-        <dashboard-tile
-                android:id="@+id/theme_settings"
-                android:title="@string/themes_settings_title"
-                android:icon="@drawable/ic_settings_themes">
-            <intent
-                    android:action="android.intent.action.MAIN" >
-                <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
-            </intent>
-        </dashboard-tile>
 
         <!-- Notification manager -->
         <dashboard-tile
