@@ -51,7 +51,12 @@
     <string name="default_string">Default</string>
     <string name="choose_app">Choose application</string>
 	<string name="category_nav_bar">Navigation Bar</string>
-	<string name="category_omni">OmniRom Recents</string>
+	<string name="category_omni">OmniSwitch</string>
+	<string name="main_animation_category_title">Main Animation Setting</string>
+	<string name="scrolling_modifier_category">Scrolling Animation Settings</string>
+	<string name="animation_settings_title">Animation Settings</string>
+	<string name="shortcut_kdp_settings">LS Shortcut Settings</string>
+	<string name="category_kdp_recents">Recents Settings</string>
     
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -65,6 +70,7 @@
 	
     <!-- ListView animation -->
     <string name="listview_category">ListView Animation</string>
+	<string name="lisview_summary">Modify On-Scrolling Animation</string>
     <string name="listview_animation_title">ListView Animation</string>
     <string name="listview_off">Off</string>
     <string name="listview_wave_left">Wave (Left)</string>
@@ -290,7 +296,7 @@
     <string name="shortcut_action_wake_device">Wake up device</string>
 
     <!-- Lockscreen Shortcuts -->
-    <string name="lockscreen_shortcuts_title"><i><b>Shortcuts</b></i></string>
+    <string name="lockscreen_shortcuts_title">Slim Lockscreen Shortcut</string>
     <string name="lockscreen_shortcuts_summary">View or change custom lock screen shortcuts</string>
     <string name="lockscreen_shorcuts_longpress_title">Shortcuts longpress</string>
     <string name="lockscreen_shorcuts_longpress_summary">Open custom lock screen shortcuts on longpress</string>
@@ -418,7 +424,7 @@
     <string name="status_bar_carrier_color">Carrier label Color</string>    
 	
 	<!-- OmniSwitch -->
-    <string name="omniswitch_settings_title">OmniSwitch</string>
+    <string name="omniswitch_settings_title">Recents</string>
     <string name="recents_use_omniswitch_title">Use for recents</string>
     <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
     <string name="omniswitch_start_settings_title">Settings</string>
