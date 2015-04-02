@@ -31,6 +31,11 @@
         android:summaryOn="@string/qs_main_tiles_summary_on"
         android:summaryOff="@string/qs_main_tiles_summary_off"
         android:defaultValue="true" />
+		
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_use_four_columns"
+        android:title="@string/qs_four_columns_title"
+        android:defaultValue="false" />
 
     <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
         android:key="qs_show_brightness_slider"
@@ -53,22 +58,11 @@
 		android:key="qs_colors"
 		android:title="@string/qs_colors_title"
 		android:fragment="com.android.settings.kangdroid.QSColors" />
-		
-    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-        android:key="qs_use_four_columns"
-        android:title="@string/qs_four_columns_title"
-        android:defaultValue="false" />
 
     <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
         android:key="qs_tiles_vibrate"
         android:title="@string/qs_tiles_vibrate_title"
         android:defaultValue="true" />
-		
-    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-        android:key="qs_wifi_detail"
-        android:title="@string/qs_wifi_detail_title"
-        android:summary="@string/qs_wifi_detail_summary"
-        android:defaultValue="false" />
 		
 	</PreferenceCategory>
 	
