@@ -34,6 +34,7 @@ import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.cyanogenmod.NotificationDrawerSettings;
 import com.android.settings.cyanogenmod.StatusBarSettings;
+import com.android.settings.kangdroid.KangDroidSettings;
 import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
@@ -302,6 +303,14 @@ public final class SearchIndexableResources {
                         R.xml.privacy_settings_cyanogenmod,
                         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
                         R.drawable.ic_settings_privacy));
+		
+        sResMap.put(com.android.settings.kangdroid.KangDroidSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(
+                                com.android.settings.kangdroid.KangDroidSettings.class.getName()),
+                        R.xml.kangdroid_settings,
+                        com.android.settings.kangdroid.KangDroidSettings.class.getName(),
+                        R.drawable.kangdroid_settings));
     }
 
     private SearchIndexableResources() {
