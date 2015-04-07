@@ -720,7 +720,8 @@
     <string name="volume_panel_time_out_15sec">15 seconds</string>
 	
 	<!-- Membar on Recents -->
-	<string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
+    <string name="recents_show_membar_title">Memory bar</string>
+    <string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
 
     <!--Status bar date -->
     <string name="status_bar_clock_category">Clock</string>
