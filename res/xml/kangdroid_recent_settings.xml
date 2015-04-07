@@ -55,5 +55,18 @@
         android:dependency="show_clear_all_recents" />
 
     </PreferenceCategory>
+	
+	<PreferenceCategory
+		android:key="recents_misc"
+		android:title="@string/misc_settings_title">
+		
+    <!-- Membar in Recents -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="systemui_recents_mem_display"
+        android:title="@string/recents_show_membar_title"
+        android:summary="@string/recents_show_membar_summary"
+        android:defaultValue="false" />
+		
+	</PreferenceCategory>
 
  </PreferenceScreen>
