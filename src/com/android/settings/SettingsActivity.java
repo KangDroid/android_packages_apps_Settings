@@ -115,6 +115,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.WifiCallingSettings;
 import com.android.settings.kangdroid.VolumeSteps;
 import com.android.settings.kangdroid.RecentsActivitySettings;
+import com.android.settings.kangdroid.AmbientSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -308,7 +309,8 @@ public class SettingsActivity extends Activity
             ApnSettings.class.getName(),
             WifiCallingSettings.class.getName(),
 			VolumeSteps.class.getName(),
-			RecentsActivitySettings.class.getName()
+			RecentsActivitySettings.class.getName(),
+			AmbientSettings.class.getName()
     };
 
 
