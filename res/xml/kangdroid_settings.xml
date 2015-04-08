@@ -108,12 +108,6 @@
          android:fragment="com.android.settings.crdroid.AppCircleBar"
          android:title="@string/app_circle_bar_title"/>
 		 
-     <!-- Screen Recorder -->
-      <PreferenceScreen
-          android:key="screen_recorder"
-          android:title="@string/screen_recorder_title"
-          android:fragment="com.android.settings.temasek.ScreenRecorderSettings" />
-		 
     <!-- Gesture anywhere -->
      <PreferenceScreen
          android:key="gesture_anywhere"
