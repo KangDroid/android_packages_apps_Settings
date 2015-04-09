@@ -117,16 +117,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarClock.setSummary(mStatusBarClock.getEntry());
         mStatusBarClock.setOnPreferenceChangeListener(this);
 
-        if (DateFormat.is24HourFormat(getActivity())) {
-            mStatusBarAmPm.setEnabled(false);
-            mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
-        } else {
-            int statusBarAmPm = Settings.System.getInt(resolver,
-                    Settings.System.STATUS_BAR_AM_PM, 2);
-            mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
-            mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
-            mStatusBarAmPm.setOnPreferenceChangeListener(this);
-        }
+        int statusBarAmPm = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_AM_PM, 2);
+        mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
+        mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
+        mStatusBarAmPm.setOnPreferenceChangeListener(this);
 
         int showDate = Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_DATE, 0);
