@@ -124,6 +124,7 @@ import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.kangdroid.KangDroidCarrierLabel;
 import com.android.settings.kangdroid.KangDroidSettings;
+import com.android.settings.kangdroid.HeadsUpSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -327,7 +328,8 @@ public class SettingsActivity extends Activity
             LiveDisplay.class.getName(),
             ExpandedDesktopPreferenceFragment.class.getName(),
 			KangDroidCarrierLabel.class.getName(),
-			KangDroidSettings.class.getName()
+			KangDroidSettings.class.getName(),
+			HeadsUpSettings.class.getName()
     };
 
 
