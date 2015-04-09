@@ -58,6 +58,8 @@
 	<string name="shortcut_kdp_settings">LS Shortcut Settings</string>
 	<string name="notification_category">Notification Settings</string>
 	<string name="date_settings_category">Date Settings</string>
+	<string name="main_nav_bar_title">Main NavBar Settings</string>
+	<string name="carrier_options_title">Carrier Options</string>
     
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>

@@ -89,6 +89,17 @@
 	</PreferenceCategory>
 	
 	<PreferenceCategory
+		android:key="category_carrier"
+		android:title="@string/carrier_options_title">
+		
+    <PreferenceScreen
+		android:key="carrier_label_settings"
+		android:title="@string/carrier_options"
+		android:fragment="com.android.settings.kangdroid.KangDroidCarrierLabel"
+		
+	</PreferenceCategory>
+	
+	<PreferenceCategory
 		android:key="network_settings_statusbar"
 		android:title="@string/network_category_statusbar">
 		
