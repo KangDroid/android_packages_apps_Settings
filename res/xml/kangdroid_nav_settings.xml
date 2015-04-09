@@ -19,6 +19,24 @@
     android:title="@string/category_nav_bar">
 	
 	<PreferenceCategory
+		android:key="main_nav_bar"
+		android:title="@string/main_nav_bar_title">
+	
+    <PreferenceScreen
+        android:key="navigation_bar"
+        android:fragment="com.android.settings.cyanogenmod.NavBar"
+        android:title="@string/navigation_bar_title"
+        settings:advanced="true"/>
+
+    <PreferenceScreen
+        android:key="navigation_bar_ring"
+        android:fragment="com.android.settings.cyanogenmod.NavRing"
+        android:title="@string/navigation_ring_title"
+        settings:advanced="true"/>
+		
+	</PreferenceCategory>
+	
+	<PreferenceCategory
 		android:key="kangdroid_nav_dpi"
 		android:title="@string/kangdroid_nav_dpi_title">
 
@@ -46,7 +64,6 @@
         android:key="search_panel_enabled"
         android:title="@string/navigation_ring_enable_title"
         android:defaultValue="true"
-        android:dependency="enable_nav_bar"
         settings:advanced="true"/>
 		
     <!-- Pie control -->

@@ -124,6 +124,7 @@ import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.kangdroid.KangDroidCarrierLabel;
 import com.android.settings.kangdroid.KangDroidSettings;
+import com.android.settings.kangdroid.HeadsUpSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -327,7 +328,8 @@ public class SettingsActivity extends Activity
             LiveDisplay.class.getName(),
             ExpandedDesktopPreferenceFragment.class.getName(),
 			KangDroidCarrierLabel.class.getName(),
-			KangDroidSettings.class.getName()
+			KangDroidSettings.class.getName(),
+			HeadsUpSettings.class.getName()
     };
 
 
@@ -1442,15 +1444,11 @@ public class SettingsActivity extends Activity
         super.onNewIntent(intent);
     }
 
-    /**
-     * Showing "advanced options" on a retail build involves a toggle,
-     * however, it should always show all advanced options if the option is enabled
-     * by default in an overlay.
-     */
     public static boolean showAdvancedPreferences(Context context) {
-        return (android.provider.Settings.Secure.getInt(context.getContentResolver(),
-                android.provider.Settings.Secure.ADVANCED_MODE, 1) == 1)
-                && context.getResources().getBoolean(
-                com.android.internal.R.bool.config_advancedSettingsMode);
+        return android.provider.Settings.Secure.getInt(
+                context.getContentResolver(),
+                android.provider.Settings.Secure.ADVANCED_MODE, 1) == 1;
     }
+
+
 }
