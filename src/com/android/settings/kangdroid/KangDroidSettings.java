@@ -36,6 +36,8 @@ import java.util.List;
 
 public class KangDroidSettings extends SettingsPreferenceFragment implements Indexable, Preference.OnPreferenceChangeListener {
 
+	private Preference mHeadsUp;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
