@@ -28,6 +28,13 @@
     <PreferenceCategory
 		android:key="notification_less_sounds"
         android:title="@string/notifications_category_title">
+		
+    <SwitchPreference
+        android:key="safe_headset_volume"
+        android:title="@string/safe_headset_volume_title"
+        android:summary="@string/safe_headset_volume_summary"
+        android:persistent="false"
+        android:defaultValue="true" />
 
     <ListPreference
         android:key="less_notification_sounds"
