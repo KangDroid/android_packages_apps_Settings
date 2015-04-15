@@ -28,6 +28,7 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Build;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemProperties;
@@ -40,8 +41,10 @@ import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.widget.Button;
 import android.util.MathUtils;
+import com.android.settings.Utils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
