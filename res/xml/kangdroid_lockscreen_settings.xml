@@ -39,6 +39,12 @@
         settings:advanced="true"/>
 		
 	</PreferenceCategory>
+	
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="blur_enable"
+        android:title="@string/blur_use_title"
+        android:summary="@string/blur_use_summary"
+        android:defaultValue="false" />
 	  
     <PreferenceScreen
         android:key="lockscreen_weather"
