@@ -128,6 +128,8 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.kangdroid.KangDroidCarrierLabel;
 import com.android.settings.kangdroid.KangDroidSettings;
 import com.android.settings.kangdroid.HeadsUpSettings;
+import com.android.settings.kangdroid.ChangeLog;
+import com.android.settings.kangdroid.KangDroidInfoSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -334,7 +336,9 @@ public class SettingsActivity extends Activity
 			KangDroidCarrierLabel.class.getName(),
 			KangDroidSettings.class.getName(),
             AmbientSettings.class.getName(),
-			HeadsUpSettings.class.getName()
+			KangDroidInfoSettings.class.getName(),
+			HeadsUpSettings.class.getName(),
+			ChangeLog.class.getName()
     };
 
 
