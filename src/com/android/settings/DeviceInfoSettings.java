@@ -82,11 +82,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_UPDATE_SETTING = "additional_system_update_settings";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
-    private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
     private static final String KEY_SAFETY_LEGAL = "safetylegal";
-    private static final String KEY_MOD_VERSION = "mod_version";
-    private static final String KEY_MOD_BUILD_DATE = "build_date";
-    private static final String KEY_CM_UPDATES = "cm_updates";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
 
@@ -97,6 +93,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     long[] mHits = new long[3];
     int mDevHitCountdown;
     Toast mDevHitToast;
+
+	Preference mFirmwareVersion;
+	Preference mBuildNumber;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -113,9 +112,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_MOD_VERSION, "ro.cm.display.version");
-        findPreference(KEY_MOD_VERSION).setEnabled(true);
-        setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
+		
+		mFirmwareVersion = findPreference("firmware_version");
+		mBuildNumber = findPreference("build_number");
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
@@ -128,13 +127,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         // Remove selinux information if property is not present
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
                 PROPERTY_SELINUX_STATUS);
-
-        // Only the owner should see the Updater settings, if it exists
-        if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
-            removePreferenceIfPackageNotInstalled(findPreference(KEY_CM_UPDATES));
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_CM_UPDATES));
-        }
 
         // Remove Safety information preference if PROPERTY_URL_SAFETYLEGAL is not set
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SAFETY_LEGAL,
@@ -149,11 +141,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 || (TelephonyManager.getDefault().getPhoneCount() > 1))
                 && !Utils.showSimCardTile(getActivity())) {
             getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
-        }
-
-        // Dont show feedback option if there is no reporter.
-        if (TextUtils.isEmpty(getFeedbackReporterPackage(getActivity()))) {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_FEEDBACK));
         }
 
         /*
@@ -213,7 +200,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference.getKey().equals(KEY_FIRMWARE_VERSION)) {
+        if (preference == mFirmwareVersion) {
             System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
             mHits[mHits.length-1] = SystemClock.uptimeMillis();
             if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
@@ -226,7 +213,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
             }
-        } else if (preference.getKey().equals(KEY_BUILD_NUMBER)) {
+        } else if (preference == mBuildNumber) {
             // Don't enable developer options for secondary users.
             if (UserHandle.myUserId() != UserHandle.USER_OWNER) return true;
 
@@ -267,22 +254,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already_cm,
                         Toast.LENGTH_LONG);
                 mDevHitToast.show();
-            }
-        } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
-            sendFeedback();
-        } else if (preference.getKey().equals(KEY_MOD_VERSION)) {
-            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
-            mHits[mHits.length-1] = SystemClock.uptimeMillis();
-            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.putExtra("is_cm", true);
-                intent.setClassName("android",
-                        com.android.internal.app.PlatLogoActivity.class.getName());
-                try {
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
-                }
             }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -480,10 +451,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 // Remove Baseband version if wifi-only device
                 if (Utils.isWifiOnly(context) && !Utils.showSimCardTile(context)) {
                     keys.add((KEY_BASEBAND_VERSION));
-                }
-                // Dont show feedback option if there is no reporter.
-                if (TextUtils.isEmpty(getFeedbackReporterPackage(context))) {
-                    keys.add(KEY_DEVICE_FEEDBACK);
                 }
                 if (!checkIntentAction(context, "android.settings.TERMS")) {
                     keys.add(KEY_TERMS);
