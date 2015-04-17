@@ -57,9 +57,24 @@
 	<string name="animation_settings_title">Animation Settings</string>
 	<string name="shortcut_kdp_settings">LS Shortcut Settings</string>
 	<string name="notification_category">Notification Settings</string>
-	<string name="date_settings_category">Date Settings</string>
 	<string name="main_nav_bar_title">Main NavBar Settings</string>
-	<string name="carrier_options_title">Carrier Options</string>
+	
+    <!-- KDP Device Info -->
+    <string name="changelog_title">View changelog</string>
+    <string name="changelog_loading">Loading changelog...</string>
+    <string name="changelog_error">Unable to load changelog</string>
+    <string name="changelog_unknown">Unknown</string>
+    <string name="changelog_version">Version</string>
+    <string name="cpu_info">CPU</string>
+    <string name="mem_info">Memory</string>
+	<string name="info_kangdroid_settings">About KangDroid-Project</string>
+	<string name="kangdroid_device_info_settings_summary">Show information about this ROM</string>
+    <string name="kdp_version_title">KangDroid-Project version</string>
+    <string name="kdp_version_default">Unknown</string>
+	
+	<!-- KangDroid Bug Report -->
+	<string name="kangdroid_bugreport">Report Bug.</string>
+	<string name="kangdroid_bugreport_summary">Report a bug with Email.</string>
     
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -422,6 +437,7 @@
     <string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
 	
     <!-- carrier label -->
+	<string name="carrier_options_title">Carrier Options</string>
     <string name="show_status_bar_carrier_title">Carrier label</string>
     <string name="show_status_bar_carrier_summary">Shows carrier label in status bar</string>
     <string name="status_bar_carrier_color">Carrier label Color</string>    
@@ -689,6 +705,7 @@
     <string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
 
     <!--Status bar date -->
+	<string name="date_settings_category">Date Settings</string>
     <string name="status_bar_clock_category">Clock</string>
     <string name="status_bar_date_title">Date</string>
     <string name="status_bar_date_none">Hidden (default)</string>
