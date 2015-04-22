@@ -134,8 +134,7 @@
     <PreferenceScreen
         android:key="battery_bar"
         android:fragment="com.android.settings.kangdroid.BatteryBar"
-        android:title="@string/battery_bar"
-        android:icon="@drawable/ic_settings_battery" />
+        android:title="@string/battery_bar" />
 
     <ListPreference
         android:key="status_bar_battery_style"
