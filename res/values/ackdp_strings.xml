@@ -580,6 +580,7 @@
 	<string name="qs_ambient_display_tile">Ambient display</string>
 	
     <!-- Status bar greeting -->
+	<string name="category_greeting_title">Greeting Options</string>
     <string name="status_bar_greeting_title">Greeting</string>
     <string name="status_bar_greeting_summary">Display a custom greeting in the status bar after unlocking the device</string>
     <string name="status_bar_greeting_dialog">Set your greeting</string>   
@@ -824,6 +825,9 @@
     <string name="battery_saver_style_reset_message">Reset battery saver warning color?</string>
 	
 	<!-- Clock -->
+	<string name="status_bar_clock_category">Clock Customizations</string>
+	<string name="status_bar_clock_date_kangdroid_title">Clock &amp; Date Customizations</string>
+	<string name="status_bar_clock_date_kangdroid_summary">Customize StatusBar Clock, Date (Color, Location, etc...)</string>
     <string name="clock_use_second">Use second clock</string>
     <string name="clock_use_second_summary">Show second in clock</string>
     <string name="clock_color_title">Color</string>
