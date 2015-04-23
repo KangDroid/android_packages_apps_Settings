@@ -483,7 +483,7 @@
     <string name="shortcut_action_wake_device">기기를 깨웁니다(Wake Up!)</string>
 
     <!-- Lockscreen Shortcuts -->
-    <string name="lockscreen_shortcuts_title">잠금화면 바로가기</string>
+    <string name="lockscreen_shortcuts_title">Slim 잠금화면 바로가기</string>
     <string name="lockscreen_shortcuts_summary">잠금화면의 바로가기를 보거나 수정합니다</string>
     <string name="lockscreen_shorcuts_longpress_title">Shortcuts longpress</string>
     <string name="lockscreen_shorcuts_longpress_summary">길게 누를시, 커스텀 잠금화면 바로가기를 엽니다</string>
