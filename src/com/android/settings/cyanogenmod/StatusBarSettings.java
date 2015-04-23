@@ -62,6 +62,7 @@ import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.widget.SeekBarPreferenceCham;
 import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -91,6 +92,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
 	
 	private static final String KEY_STATUS_BAR_GREETING = "status_bar_greeting";
+	private static final String KEY_STATUS_BAR_GREETING_TIMEOUT = "status_bar_greeting_timeout";
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -112,6 +114,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 	private String mCustomGreetingText = "";   
 	private ColorPickerPreference mColorPicker; 
 	private boolean mCheckPreferences;
+	private SeekBarPreferenceCham mStatusBarGreetingTimeout;
 	
     @Override
     public void onCreate(Bundle icicle) {
@@ -151,7 +154,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
               // Set an EditText view to get user input
               final EditText input = new EditText(getActivity());
-              input.setText(mCustomGreetingText != null ? mCustomGreetingText : "Welcome to Bliss");
+                input.setText(mCustomGreetingText != null ? mCustomGreetingText :
+                        getResources().getString(R.string.status_bar_greeting_main));
               alert.setView(input);
               alert.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                   public void onClick(DialogInterface dialog, int whichButton) {
@@ -272,6 +276,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
             enableStatusBarBatteryDependents(batteryStyle);
             return true;
+        } else if (preference == mStatusBarGreetingTimeout) {
+            int timeout = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_GREETING_TIMEOUT, timeout * 1);
+            return true;
         } else if (preference == mStatusBarBatteryShowPercent) {
             int batteryShowPercent = Integer.valueOf((String) newValue);
             int index = mStatusBarBatteryShowPercent.findIndexOfValue((String) newValue);
@@ -383,10 +392,16 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
 		
-        mStatusBarGreeting = (SwitchPreference) findPreference(KEY_STATUS_BAR_GREETING);
+        mStatusBarGreeting = (SwitchPreference) prefSet.findPreference(KEY_STATUS_BAR_GREETING);
         mCustomGreetingText = Settings.System.getString(resolver, Settings.System.STATUS_BAR_GREETING);
         boolean greeting = mCustomGreetingText != null && !TextUtils.isEmpty(mCustomGreetingText);
         mStatusBarGreeting.setChecked(greeting); 
+        mStatusBarGreetingTimeout =
+                (SeekBarPreferenceCham) prefSet.findPreference(KEY_STATUS_BAR_GREETING_TIMEOUT);
+        int statusBarGreetingTimeout = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_GREETING_TIMEOUT, 400);
+        mStatusBarGreetingTimeout.setValue(statusBarGreetingTimeout / 1);
+        mStatusBarGreetingTimeout.setOnPreferenceChangeListener(this);
 
         if (TelephonyManager.getDefault().getPhoneCount() <= 1) {
             removePreference(Settings.System.STATUS_BAR_MSIM_SHOW_EMPTY_ICONS);
