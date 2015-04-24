@@ -131,7 +131,11 @@ import com.android.settings.kangdroid.KangDroidSettings;
 import com.android.settings.kangdroid.HeadsUpSettings;
 import com.android.settings.kangdroid.ChangeLog;
 import com.android.settings.kangdroid.KangDroidInfoSettings;
+<<<<<<< HEAD
 import com.android.settings.kangdroid.KangDroidClockSettings;
+=======
+import com.android.settings.kangdroid.KangDroidAppSideBar;
+>>>>>>> e404f40... App Side Bar (2/2)
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -341,7 +345,8 @@ public class SettingsActivity extends Activity
 			HeadsUpSettings.class.getName(),
             DisplayRotation.class.getName(),
 			KangDroidInfoSettings.class.getName(),
-			KangDroidClockSettings.class.getName()
+			KangDroidClockSettings.class.getName(),
+			KangDroidAppSideBar.class.getName()
     };
 
 
