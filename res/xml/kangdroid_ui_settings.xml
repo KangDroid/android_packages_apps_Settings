@@ -39,4 +39,16 @@
 		android:fragment="com.android.settings.kangdroid.RecentsActivitySettings" />
 		
 	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:key="misc_settings"
+		android:title="@string/misc_settings_title">
+		
+    <!-- App sidebar -->
+    <PreferenceScreen
+         android:key="app_sidebar"
+         android:fragment="com.android.settings.kangdroid.KangDroidAppSideBar"
+         android:title="@string/app_sidebar_title"/>
+		 
+	 </PreferenceCategory>
 </PreferenceScreen>

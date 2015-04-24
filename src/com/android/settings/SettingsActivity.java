@@ -119,6 +119,7 @@ import com.android.settings.kangdroid.AmbientSettings;
 import com.android.settings.kangdroid.KangDroidUISettings;
 import com.android.settings.kangdroid.KangDroidStatusBarSettings;
 import com.android.settings.kangdroid.KangDroidClockSettings;
+import com.android.settings.kangdroid.KangDroidAppSideBar;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -316,7 +317,8 @@ public class SettingsActivity extends Activity
 			AmbientSettings.class.getName(),
 			KangDroidUISettings.class.getName(),
 			KangDroidStatusBarSettings.class.getName(),
-			KangDroidClockSettings.class.getName()
+			KangDroidClockSettings.class.getName(),
+			KangDroidAppSideBar.class.getName()
     };
 
 
