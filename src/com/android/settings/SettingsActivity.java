@@ -131,6 +131,7 @@ import com.android.settings.kangdroid.KangDroidSettings;
 import com.android.settings.kangdroid.HeadsUpSettings;
 import com.android.settings.kangdroid.ChangeLog;
 import com.android.settings.kangdroid.KangDroidInfoSettings;
+import com.android.settings.kangdroid.KangDroidAppSideBar;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -339,7 +340,8 @@ public class SettingsActivity extends Activity
             AmbientSettings.class.getName(),
 			HeadsUpSettings.class.getName(),
             DisplayRotation.class.getName(),
-			KangDroidInfoSettings.class.getName()
+			KangDroidInfoSettings.class.getName(),
+			KangDroidAppSideBar.class.getName()
     };
 
 
