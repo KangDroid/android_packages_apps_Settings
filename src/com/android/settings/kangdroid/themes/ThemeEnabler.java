@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.temasek.themes;
+package com.android.settings.kangdroid.themes;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -22,8 +22,8 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-import com.android.internal.util.temasek.ActionConstants;
-import com.android.internal.util.temasek.Action;
+import com.android.internal.util.slim.ActionConstants;
+import com.android.internal.util.slim.Action;
 
 import com.android.settings.R;
 
