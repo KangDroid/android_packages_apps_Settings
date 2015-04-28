@@ -1086,5 +1086,9 @@
     <string name="notification_icon_color_mode_greyscale_title">If the icon is an greyscale icon</string>
     <string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include an own color</string>
     <string name="notification_color_mode_always_title">Always</string>
+	
+	<!-- Clean Recents task by shaking device -->
+    <string name="shake_clean_recent">Clean by shake</string>
+    <string name="shake_clean_recent_summary">Clean recent task by shake</string>
 
 </resources>

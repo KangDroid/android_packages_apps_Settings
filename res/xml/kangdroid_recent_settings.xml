@@ -99,6 +99,12 @@
         android:summary="@string/recents_show_membar_summary"
         android:defaultValue="false" />
 		
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="shake_clean_recent"
+        android:title="@string/shake_clean_recent"
+        android:summary="@string/shake_clean_recent_summary"
+        android:defaultValue="true" />
+		
 	</PreferenceCategory>
 
  </PreferenceScreen>
