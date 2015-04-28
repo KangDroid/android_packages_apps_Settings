@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.temasek.themes;
+package com.android.settings.kangdroid.themes;
 
 import android.app.ActionBar;
 import android.app.Activity;
