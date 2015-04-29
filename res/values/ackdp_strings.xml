@@ -58,6 +58,7 @@
 	<string name="shortcut_kdp_settings">LS Shortcut Settings</string>
 	<string name="notification_category">Notification Settings</string>
 	<string name="main_nav_bar_title">Main NavBar Settings</string>
+	<string name="kdp_update_title">Update KangDroid-Project</string>
 	
     <!-- KDP Device Info -->
     <string name="changelog_title">View changelog</string>
