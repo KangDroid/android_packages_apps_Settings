@@ -2258,6 +2258,13 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+		
+        <!-- KangDroidProject Updater Settings and Activity -->
+        <activity android:name="com.ota.updates.activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"
