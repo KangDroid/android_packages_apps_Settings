@@ -43,7 +43,8 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 	private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
 
     private ListPreference mQuickPulldown;
-    private Preference mQSTiles;
+	private SwitchPreference mBlockOnSecureKeyguard;
+	private Preference mQSTiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
