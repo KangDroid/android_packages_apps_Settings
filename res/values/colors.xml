@@ -81,4 +81,10 @@
     <color name="sim_noitification">@*android:color/material_deep_teal_500</color>
     <color name="regulatory_text_color">#000</color>
 
+    <!-- Device Extra info -->
+    <color name="extrainfo_separator">#ffffffff</color>
+    <color name="extrainfo_cat_background">#ff000000</color>
+    <color name="extrainfo_cat_text">#ffffffff</color>
+    <color name="extrainfo_value_text">#ffffffff</color>
+
 </resources>
