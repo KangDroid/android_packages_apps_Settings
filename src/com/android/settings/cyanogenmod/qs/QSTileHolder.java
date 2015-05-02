@@ -145,10 +145,6 @@ public class QSTileHolder {
                 resourceName ="ic_livedisplay_day";
                 stringId = R.string.live_display_title;
                 break;
-            case QSConstants.TILE_NOTIFICATIONS:
-                resourceName = "ic_qs_ringer_audible";
-                stringId = R.string.qs_notifications_tile;
-                break;
             case QSConstants.TILE_BATTERY_SAVER:
                 resourceName = "ic_qs_battery_saver_on";
                 stringId = R.string.qs_battery_saver_tile;
