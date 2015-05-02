@@ -112,5 +112,6 @@ public class Settings extends SettingsActivity {
     public static class DisplayRotationActivity extends SettingsActivity { /* empty */ }
     public static class AnonymousStatsActivity extends Settings { /* empty */ }
     public static class NotificationManagerActivity extends SettingsActivity { /* empty */ }
+    public static class AppSideBarSettingsActivity extends SettingsActivity { /* empty */ }
 }
 
