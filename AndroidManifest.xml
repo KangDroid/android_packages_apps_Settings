@@ -2278,6 +2278,13 @@
         </activity>
 		
         <!-- KangDroidProject Updater Settings and Activity -->
+        <activity android:name="com.cyanogenmod.lockclock.preference.Preferences">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+		
+        <!-- KangDroidProject Updater Settings and Activity -->
         <activity android:name="com.ota.updates.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

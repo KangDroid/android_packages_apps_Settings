@@ -971,5 +971,9 @@
 
     <!-- Summary for "Configure lockscreen" when security gesture is enabled [CHAR LIMIT=45] -->
     <string name="unlock_set_unlock_mode_gesture">Gesture</string>
+	
+	<!-- Weather LockClock -->
+	<string name="weather_settings">Weather Settings</string>
+	<string name="weather_settings_summary">Detailed Weather settings</string>
 
 </resources>
