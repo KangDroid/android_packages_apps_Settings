@@ -35,6 +35,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KangDroidSettings extends SettingsPreferenceFragment implements Indexable, Preference.OnPreferenceChangeListener {
+	
+	private static final String KEY_HEADS_UP_SETTINGS = "heads_up_enabled";
 
 	private Preference mHeadsUp;
 
@@ -42,14 +44,14 @@ public class KangDroidSettings extends SettingsPreferenceFragment implements Ind
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.kangdroid_settings);
-		mHeadsUp = findPreference(Settings.System.HEADS_UP_NOTIFICATION);
+		mHeadsUp = findPreference(KEY_HEADS_UP_SETTINGS);
     }
 	
     @Override
     public void onResume() {
         super.onResume();
         boolean headsUpEnabled = Settings.System.getInt(
-                getContentResolver(), Settings.System.HEADS_UP_NOTIFICATION,1) != 0;
+                getContentResolver(), Settings.System.HEADS_UP_USER_ENABLED, Settings.System.HEADS_UP_USER_ON) != 0;
         mHeadsUp.setSummary(headsUpEnabled
                 ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
     }
