@@ -60,6 +60,7 @@ public class QSColors extends SettingsPreferenceFragment implements
     private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSTextColor;
+	private ColorPickerPreference mClearAllIconColor;
 	private SwitchPreference mQSShadeTransparency;
 
     private ContentResolver mResolver;
