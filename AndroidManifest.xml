@@ -74,6 +74,7 @@
     <uses-permission android:name="android.permission.HARDWARE_ABSTRACTION_ACCESS" />
 	<uses-permission android:name="android.permission.CHANGE_HEADS_UP_STATE" />
     <uses-permission android:name="com.cyanogen.permission.REQUEST_KILL_SWITCH_OP" />
+    <uses-permission android:name="cyanogenmod.permission.FINISH_SETUP" />
 
     <permission
         android:name="cyanogenmod.permission.PROTECTED_APP"
@@ -2457,6 +2458,12 @@
         </receiver>
 
         <service android:name="com.android.settings.kangdroid.hfm.CheckHosts" />
+
+        <receiver android:name=".profiles.SetupDefaultProfileReceiver">
+            <intent-filter>
+                <action android:name="com.cyanogenmod.setupwizard.SETUP_FINISHED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>
