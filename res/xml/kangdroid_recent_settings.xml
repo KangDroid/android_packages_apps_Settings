@@ -60,6 +60,13 @@
 		android:key="recents_misc"
 		android:title="@string/misc_settings_title">
 		
+    <!-- Search in Recents -->
+     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+         android:key="recents_show_search_bar"
+         android:title="@string/recents_show_searchbar"
+         settings:keywords="@string/keywords_recents_show_searchbar"
+         android:defaultValue="true" />
+		
     <!-- Membar in Recents -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="systemui_recents_mem_display"
