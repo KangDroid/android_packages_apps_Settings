@@ -33,6 +33,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import com.android.settings.util.Helpers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,10 +42,12 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         Preference.OnPreferenceChangeListener {
     private static final String QUICK_PULLDOWN = "quick_pulldown";
 	private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
+	private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
 
     private ListPreference mQuickPulldown;
 	private SwitchPreference mBlockOnSecureKeyguard;
 	private Preference mQSTiles;
+    private SwitchPreference mEnableTaskManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +80,11 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         } else {
             prefSet.removePreference(mBlockOnSecureKeyguard);
         }
+
+        // Task manager
+        mEnableTaskManager = (SwitchPreference) prefSet.findPreference(PREF_ENABLE_TASK_MANAGER);
+        mEnableTaskManager.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.ENABLE_TASK_MANAGER, 0) == 1));
     }
 
     @Override
@@ -104,6 +112,17 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+       if  (preference == mEnableTaskManager) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ENABLE_TASK_MANAGER, enabled ? 1:0);
+            Helpers.restartSystemUI();
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void updatePulldownSummary(int value) {
