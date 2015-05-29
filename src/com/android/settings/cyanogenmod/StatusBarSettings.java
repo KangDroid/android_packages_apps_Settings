@@ -131,10 +131,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_GREETING_TIMEOUT, 400);
         mStatusBarGreetingTimeout.setValue(statusBarGreetingTimeout / 1);
         mStatusBarGreetingTimeout.setOnPreferenceChangeListener(this);
-
-        if (TelephonyManager.getDefault().getPhoneCount() <= 1) {
-            removePreference(Settings.System.STATUS_BAR_MSIM_SHOW_EMPTY_ICONS);
-        }
     }
 
     @Override
