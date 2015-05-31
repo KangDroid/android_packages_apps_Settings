@@ -1014,15 +1014,11 @@
     <string name="double_tap_sleep_anywhere_summary">Double tap anywhere on the lockscreen to put the device to sleep</string>
 
     <!-- Recent panel -->
-    <string name="recent_panel_category">Slim recents app panel</string>
-    <string name="use_slim_recents_title">Slim recents</string>
+    <string name="recent_panel_category">SlimRecents apps panel</string>
+    <string name="use_slim_recents_title">SlimRecents</string>
     <string name="show_running_tasks_title">Only show running apps</string>
     <string name="recents_max_apps_title">Max allowed apps</string>
     <string name="recent_panel_scale_title">Size</string>
-    <string name="recent_panel_scale_summary">Recent apps panel size in percent</string>
-    <string name="recent_panel_100">100% (default)</string>
-    <string name="recent_panel_85">85%</string>
-    <string name="recent_panel_70">70%</string>
     <string name="recent_panel_expanded_mode_title">Expanded mode</string>
     <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
     <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
