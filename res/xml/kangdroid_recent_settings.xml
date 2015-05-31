@@ -37,6 +37,18 @@
 			
 	</PreferenceCategory>
 	
+	<PreferenceCategory
+		android:key="category_slimrecent"
+		android:title="@string/recent_panel_category">
+	
+    <!-- Slim recents -->
+    <PreferenceScreen
+        android:key="recent_panel"
+        android:fragment="com.android.settings.kangdroid.RecentPanel"
+        android:title="@string/recent_panel_category" />
+		
+	</PreferenceCategory>
+	
     <PreferenceCategory
         android:key="recents_panel"
         android:title="@string/recents_panel_category" >
