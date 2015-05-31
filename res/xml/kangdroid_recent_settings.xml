@@ -19,6 +19,17 @@
      android:title="@string/omniswitch_settings_title">
 	 
 	 <PreferenceCategory
+		 android:key="slim_recents_category"
+		 android:title="@string/use_slim_recents_title">
+		 
+     <PreferenceScreen
+         android:key="recent_panel"
+         android:fragment="com.android.settings.slim.RecentPanel"
+         android:title="@string/use_slim_recents_title" />
+		 
+	 </PreferenceCategory>
+	 
+	 <PreferenceCategory
 		 android:key="category_omni_recents"
 		 android:title="@string/category_omni">
 
