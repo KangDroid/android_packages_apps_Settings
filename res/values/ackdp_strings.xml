@@ -1050,5 +1050,9 @@
     <string name="torch_screen_off_one_minute">1 minute</string>
     <string name="torch_screen_off_five_minutes">5 minutes</string>
     <string name="torch_screen_off_ten_minutes">10 minutes</string>
+	
+    <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
+    <string name="double_tap_sleep_anywhere_title">Double-tap to sleep anywhere</string>
+    <string name="double_tap_sleep_anywhere_summary">Double tap anywhere on the lockscreen to put the device to sleep</string>
 
 </resources>
