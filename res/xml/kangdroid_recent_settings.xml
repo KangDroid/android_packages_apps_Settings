@@ -34,6 +34,17 @@
          android:title="@string/omniswitch_start_settings_title"
          android:summary="@string/omniswitch_start_settings_summary"
          android:persistent="false" />
+		 
+	</PreferenceCategory>
+		 
+   <PreferenceCategory
+		 android:key="recent_slim_use_kangdroid"
+		 android:title="@string/recent_slim_use_kangdroid_title">
+		 
+    <PreferenceScreen
+        android:key="recent_panel"
+        android:fragment="com.android.settings.kangdroid.RecentPanel"
+        android:title="@string/recent_panel_category" />
 			
 	</PreferenceCategory>
 	
