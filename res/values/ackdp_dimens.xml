@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The LiquidSmooth Project
+<!--
+     Copyright (C) 2014-2015 KangDroid-Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,10 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
 
-    <!-- Liquid Extra Info -->
-    <string name="lsextrainfo">Extra information</string>
-    <string name="lsextrainfo_summary">Display extra info for cpu, display, etc</string>
+    <!-- Gesture Anywhere -->
+    <dimen name="ga_gesture_thumbnail_inset">8dip</dimen>
+    <dimen name="ga_gesture_thumbnail_size">64dip</dimen>
+    <dimen name="shortcut_picker_left_padding">70dip</dimen>
 
 </resources>
