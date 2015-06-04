@@ -41,6 +41,8 @@ import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 
+import com.android.settings.util.Helpers;
+
 public class RecentsActivitySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "OmniSwitch";
@@ -55,12 +57,14 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
             .setClassName(OMNISWITCH_PACKAGE_NAME, OMNISWITCH_PACKAGE_NAME + ".SettingsActivity");
 	private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
+	private static final String CUSTOM_RECENT_MODE = "custom_recent_mode";
 
     private SwitchPreference mRecentsUseOmniSwitch;
     private Preference mOmniSwitchSettings;
     private boolean mOmniSwitchInitCalled;
 	private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
+	private SwitchPreference mRecentsCustom;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,6 +90,12 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
                 prefSet.findPreference(OMNISWITCH_START_SETTINGS);
         mOmniSwitchSettings.setEnabled(mRecentsUseOmniSwitch.isChecked());
 		initalizerecentsSettings();
+		
+	boolean enableRecentsCustom = Settings.System.getBoolean(getContentResolver(),
+                                      Settings.System.CUSTOM_RECENT, false);
+        mRecentsCustom = (SwitchPreference) findPreference(CUSTOM_RECENT_MODE);
+        mRecentsCustom.setChecked(enableRecentsCustom);
+        mRecentsCustom.setOnPreferenceChangeListener(this);
     }
 	
 	public void initalizerecentsSettings() {
@@ -142,6 +152,12 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
             Settings.System.putIntForUser(getActivity().getContentResolver(),
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
             mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
+            return true;
+		} else if (preference == mRecentsCustom) {
+				Settings.System.putBoolean(getActivity().getContentResolver(),
+						Settings.System.CUSTOM_RECENT,
+							((Boolean) objValue) ? true : false);
+				Helpers.restartSystemUI();
             return true;
 		}
 		return false;
