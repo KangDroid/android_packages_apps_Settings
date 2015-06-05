@@ -156,7 +156,7 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
 		} else if (preference == mRecentsCustom) {
 				Settings.System.putBoolean(getActivity().getContentResolver(),
 						Settings.System.CUSTOM_RECENT,
-							((Boolean) objValue) ? true : false);
+							((Boolean) newValue) ? true : false);
 				Helpers.restartSystemUI();
             return true;
 		}
