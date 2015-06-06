@@ -39,20 +39,12 @@
 		 
    <PreferenceCategory
 		 android:key="recent_slim_use_kangdroid"
-		 android:title="@string/recent_panel_category">
-		 
-   <!-- Custom Recents Toggle -->
-   <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-		 android:key="custom_recent_mode"
-         android:title="@string/custom_recent_title"
-         android:summary="@string/custom_recent_summary"
-         android:persistent="false" />
+		 android:title="@string/recent_slim_use_kangdroid_title">
 		 
     <PreferenceScreen
         android:key="recent_panel"
         android:fragment="com.android.settings.kangdroid.RecentPanel"
-        android:title="@string/recent_panel_category"
-		android:dependency="custom_recent_mode" />
+        android:title="@string/recent_panel_category" />
 			
 	</PreferenceCategory>
 	
