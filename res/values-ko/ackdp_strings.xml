@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
-     Copyright (C) 2014 The KangDroid-Project.
+     Copyright (C) 2014-2015 KangDroid-Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,25 +12,104 @@
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
-     limitations under the License.
+     limitations under the License.ENG
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-<string name="anim_settings_title">에니메이션 설정</string>
+	
+    <!-- KangDroid Settings -->
+    <string name="kangdroid_settings">KangDroid 설정</string>
+	<string name="anim_settings_title">KangDroid 에니메이션 설정</string>
+	<string name="header_kangdroid_personalization">개인화</string>
+	<string name="quick_settings_title">알림 서랍(Quick Settings)</string>
+	<string name="category_kdp_sound">KangDroid 소리 설정</string>
+	<string name="misc_settings_title">다른 설정</string>
+	<string name="lockscreen_settings_title">잠금화면 설정</string>
+	<string name="kangdroid_recents_category_title">멀티타스킹 설정</string>
+    <string name="reset_android">안드로이드</string>
+    <string name="reset_kangdroid">KangDroid</string>
+	<string name="reset_bliss">KangDroid</string>
+    <string name="more_string">더</string>
+    <string name="colors_title">색깔</string>
+	<string name="color_title">색깔</string>
+    <string name="icons_title">아이콘</string>
+    <string name="text_title">텍스트</string>
+    <string name="reset_message">엔트리를 모두 초기화 시키시겠습니까?</string>
+    <string name="reset_option_message">안드로이드 순정 설정으로 초기화 할까요 아니면 KangDroid설정으로 초기화할까요?</string>  
+	<string name="category_colors_title">색상 설정</string> 
+	<string name="category_general_title">기본 설정</string>
+	<string name="main_category_statusbar">기본 설정</string>
+	<string name="network_category_statusbar">네트워크 설정</string>
+	<string name="battery_category_statusbar">베터리 스타일</string>
+	<string name="carrier_custom">통신사 마크 설정</string>
+	<string name="category_icon_customization_statusbar">아이콘 설정</string>
+	<string name="advanced_notification_drawer_settings">고급 퀵패널 설정</string>
+    <string name="ok">OK</string>
+    <string name="reset">초기화</string>
+    <string name="add">추가</string>
+    <string name="attention">Attention</string>
+    <string name="enabled">활성화됨</string>
+    <string name="default_string">기본</string>
+    <string name="choose_app">어플리케이션을 고르세요.</string>
+	<string name="category_nav_bar">네비게이션 바</string>
+	<string name="category_omni">OmniSwitch</string>
+	<string name="main_animation_category_title">메인 에니메이션 설정</string>
+	<string name="scrolling_modifier_category">스크롤링 에니메이션 설정</string>
+	<string name="animation_settings_title">에니메이션 설정</string>
+	<string name="shortcut_kdp_settings">잠금화면 쇼트컷 설정</string>
+	<string name="notification_category">알림 설정</string>
+	<string name="main_nav_bar_title">기본 네비게이션 바 설정</string>
+	<string name="kdp_update_title">KangDroid-Project를 업데이트합니다</string>
+	
+    <!-- KDP Device Info -->
+    <string name="changelog_title">ROM 체인지로그</string>
+    <string name="changelog_loading">체인지로그를 로딩중입니다...</string>
+    <string name="changelog_error">체인지로그를 불러올수 없습니다!</string>
+    <string name="changelog_unknown">알수 없음</string>
+    <string name="changelog_version">버전</string>
+    <string name="cpu_info">CPU</string>
+    <string name="mem_info">메모리</string>
+	<string name="info_kangdroid_settings">KangDroid-Project 정보</string>
+	<string name="kangdroid_device_info_settings_summary">이 ROM에 관한 정보를 보여줍니다</string>
+    <string name="kdp_version_title">KangDroid-Project 버전</string>
+    <string name="kdp_version_default">알수 없음</string>
+	
+	<!-- KangDroid Bug Report -->
+	<string name="kangdroid_bugreport">버그 리포트</string>
+	<string name="kangdroid_bugreport_summary">버그를 이메일로 리포트합니다.</string>
+    <string name="reset_default_message">Reset default</string>
+    <string name="additional_options_title">추가 옵션</string>
     
-	<!-- ListView animation -->
-	<string name="listview_category">리스트뷰 에니메이션</string>
-	<string name="listview_animation_title">리스트뷰 에니메이션</string>
-	<string name="listview_off">off</string>
-	<string name="listview_wave_left">Wave (Left)</string>
-	<string name="listview_wave_right">Wave (Right)</string>
-	<string name="listview_alpha">Alpha</string>
-	<string name="listview_scale">Scale</string>
-	<string name="listview_stack_top">Stack (Top)</string>
-	<string name="listview_stack_bottom">Stack (Bottom)</string>
-	<string name="listview_unfold">Unfold</string>
-	<string name="listview_fold">Fold</string>
-	<string name="listview_translate_left">Translate (Left)</string>
-	<string name="listview_translate_right">Translate (Right)</string>
+    <!-- Color Picker -->
+    <string name="dialog_color_picker_title">색상 선택기</string>
+    <string name="press_color_to_apply">밑에있는 색상을 눌러서 색상을 바꿔주세요</string>
+    <string name="palette_bliss_title">KangDroid</string>
+    <string name="palette_material_title">마테리얼 색상</string>
+    <string name="palette_rgb_title">RGB 색상</string>
+    <string name="reset_android_title">Android 순정 설정</string>
+    <string name="reset_bliss_title">KangDroid 설정</string>
+    <string name="arrow_down">↓</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">핵스값:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">설정</string>
+    <string name="color_default">기본</string>
+	
+    <!-- ListView animation -->
+    <string name="listview_category">리스트뷰 에니메이션</string>
+	<string name="lisview_summary">온-스크롤링 에니메이션을 수정하거나 새로 설정합니다</string>
+    <string name="listview_animation_title">리스트뷰 에니메이션</string>
+    <string name="listview_off">Off</string>
+    <string name="listview_wave_left">Wave (Left)</string>
+    <string name="listview_wave_right">Wave (Right)</string>
+    <string name="listview_alpha">Alpha</string>
+    <string name="listview_scale">Scale</string>
+    <string name="listview_stack_top">Stack (Top)</string>
+    <string name="listview_stack_bottom">Stack (Bottom)</string>
+    <string name="listview_unfold">Unfold</string>
+    <string name="listview_fold">Fold</string>
+    <string name="listview_translate_left">Translate (Left)</string>
+    <string name="listview_translate_right">Translate (Right)</string>
 
     <!-- ListView interpolator -->
     <string name="listview_interpolator_title">ListView Interpolator</string>
@@ -42,30 +120,6 @@
     <string name="listview_overshoot_interpolator">overshoot_interpolator</string>
     <string name="listview_anticipate_overshoot_interpolator">anticipate_overshoot_interpolator</string>
     <string name="listview_bounce_interpolator">bounce_interpolator</string>
-
-    <!-- KangDroid Settings -->
-    <string name="kangdroid_settings">커스텀 설정</string>
-	<string name="misc_settings_title">다른 설정</string>
-	<string name="navigation_customization_title">네비게이션바 설정</string>
-	<string name="quick_settings_title">퀵패널 설정</string>
-	<string name="kangdroid_anim_settings_title">에니메이션 설정</string>
-	<string name="kangdroid_anim_settings_titlee">KangDroid 에니메이션 설정</string>
-	<string name="lockscreen_settings_title">잠금화면 설정</string>
-	<string name="kangdroid_recents_settings">Recents Settings</string>
-	<string name="recents_misc_settings">다른 설정</string>
-    <string name="reset_android">안드로이드</string>
-    <string name="reset_kangdroid">KangDroid</string>
-	<string name="reset_bliss">KangDroid</string>
-    <string name="more_string">더</string>
-    <string name="colors_title">색깔</string>
-	<string name="color_title">색깔</string>
-    <string name="icons_title">아이콘</string>
-    <string name="text_title">글</string>
-    <string name="reset_message">Reset all entries to default?</string>
-    <string name="reset_option_message">Reset values to\nAndroid- or Settings default?</string>   
-	<string name="category_colors_title">Customize colors</string>
-	<string name="category_general_title">General options</string>
-	
 
 	<!-- Volume Steps -->
     <string name="volume_steps_title">볼륨(음량) 단계</string>
@@ -82,7 +136,7 @@
     <string name="volume_steps_ring_title">벨소리</string>
     <string name="volume_steps_system_title">시스템</string>
     <string name="volume_steps_voice_call_title">통화 음량</string>
-
+	
     <!-- Toast Animation -->
     <string name="toast_animation_title">토스트 에니메이션</string>
     <string name="toast_none_animation">None</string>
@@ -102,241 +156,29 @@
     <string name="toast_SlideLeftRight_animation">Slide Left To Right Animation</string>
     <string name="toast_SlideRightLeft_animation">Slide Right To Left Animation</string>
 	
-    <!-- QuickSettings: Smart Pulldown -->
-    <string name="smart_pulldown_title">Smart pulldown</string>
-    <string name="smart_pulldown_summary">Open Quick Settings when there are %1$s notifications present</string>
-    <string name="smart_pulldown_off">Off</string>
-    <string name="smart_pulldown_dismissable">No dismissable</string>
-    <string name="smart_pulldown_persistent">No persistent</string>
-    <string name="smart_pulldown_all">No dismissable or persistent</string>
-
-    <!-- About device screen, CPU and RAM info. -->
-    <string name="cpu_info">CPU</string>
-    <string name="mem_info">Memory</string>
-	
-    <!-- About phone screen, Slim version -->
-    <string name="kdp_version_title">KangDroid-Project 버전</string>
-    <string name="kdp_version_default">Unknown</string>
-	
     <!-- Screenshot sound -->
     <string name="screenshot_sound_title">스크린샷 소리</string>
     <string name="screenshot_sound_summary">스크린샷을 찍을떄 소리가 납니다.</string>
-
-    <!-- General strings -->
-    <string name="ok">OK</string>
-    <string name="reset">초기화</string>
-    <string name="add">Add</string>
-    <string name="attention">Attention</string>
-    <string name="enabled">활성화됨</string>
-    <string name="default_string">기본</string>
-    <string name="choose_app">어플리케이션을 고르세요.</string>
-
-    <!-- Color Picker -->
-    <string name="dialog_color_picker">Color Picker</string>
-    <string name="press_color_to_apply">밑에있는 색상을 눌러서 적용합니다</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">헥스값:</string>
-    <string name="hex_hint">#ff000000</string>
-    <string name="set">설정</string>
-    <string name="color_default">기본</string>
 	
-    <!-- Status bar | Clock -->
-    <string name="status_bar_clock">시간과 날짜</string>
-    <string name="status_bar_clock_title">시간과 날짜 스타일</string>
-    <string name="clock_title_enable">Alignment</string>
-    <string name="clock_enabled">활성화됨</string>
-    <string name="clock_disabled">비활성화됨</string>
-    <string name="clock_color_title">색깔</string>
-    <string name="status_bar_clock_style_reset">색깔을 초기화 합니다.</string>
-    <string name="status_bar_show_clock_title">시간과 날짜를 상단바에 표시</string>
-    <string name="status_bar_am_pm_title">AM/PM</string>
-    <string name="status_bar_am_pm_info">24시간 기준 시간이 활성화됨</string>
-    <string name="enable_clock_weekday">Day of the week</string>
-    <string name="enable_clock_weekday_summary">Abbreviated day of the week before the time</string>
-    <string name="right_clock">오른쪽에 시계를 표시합니다.</string>
-    <string name="center_clock">중앙에 시계를 표시합니다.</string>
-    <string name="dont_show">보여주지 않기</string>
-    <string name="clock_date_display">날짜</string>
-    <string name="clock_date_display_summary">시계 바로 왼쪽에 커스텀 날짜 형식을 추가합니다.</string>
-    <string name="clock_date_style">날짜 스타일</string>
-    <string name="clock_date_format">날짜 종류</string>
-    <string name="clock_date_string_edittext_title">무조건 날짜 종류여야 합니다. eg. MM/dd/yy</string>
-    <string name="clock_date_string_edittext_summary">밑에 입력하세요.</string>
-    <string name="am_pm_clock_normal">기본 폰트 크기</string>
-    <string name="am_pm_clock_small">작은 폰트 크기</string>
-    <string name="am_pm_clock_none">보여주지 않기</string>
-    <string name="clock_date_display_none">보여주지 않기</string>
-    <string name="clock_date_display_small">작은 폰트 크기</string>
-    <string name="clock_date_display_normal">기본 폰트 크기</string>
-    <string name="clock_date_style_normal">기본</string>
-    <string name="clock_date_style_lowercase">소문자</string>
-    <string name="clock_date_style_uppercase">대문자</string>
-    <string name="clock_date_format_custom">자바 종류</string>
-    <string name="status_bar_clock_style_reset_message">시계 색깔을 초기화 할까요?</string>
-	<string name="clock_font_condensed">간결한 폰트</string>
-	<string name="clock_font_light_italic">Light Italic</string>
-    <string name="clock_font_style_title">폰트</string>
-    <string name="clock_font_bold">진한 폰트</string>
-    <string name="clock_font_light">Light</string>
-    <string name="clock_font_normal">기본</string>
-    <string name="clock_use_second">초시계 사용</string>
-    <string name="clock_use_second_summary">상단바에 시간과 초를 같이 표시합니다.</string>
-	
-    <!-- Network traffic -->
-    <string name="network_traffic_title">네트워크 트레픽</string>
-    <string name="show_network_traffic_state">상단바 네트워크 트래픽 모니터</string>
-    <string name="network_traffic_summary">상단바에서 다양한 네트워크 트래픽 옵션을 사용합니다.</string>
-    <string name="show_network_traffic_unit">표시할 단위</string>
-    <string name="show_network_traffic_frequency">업데이트 간격</string>
-    <string name="show_network_traffic_disable">비활성화</string>
-    <string name="show_network_traffic_up">Outgoing</string>
-    <string name="show_network_traffic_down">Incoming</string>
-    <string name="show_network_traffic_all">Outgoing and incoming</string>
-    <string name="show_network_traffic_bit">1초에 n비트</string>
-    <string name="show_network_traffic_byte">1초에 n바이트</string>
-    <string name="show_network_traffic_500">500 ms</string>
-    <string name="show_network_traffic_1000">1000 ms</string>
-    <string name="show_network_traffic_1500">1500 ms</string>
-    <string name="show_network_traffic_2000">2000 ms</string>
-    <string name="network_traffic_autohide">자동으로 숨기기</string>
-    <string name="network_traffic_autohide_summary">네트워크 활동이 없을경우 트래픽 모니터를 숨깁니다.</string>
-	<string name="network_traffic_autohide_threshold">비활성된 임계 값</string>
-    <string name="network_traffic_color_style">색깔 정하기</string>
-    <string name="network_traffic_color_reset">색깔 초기화</string>
-    <string name="network_traffic_color_reset_message">정말 네트워크 트레픽 색깔을 초기화(기본)으로 번경시킬까요?</string>
-
-    <!-- Search Bar Switcher -->
-    <string name="recents_show_searchbar">Show Search Bar in Recents</string>
-    <string name="recents_show_searchbar_summary">구글 검색 바를 \'최근 앱\' 창에 표시합니다.</string>
-
-    <!-- Lock Gesture settings -->
-    <!-- Security & location settings screen, setting option name -->
-    <string name="lockgesture_change_lock_pattern_label">잠금화면 제스쳐를 바꿉니다.</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
-    <string name="lockgesture_change_lock_pin_label">PIN을 바꿉니다.</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
-    <string name="lockgesture_need_to_unlock">Confirm saved gesture</string>
-    <!-- Do not translate. -->
-    <string name="lockgesture_need_to_unlock_footer" />
-    <!-- Security & location settings screen, change unlock gesture screen instruction if user draws incorrect pattern -->
-    <string name="lockgesture_need_to_unlock_wrong">다시 시도하세요:</string>
-    <!-- Do not translate. -->
-    <string name="lockgesture_need_to_unlock_wrong_footer" />
-    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen.  This si when they are supposed to draw a new unlock pattern (for example, if they are changing their unlock patterns)..-->
-    <string name="lockgesture_recording_intro_header">제스쳐를 그리세요:</string>
-    <!-- Security & location settings screen, change unlock gesture screen hint on bottom of screen.  We are telling them to press the menu button to see more options or help. -->
-    <string name="lockgesture_recording_intro_footer">메뉴를 눌러 도움을 봅니다.</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen while drawing pattern -->
-    <string name="lockgesture_recording_inprogress">다 그렸을경우 손가락을 화면에서 때세요.</string>
-    <!-- Security & location settings screen, change unlock gesture screen message on top of screen after drawing pattern -->
-    <string name="lockgesture_pattern_entered_header">제스쳐 저장 완료.</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen to confirm pattern -->
-    <string name="lockgesture_need_to_confirm">확인하기 위해 다시한번 제스쳐를 그리세요:</string>
-    <string name="lockgesture_pattern_confirmed_header">새로운 언락 제스쳐:</string>
-    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  When they are ready to draw it once again to confirm it, they press this button. -->
-    <string name="lockgesture_confirm_button_text">Confirm</string>
-    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  If they are nto satisfied with this pattern, they click this button to redraw the pattern. -->
-    <string name="lockgesture_restart_button_text">다시 그리기</string>
-    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. If they are supposed to enter their current gesture before being able to draw another one, and they screw up, they hit this button to try again -->
-    <string name="lockgesture_retry_button_text">다시시도</string>
-    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. Once they draw a new gesture and confirm it by drawing it again, they press this button to exit -->
-    <string name="lockgesture_continue_button_text">계속</string>
-    <!-- Security & location settings screen, unlock screen activity title -->
-    <string name="lockgesture_settings_title">언락 제스쳐e</string>
-    <!-- Security & location settings screen, setting check box title if the unlock pattern MUST be drawn everytime they turn on the screen -->
-    <string name="lockgesture_settings_enable_title">제스쳐가 필요합니다.</string>
-    <!-- Security & location settings screen, setting summary for the checkbox "Require pattern" -->
-    <string name="lockgesture_settings_enable_summary">무조건 제스쳐를 그려야 화면을 잠금해재 할수 있습니다.</string>
-   <!-- Security & location settings screen, setting check box title. This setting controls whether a visible gesture is drawn as the user moves his finger around while drawing the unlock pattern.  If checked, this line is drawn.  If unchecked, there is nothing drawn so the user does not reveal his pattern while he unlocks the phone.-->
-    <string name="lockgesture_settings_enable_visible_pattern_title">화면에 제스쳐를 보이게 합니다.</string>
-    <!-- Security & location settings screen, setting check box title. This controls whether the device locks immediately when the power button is pressed. [CHAR LIMIT=28]-->
-    <string name="lockgesture_settings_enable_power_button_instantly_locks">Power button instantly locks</string>
-    <!-- Security & location settings screen, setting option name when user has never set an unlock gesture -->
-    <string name="lockgesture_settings_choose_lock_pattern">언락 제스쳐를 설정합니다</string>
-    <!-- Security & location settings screen, setting option name when user has previously set an unlock gesture and wants to change to a new pattern -->
-    <string name="lockgesture_settings_change_lock_pattern">언락 제스쳐를 바꿉니다</string>
-    <!-- Security & location settings screen, the help instructions (an animation) caption -->
-    <string name="lockgesture_settings_help_how_to_record">언락 제스쳐를 어떻게 그릴까요?</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen after too many incorrect attempts -->
-    <string name="lockgesture_too_many_failed_confirmation_attempts_header">너무 많이 틀렸어요!</string>
-    <!-- Security & location settings screen, change unlock gesture screen countdown hint on bottom of screen after too many incorrect attempts -->
-    <string name="lockgesture_too_many_failed_confirmation_attempts_footer"><xliff:g id="number">%d</xliff:g> 초 후에 다시 시도하세요.</string>
-    <!-- Toast shown if setting gesture was successful -->
-    <string name="lockpassword_gesture_set_toast">제스쳐가 설정완료되었습니다.</string>
-    <!-- Header on gesture confirm screen [CHAR LIMIT=30] -->
-    <string name="lockpassword_confirm_your_gesture_header">Confirm your gesture</string>
-    <!-- Header on first screen of choose gesture flow [CHAR LIMIT=30] -->
-    <string name="lockpassword_choose_your_gesture_header">제스쳐를 그리세요</string>
-
-    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=22] -->
-    <string name="unlock_set_unlock_gesture_title">제스쳐</string>
-    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=45] -->
-    <string name="unlock_set_unlock_gesture_summary">실험적 기능인데다가 보안이 낮습니다.</string>
-
-    <!-- Summary for "Configure lockscreen" when security gesture is enabled [CHAR LIMIT=45] -->
-    <string name="unlock_set_unlock_mode_gesture">제스쳐</string>
-	
-    <!-- Battery saver -->
-    <string name="battery_saver_title">경고 색깔</string>
-    <string name="battery_saver_style_reset_message">배터리 경고 색깔을 기본으로 초기화 시킬까요?</string>
-
-    <!-- Gesture Anywhere -->
-    <string name="gesture_anywhere_title">Gesture Anywhere</string>
-    <string name="gesture_anywhere_enabled_title">Gesture Anywhere</string>
-    <string name="gesture_anywhere_enabled_summary">Gesture Anywhere 기능을 활성화시킵니다.</string>
-    <string name="gesture_anywhere_position_title">위치</string>
-    <string name="gesture_anywhere_position_left">왼쪽 엣지</string>
-    <string name="gesture_anywhere_position_right">오른쪽 엣지</string>
-    <string name="gesture_anywhere_gestures_title">제스쳐들</string>
-    <string name="gesture_anywhere_gestures_summary">제스쳐를 추가, 제거, 그리고 수정하세요</string>
-    <!-- Label, button used to add a gesture -->
-    <string name="ga_button_add">제스쳐 추가</string>
-    <!-- Label, button used to reload all gestures -->
-    <string name="ga_button_reload">새로고침</string>
-    <!-- Label, button used to cancel the operation of adding a gesture -->
-    <string name="ga_button_discard">취소</string>
-    <!-- Label, button used to save a gesture newly created -->
-    <string name="ga_button_done">Done</string>
-    <!-- Label, prompt asking the user to enter the name of the gesture -->
-    <string name="ga_prompt_gesture_name">이름</string>
-    <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
-    <string name="ga_error_missing_name">이름을 입력해야합니다</string>
-    <!-- success message, tells the user where the gesture was saved -->
-    <string name="ga_save_success">제스쳐가 %s 만에 저장됬습니다</string>
-    <!-- Buttons in Rename gesture dialog box -->
-    <string name="ga_rename_action">OK</string>
-    <!-- Buttons in Rename gesture dialog box -->
-    <string name="ga_cancel_action">취소</string>
-    <!-- Message displayed when the user opens the gestures settings screen -->
-    <string name="ga_gestures_loading">제스쳐 로딩중...</string>
-    <!-- Message displayed when the user has no gestures -->
-    <string name="ga_gestures_empty">제스쳐 없음</string>
-    <!-- Title of the screen used to view/manage gestures -->
-    <string name="ga_gestures_activity">Gestures</string>
-    <!-- Noun, menu item used to edit a gesture -->
-    <string name="ga_gestures_edit">수정</string>
-    <!-- Noun, menu item used to remove a gesture -->
-    <string name="ga_gestures_delete">삭제</string>
-    <!-- Message displayed when a gesture is successfully deleted -->
-    <string name="ga_gestures_delete_success">제스쳐가 삭제됬습니다</string>
-    <!-- Title of dialog box -->
-    <string name="ga_gestures_rename_title">제스쳐의 이름을 바꿉니다</string>
-    <!-- Label of gesture name field in Rename gesture dialog box -->
-    <string name="ga_gestures_rename_label">Gesture name</string>
-    <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
-    <string name="ga_gestures_error_loading">Could not load %s. Make sure you have storage available.</string>
-    <string name="trigger_category">Trigger region</string>
-    <string name="trigger_width_title">Trigger width</string>
-    <string name="trigger_width_summary">Adjust the width of the trigger area</string>
-    <string name="trigger_top_title">Trigger position</string>
-    <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
-    <string name="trigger_bottom_title">Trigger height</string>
-    <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
-    <string name="picker_activities">Activities</string>
-    <string name="select_custom_app_title">Select custom app</string>
-    <string name="select_custom_activity_title">Select custom activity</string>
-    <string name="profile_applist_title">Applications</string>
+    <!-- Navigation bar -->
+	<string name="kangdroid_nav_dpi_title">네비게이션 바 DPI 설정</string>
+    <string name="navbar_enable_bar_title">네비게이션 바를 활성화 합니다</string>
+    <string name="navbar_enable_bar_summary">네비게이션 바를 활성화하고 하드웨어 키를 비활성화 합니다</string>
+    <string name="navbar_style_dimen_title">네비게이션 바 DPI</string>
+    <string name="navbar_dimensions_reset_message">DPI 를 기본값으로 초기화 시킬까요?</string>
+    <string name="navigation_bar_height_title">네비게이션 바 높이</string>
+    <string name="navigation_bar_height_summary">기기가 세로로 있을때 네비게이션 바의 높이를 수정합니다</string>
+    <string name="navigation_bar_width_title">네비게이션 바 폭</string>
+    <string name="navigation_bar_width_summary">기기가 회전(가로) 되있을때 네비게이션 바의 높이를 수정합니다</string>
+    <string name="navigation_bar_size_42_dp_default">42 dp (기본)</string>
+    <string name="navigation_bar_size_36_dp">36 dp</string>
+    <string name="navigation_bar_size_30_dp">30 dp</string>
+    <string name="navigation_bar_size_24_dp">24 dp</string>
+    <string name="navigation_bar_size_48_dp_default">48 dp (기본)</string>
+    <string name="navigation_bar_size_44_dp">44 dp</string>
+    <string name="navigation_bar_size_40_dp">40 dp</string>
+    <string name="navigation_bar_size_42_dp">42 dp</string>
+    <string name="navigation_bar_size_0_dp">0 dp (비활성화)</string>
 
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title">Wakelock blocker</string>
@@ -346,43 +188,11 @@
     <string name="wakelock_blocker_reload">새로고침</string>
     <string name="wakelock_blocker_warning_title">Proceed with caution</string>
     <string name="wakelock_blocker_warning">이 기능을 사용함으로써 어플리케이션 데이타가 사라질수 있습니다. 조심있게 사용하세요.</string>
-	  
-   <!--Back to kill timeout -->
-    <string name="long_press_kill_delay">App kill delay</string>
-
-    <!-- LiquidSmooth Sound settings -->
-    <string name="advanced_sound_title">고급 소리 설정</string>
-
-    <!-- Safe headset volume restore checkbox -->
-    <string name="safe_headset_volume_title">안전 헤드폰 볼륨</string>
-    <string name="safe_headset_volume_summary">처음 헤드폰을 꽂았을떄 소리가 너무 커지는것을 방지합니다.</string>
-    <string name="safe_headset_volume_warning_dialog_text">너무 높은 볼륨으로 들을경우 난청 등 듣는거에 문제가 될수 있습니다</string>
-
-    <!-- Less Notification sounds -->
-    <string name="notifications_category_title">알림</string>
-    <string name="less_notification_sounds_title">알림(소리) 빈도를 줄입니다</string>
-    <string name="less_notification_sounds_summary">알림 소리를 각 앱마다 정합니다</string>
-    <string name="less_notification_sounds_default">기본 설정</string>
-    <string name="less_notification_sounds_3s">3 초</string>
-    <string name="less_notification_sounds_5s">5 초</string>
-    <string name="less_notification_sounds_10s">10 초</string>
-    <string name="less_notification_sounds_15s">15 초</string>
-    <string name="less_notification_sounds_30s">30 초</string>
-    <string name="less_notification_sounds_45s">45 초</string>
-    <string name="less_notification_sounds_1m">1 분</string>
-    <string name="less_notification_sounds_2m">2 분</string>
-    <string name="less_notification_sounds_5m">5 분</string>
-
-	<!-- Volume Keys Media Control -->
-    <string name="volume_keys_control_media_stream">미디아 설정</string>
-    <string name="volume_keys_control_media_stream_summary">Volume keys control media volume rather than notifications</string>
-
-    <!-- Notifications on keyguard -->
-    <string name="app_notification_show_on_keyguard_title">잠금화면에 보이기</string>
-    <string name="app_notification_show_on_keyguard_summary">이 엡의 알림을 잠금화면에 보이게 합니다</string>
-    <string name="app_notification_no_ongoing_on_keyguard_title">지속적인 알림을 비활성화합니다</string>
-    <string name="app_notification_no_ongoing_on_keyguard_summary">절대 지속적인 알림을 이 앱에서 더이상 수신하지 않습니다</string>    
-
+	
+    <!-- Liquid Extra Info -->
+    <string name="lsextrainfo">추가 기기 정보</string>
+    <string name="lsextrainfo_summary">이 기기에 대한 추가 정보를 보여줍니다(CPU, 화면 크기, 등등)</string>
+	
     <!-- Slim lockscreen shortcuts -->
     <string name="shortcut_action_none">없음</string>
     <string name="shortcut_action_longpress">Longpress:</string>
@@ -405,6 +215,7 @@
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon. Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right. Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the reset option.</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
+	<string name="shortcut_action_theme_switch">테마 바꾸기</string>
     <string name="shortcuts_applications">어플리케이션</string>
     <string name="shortcuts_select_custom_app_title">Select custom application</string>
     <string name="shortcuts_icon_picker_type">Select icon type:</string>
@@ -490,50 +301,66 @@
     <string name="help">도움말</string>
     <string name="reset_message">초기화</string>
     <string name="rr_lockscreen_title">잠금화면</string>
-
-    <!-- Lockscreen pin shuffle -->
-    <string name="lock_numpad_random_title">PIN이나 PAD 번호를 무작위로 섞습니다</string>
-    <string name="lock_numpad_random_off">비활성화됨</string>
-    <string name="lock_numpad_random_dialog_title">PIN pad가 무작위로 섞입니다</string>
-    <string name="lock_numpad_random_always">언제나</string>
-    <string name="lock_numpad_random_on_request">요청이 들어올떄</string>
-
-    <!-- QuickSettings: Quick Pulldown -->
-    <string name="qs_title">Quick settings</string>
-    <string name="title_quick_pulldown">Quick pulldown</string>
-    <string name="summary_quick_pulldown">%1$s edge of the status bar pulls down Quick Settings</string>
-    <string name="quick_pulldown_off">끄기</string>
-    <string name="quick_pulldown_left">왼쪽</string>
-    <string name="quick_pulldown_right">오른쪽</string>
 	
-    <!-- Option to enable/disable scrolling cache -->
-    <string name="pref_scrollingcache_title">Scrolling cache</string>
-    <string name="pref_scrollingcache_summary">메모리를 조금 사용하는 대신에 Scrolling Performance가 좋아집니다</string>
-    <string name="pref_scrollingcache_force_enable">무조건 활성화</string>
-    <string name="pref_scrollingcache_default_enable">기본 활성화(자동)</string>
-    <string name="pref_scrollingcache_default_disable">기본 비활성화(자동)</string>
-    <string name="pref_scrollingcache_force_disable">무조건 비활성화</string>
-	<string name="advanced_option_listview">고급 설정</string>
-	
-    <!-- Partition Info -->
-    <string name="partition_info_title">파티션 정보</string>
-    <string name="partition_info_summary">이 기기의 파티션 정보를 보여줍니다</string>   
-    <string name="partition_info_system">/system</string>
-    <string name="partition_info_data">/data</string>
-    <string name="partition_info_cache">/cache</string>
-    <string name="partition_info_sdcard">/sdcard (FAT)</string>
-    <string name="partition_info_sdext">/sd-ext (EXT)</string>
-    <string name="partition_info_used_of">/</string>
-
-    <!-- MediaScanner behavior on boot -->
-    <string name="options_settings_title">옵션</string>
-    <string name="media_scanner_on_boot_title">부팅시 미디어 스캔</string>
-    <string name="media_scanner_on_boot_enabled">미디어 스캔을 합니다</string>
-    <string name="media_scanner_on_boot_ask">알림으로 미디어 스캔을 할지 물어봅니다</string>
-    <string name="media_scanner_on_boot_disabled">미디아 스캔을 하지 않습니다</string>
+    <!-- Gesture Anywhere -->
+    <string name="gesture_anywhere_title">Gesture Anywhere</string>
+    <string name="gesture_anywhere_enabled_title">Gesture Anywhere</string>
+    <string name="gesture_anywhere_enabled_summary">Gesture Anywhere 기능을 활성화시킵니다.</string>
+    <string name="gesture_anywhere_position_title">위치</string>
+    <string name="gesture_anywhere_position_left">왼쪽 엣지</string>
+    <string name="gesture_anywhere_position_right">오른쪽 엣지</string>
+    <string name="gesture_anywhere_gestures_title">제스쳐들</string>
+    <string name="gesture_anywhere_gestures_summary">제스쳐를 추가, 제거, 그리고 수정하세요</string>
+    <!-- Label, button used to add a gesture -->
+    <string name="ga_button_add">제스쳐 추가</string>
+    <!-- Label, button used to reload all gestures -->
+    <string name="ga_button_reload">새로고침</string>
+    <!-- Label, button used to cancel the operation of adding a gesture -->
+    <string name="ga_button_discard">취소</string>
+    <!-- Label, button used to save a gesture newly created -->
+    <string name="ga_button_done">Done</string>
+    <!-- Label, prompt asking the user to enter the name of the gesture -->
+    <string name="ga_prompt_gesture_name">이름</string>
+    <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
+    <string name="ga_error_missing_name">이름을 입력해야합니다</string>
+    <!-- success message, tells the user where the gesture was saved -->
+    <string name="ga_save_success">제스쳐가 %s 만에 저장됬습니다</string>
+    <!-- Buttons in Rename gesture dialog box -->
+    <string name="ga_rename_action">OK</string>
+    <!-- Buttons in Rename gesture dialog box -->
+    <string name="ga_cancel_action">취소</string>
+    <!-- Message displayed when the user opens the gestures settings screen -->
+    <string name="ga_gestures_loading">제스쳐 로딩중...</string>
+    <!-- Message displayed when the user has no gestures -->
+    <string name="ga_gestures_empty">제스쳐 없음</string>
+    <!-- Title of the screen used to view/manage gestures -->
+    <string name="ga_gestures_activity">Gestures</string>
+    <!-- Noun, menu item used to edit a gesture -->
+    <string name="ga_gestures_edit">수정</string>
+    <!-- Noun, menu item used to remove a gesture -->
+    <string name="ga_gestures_delete">삭제</string>
+    <!-- Message displayed when a gesture is successfully deleted -->
+    <string name="ga_gestures_delete_success">제스쳐가 삭제됬습니다</string>
+    <!-- Title of dialog box -->
+    <string name="ga_gestures_rename_title">제스쳐의 이름을 바꿉니다</string>
+    <!-- Label of gesture name field in Rename gesture dialog box -->
+    <string name="ga_gestures_rename_label">Gesture name</string>
+    <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+    <string name="ga_gestures_error_loading">Could not load %s. Make sure you have storage available.</string>
+    <string name="trigger_category">Trigger region</string>
+    <string name="trigger_width_title">Trigger width</string>
+    <string name="trigger_width_summary">Adjust the width of the trigger area</string>
+    <string name="trigger_top_title">Trigger position</string>
+    <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
+    <string name="trigger_bottom_title">Trigger height</string>
+    <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+    <string name="picker_activities">Activities</string>
+    <string name="select_custom_app_title">Select custom app</string>
+    <string name="select_custom_activity_title">Select custom activity</string>
+    <string name="profile_applist_title">Applications</string>
 
     <!-- Restart SystemUI -->
-    <string name="restart_systemui">SystemUI 재시작</string>
+    <string name="restart_systemui">Restart SystemUI</string>
 
     <!-- App Circle sidebar -->
     <string name="category_app_circle_bar_title">앱 런쳐</string>
@@ -547,52 +374,10 @@
     <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
     <string name="trigger_bottom_title">Trigger height</string>
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
-
-    <!-- Sound & notification > Other sounds: Title for the option enabling sound on volume slide adjust. [CHAR LIMIT=30] -->
-    <string name="volume_adjust_sound_title">Volume slider sound</string>
 	
-	<!-- KangDroid Recents Category -->
-	<string name="kangdroid_recetns_category_title">최근 앱 설정</string>
-
-	<!-- Clear all recents on navbar enabler strings -->
-    <string name="clear_all_recents_navbar_enabled_title">네비바에 모두 종료하기(Recents) 버튼을 추가합니다</string>
-    <string name="clear_all_recents_navbar_enabled_summary">모두 종료하기(Recents)버튼을 네비바 맨 오른쪽에 추가합니다</string>
-
-    <!-- Double tap nav bar  2 sleep -->
-    <string name="double_tap_sleep_nav_bar_title">2번 탭해서 잠그기</string>
-    <string name="double_tap_sleep_nav_bar_summary">네비게이션 공간 쪽을 연속 두번 터치하면 기기가 잠깁니다</string>
-
-    <!-- Host File Manager -->
-    <string name="hfm_disable_ads_title">광고를 비활성화 시킵니다</string>
-    <string name="hfm_disable_ads_summary">호스트 파일을 바꿔서 광고를 없앱니다</string>
-    <string name="hfm_pref_screen_title">Ad blocker</string>
-    <string name="hfm_update_hosts">호스트파일 업데이트</string>
-    <string name="hfm_update_hosts_summary">호스트를 다운로드하고 플래싱합니다</string>
-    <string name="hfm_dialog_wait">작업중입니다..... 기다려주세요.....</string>
-    <string name="hfm_dialog_failed">호스트파일 업데이트가 실패하였습니다. 개발자에게 보고하여주세요!</string>
-    <string name="hfm_dialog_success">4개의 호스트가 성공적으로 업데이트 되었습니다!!</string>
-    <string name="hfm_dialog_conn_error">Error: 인터넷 연결이 필요합니다.</string>
-
-    <!-- Wifi connection notifications -->
-    <string name="wifi_notify_changed_networks">Wi\u2011Fi 연결 알림</string>
-    <string name="notify_changed_networks_default">끔 (기본)</string>
-    <string name="notify_changed_networks_toast">Toast</string>
-    <string name="notify_changed_networks_notification">알림</string>
-    <string name="notify_changed_networks_notification_sound">알림과 소리 둘다</string>
-
-    <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
-    <string name="show_cpu_info">CPU정보 표시</string>
-    <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
-    <string name="show_cpu_info_summary">CPU 정보를 화면 오버레이에 표시합니다</string>
-	
-    <!-- Camera sound switch -->
-    <string name="camera_sounds_title">카메라 셔텨음 설정</string>
-    <string name="camera_sounds_summary">카메라 셔터음을 킵니다</string>
-    <string name="camera_sound_warning_dialog_text">카메라 셔터음을 제거하는경우, 어떤 주/시에서는 불법으로 간주합니다! 조심하게 사용하세요!</string>
-
     <!-- AOKP custom system animations -->  
     <string name="aokp_animation_title">시스템 에니메이션</string>
-    <string name="aokp_animation_summary">AOKP custom animation</string>
+    <string name="aokp_animation_summary">AOKP 커스텀 에니메이션</string>
     <string name="animation_exit_only_title">Enter only animation</string>
     <string name="animation_reverse_exit_title">Reverse exit animation</string>
     <string name="activity_open_title">Activity open animation</string>
@@ -609,71 +394,33 @@
     <string name="task_open_behind_title">Task open behind animation</string>
     <string name="animation_duration_default">Default</string>
 
-    <!-- Change Log strings -->
-    <string name="changelog_title">체인지로그 보기</string>
-    <string name="changelog_loading">체인지로그 가져오는중..</string>
-    <string name="changelog_error">체인지로그를 가져오지 못합니다</string>
-    <string name="changelog_unknown">모름</string>
-    <string name="changelog_version">버전</string>
-
-    <!-- Screen recorder -->
-    <string name="screen_recorder_title">스크린 녹음</string>
-    <string name="screen_recorder_summary">Adjust screen recorder settings</string>
-    <string name="screen_recorder_video_dimensions_title">비디오 크기</string>
-    <string name="screen_recorder_video_bitrate_title">Bitrate</string>
-    <!-- video sizes -->
-    <string name="screen_recorder_size_240x400">240x400</string>
-    <string name="screen_recorder_size_360x640">360x640</string>
-    <string name="screen_recorder_size_480x800">480x800</string>
-    <string name="screen_recorder_size_480x854">480x854</string>
-    <string name="screen_recorder_size_540x960">540x960</string>
-    <string name="screen_recorder_size_600x1024">600x1024</string>
-    <string name="screen_recorder_size_720x1280">720x1280</string>
-    <!-- frame rates -->
-    <string name="screen_recorder_bitrate_title_100000">100 kB/s</string>
-    <string name="screen_recorder_bitrate_title_250000">250 kB/s</string>
-    <string name="screen_recorder_bitrate_title_500000">500 kB/s</string>
-    <string name="screen_recorder_bitrate_title_1000000">1 MB/s</string>
-    <string name="screen_recorder_bitrate_title_2000000">2 MB/s</string>
-    <string name="screen_recorder_bitrate_title_3000000">3 MB/s</string>
-    <string name="screen_recorder_bitrate_title_4000000">4 MB/s</string>
-    <string name="screen_recorder_bitrate_title_5000000">5 MB/s</string>
-    <string name="screen_recorder_bitrate_title_10000000">10 MB/s</string>
-    <string name="screen_recorder_bitrate_title_20000000">20 MB/s</string>
-    <string name="screen_recorder_bitrate_100000">100000</string>
-    <string name="screen_recorder_bitrate_250000">250000</string>
-    <string name="screen_recorder_bitrate_500000">500000</string>
-    <string name="screen_recorder_bitrate_1000000">1000000</string>
-    <string name="screen_recorder_bitrate_2000000">2000000</string>
-    <string name="screen_recorder_bitrate_3000000">3000000</string>
-    <string name="screen_recorder_bitrate_4000000">4000000</string>
-    <string name="screen_recorder_bitrate_5000000">5000000</string>
-    <string name="screen_recorder_bitrate_10000000">10000000</string>
-    <string name="screen_recorder_bitrate_20000000">20000000</string>
-    <string name="power_menu_screenrecord_title">스크린 녹음</string>
-    <string name="screen_recorder_record_audio_title">바깥 소리</string>
-    <string name="screen_recorder_record_audio_summary">핸드폰 마이크에서도 녹음이 같이 됩니다</string>
-    <string name="screen_recorder_power_menu_summary">스크린 녹음을 전원메뉴에서도 표시합니다</string>
-
-    <!-- Overflow button -->
-    <string name="keys_overflow_title">Overflow button</string>
-    <string name="keys_overflow_toast">The action overflow button may not be visible or hidden until apps are restarted</string>
-    <string name="overflow_auto_detect">Auto detect</string>
-    <string name="overflow_show">Show</string>
-    <string name="overflow_hide">Hide</string>
-
-    <!-- Unaccounted and overcounted battery stats -->
-    <string name="show_unac_and_overcounted_stats_title">Show unaccounted/overcounted stats</string>
-    <string name="show_unac_and_overcounted_stats_summary">Show in battery statistics unaccounted and over-counted usage.</string>
-	
-	<!-- KangDroid Bug Report -->
-	<string name="kangdroid_bugreport">버그 리포트</string>
-	<string name="kangdroid_bugreport_summary">이메일로 버그리포트를 합니다.</string>
+    <!-- Network traffic -->
+    <string name="network_traffic_title">네트워크 트레픽</string>
+    <string name="show_network_traffic_state">상단바 네트워크 트래픽 모니터</string>
+    <string name="show_network_traffic_unit">표시할 단위</string>
+    <string name="show_network_traffic_frequency">업데이트 간격</string>
+    <string name="show_network_traffic_disable">비활성화</string>
+    <string name="show_network_traffic_up">Outgoing</string>
+    <string name="show_network_traffic_down">Incoming</string>
+    <string name="show_network_traffic_all">Outgoing and incoming</string>
+    <string name="show_network_traffic_bit">1초에 n비트</string>
+    <string name="show_network_traffic_byte">1초에 n바이트</string>
+    <string name="show_network_traffic_500">500 ms</string>
+    <string name="show_network_traffic_1000">1000 ms</string>
+    <string name="show_network_traffic_1500">1500 ms</string>
+    <string name="show_network_traffic_2000">2000 ms</string>
+    <string name="network_traffic_autohide">자동으로 숨기기</string>
+    <string name="network_traffic_autohide_summary">네트워크 활동이 없을경우 트래픽 모니터를 숨깁니다.</string>
+	<string name="network_traffic_autohide_threshold">비활성된 임계 값</string>
+    <string name="network_traffic_color_style">색깔 정하기</string>
+    <string name="network_traffic_color_reset">색깔 초기화</string>
+    <string name="network_traffic_color_reset_message">정말 네트워크 트레픽 색깔을 초기화(기본)으로 번경시킬까요?</string>
 	
     <!-- carrier label -->
-    <string name="show_status_bar_carrier_title">추노마크</string>
-    <string name="show_status_bar_carrier_summary">상단바에 추노마크를 보이게 합니다(Carrier)</string>
-    <string name="status_bar_carrier_color">추노마크 색상</string>    
+	<string name="carrier_options_title">통신사 마크 옵션</string>
+    <string name="show_status_bar_carrier_title">통신사 마크</string>
+    <string name="show_status_bar_carrier_summary">통신사 마크를 상단바에 보여줍니다</string>
+    <string name="status_bar_carrier_color">통신사 마크 색상</string>    
 	
 	<!-- OmniSwitch -->
     <string name="omniswitch_settings_title">멀티태스킹 메뉴</string>
@@ -683,7 +430,10 @@
     <string name="omniswitch_start_settings_summary">OmniSwitch설정으로 들어갑니다</string>
     <string name="omniswitch_first_time_title">정보</string>
     <string name="omniswitch_first_time_message">OminSwitch를 정확히 켰는지 확인해주세요. 이걸 \"설정\" 에서 설정할수 있습니다</string>
-	
+
+    <!-- Double tap nav bar  2 sleep -->
+    <string name="double_tap_sleep_nav_bar_title">2번 탭해서 잠그기</string>
+    <string name="double_tap_sleep_nav_bar_summary">네비게이션 바 공간을 연속 두번 터치하면 기기가 잠깁니다</string>
 	
     <!-- Status bar Header -->
     <string name="status_bar_expanded_header_settings_title">상단바 헤더</string>
@@ -730,83 +480,547 @@
     <string name="notif_system_icons_count_icon_color_title">알림 갯수 아이콘</string>
     <string name="notif_system_icons_count_text_color_title">알림 갯수 텍스트</string>
 
-    <string name="status_bar_notif_system_icons_settings_title">Notifications &amp; system icons</string>
+    <string name="status_bar_notif_system_icons_settings_title">알림 &amp; 시스템 아이콘</string>
     <!-- <string name="status_bar_notif_system_icons_settings_title_phone">Notif. &amp; system icons</string> -->
-    <string name="status_bar_notif_system_icons_settings_summary">Customize the notifications &amp; system icons</string>    
+    <string name="status_bar_notif_system_icons_settings_summary">알림 &amp; 시스템 아이콘을 설정합니다</string>    
 	
-	<!-- Brightness Slider Control -->
-	<string name="qs_brightness_slider_title">밝기 슬라이더를 표시합니다</string>
-	
-    <!-- Privacy guard notification -->
-    <string name="privacy_guard_notification_title">알림</string>
-    <string name="privacy_guard_notifiation_summary">Privacy Guard가 활성화되있으면 알림을 표시합니다</string>
-	
-	<!-- Bug List -->
-	<string name="buglist_title">버그 목록</string>
-	
-    <!-- Density changer -->
-    <string name="dpi">DPI</string>
-    <string name="su_dialog_error_title">경고</string>
-    <string name="su_dialog_error_message">에러가 발생하였습니다.\n\n루트 권한이 있는지 확인하세요. 루트권한을 활성화 시키려면 KDP롬에서 개발자 옵션에서 설정하세요.</string>
-    <string name="lcd_density_title">LCD DPI</string>
-    <string name="lcd_density_category">옵션</string>
-    <string name="follow_through_summary">LCD DPI를 바꾸는것은 가끔씩 앱들이 작동을 잘 안하거나 플레이스토어에서 이 기기에 지원이 안되는 앱을 보여줄수도 있습니다</string>
-    <string name="stock_density_title">순정 값에서 바꾸기</string>
-    <string name="stock_density_summary">태블릿 PC는 160 dpi를 쓰고 하이엔드 기기는 320 or 480 dpi를 씁니다. 옛날 기종은 240 dpi를 씁니다.</string>
-    <string name="stock_density_changed_summary">"DPI Set To: "</string>
-    <string name="reboot_title">재부팅</string>
-    <string name="reboot_summary">어차피 알아서 재부팅 될태니 패스 ㄱㄱ</string>
-    <string name="custom_density_title">자기가 원하는 값으로 바꾸기</string>
-    <string name="custom_density_summary_invalid">"지원되지 않는 DPI!"</string>
-    <string name="custom_density">커스텀</string>
-    <string name="set_custom_density_title">커스텀 DPI 설정</string>
-    <string name="set_custom_density_set">설정하기</string>
-    <string name="custom_density_dialog_title">경고!</string>
-    <string name="custom_density_dialog_summary">LCD DPI를 바꿀때 특정한 앱의 기능이나 앱 전체가 작동하지 않을수도 있습니다. DPI를 바꾸는데로 기기는 자동적으로 리부팅이 됩니다. (Soft Reboot)</string>
-    <string name="custom_density_dialog_button_got">OK!</string>
-	
-    <!-- QuickSettings collapse panel -->
-    <string name="quick_settings_collapse_title">자동으로 패널 닫기</string>
-    <string name="quick_settings_collapse_summary">토글이 눌렸을시 바로 패널을 닫습니다</string>
+    <!-- Pie control -->
+    <string name="pie_control_title">파이 컨트롤</string>
+    <string name="pie_control_summary">파이를 스크린 네비게이션으로 활성화 합니다</string>
+    <string name="pie_control_size">파이 네비게이션 크기</string>
+    <string name="pie_control_trigger_positions">트리거 옵션</string>
+    <string name="pie_control_trigger_left">왼쪽 화면에서 파이를 보여줍니다</string>
+    <string name="pie_control_trigger_bottom">아래쪽 화면에서 파이를 보여줍니다</string>
+    <string name="pie_control_trigger_right">오른쪽 화면에서 파이를 보여줍니다</string>
+    <string name="pie_control_trigger_top">위쪽 화면에서 파이를 보여줍니다</string>
+    <string name="pie_control_trigger_top_summary">Top pie does not show status and clock information</string>
+    <string name="pie_button_style">버튼 스타일</string>
+    <string name="pie_button_color_title">버튼 색상</string>
+    <string name="pie_button_alpha_title">버튼 투명도</string>
+    <string name="pie_button_outline_color_title">버튼 외곽(윤곽) 색상</string>
+    <string name="pie_button_pressed_color_title">버튼 눌렸을때의 색상</string>
+    <string name="pie_button_long_pressed_color_title">버튼 오래 눌렸을때의 색상</string>
+    <string name="pie_button_pressed_alpha_title">버튼 눌렸을떄의 투명도</string>
+    <string name="pie_icon_style">버튼 아이콘 스타일</string>
+    <string name="pie_icon_color_title">버튼 아이콘 색상</string>
+    <string name="pie_icon_color_mode_title">버튼 아이콘 색상 모드</string>
+    <string name="pie_icon_color_mode_dialog_title">색상화</string>
+    <string name="pie_icon_color_mode_summary">버튼 아이콘 색상 모드를 바꿉니다</string>
+    <string name="pie_trigger_note_title">알림</string>
+    <string name="pie_trigger_note_summary">상단바와 네비게이션바의 충돌을 방지하기 위해, 파이 트리거는 두가지 모두 활성화 되있을경우 자동으로 비활성화 됩니다.</string>
+    <string name="pie_background_color_title">Background color</string>
+    <string name="pie_snap_color_title">Snap point color</string>
+    <string name="pie_text_color_title">Text color</string>
+    <string name="pie_background_alpha_title">Background transparency</string>
+    <string name="pie_mirror_right_title">Mirror right pie</string>
+    <string name="pie_mirror_right_summary">Mirror right pie on the horizontal axis</string>
+    <string name="pie_style">Style and dimension</string>
+    <string name="pie_style_title">Style</string>
+    <string name="pie_dimens_title">Dimension</string>
+    <string name="pie_additional_options">Additional options</string>
+    <string name="pie_show_snap_title">Show snap points</string>
+    <string name="pie_show_snap_summary">Shows snap points to change the trigger edge dynamically</string>
+    <string name="pie_show_text_title">Show status and clock</string>
+    <string name="pie_show_text_summary">Shows phone status, time and date information</string>
+    <string name="pie_show_background_title">Show background</string>
+    <string name="pie_show_background_summary">Enable pie background screen</string>
+    <string name="pie_button">Buttons</string>
+    <string name="pie_button_second_layer">Buttons second layer</string>
+    <string name="pie_button_second_layer_summary">Change second layer buttons</string>
+    <string name="pie_button_style_summary">Change pie button style</string>
+    <string name="pie_style_reset_message">Reset style entries to default?</string>
+    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
+    <string name="icon_color_mode_all_icons">All icons</string>
+    <string name="icon_color_mode_system_icons">System icons</string>
+    <string name="icon_color_mode_system_custom_icons">System and custom icons</string>
+    <string name="pie_disable_ime_triggers_title">Reduce trigger size on keyboard</string>
+    <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size if keyboard is active</string>
+    <string name="pie_disable_ime_triggers_title">Reduce trigger size on keyboard</string>
+    <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size if keyboard is active</string>
+    <string name="pie_trigger_sensitivity_title">Trigger sensitivity"</string>
+    <string name="pie_trigger_sensitivity_summary">Adjust the pie trigger sensitivity</string>
+
+    <!-- Navigation bar visibility -->
+    <string name="navigation_menu_default_jb_behavior">Show on request (default)</string>
+    <string name="navigation_menu_never_show">Never show</string>
+    <string name="navigation_menu_always_show">Always show</string>
+    <string name="title_pref_menu_display">Menu visibility</string>
+    <string name="summary_pref_menu_display">How and when do you want the menu buttons to appear?</string>
 	
     <!-- Text for forcing expanded notifications -->
     <string name="disable_fc_notifications_title">FC알림 숨기기</string>
     <string name="disable_fc_notifications_summary">강제종료 알림을 숨깁니다</string>
 	
-    <!-- Navigation bar -->
-    <string name="navbar_enable_bar_title">네비게이션 바를 활성화 합니다</string>
-    <string name="navbar_enable_bar_summary">네비게이션 바를 활성화하고 하드웨어 키를 비활성화 합니다</string>
-    <string name="navbar_style_dimen_title">네비게이션 바 DPI</string>
-    <string name="navbar_dimensions_reset_message">DPI 를 기본값으로 초기화 시킬까요?</string>
-    <string name="navigation_bar_height_title">네비게이션 바 높이</string>
-    <string name="navigation_bar_height_summary">기기가 세로로 있을때 네비게이션 바의 높이를 수정합니다</string>
-    <string name="navigation_bar_width_title">네비게이션 바 폭</string>
-    <string name="navigation_bar_width_summary">기기가 회전(가로) 되있을때 네비게이션 바의 높이를 수정합니다</string>
-    <string name="navigation_bar_size_42_dp_default">42 dp (기본)</string>
-    <string name="navigation_bar_size_36_dp">36 dp</string>
-    <string name="navigation_bar_size_30_dp">30 dp</string>
-    <string name="navigation_bar_size_24_dp">24 dp</string>
-    <string name="navigation_bar_size_48_dp_default">48 dp (기본)</string>
-    <string name="navigation_bar_size_44_dp">44 dp</string>
-    <string name="navigation_bar_size_40_dp">40 dp</string>
-    <string name="navigation_bar_size_42_dp">42 dp</string>
-    <string name="navigation_bar_size_0_dp">0 dp (비활성화)</string>
-	<string name="category_nav_dpi_title">네비게이션 바 DPI 설정</string>
-	<string name="category_pie_title">PIE 설정</string>
-	<string name="category_ringandcuston_title">네비게이션 바 링 &amp; 바 설정</string>
-	<string name="category_misc_navbar_title">더 많은 네비게이션 바 설정</string>
+    <!-- Navigation bar button color -->
+    <string name="navbar_button_tint_title">네비게이션 바 버튼 색상</string>
+	
+	<!-- Quick Settings -->
+    <string name="qs_screenshot_tile">스크린샷</string>
+    <string name="qs_sync_tile">도기화</string>
+	<string name="qs_four_columns_title">한 열에 4개의 타일을 보여줍니다</string>
+    <string name="qs_battery_saver_tile">절약모드</string>
+    <string name="qs_brightness_tile">밝기</string>
+    <string name="qs_expanded_desktop_tile">확장 데스크탑</string>
+    <string name="qs_notifications_tile">알림</string>
+	<string name="qs_screenrecord_tile">화면 녹음</string>
+	<string name="qs_ambient_display_tile">Ambient display</string>
+	<string name="qs_tile_headsup">헤드 업 알림</string>
+	
+    <!-- Status bar greeting -->
+	<string name="category_greeting_title">상단바 마중인사 옵션</string>
+    <string name="status_bar_greeting_title">마중인사</string>
+    <string name="status_bar_greeting_summary">화면 잠금 후에 상단바에 사용자가 설정한 상단바 마중인사가 나옵니다</string>
+    <string name="status_bar_greeting_dialog">마중인사말을 설정해주세요</string>   
+    <string name="status_bar_greeting_main">Flash ON!!!</string>
+    <string name="status_bar_greeting_timeout_title">마중인사 시간제한</string> 
+	
+    <!-- The volume key answer -->
+    <string name="volume_answer_call_title">Volume key Answer</string>
+    <string name="volume_answer_call_summary">Volume up key Answer</string>
+	
+	<!-- Quick Settings Customize Colors -->
+    <string name="background_title">Background</string>
+    <string name="icon_title">Icon</string>
+	<string name="qs_colors_title">Custom Color Options</string>
+	<string name="qs_appcirclebar_tile">App Circle Bar</string>
+	<string name="qs_transparent_shade_title">Shade alpha</string>
+    <string name="qs_transparent_shade_summary">Ability to apply color alpha value and make notification shade transparent.</string>
+	<string name="qs_color_switch_title">Custom color switch</string>
+	<string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string>
+	
+    <!-- Show carrier label and custom -->
+    <string name="carrier_options">Carrier Label</string>
+    <string name="show_status_bar_carrier_title">Status bar carrier</string>
+    <string name="show_status_bar_carrier_summary">Show carrier in status bar</string>
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="status_bar_carrier_color">Carrier label color</string>
+	
+    <!-- Lockscreen weather -->
+    <string name="status_bar_show_weather_category">Weather</string>
+    <string name="lock_screen_weather_settings_title">Lock screen weather</string>
+    <string name="lock_screen_colors_title">Lock screen colors</string>
+    <string name="lock_screen_color_settings_summary">Customize colors</string>
+    <string name="weather_show_weather_title">Show weather</string>
+    <string name="weather_show_weather_summary">Enable to show weather informations</string>
+    <string name="weather_show_location_title">Show location</string>
+    <string name="weather_show_location_summary">Enable to show the location</string>
+    <string name="weather_show_timestamp_title">Show timestamp</string>
+    <string name="weather_show_timestamp_summary">Enable to show the timestamp</string>
+    <string name="weather_condition_icon_title">Condition icon</string>
+    <string name="weather_condition_icon_dlg_title">Coose an icon for displaying the weather condition</string>
+    <string name="weather_condition_icon_monochrome_title">Monochrome</string>
+    <string name="weather_condition_icon_colored_title">Colored</string>
+    <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_colorize_all_icons_title">Colorize all icons</string>
+    <string name="weather_colorize_all_icons_summary">Enable to colorize all icons, disable to colorize only the monochrome icons</string>
+    <string name="icons_title">Icons</string>
+    <string name="position_right_title">Right</string>
+    <string name="position_centered_title">Centered</string>
+    <string name="hidden_title">Hidden</string>
+    <string name="dlg_reset_values_message">Reset values to\nAndroid- or KangDroid default?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_kangdroid">KangDroid</string>
+	
+    <!-- Quick settings -->
+    <string name="qs_tiles_vibrate_title">Vibrate on touch</string>
+	
+    <!-- Recents panel -->
+    <string name="recents_panel_category">Recents panel</string>
+    <string name="show_clear_all_recents_button_title">Clear all button</string>
+    <string name="show_clear_all_recents_button_summary">Show clear all button</string>
+    <string name="recents_clear_all_location_title">Clear all location</string>
+    <string name="recents_clear_all_location_top_right">Top right</string>
+    <string name="recents_clear_all_location_top_left">Top left</string>
+	<string name="recents_clear_all_location_top_center">Top center</string>
+    <string name="recents_clear_all_location_bottom_right">Bottom right</string>
+    <string name="recents_clear_all_location_bottom_left">Bottom left</string>
+	<string name="recents_clear_all_location_bottom_center">Bottom center</string>
+	
+    <!-- Sound settings -->
+    <string name="advanced_sound_title">Advanced options</string>
+    <string name="sound_title">Sound</string>
+
+    <!-- Camera sound switch -->
+    <string name="camera_sounds_title">카메라 셔텨음 설정</string>
+    <string name="camera_sounds_summary">카메라 셔터음을 킵니다</string>
+    <string name="camera_sound_warning_dialog_text">카메라 셔터음을 제거하는경우, 어떤 주/시에서는 불법으로 간주합니다! 조심하게 사용하세요!</string>
+
+    <!-- Heads Up -->
+    <string name="category_heads_up">Heads up notifications</string>
+    <string name="summary_heads_up_enabled">Pop-up notifications are enabled</string>
+    <string name="summary_heads_up_disabled">Pop-up notifications are disabled</string>
+    <string name="add_heads_up_package">Add app</string>
+    <string name="add_heads_up_dnd_summary">Don\'t show heads up in these applications</string>
+    <string name="add_heads_up_blacklist_summary">Don\'t show heads up from these applications</string>
+    <string name="heads_up_dnd_title">Do not disturb</string>
+    <string name="heads_up_blacklist_title">Blacklist</string>
+    <string name="heads_up_disabled_notice">To allow applications to display interactive notifications in a pop-up window on your screen, enable Heads up.</string>
+    <string name="heads_up_dismiss_on_remove_title">Swipe behavior</string>
+    <string name="heads_up_dismiss_on_remove_summary_enabled">Hide notification instead of dismiss</string>
+    <string name="heads_up_dismiss_on_remove_summary_disabled">Hide and dismiss notification</string>
 
     <!-- Heads up timeout -->
-    <string name="heads_up_time_out_title">시간 제한</string>
-    <string name="heads_up_time_out_summary">알림이 <xliff:g id="number">%d</xliff:g> 초동안 보여집니다</string>
-    <string name="heads_up_time_out_never_summary">알림을 읽기 전까지는 알림이 계속 표시됩니다</string>
-    <string name="heads_up_time_out_2sec">2 초</string>
-    <string name="heads_up_time_out_4sec">4 초</string>
-    <string name="heads_up_time_out_6sec">6 초</string>
-    <string name="heads_up_time_out_8sec">8 초</string>
-    <string name="heads_up_time_out_10sec">10 초</string>
-    <string name="heads_up_time_out_never">시간제한 설정하지 않기</string>
+    <string name="heads_up_time_out_title">Time out</string>
+    <string name="heads_up_time_out_summary">Notification will show for <xliff:g id="number">%d</xliff:g> seconds</string>
+    <string name="heads_up_time_out_never_summary">Notification will show until it is dismissed</string>
+    <string name="heads_up_time_out_2sec">2 seconds</string>
+    <string name="heads_up_time_out_4sec">4 seconds</string>
+    <string name="heads_up_time_out_6sec">6 seconds</string>
+    <string name="heads_up_time_out_8sec">8 seconds</string>
+    <string name="heads_up_time_out_10sec">10 seconds</string>
+    <string name="heads_up_time_out_never">Never</string>
+	
+	<!-- Navring targets (enable/disable) -->
+    <string name="navigation_ring_enable_title">Enable navigation rings</string>
 
-    <!-- Navigation bar button color -->
-    <string name="navbar_button_tint_title">네비게이션 버튼 색</string>
+    <!-- Heads up touch outside -->
+    <string name="heads_up_touch_outside_title">Touch outside behavior</string>
+    <string name="heads_up_touch_outside_summary_enabled">Hide notification on touch outside and on home button press</string>
+    <string name="heads_up_touch_outside_summary_disabled">Do not hide notification after touch outside or on home button press</string>
+	
+    <!-- Volume pane timeout -->
+    <string name="category_panel_time_out">Panel timeout</string>
+    <string name="volume_panel_time_out_title">Volume panel timeout</string>
+    <string name="volume_panel_time_out_summary">Hide before <xliff:g id="number">%d</xliff:g> seconds. Auto hide on touch outside</string>
+    <string name="volume_panel_time_out_1sec">1 second</string>
+    <string name="volume_panel_time_out_3sec">3 seconds (default)</string>
+    <string name="volume_panel_time_out_5sec">5 seconds</string>
+    <string name="volume_panel_time_out_8sec">8 seconds</string>
+    <string name="volume_panel_time_out_12sec">12 seconds</string>
+    <string name="volume_panel_time_out_15sec">15 seconds</string>
+	
+	<!-- Membar on Recents -->
+    <string name="recents_show_membar_title">Memory bar</string>
+    <string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
+
+    <!--Status bar date -->
+	<string name="date_settings_category">Date Settings</string>
+    <string name="status_bar_clock_category">Clock</string>
+    <string name="status_bar_date_title">Date</string>
+    <string name="status_bar_date_none">Hidden (default)</string>
+    <string name="status_bar_date_small">Small</string>
+    <string name="status_bar_date_normal">Normal</string>
+    <string name="status_bar_date_format_title">Date format</string>
+    <string name="status_bar_date_style">Date style</string>
+    <string name="status_bar_date_style_normal">Normal</string>
+    <string name="status_bar_date_style_lowercase">Lowercase</string>
+    <string name="status_bar_date_style_uppercase">Uppercase</string>
+    <string name="status_bar_date_format_custom">Custom java format</string>
+    <string name="status_bar_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_summary">Enter string</string>
+
+    <string name="storage_options_category">Notifications</string>
+    <string name="storage_menu_options">Advanced</string>
+    <string name="storage_title_options">Storage options</string>
+    <string name="no_media_notification_title">Storage removed notification</string>
+    <string name="no_media_notification_summary">Show notification when storage media is removed</string>
+    <string name="mount_notification_title">Mount notification</string>
+    <string name="mount_notification_summary">Display ongoing notification for mounted storage</string>
+	
+    <!-- MediaScanner behavior on boot -->
+    <string name="options_settings_title">옵션</string>
+    <string name="media_scanner_on_boot_title">부팅시 미디어 스캔</string>
+    <string name="media_scanner_on_boot_enabled">미디어 스캔을 합니다</string>
+    <string name="media_scanner_on_boot_ask">알림으로 미디어 스캔을 할지 물어봅니다</string>
+    <string name="media_scanner_on_boot_disabled">미디아 스캔을 하지 않습니다</string>
+	
+    <!-- Less Notification sounds -->
+    <string name="notifications_category_title">알림</string>
+    <string name="less_notification_sounds_title">알림(소리) 빈도를 줄입니다</string>
+    <string name="less_notification_sounds_summary">알림 소리를 각 앱마다 정합니다</string>
+    <string name="less_notification_sounds_default">기본 설정</string>
+    <string name="less_notification_sounds_3s">3 초</string>
+    <string name="less_notification_sounds_5s">5 초</string>
+    <string name="less_notification_sounds_10s">10 초</string>
+    <string name="less_notification_sounds_15s">15 초</string>
+    <string name="less_notification_sounds_30s">30 초</string>
+    <string name="less_notification_sounds_45s">45 초</string>
+    <string name="less_notification_sounds_1m">1 분</string>
+    <string name="less_notification_sounds_2m">2 분</string>
+    <string name="less_notification_sounds_5m">5 분</string>
+	
+    <!-- Safe headset volume restore checkbox -->
+    <string name="safe_headset_volume_title">안전 헤드폰 볼륨</string>
+    <string name="safe_headset_volume_summary">처음 헤드폰을 꽂았을떄 소리가 너무 커지는것을 방지합니다.</string>
+    <string name="safe_headset_volume_warning_dialog_text">너무 높은 볼륨으로 들을경우 난청 등 듣는거에 문제가 될수 있습니다</string>
+	
+    <!-- Doze pulse (ambient display) options -->
+    <string name="doze_overwrite_value_title">Overwrite value</string>
+    <string name="doze_overwrite_value_summary">Allow to overwrite default value with user config</string>
+
+    <string name="doze_pulse_title">Time settings</string>
+    <string name="doze_pulse_duration_in_title">Fade in</string>
+    <string name="doze_pulse_duration_in_summary"></string>
+
+    <string name="doze_pulse_duration_visible_title">Visible duration</string>
+    <string name="doze_pulse_duration_visible_summary"></string>
+
+    <string name="doze_pulse_duration_out_title">Fade out</string>
+    <string name="doze_pulse_duration_out_summary"></string>
+
+    <string name="doze_brightness_category_title">Brightness</string>
+    <string name="doze_brightness_title">Brightness level</string>
+
+    <string name="doze_auto_brightness_title">Auto brightness</string>
+    <string name="doze_auto_brightness_summary">Adjusts the brightness of the screen to take into account the ambient light of your surroundings</string>
+
+    <string name="twohundred_ms">200 ms</string>
+    <string name="fivehundred_ms">500 ms</string>
+    <string name="one_second">1 s</string>
+    <string name="one_second_default">1 s (default)</string>
+    <string name="onehalf_second">1.5 s</string>
+    <string name="two_second">2 s</string>
+    <string name="twohalf_second">2.5 s</string>
+    <string name="three_second">3 s</string>
+    <string name="three_second_default">3 s (default)</string>
+    <string name="threehalf_second">3.5 s</string>
+    <string name="four_second">4 s</string>
+    <string name="fourhalf_second">4.5 s</string>
+    <string name="five_second">5 s</string>
+
+    <!-- Battery saver -->
+    <string name="battery_saver_title">경고 색깔</string>
+    <string name="battery_saver_style_reset_message">배터리 경고 색깔을 기본으로 초기화 시킬까요?</string>
+	
+	<!-- Clock -->
+	<string name="status_bar_clock_category">상단바 시계 설정</string>
+	<string name="status_bar_clock_date_kangdroid_title">시계 &amp; 날짜 설정</string>
+	<string name="status_bar_clock_date_kangdroid_summary">상단바 시계와 날짜 스타일을 설정합니다. (색깔, 위치, 다른것들...)</string>
+    <string name="clock_use_second">초시계 사용</string>
+    <string name="clock_use_second_summary">상단바에 시간과 초를 같이 표시합니다.</string>
+    <string name="clock_color_title">색깔</string>
+    <string name="status_bar_clock_style_reset">색 초기화</string>
+    <string name="clock_font_style_title">폰트</string>
+    <string name="clock_font_bold">Bold</string>
+    <string name="clock_font_condensed">Condensed</string>
+    <string name="clock_font_light">Light</string>
+    <string name="clock_font_light_italic">Light Italic</string>
+    <string name="clock_font_normal">기본</string>
+
+    <!-- Unaccounted and overcounted battery stats -->
+    <string name="show_unac_and_overcounted_stats_title">Show unaccounted/overcounted stats</string>
+    <string name="show_unac_and_overcounted_stats_summary">Show in battery statistics unaccounted and over-counted usage.</string>
+	
+    <!-- Battery Bar -->
+    <string name="battery_icon">Battery icon style</string>
+    <string name="battery_not_title">Battery icon in notifications</string>
+    <string name="battery_not_summary">Battery icon will show up where the clear all button shows up</string>
+    <string name="battery_bar_location">Battery bar location</string>
+    <string name="battery_bar_color">Battery bar color</string>
+    <string name="battery_bar">Battery bar options</string>
+    <string name="battery_bar_style_title">Battery bar style</string>
+    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
+
+    <!-- App sidebar -->
+    <string name="app_sidebar_title">Appbar</string>
+    <string name="app_sidebar_enable_title">Enable Appbar</string>
+    <string name="app_sidebar_enable_summaryOn">Appbar is enabled</string>
+    <string name="app_sidebar_enable_summaryOff">Appbar is disabled</string>
+    <string name="app_sidebar_setup_items_title">Setup Appbar content</string>
+    <string name="app_sidebar_setup_items_summary">Add, remove, and position items in the appbar</string>
+    <string name="app_sidebar_transparency_title">Appbar transparency</string>
+    <string name="app_sidebar_transparency_summary">Adjust the Appbar transparency level</string>
+    <string name="app_sidebar_position_title">Appbar position</string>
+    <string name="app_sidebar_position_summary">Position the Appbar on the left or right side of the screen</string>
+    <string name="app_sidebar_position_left">Left</string>
+    <string name="app_sidebar_position_right">Right</string>
+    <string name="app_sidebar_hide_labels_title">Hide icon labels</string>
+    <string name="app_sidebar_hide_labels_summary">Hide Appbar icon labels</string>
+    <string name="tab_category">Visible Tab</string>
+    <string name="use_tab_title">Display tab</string>
+    <string name="use_tab_summary">Display a visible tab on the side which will display the appbar when touched.</string>
+    <string name="tab_position_title">Tab location</string>
+    <string name="tab_position_summary">Display the tab on the top, middle, or bottom on the side of the screen.</string>
+    <string name="tab_size_title">Tab size</string>
+    <string name="tab_size_summary">Change the size of the visible tab.</string>
+    <string name="trigger_category">Trigger region</string>
+    <string name="trigger_width_title">Trigger width</string>
+    <string name="trigger_width_summary">Adjust the width of the trigger area</string>
+    <string name="trigger_top_title">Trigger position</string>
+    <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
+    <string name="trigger_bottom_title">Trigger height</string>
+    <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+
+	<!-- Force expand notifications -->
+    <string name="notification_force_expand_title">Force expanded notification</string>
+    <string name="notification_force_expand_summary">Force expanded notifications on all apps that support it</string>
+	
+    <!-- Breathing Notifications -->
+    <string name="breathing_notifications_title">Breathing Notifications</string>
+    <string name="sms_breath_title">Breathing SMS</string>
+    <string name="sms_breath_summary">Will give your sms notifications a breathing effect in the statusbar</string>
+    <string name="missed_call_breath_title">Breathing Missed Call</string>
+    <string name="missed_call_breath_summary">Will give your missed call notifications a breathing effect in the statusbar</string>
+    <string name="voicemail_breath_title">Breathing Voicemail</string>
+    <string name="voicemail_breath_summary">Will give your voicemail notifications a breathing effect in the statusbar</string>
+
+    <!-- TRDS 5.0 -->	
+    <string name="theme_settings_title">TRDS</string>
+    <string name="theme_auto_mode_title">Switch theme</string>
+    <string name="theme_auto_mode_off">Manual</string>
+    <string name="theme_auto_mode_lightsensor">On light condition change (experimental)</string>
+    <string name="theme_auto_mode_twilight">On daytime</string>
+    <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>
+    <string name="theme_reset_message">Reset theme state to default?</string>
+	
+    <!-- Instant reboot -->
+    <string name="advanced_reboot_oneclick">One click reboot</string>
+    <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
+
+    <!-- Block QS on secure lock screen -->
+    <string name="block_on_secure_keyguard_title">Disable on lock screen</string>
+    <string name="block_on_secure_keyguard_summary">Disable quick settings on secure lock screen.</string>
+	
+    <!-- Lock Gesture settings -->
+    <!-- Security & location settings screen, setting option name -->
+    <string name="lockgesture_change_lock_pattern_label">잠금화면 제스쳐를 바꿉니다.</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
+    <string name="lockgesture_change_lock_pin_label">PIN을 바꿉니다.</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
+    <string name="lockgesture_need_to_unlock">Confirm saved gesture</string>
+    <!-- Do not translate. -->
+    <string name="lockgesture_need_to_unlock_footer" />
+    <!-- Security & location settings screen, change unlock gesture screen instruction if user draws incorrect pattern -->
+    <string name="lockgesture_need_to_unlock_wrong">다시 시도하세요:</string>
+    <!-- Do not translate. -->
+    <string name="lockgesture_need_to_unlock_wrong_footer" />
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen.  This si when they are supposed to draw a new unlock pattern (for example, if they are changing their unlock patterns)..-->
+    <string name="lockgesture_recording_intro_header">제스쳐를 그리세요:</string>
+    <!-- Security & location settings screen, change unlock gesture screen hint on bottom of screen.  We are telling them to press the menu button to see more options or help. -->
+    <string name="lockgesture_recording_intro_footer">메뉴를 눌러 도움을 봅니다.</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen while drawing pattern -->
+    <string name="lockgesture_recording_inprogress">다 그렸을경우 손가락을 화면에서 때세요.</string>
+    <!-- Security & location settings screen, change unlock gesture screen message on top of screen after drawing pattern -->
+    <string name="lockgesture_pattern_entered_header">제스쳐 저장 완료.</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen to confirm pattern -->
+    <string name="lockgesture_need_to_confirm">확인하기 위해 다시한번 제스쳐를 그리세요:</string>
+    <string name="lockgesture_pattern_confirmed_header">새로운 언락 제스쳐:</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  When they are ready to draw it once again to confirm it, they press this button. -->
+    <string name="lockgesture_confirm_button_text">Confirm</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  If they are nto satisfied with this pattern, they click this button to redraw the pattern. -->
+    <string name="lockgesture_restart_button_text">다시 그리기</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. If they are supposed to enter their current gesture before being able to draw another one, and they screw up, they hit this button to try again -->
+    <string name="lockgesture_retry_button_text">다시시도</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. Once they draw a new gesture and confirm it by drawing it again, they press this button to exit -->
+    <string name="lockgesture_continue_button_text">계속</string>
+    <!-- Security & location settings screen, unlock screen activity title -->
+    <string name="lockgesture_settings_title">언락 제스쳐e</string>
+    <!-- Security & location settings screen, setting check box title if the unlock pattern MUST be drawn everytime they turn on the screen -->
+    <string name="lockgesture_settings_enable_title">제스쳐가 필요합니다.</string>
+    <!-- Security & location settings screen, setting summary for the checkbox "Require pattern" -->
+    <string name="lockgesture_settings_enable_summary">무조건 제스쳐를 그려야 화면을 잠금해재 할수 있습니다.</string>
+   <!-- Security & location settings screen, setting check box title. This setting controls whether a visible gesture is drawn as the user moves his finger around while drawing the unlock pattern.  If checked, this line is drawn.  If unchecked, there is nothing drawn so the user does not reveal his pattern while he unlocks the phone.-->
+    <string name="lockgesture_settings_enable_visible_pattern_title">화면에 제스쳐를 보이게 합니다.</string>
+    <!-- Security & location settings screen, setting check box title. This controls whether the device locks immediately when the power button is pressed. [CHAR LIMIT=28]-->
+    <string name="lockgesture_settings_enable_power_button_instantly_locks">Power button instantly locks</string>
+    <!-- Security & location settings screen, setting option name when user has never set an unlock gesture -->
+    <string name="lockgesture_settings_choose_lock_pattern">언락 제스쳐를 설정합니다</string>
+    <!-- Security & location settings screen, setting option name when user has previously set an unlock gesture and wants to change to a new pattern -->
+    <string name="lockgesture_settings_change_lock_pattern">언락 제스쳐를 바꿉니다</string>
+    <!-- Security & location settings screen, the help instructions (an animation) caption -->
+    <string name="lockgesture_settings_help_how_to_record">언락 제스쳐를 어떻게 그릴까요?</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen after too many incorrect attempts -->
+    <string name="lockgesture_too_many_failed_confirmation_attempts_header">너무 많이 틀렸어요!</string>
+    <!-- Security & location settings screen, change unlock gesture screen countdown hint on bottom of screen after too many incorrect attempts -->
+    <string name="lockgesture_too_many_failed_confirmation_attempts_footer"><xliff:g id="number">%d</xliff:g> 초 후에 다시 시도하세요.</string>
+    <!-- Toast shown if setting gesture was successful -->
+    <string name="lockpassword_gesture_set_toast">제스쳐가 설정완료되었습니다.</string>
+    <!-- Header on gesture confirm screen [CHAR LIMIT=30] -->
+    <string name="lockpassword_confirm_your_gesture_header">Confirm your gesture</string>
+    <!-- Header on first screen of choose gesture flow [CHAR LIMIT=30] -->
+    <string name="lockpassword_choose_your_gesture_header">제스쳐를 그리세요</string>
+
+    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=22] -->
+    <string name="unlock_set_unlock_gesture_title">제스쳐</string>
+    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=45] -->
+    <string name="unlock_set_unlock_gesture_summary">실험적 기능인데다가 보안이 낮습니다.</string>
+
+    <!-- Summary for "Configure lockscreen" when security gesture is enabled [CHAR LIMIT=45] -->
+    <string name="unlock_set_unlock_mode_gesture">제스쳐</string>
+	
+	<!-- Weather LockClock -->
+	<string name="weather_settings">Weather Settings</string>
+	<string name="weather_settings_summary">Detailed Weather settings</string>
+	
+    <!-- Host File Manager -->
+    <string name="hfm_disable_ads_title">광고를 비활성화 시킵니다</string>
+    <string name="hfm_disable_ads_summary">호스트 파일을 바꿔서 광고를 없앱니다</string>
+    <string name="hfm_pref_screen_title">Ad blocker</string>
+    <string name="hfm_update_hosts">호스트파일 업데이트</string>
+    <string name="hfm_update_hosts_summary">호스트를 다운로드하고 플래싱합니다</string>
+    <string name="hfm_dialog_wait">작업중입니다..... 기다려주세요.....</string>
+    <string name="hfm_dialog_failed">호스트파일 업데이트가 실패하였습니다. 개발자에게 보고하여주세요!</string>
+    <string name="hfm_dialog_success">4개의 호스트가 성공적으로 업데이트 되었습니다!!</string>
+    <string name="hfm_dialog_conn_error">Error: 인터넷 연결이 필요합니다.</string>
+
+    <!-- Task Manager -->
+    <string name="enable_task_manager_title">Task Manager</string>
+    <string name="enable_task_manager_summary">Enable/Disable action for the task manager button in the expanded statusbar area.</string>
+
+    <string name="heads_up_bg_color_title">Background color</string>
+    <string name="heads_up_text_color_title">Text color</string>
+    <string name="heads_up_colors_title">Custom Colors</string>
+    <string name="heads_up_colors_summary">Customize heads up text and background color</string>
+	
+    <!-- Status bar power menu -->
+    <string name="status_bar_power_menu_title">Power menu in expanded status bar</string>
+    <string name="status_bar_power_menu_dialog_title">Set tap and long-press actions</string>
+    <string name="status_bar_power_menu_off">Disabled</string>
+    <string name="status_bar_power_menu_action_screen_off">Screen off - Power menu</string>
+    <string name="status_bar_power_menu_action_dialog">Power menu - Screen off</string>
+
+    <!-- Heads up snooze -->
+    <string name="heads_up_snooze_title">Snooze timer</string>
+    <string name="heads_up_snooze_summary">Swiping up on the heads up notification will snooze it for <xliff:g id="number">%d</xliff:g> minutes</string>
+    <string name="heads_up_snooze_disabled_summary">Snooze timer is disabled</string>
+    <string name="heads_up_snooze_1min">1 minute</string>
+    <string name="heads_up_snooze_3min">3 minutes</string>
+    <string name="heads_up_snooze_5min">5 minutes</string>
+    <string name="heads_up_snooze_10min">10 minutes</string>
+    <string name="heads_up_snooze_15min">15 minutes</string>
+    <string name="heads_up_snooze_20min">20 minutes</string>
+	
+    <!-- Disable torch when screen goes off -->
+    <string name="disable_torch_screen_off_title">Disable torch on screen off</string>
+    <string name="disable_torch_screen_off_delay_title">Delay</string>
+    <string name="torch_screen_off_one_second">1 second</string>
+    <string name="torch_screen_off_ten_second">10 seconds (default)</string>
+    <string name="torch_screen_off_thirty_second">30 seconds</string>
+    <string name="torch_screen_off_one_minute">1 minute</string>
+    <string name="torch_screen_off_five_minutes">5 minutes</string>
+    <string name="torch_screen_off_ten_minutes">10 minutes</string>
+	
+    <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
+    <string name="double_tap_sleep_anywhere_title">Double-tap to sleep anywhere</string>
+    <string name="double_tap_sleep_anywhere_summary">Double tap anywhere on the lockscreen to put the device to sleep</string>
+
+    <!-- Recent panel -->
+    <string name="recent_panel_category">Slim recents app panel</string>
+    <string name="use_slim_recents_title">Slim recents</string>
+    <string name="show_running_tasks_title">Only show running apps</string>
+    <string name="recents_max_apps_title">Max allowed apps</string>
+    <string name="recent_panel_scale_title">Size</string>
+    <string name="recent_panel_scale_summary">Recent apps panel size in percent</string>
+    <string name="recent_panel_100">100% (default)</string>
+    <string name="recent_panel_85">85%</string>
+    <string name="recent_panel_70">70%</string>
+    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
+    <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
+    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
+    <string name="recent_panel_expanded_mode_always">Always</string>
+    <string name="recent_panel_expanded_mode_never">Never</string>
+    <string name="recent_panel_show_topmost_title">Show topmost task</string>
+    <string name="recent_panel_show_topmost_summary">Don\'t exclude the topmost task in recents view</string>
+    <string name="recent_panel_bg_color_title">Panel background color</string>
+    <string name="recent_card_bg_color_title">Card background color</string>
+    <string name="recent_card_text_color_title">Card text color</string>
+
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
+    <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
+
 </resources>

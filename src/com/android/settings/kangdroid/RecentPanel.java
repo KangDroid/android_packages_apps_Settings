@@ -46,6 +46,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.crdroid.DeviceUtils;
 
+import com.android.settings.kangdroid.SeekBarPreferenceCHOS;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class RecentPanel extends SettingsPreferenceFragment implements DialogCreatable,
@@ -74,7 +75,7 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
 
     private SwitchPreference mUseSlimRecents;
     private SwitchPreference mShowRunningTasks;
-    private SlimSeekBarPreference mMaxApps;
+    private SeekBarPreferenceCHOS mMaxApps;
     private SwitchPreference mRecentsShowTopmost;
     private SwitchPreference mRecentPanelLeftyMode;
     private ListPreference mRecentPanelScale;
@@ -242,7 +243,7 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
         mShowRunningTasks = (SwitchPreference) findPreference(ONLY_SHOW_RUNNING_TASKS);
         mShowRunningTasks.setOnPreferenceChangeListener(this);
 
-        mMaxApps = (SlimSeekBarPreference) findPreference(RECENTS_MAX_APPS);
+        mMaxApps = (SeekBarPreferenceCHOS) findPreference(RECENTS_MAX_APPS);
         mMaxApps.setOnPreferenceChangeListener(this);
         mMaxApps.minimumValue(5);
         mMaxApps.setInitValue(Settings.System.getIntForUser(getContentResolver(),
