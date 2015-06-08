@@ -266,8 +266,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         initPulse((PreferenceCategory) findPreference(KEY_CATEGORY_LIGHTS));
 		
-        mTorchOff = (SwitchPreference) prefSet.findPreference(DISABLE_TORCH_ON_SCREEN_OFF);
-        mTorchOffDelay = (ListPreference) prefSet.findPreference(DISABLE_TORCH_ON_SCREEN_OFF_DELAY);
+        mTorchOff = (SwitchPreference) findPreference(DISABLE_TORCH_ON_SCREEN_OFF);
+        mTorchOffDelay = (ListPreference) findPreference(DISABLE_TORCH_ON_SCREEN_OFF_DELAY);
         int torchOffDelay = Settings.System.getInt(resolver,
                 Settings.System.DISABLE_TORCH_ON_SCREEN_OFF_DELAY, 10);
         mTorchOffDelay.setValue(String.valueOf(torchOffDelay));
