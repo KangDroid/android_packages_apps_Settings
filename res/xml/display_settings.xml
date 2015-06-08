@@ -110,4 +110,12 @@
 
          </PreferenceCategory>
 
+        <!--PA Pie Control -->
+        <PreferenceScreen
+                android:key="pa_pie_control"
+                android:title="@string/pa_pie_control_title"
+                android:summary="@string/pa_piecontrol_settings_summary"
+                android:fragment="com.android.settings.paranoid.PieControl" />
+
+
 </PreferenceScreen>
