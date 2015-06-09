@@ -38,7 +38,7 @@
                 android:persistent="false" />
 				
 		<!-- Disable Torch off when screen is off -->		
-        <SwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="disable_torch_on_screen_off"
             android:title="@string/disable_torch_screen_off_title"
             android:defaultValue="false" />
