@@ -107,7 +107,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
     private static final String DISABLE_TORCH_ON_SCREEN_OFF = "disable_torch_on_screen_off";
-    private static final String DISABLE_TORCH_ON_SCREEN_OFF_DELAY = "disable_torch_on_screen_off_delay";
+    private static final String KEY_DISABLE_TORCH_ON_SCREEN_OFF_DELAY = "disable_torch_on_screen_off_delay";
 
     private ListPreference mLcdDensityPreference;
     private FontDialogPreference mFontSizePref;
@@ -123,7 +123,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mTapToWake;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
     private PreferenceScreen mDozeFragement;
-    private SwitchPreference mTorchOff;
     private ListPreference mTorchOffDelay;
 
     private CmHardwareManager mCmHardwareManager;
@@ -266,8 +265,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         initPulse((PreferenceCategory) findPreference(KEY_CATEGORY_LIGHTS));
 		
-        mTorchOff = (SwitchPreference) prefSet.findPreference(DISABLE_TORCH_ON_SCREEN_OFF);
-        mTorchOffDelay = (ListPreference) prefSet.findPreference(DISABLE_TORCH_ON_SCREEN_OFF_DELAY);
+        mTorchOffDelay = (ListPreference) findPreference(KEY_DISABLE_TORCH_ON_SCREEN_OFF_DELAY);
         int torchOffDelay = Settings.System.getInt(resolver,
                 Settings.System.DISABLE_TORCH_ON_SCREEN_OFF_DELAY, 10);
         mTorchOffDelay.setValue(String.valueOf(torchOffDelay));
@@ -275,8 +273,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mTorchOffDelay.setOnPreferenceChangeListener(this);
 
         if (!QSUtils.deviceSupportsFlashLight(activity)) {
-            prefSet.removePreference(mTorchOff);
-            prefSet.removePreference(mTorchOffDelay);
+            displayPrefs.removePreference(mTorchOffDelay);
         }
     }
 
