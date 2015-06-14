@@ -2453,14 +2453,6 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.android.settings.kangdroid.hfm.IntentReceiver" >
-            <intent-filter>
-                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <service android:name="com.android.settings.kangdroid.hfm.CheckHosts" />
-
         <receiver android:name=".profiles.SetupDefaultProfileReceiver">
             <intent-filter>
                 <action android:name="com.cyanogenmod.setupwizard.SETUP_FINISHED" />

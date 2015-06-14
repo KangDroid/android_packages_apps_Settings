@@ -114,11 +114,6 @@
          android:fragment="com.android.settings.crdroid.AppCircleBar"
          android:title="@string/app_circle_bar_title"/>
 		 
-     <PreferenceScreen
-         android:key="hfm_settings"
-         android:title="@string/hfm_pref_screen_title"
-         android:fragment="com.android.settings.kangdroid.hfm.HfmSettings" />
-		 
     <!-- Gesture anywhere -->
      <PreferenceScreen
          android:key="gesture_anywhere"
