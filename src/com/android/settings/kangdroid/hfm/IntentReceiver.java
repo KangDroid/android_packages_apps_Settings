@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.kangdroid.hfm;
+package com.android.settings.kangroid.hfm;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

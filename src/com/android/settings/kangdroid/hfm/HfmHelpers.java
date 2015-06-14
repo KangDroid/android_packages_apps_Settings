@@ -36,7 +36,7 @@ import android.os.StrictMode;
 import android.provider.Settings;
 import android.widget.TextView;
 
-import com.android.settings.kangdroid.hfm.HfmSettings;
+import com.android.settings.kangroid.hfm.HfmSettings;
 import com.android.settings.R;
 
 public final class HfmHelpers {
