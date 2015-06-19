@@ -497,8 +497,6 @@
     <string name="notif_system_icons_colorize_notif_icons_title">Colorize notification icons</string>
     <!-- <string name="notif_system_icons_colorize_notif_icons_title_phone">Colorize notif. icons</string> -->
     <string name="notif_system_icons_colorize_notif_icons_summary">Enable to colorize the notification icons color</string>
-    <string name="notif_system_icons_show_ticker_title">Notification ticker</string>
-    <string name="notif_system_icons_show_ticker_summary">Notification text animation in the statusbar</string>
     <string name="notif_system_icons_show_count_title">Show notification count</string>
     <string name="notif_system_icons_show_count_summary">Display the number of pending notifications</string>
     <string name="notif_system_icons_icon_color_title">Icons</string>
