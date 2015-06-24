@@ -17,6 +17,11 @@
 
 package com.android.settings;
 
+import java.io.InputStreamReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.BufferedReader;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
@@ -72,6 +77,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.widget.SwitchBar;
 import com.android.settings.util.Helpers;
+import com.android.settings.util.CMDProcessor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -200,6 +206,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private static String DEFAULT_LOG_RING_BUFFER_SIZE_IN_BYTES = "262144"; // 256K
 
+    private static final String SELINUX = "selinux";
+
     private IWindowManager mWindowManager;
     private IBackupManager mBackupManager;
     private DevicePolicyManager mDpm;
@@ -270,6 +278,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private SwitchPreference mShowAllANRs;
     private SwitchPreference mKillAppLongpressBack;
+
+    private SwitchPreference mSelinux;
 
     private PreferenceScreen mProcessStats;
     private ListPreference mRootAccess;
@@ -356,6 +366,18 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             removePreference(mEnableOemUnlock);
             mEnableOemUnlock = null;
         }
+
+        mSelinux = (SwitchPreference) findPreference(SELINUX);
+        mSelinux.setOnPreferenceChangeListener(this);
+
+        if (CMDProcessor.runSuCommand("getenforce").getStdout().contains("Enforcing")) {
+            mSelinux.setChecked(true);
+            mSelinux.setSummary(R.string.selinux_enforcing_title);
+        } else {
+            mSelinux.setChecked(false);
+            mSelinux.setSummary(R.string.selinux_permissive_title);
+        }
+
         mQuickBoot = findAndInitSwitchPref(ENABLE_QUICKBOOT);
         mAllowMockLocation = findAndInitSwitchPref(ALLOW_MOCK_LOCATION);
         mDebugViewAttributes = findAndInitSwitchPref(DEBUG_VIEW_ATTRIBUTES);
@@ -1866,6 +1888,15 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 mRootDialog.setOnDismissListener(this);
             } else {
                 writeRootAccessOptions(newValue);
+            }
+            return true;
+        } else if (preference == mSelinux) {
+            if (newValue.toString().equals("true")) {
+                CMDProcessor.runSuCommand("setenforce 1");
+                mSelinux.setSummary(R.string.selinux_enforcing_title);
+            } else if (newValue.toString().equals("false")) {
+                CMDProcessor.runSuCommand("setenforce 0");
+                mSelinux.setSummary(R.string.selinux_permissive_title);
             }
             return true;
         }

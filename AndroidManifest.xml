@@ -2419,6 +2419,12 @@
         <activity android:name=".crdroid.gestureanywhere.GestureAnywhereBuilderActivity" />
         <activity android:name=".crdroid.gestureanywhere.GestureAnywhereCreateGestureActivity" />
 
+        <receiver android:name="com.android.settings.kangdroid.OnBoot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
             android:authorities="com.android.settings"
