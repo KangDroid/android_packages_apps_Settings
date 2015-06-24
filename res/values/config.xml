@@ -86,9 +86,6 @@
 
     <bool name="config_default_advanced_mode_enabled">false</bool>
 
-    <!-- This is use to determine whether to hide the performance settings-->
-    <bool name="config_hidePerformanceSettings" translatable="false">false</bool>
-
     <!-- The default value of whether to check "Show password" in the WiFi AP dialog -->
     <bool name="config_showWifiApPasswordDefault">false</bool>
 
