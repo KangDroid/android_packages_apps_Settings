@@ -600,15 +600,6 @@
 	<string name="qs_color_switch_title">Custom color switch</string>
 	<string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string>
 	
-    <!-- Show carrier label and custom -->
-    <string name="carrier_options">Carrier Label</string>
-    <string name="show_status_bar_carrier_title">Status bar carrier</string>
-    <string name="show_status_bar_carrier_summary">Show carrier in status bar</string>
-    <string name="custom_carrier_label_title">Custom carrier label</string>
-    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
-    <string name="custom_carrier_label_notset">Custom label currently not set</string>
-    <string name="status_bar_carrier_color">Carrier label color</string>
-	
     <!-- Lockscreen weather -->
     <string name="status_bar_show_weather_category">Weather</string>
     <string name="lock_screen_weather_settings_title">Lock screen weather</string>

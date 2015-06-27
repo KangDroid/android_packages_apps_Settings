@@ -127,7 +127,6 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
-import com.android.settings.kangdroid.KangDroidCarrierLabel;
 import com.android.settings.kangdroid.KangDroidSettings;
 import com.android.settings.kangdroid.HeadsUpSettings;
 import com.android.settings.kangdroid.ChangeLog;
@@ -338,7 +337,6 @@ public class SettingsActivity extends Activity
             LockScreenSettings.class.getName(),
             LiveDisplay.class.getName(),
             ExpandedDesktopPreferenceFragment.class.getName(),
-			KangDroidCarrierLabel.class.getName(),
 			KangDroidSettings.class.getName(),
             AmbientSettings.class.getName(),
 			HeadsUpSettings.class.getName(),

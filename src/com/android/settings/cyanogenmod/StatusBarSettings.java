@@ -73,6 +73,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class StatusBarSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener, Indexable {
 
@@ -80,6 +82,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String STATUS_BAR_CARRIER = "status_bar_carrier";
+    private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
@@ -87,13 +91,20 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 	
 	private static final String KEY_STATUS_BAR_GREETING = "status_bar_greeting";
 	private static final String KEY_STATUS_BAR_GREETING_TIMEOUT = "status_bar_greeting_timeout";
+	
+	static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
+    SwitchPreference mStatusBarCarrier;
+    ColorPickerPreference mCarrierColorPicker;
 	private SwitchPreference mStatusBarGreeting;
 	private String mCustomGreetingText = "";   
 	private SeekBarPreferenceCham mStatusBarGreetingTimeout;
-	
+
+        int intColor;
+        String hexColor;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -122,6 +133,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
 		
         mStatusBarGreeting = (SwitchPreference) prefSet.findPreference(KEY_STATUS_BAR_GREETING);
+		
         mCustomGreetingText = Settings.System.getString(resolver, Settings.System.STATUS_BAR_GREETING);
         boolean greeting = mCustomGreetingText != null && !TextUtils.isEmpty(mCustomGreetingText);
         mStatusBarGreeting.setChecked(greeting); 
@@ -131,6 +143,20 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_GREETING_TIMEOUT, 400);
         mStatusBarGreetingTimeout.setValue(statusBarGreetingTimeout / 1);
         mStatusBarGreetingTimeout.setOnPreferenceChangeListener(this);
+		
+        //carrier Label
+        mStatusBarCarrier = (SwitchPreference) findPreference(STATUS_BAR_CARRIER);
+        mStatusBarCarrier.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CARRIER, 0) == 1));
+
+        //carrier Label color
+        mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
+        mCarrierColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CARRIER_COLOR, DEFAULT_STATUS_CARRIER_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mCarrierColorPicker.setSummary(hexColor);
+        mCarrierColorPicker.setNewPreviewColor(intColor);
 
         if (TelephonyManager.getDefault().getPhoneCount() <= 1) {
             removePreference(Settings.System.STATUS_BAR_MSIM_SHOW_EMPTY_ICONS);
@@ -146,7 +172,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 	final ContentResolver resolver = getActivity().getContentResolver();
 	boolean value;
-	if (preference == mStatusBarGreeting) {
+    if (preference == mStatusBarCarrier) {
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CARRIER, mStatusBarCarrier.isChecked() ? 1 : 0);
+        return true;
+	} else if (preference == mStatusBarGreeting) {
          boolean enabled = mStatusBarGreeting.isChecked();
          if (enabled) {
               AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
@@ -203,6 +233,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             int timeout = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_GREETING_TIMEOUT, timeout * 1);
+			return true;
+        } else if (preference == mCarrierColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_CARRIER_COLOR, intHex);
             return true;
         } else if (preference == mStatusBarBatteryShowPercent) {
             int batteryShowPercent = Integer.valueOf((String) newValue);
