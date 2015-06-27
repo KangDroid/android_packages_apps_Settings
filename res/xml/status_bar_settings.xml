@@ -79,12 +79,6 @@
 		android:title="@string/category_icon_customization_statusbar">
 		
     <PreferenceScreen
-        android:key="status_bar_signal_settings"
-        android:title="@string/status_bar_signal_settings_title"
-        android:summary="@string/status_bar_signal_settings_summary"
-        android:fragment="com.android.settings.kangdroid.StatusBarSignalSettings" />	
-		
-    <PreferenceScreen
         android:key="status_bar_notif_system_icons_settings"
         android:title="@string/status_bar_notif_system_icons_settings_title"
         android:summary="@string/status_bar_notif_system_icons_settings_summary"
