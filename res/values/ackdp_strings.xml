@@ -669,6 +669,10 @@
     <string name="heads_up_time_out_10sec">10 seconds</string>
     <string name="heads_up_time_out_never">Never</string>
 	
+	<!-- Heads Up Floating options -->
+	<string name="heads_up_floating_window_title">Heads Up</string>
+	<string name="heads_up_floating_window_summary">Longpress and release to open in float mode when not on home screen</string>        	
+	
 	<!-- Navring targets (enable/disable) -->
     <string name="navigation_ring_enable_title">Enable navigation rings</string>
 
