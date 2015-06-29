@@ -39,6 +39,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.util.Helpers;
+import com.android.settings.util.AbstractAsyncSuCMDProcessor;
+import com.android.settings.util.CMDProcessor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,14 +55,17 @@ public class KangDroidMiscSettings extends SettingsPreferenceFragment implements
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "1";
+	private static final String SELINUX = "selinux";
 	
 	private Preference mRestartSystemUI;
 	private ListPreference mScrollingCachePref;
+	private SwitchPreference mSelinux;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.kangdroid_misc_settings);
+		PreferenceScreen prefSet = getPreferenceScreen();
 
 		mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
 		
@@ -68,6 +73,18 @@ public class KangDroidMiscSettings extends SettingsPreferenceFragment implements
 	    mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
 	            SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
 	    mScrollingCachePref.setOnPreferenceChangeListener(this);
+		
+        //SELinux
+        mSelinux = (SwitchPreference) findPreference(SELINUX);
+        mSelinux.setOnPreferenceChangeListener(this);
+
+        if (CMDProcessor.runSuCommand("getenforce").getStdout().contains("Enforcing")) {
+            mSelinux.setChecked(true);
+            mSelinux.setSummary(R.string.selinux_enforcing_title);
+        } else {
+            mSelinux.setChecked(false);
+            mSelinux.setSummary(R.string.selinux_permissive_title);
+        }
     }
 	
     @Override
@@ -75,12 +92,21 @@ public class KangDroidMiscSettings extends SettingsPreferenceFragment implements
         super.onResume();
     }
 	
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
 		if (preference == mScrollingCachePref) {
-            if (objValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String)objValue);
+            if (newValue != null) {
+                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String)newValue);
             return true;
             }
+        } else if (preference == mSelinux) {
+            if (newValue.toString().equals("true")) {
+                CMDProcessor.runSuCommand("setenforce 1");
+                mSelinux.setSummary(R.string.selinux_enforcing_title);
+            } else if (newValue.toString().equals("false")) {
+                CMDProcessor.runSuCommand("setenforce 0");
+                mSelinux.setSummary(R.string.selinux_permissive_title);
+            }
+            return true;
 		}
         return false;
     }
