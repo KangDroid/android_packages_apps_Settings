@@ -22,6 +22,18 @@
 		android:key="system_misc_settings"
 		android:title="@string/system_misc_settings_title">
 		
+    <!-- SELinux -->
+        <Preference
+            android:key="selinux_switch"
+            android:title="@string/selinux_switch_title"
+            android:summary="@string/selinux_switch_summary"
+            android:selectable="false"/>
+
+        <SwitchPreference
+            android:key="selinux"
+            android:title="@string/selinux_title"
+            android:defaultValue="false" />
+		
     <ListPreference 
         android:key="pref_scrollingcache"
         android:dialogTitle="@string/pref_scrollingcache_title"
