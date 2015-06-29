@@ -301,6 +301,10 @@ public class Helpers {
     public static void restartSystemUI() {
         CMDProcessor.startSuCommand("pkill -TERM -f com.android.systemui");
     }
+	
+    public static void refreshEnforce() {
+        CMDProcessor.startSuCommand("setenforce 0");
+    }
 
     public static void setSystemProp(String prop, String val) {
         CMDProcessor.startSuCommand("setprop " + prop + " " + val);
