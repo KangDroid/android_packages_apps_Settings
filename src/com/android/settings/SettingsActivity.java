@@ -134,6 +134,7 @@ import com.android.settings.kangdroid.KangDroidInfoSettings;
 import com.android.settings.kangdroid.KangDroidClockSettings;
 import com.android.settings.kangdroid.KangDroidAppSideBar;
 import com.android.settings.kangdroid.themes.ThemeSettings;
+import com.android.settings.kangdroid.KangDroidCarrierLabel;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -344,7 +345,8 @@ public class SettingsActivity extends Activity
 			KangDroidInfoSettings.class.getName(),
 			KangDroidClockSettings.class.getName(),
 			KangDroidAppSideBar.class.getName(),
-			ThemeSettings.class.getName()
+			ThemeSettings.class.getName(),
+			KangDroidCarrierLabel.class.getName()
     };
 
 

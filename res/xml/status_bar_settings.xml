@@ -31,7 +31,7 @@
 		
     <PreferenceScreen
          android:key="carrier_options"
-         android:fragment="com.android.settings.kangdroid.CarrierLabel"
+         android:fragment="com.android.settings.kangdroid.KangDroidCarrierLabel"
          android:title="@string/carrier_options" />
 		
     <PreferenceScreen
