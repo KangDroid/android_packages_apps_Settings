@@ -43,7 +43,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class CarrierLabel extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class KangDroidCarrierLabel extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "CarrierLabel";
 
@@ -63,7 +63,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.temasek_carrierlabel);
+        addPreferencesFromResource(R.xml.kangdroid_carrier_label);
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
