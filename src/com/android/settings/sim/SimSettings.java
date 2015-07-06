@@ -92,6 +92,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private PhoneStateListener[] mPhoneStateListener;
     private boolean mDataDisableToastDisplayed = false;
     private SubscriptionManager mSubscriptionManager;
+    private boolean mHardcodeDefaultMobileNetworks = false;
 
     public SimSettings() {
         super(DISALLOW_CONFIG_SIM);
@@ -109,6 +110,9 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         if (mSubInfoList == null) {
             mSubInfoList = mSubscriptionManager.getActiveSubscriptionInfoList();
         }
+
+        mHardcodeDefaultMobileNetworks = getResources()
+                .getBoolean(R.bool.config_hardcodeDefaultMobileNetworks);
 
         mNumSlots = tm.getSimCount();
         mPhoneCount = TelephonyManager.getDefault().getPhoneCount();
@@ -196,9 +200,13 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         for (int i = 0; i < mNumSlots; ++i) {
             final SubscriptionInfo sir = findRecordBySlotId(i);
             if (mNumSlots > 1) {
-                mSimEnablers.add(i, new MultiSimEnablerPreference(
-                        getActivity(), sir, mHandler, i));
-                simEnablers.addPreference(mSimEnablers.get(i));
+                MultiSimEnablerPreference multiSimEnablerPreference =
+                        new MultiSimEnablerPreference(getActivity(), sir, mHandler, i);
+                mSimEnablers.add(multiSimEnablerPreference);
+                simEnablers.addPreference(multiSimEnablerPreference);
+                if (mHardcodeDefaultMobileNetworks && i == 0) {
+                    multiSimEnablerPreference.setExplicitlyDisabled(true);
+                }
             } else {
                 removePreference(SIM_ENABLER_CATEGORY);
             }
@@ -475,6 +483,10 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         for (int i = 0; i < subAvailableSize; ++i) {
             final SubscriptionInfo sir = mAvailableSubInfos.get(i);
             if(sir != null){
+                if (i > 0 && (keyPref.equals(KEY_CALLS) || keyPref.equals(KEY_SMS)) &&
+                        mHardcodeDefaultMobileNetworks) {
+                    continue;
+                }
                 simPref.addItem(sir.getDisplayName().toString(), sir);
             }
         }
