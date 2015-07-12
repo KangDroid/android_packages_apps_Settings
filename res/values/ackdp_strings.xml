@@ -239,8 +239,6 @@
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon. Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right. Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the reset option.</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
-    <string name="shortcut_action_theme_switch">Theme switcher</string>
-
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcuts_select_custom_app_title">Select custom application</string>
     <string name="shortcuts_icon_picker_type">Select icon type:</string>
@@ -892,15 +890,6 @@
     <string name="missed_call_breath_summary">Will give your missed call notifications a breathing effect in the statusbar</string>
     <string name="voicemail_breath_title">Breathing Voicemail</string>
     <string name="voicemail_breath_summary">Will give your voicemail notifications a breathing effect in the statusbar</string>
-
-    <!-- TRDS 5.0 -->	
-    <string name="theme_settings_title">TRDS</string>
-    <string name="theme_auto_mode_title">Switch theme</string>
-    <string name="theme_auto_mode_off">Manual</string>
-    <string name="theme_auto_mode_lightsensor">On light condition change (experimental)</string>
-    <string name="theme_auto_mode_twilight">On daytime</string>
-    <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>
-    <string name="theme_reset_message">Reset theme state to default?</string>
 	
     <!-- Instant reboot -->
     <string name="advanced_reboot_oneclick">One click reboot</string>
