@@ -40,6 +40,13 @@
 		
 	</PreferenceCategory>
 	  
+	  
+    <!-- Hide carrier on lock screen -->
+    <SwitchPreference
+        android:key="lock_screen_hide_carrier"
+        android:title="@string/lock_screen_hide_carrier_title"
+        android:summary="@string/lock_screen_hide_carrier_summary" />
+		
     <PreferenceScreen
         android:key="lockscreen_weather"
         android:title="@string/lock_screen_weather_settings_title"
