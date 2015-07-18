@@ -37,6 +37,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
@@ -52,6 +53,7 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +72,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE = "doze";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
+	private static final String KEY_TOAST_ANIMATION = "toast_animation";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -82,6 +85,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mDozePreference;
     private SwitchPreference mAutoBrightnessPreference;
+	private ListPreference mToastAnimation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -165,6 +169,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else {
             removePreference(KEY_AUTO_ROTATE);
         }
+		
+        mToastAnimation = (ListPreference)findPreference(KEY_TOAST_ANIMATION);
+        mToastAnimation.setSummary(mToastAnimation.getEntry());
+        int CurrentToastAnimation = Settings.System.getInt(getContentResolver(), Settings.System.TOAST_ANIMATION, 1);
+        mToastAnimation.setValueIndex(CurrentToastAnimation);
+        mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
+        mToastAnimation.setOnPreferenceChangeListener(this);
     }
 
     private static boolean allowAllRotations(Context context) {
@@ -381,6 +392,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
         }
+		if (preference == mToastAnimation) {
+	         int index = mToastAnimation.findIndexOfValue((String) newValue);
+			 Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) newValue);
+	         mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
+	         Toast.makeText(getActivity(), "Toast Test", Toast.LENGTH_SHORT).show();
+		 }
         return true;
     }
 
