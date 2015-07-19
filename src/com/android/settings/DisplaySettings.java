@@ -382,8 +382,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.Secure.putInt(getContentResolver(), WAKE_GESTURE_ENABLED, value ? 1 : 0);
         }
 		if (preference == mToastAnimation) {
-	         int index = mToastAnimation.findIndexOfValue((String) newValue);
-			 Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) newValue);
+	         int index = mToastAnimation.findIndexOfValue((String) objValue);
+			 Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) objValue);
 	         mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
 	         Toast.makeText(getActivity(), "Toast Test", Toast.LENGTH_SHORT).show();
 		 }
