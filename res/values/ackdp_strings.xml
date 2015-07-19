@@ -75,6 +75,7 @@
 	<string name="recents_clear_all_location_bottom_center">Bottom center</string>
 	
 	<!-- Membar on Recents -->
+	<string name="misc_settings_title">Miscellaneous Settings</string>
     <string name="recents_show_membar_title">Memory bar</string>
     <string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
 
