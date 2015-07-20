@@ -19,6 +19,17 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 	
 	<PreferenceCategory
+		android:key="kdp_status_bar_category"
+		android:title="@string/kdp_status_bar_category_title">
+		
+	<PreferenceScreen
+		android:key="kdp_status_bar_pref"
+		android:title="@string/kdp_status_bar_title"
+		android:fragment="com.android.settings.kangdroid.KangDroidStatusBarSettings" />
+		
+	</PreferenceCategory>
+	
+	<PreferenceCategory
 		android:key="kdp_recents_category"
 		android:title="@string/kdp_ui_recents">
 	
