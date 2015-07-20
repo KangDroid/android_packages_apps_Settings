@@ -20,6 +20,8 @@
 	<string name="kdp_ui_title">UISettings</string>
 	<string name="kdp_status_bar_category_title">Status Bar</string>
 	<string name="kdp_status_bar_title">Status Bar Settings</string>
+	<string name="kdp_clock_category_title">Clock</string>
+	<string name="kdp_clock_title">Clock Settings</string>
 	
 	<!-- Volume Steps -->
     <string name="volume_steps_title">Volume Steps</string>
@@ -218,4 +220,17 @@
     <string name="status_bar_battery_percentage_default">Hidden (default)</string>
     <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
     <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
+	
+    <!-- Status bar - Clock -->
+    <string name="status_bar_clock_style_title">Clock style</string>
+    <string name="status_bar_clock_style_right">Right</string>
+    <string name="status_bar_clock_style_left">Left</string>
+    <string name="status_bar_clock_style_center">Center</string>
+    <string name="status_bar_clock_style_hidden">Hidden</string>
+
+    <string name="status_bar_am_pm_title">AM/PM style</string>
+    <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
+    <string name="status_bar_am_pm_normal">Normal</string>
+    <string name="status_bar_am_pm_small">Small</string>
+    <string name="status_bar_am_pm_hidden">Hidden (default)</string>
 </resources>

@@ -117,6 +117,8 @@ import com.android.settings.kangdroid.VolumeSteps;
 import com.android.settings.kangdroid.RecentsActivitySettings;
 import com.android.settings.kangdroid.AmbientSettings;
 import com.android.settings.kangdroid.KangDroidUISettings;
+import com.android.settings.kangdroid.KangDroidStatusBarSettings;
+import com.android.settings.kangdroid.KangDroidClockSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -312,7 +314,9 @@ public class SettingsActivity extends Activity
 			VolumeSteps.class.getName(),
 			RecentsActivitySettings.class.getName(),
 			AmbientSettings.class.getName(),
-			KangDroidUISettings.class.getName
+			KangDroidUISettings.class.getName(),
+			KangDroidStatusBarSettings.class.getName(),
+			KangDroidClockSettings.class.getName()
     };
 
 
