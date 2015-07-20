@@ -116,6 +116,7 @@ import com.android.settings.WifiCallingSettings;
 import com.android.settings.kangdroid.VolumeSteps;
 import com.android.settings.kangdroid.RecentsActivitySettings;
 import com.android.settings.kangdroid.AmbientSettings;
+import com.android.settings.kangdroid.KangDroidUISettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -310,7 +311,8 @@ public class SettingsActivity extends Activity
             WifiCallingSettings.class.getName(),
 			VolumeSteps.class.getName(),
 			RecentsActivitySettings.class.getName(),
-			AmbientSettings.class.getName()
+			AmbientSettings.class.getName(),
+			KangDroidUISettings.class.getName
     };
 
 
@@ -1221,6 +1223,11 @@ public class SettingsActivity extends Activity
                         removeTile = true;
                     }
                 } else if (id == R.id.development_settings) {
+                    if (!showDev || um.hasUserRestriction(
+                            UserManager.DISALLOW_DEBUGGING_FEATURES)) {
+                        removeTile = true;
+                    }
+                } else if (id == R.id.kdp_ui_settings) {
                     if (!showDev || um.hasUserRestriction(
                             UserManager.DISALLOW_DEBUGGING_FEATURES)) {
                         removeTile = true;

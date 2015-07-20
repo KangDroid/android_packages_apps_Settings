@@ -168,9 +168,9 @@
 
 		<!-- Recents: KDP Customizations -->
         <dashboard-tile
-                android:id="@+id/kdp_recents_settings"
-                android:title="@string/dashboard_recents_title"
-                android:fragment="com.android.settings.kangdroid.RecentsActivitySettings"
+                android:id="@+id/kdp_ui_settings"
+                android:title="@string/kdp_ui_title"
+                android:fragment="com.android.settings.kangdroid.KangDroidUISettings"
                 android:icon="@drawable/ic_settings_notification_drawer"
                 />
 
