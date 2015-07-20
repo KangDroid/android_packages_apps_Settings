@@ -22,6 +22,8 @@
 	<string name="kdp_status_bar_title">Status Bar Settings</string>
 	<string name="kdp_clock_category_title">Clock</string>
 	<string name="kdp_clock_title">Clock Settings</string>
+	<string name="date_settings_category">Date Settings</string>
+	<string name="main_clock_category_title">Main clock settings</string>
 	
 	<!-- Volume Steps -->
     <string name="volume_steps_title">Volume Steps</string>
@@ -233,4 +235,21 @@
     <string name="status_bar_am_pm_normal">Normal</string>
     <string name="status_bar_am_pm_small">Small</string>
     <string name="status_bar_am_pm_hidden">Hidden (default)</string>
+	
+    <!--Status bar - Date -->
+    <string name="status_bar_clock_category">Clock</string>
+    <string name="status_bar_date_title">Date</string>
+    <string name="status_bar_date_none">Hidden (default)</string>
+    <string name="status_bar_date_small">Small</string>
+    <string name="status_bar_date_normal">Normal</string>
+    <string name="status_bar_date_format_title">Date format</string>
+    <string name="status_bar_date_style">Date style</string>
+    <string name="status_bar_date_style_normal">Normal</string>
+    <string name="status_bar_date_style_lowercase">Lowercase</string>
+    <string name="status_bar_date_style_uppercase">Uppercase</string>
+    <string name="status_bar_date_format_custom">Custom java format</string>
+    <string name="status_bar_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_summary">Enter string</string>
+	
+	
 </resources>
