@@ -31,6 +31,7 @@
 	<string name="category_colors_title">Customize colors</string>
 	<string name="icon_customizations_category">Various UI Settings</string>
 	<string name="advanced_clock_settings_category">Advanced clock settings</string>
+	<string name="category_general_title">General options</string>
 	
 	<!-- KangDroid Settings - Default -->
     <string name="ok">OK</string>
@@ -42,6 +43,23 @@
     <string name="default_string">Default</string>
 	<string name="choose_app">Choose application</string>
 	<string name="reset_message">Reset all entries to default?</string>
+	<string name="additional_options_title">Additional options</string>
+    <string name="more_string">More</string>
+    <string name="colors_title">Colors</string>
+    <string name="icons_title">Icons</string>
+    <string name="text_title">Text</string>
+    <string name="reset_android">Android</string>
+    <string name="reset_kangdroid">KangDroid</string>
+	<string name="reset_fusion">KangDroid</string>
+	<string name="reset_bliss">KangDroid</string>
+	<string name="reset_option_message">Reset values to\nAndroid- or Settings default?</string>  
+	<string name="status_bar_clock_style_reset_message">Reset style</string>
+	
+    <!-- Reset Profiles -->
+	<string name="profiles_add">Add</string>
+	<string name="profile_choose_app">Choose app</string>
+    <string name="profile_reset_title">Reset</string>
+    <string name="profile_reset_message">Delete all user created profiles and restore them to default?</string>
 	
     <!-- Color Picker -->
     <string name="dialog_color_picker_title">Color Picker</string>
@@ -344,15 +362,24 @@
     <string name="pref_volume_wake_summary">Pressing the volume rocker up/down will wake the device</string>
 	
     <string name="shortcut_action_none">None</string>
-    <string name="shortcut_action_kill">Kill app</string>
-    <string name="shortcut_action_screenshot">Screenshot</string>
-    <string name="shortcut_action_lastapp">Last app</string>
-    <string name="shortcut_action_notifications">Notifications</string>
-    <string name="shortcut_action_qs">Quicksettings panel</string>
-    <string name="shortcut_action_torch">Flashlight</string>
+    <string name="shortcut_action_app">Custom app</string>
+    <string name="shortcut_action_home">Home</string>
+    <string name="shortcut_action_back">Back</string>
+    <string name="shortcut_action_menu">Menu</string>
+    <string name="shortcut_action_ime">Open IME Switcher</string>
+    <string name="shortcut_action_power_menu">Power menu</string>
+    <string name="shortcut_action_recent">Recents</string>
+    <string name="shortcut_action_power">Screen Off</string>
+    <string name="shortcut_action_search">Search in app</string>
     <string name="shortcut_action_ring_vib">Ring/Vib</string>
     <string name="shortcut_action_ring_silent">Ring/Silent</string>
     <string name="shortcut_action_ring_vib_silent">Ring/Vib/Silent</string>
+    <string name="shortcut_action_camera">Camera</string>
+    <string name="shortcut_action_media_next">Music - next track</string>
+    <string name="shortcut_action_media_play_pause">Music - play/pause</string>
+    <string name="shortcut_action_media_previous">Music - previous track</string>
+    <string name="shortcut_action_wake_device">Wake up device</string>
+	
     <string name="shortcut_action_longpress">Longpress:</string>
     <string name="shortcut_action_select_action_longpress">Choose longpress action:</string>
     <string name="shortcut_action_select_action">Choose action:</string>
@@ -374,6 +401,7 @@
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon. Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right. Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the Reset icon.</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
+
 
 	<string name="icon_color_mode_all_icons">All icons</string>
     <string name="icon_color_mode_system_icons">System icons</string>
