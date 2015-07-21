@@ -18,6 +18,13 @@ package com.android.settings.kangdroid;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.EditText;
 import android.content.ContentResolver;
 import android.content.res.Configuration;
 import android.content.DialogInterface;
@@ -42,6 +49,7 @@ import android.view.View;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -55,10 +63,14 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
     private static final String STATUS_BAR_DATE = "status_bar_date";
     private static final String STATUS_BAR_DATE_STYLE = "status_bar_date_style";
     private static final String STATUS_BAR_DATE_FORMAT = "status_bar_date_format";
+	private static final String CLOCK_USE_SECOND = "clock_use_second";
+	private static final String PREF_COLOR_PICKER = "clock_color";
 	
 	public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
-    private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
+    private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;	
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
 	
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
@@ -67,6 +79,9 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
     private ListPreference mStatusBarDate;
     private ListPreference mStatusBarDateStyle;
     private ListPreference mStatusBarDateFormat;
+	private SwitchPreference mClockUseSecond;
+	private ColorPickerPreference mColorPicker; 
+	private boolean mCheckPreferences;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +90,15 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
 		
 		ContentResolver resolver = getActivity().getContentResolver();
 		PreferenceScreen prefSet = getPreferenceScreen();
+        PackageManager pm = getPackageManager();
+        Resources systemUiResources;
+		
+        try {
+            systemUiResources = pm.getResourcesForApplication("com.android.systemui");
+        } catch (Exception e) {
+            Log.e(TAG, "can't access systemui resources",e);
+            return null;
+        }
 		
 		mStatusBarClock = (ListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
         mStatusBarAmPm = (ListPreference) findPreference(STATUS_BAR_AM_PM);
@@ -117,7 +141,26 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
             mStatusBarDateFormat.setValue("EEE");
         }
 
-        parseClockDateFormats();
+        mClockUseSecond = (SwitchPreference) prefSet.findPreference(CLOCK_USE_SECOND);
+        mClockUseSecond.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+               Settings.System.CLOCK_USE_SECOND, 0) == 1));
+        mColorPicker = (ColorPickerPreference) findPreference(PREF_COLOR_PICKER);
+        mColorPicker.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_COLOR, -2);
+        if (intColor == -2) {
+            intColor = systemUiResources.getColor(systemUiResources.getIdentifier(
+                    "com.android.systemui:color/status_bar_clock_color", null, null));
+            mColorPicker.setSummary(getResources().getString(R.string.default_string));
+        } else {
+            String hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mColorPicker.setSummary(hexColor);
+        }
+        mColorPicker.setNewPreviewColor(intColor);
+		parseClockDateFormats();
+		
+        setHasOptionsMenu(true);
+        mCheckPreferences = true;
     }
 	
     @Override
@@ -134,6 +177,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
 	
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+		boolean value;
 		if (preference == mStatusBarClock) {
             int clockStyle = Integer.parseInt((String) newValue);
             int index = mStatusBarClock.findIndexOfValue((String) newValue);
@@ -147,6 +191,19 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
             Settings.System.putInt(
                     resolver, STATUS_BAR_AM_PM, statusBarAmPm);
             mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
+            return true;
+		} else if (preference == mClockUseSecond) {
+			value = mClockUseSecond.isChecked();
+			Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+            		Settings.System.CLOCK_USE_SECOND, value ? 1 : 0);
+ 		   return true;
+        } else if (preference == mColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
+                    .valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_COLOR, intHex);
             return true;
         } else if (preference == mStatusBarDate) {
             int statusBarDate = Integer.valueOf((String) newValue);
@@ -252,5 +309,47 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
             }
         }
         mStatusBarDateFormat.setEntries(parsedDateEntries);
+    }
+	
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        StatusBarSettings getOwner() {
+            return (StatusBarSettings) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_RESET:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.reset)
+                    .setMessage(R.string.status_bar_clock_style_reset_message)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setPositiveButton(R.string.dlg_ok,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                Settings.System.STATUSBAR_CLOCK_COLOR, -2);
+                            getOwner().createCustomView();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+
+        }
     }
 }

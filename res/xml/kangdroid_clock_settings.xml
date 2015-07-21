@@ -37,6 +37,23 @@
         android:entryValues="@array/status_bar_am_pm_values" />
 		
 	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:key="advanced_clock_settings"
+		android:title="@string/advanced_clock_settings_category" >
+		
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="clock_color"
+        android:title="@string/clock_color_title"
+        android:defaultValue="0xffffff" />
+		
+    <SwitchPreference
+        android:key="clock_use_second"
+        android:title="@string/clock_use_second"
+        android:summary="@string/clock_use_second_summary"
+        android:defaultValue="false" />
+		
+	</PreferenceCategory>
 		
  	<PreferenceCategory
 		android:key="date_settings"
