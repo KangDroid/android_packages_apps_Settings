@@ -249,7 +249,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private ListPreference mRootAccess;
     private Object mSelectedRootValue;
 
-    private CheckBoxPreference mDevelopmentShortcut;
+    private SwitchPreference mDevelopmentShortcut;
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
