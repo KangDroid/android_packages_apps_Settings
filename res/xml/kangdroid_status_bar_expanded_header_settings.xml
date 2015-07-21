@@ -18,18 +18,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_expanded_header_settings_title">
 
-    <SwitchPreference
-	    android:key="expanded_header_show_weather"
-	    android:title="@string/expanded_header_show_weather_title"
-	    android:summary="@string/expanded_header_show_weather_summary"
-	    android:defaultValue="false" />
-
-    <SwitchPreference
-	    android:key="expanded_header_show_weather_location"
-	    android:title="@string/expanded_header_show_weather_location_title"
-	    android:summary="@string/expanded_header_show_weather_location_summary"
-	    android:defaultValue="true" />
-
     <PreferenceCategory
         android:key="expanded_header_category_color"
         android:title="@string/colors_title">

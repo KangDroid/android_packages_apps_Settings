@@ -32,7 +32,6 @@ import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.cyanogenmod.qs.QSTiles;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -60,6 +59,7 @@ public class QSColors extends SettingsPreferenceFragment implements
     private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSTextColor;
+	private ColorPickerPreference mClearAllIconColor;
 	private SwitchPreference mQSShadeTransparency;
 
     private ContentResolver mResolver;
