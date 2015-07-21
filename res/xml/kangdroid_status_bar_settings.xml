@@ -47,7 +47,7 @@
 	
 	<PreferenceCategory
 		android:key="kdp_icon_customization_category"
-		android:string="@string/icon_customizations_category" >
+		android:title="@string/icon_customizations_category" >
 		
     <PreferenceScreen
         android:key="status_bar_notif_system_icons_settings"
