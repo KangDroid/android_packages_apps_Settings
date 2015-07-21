@@ -65,6 +65,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
     private static final String STATUS_BAR_DATE_FORMAT = "status_bar_date_format";
 	private static final String CLOCK_USE_SECOND = "clock_use_second";
 	private static final String PREF_COLOR_PICKER = "clock_color";
+	private static final String PREF_FONT_STYLE = "font_style";
 	
 	public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -79,6 +80,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
     private ListPreference mStatusBarDate;
     private ListPreference mStatusBarDateStyle;
     private ListPreference mStatusBarDateFormat;
+	private ListPreference mFontStyle;
 	private SwitchPreference mClockUseSecond;
 	private ColorPickerPreference mColorPicker; 
 	private boolean mCheckPreferences;
@@ -157,6 +159,14 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
             mColorPicker.setSummary(hexColor);
         }
         mColorPicker.setNewPreviewColor(intColor);
+		
+        mFontStyle = (ListPreference) findPreference(PREF_FONT_STYLE);
+        mFontStyle.setOnPreferenceChangeListener(this);
+        mFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUSBAR_CLOCK_FONT_STYLE,
+                4)));
+        mFontStyle.setSummary(mFontStyle.getEntry());
+		
 		parseClockDateFormats();
 		
         setHasOptionsMenu(true);
@@ -204,6 +214,13 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_COLOR, intHex);
+            return true;
+        } else if (preference == mFontStyle) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_FONT_STYLE, val);
+            mFontStyle.setSummary(mFontStyle.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarDate) {
             int statusBarDate = Integer.valueOf((String) newValue);
