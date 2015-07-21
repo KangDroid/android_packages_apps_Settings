@@ -338,8 +338,8 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
             return frag;
         }
 
-        StatusBarSettings getOwner() {
-            return (StatusBarSettings) getTargetFragment();
+        KangDroidClockSettings getOwner() {
+            return (KangDroidClockSettings) getTargetFragment();
         }
 
         @Override
