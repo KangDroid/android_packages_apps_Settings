@@ -38,8 +38,6 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_SHOW_WEATHER = "expanded_header_show_weather";
-    private static final String PREF_SHOW_LOCATION = "expanded_header_show_weather_location";
     private static final String PREF_TEXT_COLOR = "expanded_header_text_color";
     private static final String PREF_ICON_COLOR = "expanded_header_icon_color";
 
@@ -48,8 +46,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private SwitchPreference mShowWeather;
-    private SwitchPreference mShowLocation;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
 
@@ -70,24 +66,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         addPreferencesFromResource(R.xml.kangdroid_status_bar_expanded_header_settings);
         mResolver = getActivity().getContentResolver();
 
-        boolean showWeather = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0) == 1;
-
         int intColor;
         String hexColor;
-
-        mShowWeather = (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
-        mShowWeather.setChecked(showWeather);
-        mShowWeather.setOnPreferenceChangeListener(this);
-
-        if (showWeather) {
-            mShowLocation = (SwitchPreference) findPreference(PREF_SHOW_LOCATION);
-            mShowLocation.setChecked(Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1) == 1);
-            mShowLocation.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(PREF_SHOW_LOCATION);
-        }
 
         mTextColor = (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
         intColor = Settings.System.getInt(mResolver,
@@ -133,20 +113,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         String hex;
         int intHex;
 
-        if (preference == mShowWeather) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER,
-                value ? 1 : 0);
-            refreshSettings();
-            return true;
-        } else if (preference == mShowLocation) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION,
-                value ? 1 : 0);
-            return true;
-        } else if (preference == mTextColor) {
+        if (preference == mTextColor) {
             hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -199,10 +166,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
                                     DEFAULT_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
@@ -214,10 +177,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                     .setPositiveButton(R.string.reset_fusion,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
                                     0xffff0000);

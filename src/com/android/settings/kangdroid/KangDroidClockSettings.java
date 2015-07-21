@@ -21,6 +21,8 @@ import android.app.DialogFragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -187,6 +189,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
 	
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+		AlertDialog dialog;
 		boolean value;
 		if (preference == mStatusBarClock) {
             int clockStyle = Integer.parseInt((String) newValue);
@@ -338,8 +341,8 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
             return frag;
         }
 
-        StatusBarSettings getOwner() {
-            return (StatusBarSettings) getTargetFragment();
+        KangDroidClockSettings getOwner() {
+            return (KangDroidClockSettings) getTargetFragment();
         }
 
         @Override
@@ -356,7 +359,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getActivity().getContentResolver(),
                                 Settings.System.STATUSBAR_CLOCK_COLOR, -2);
-                            getOwner().createCustomView();
+                            getOwner().onCreate();
                         }
                     })
                     .create();
