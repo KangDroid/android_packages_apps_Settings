@@ -21,6 +21,8 @@ import android.app.DialogFragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -58,6 +60,7 @@ import java.util.Map;
  
 public class KangDroidClockSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 	
+	private static final String TAG = "KangDroidClockSettings";
 	private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String STATUS_BAR_DATE = "status_bar_date";
@@ -94,13 +97,6 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
 		PreferenceScreen prefSet = getPreferenceScreen();
         PackageManager pm = getPackageManager();
         Resources systemUiResources;
-		
-        try {
-            systemUiResources = pm.getResourcesForApplication("com.android.systemui");
-        } catch (Exception e) {
-            Log.e(TAG, "can't access systemui resources",e);
-            return null;
-        }
 		
 		mStatusBarClock = (ListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
         mStatusBarAmPm = (ListPreference) findPreference(STATUS_BAR_AM_PM);
@@ -187,6 +183,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
 	
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+		AlertDialog dialog;
 		boolean value;
 		if (preference == mStatusBarClock) {
             int clockStyle = Integer.parseInt((String) newValue);
@@ -338,8 +335,8 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
             return frag;
         }
 
-        StatusBarSettings getOwner() {
-            return (StatusBarSettings) getTargetFragment();
+        KangDroidClockSettings getOwner() {
+            return (KangDroidClockSettings) getTargetFragment();
         }
 
         @Override
@@ -356,7 +353,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment implement
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getActivity().getContentResolver(),
                                 Settings.System.STATUSBAR_CLOCK_COLOR, -2);
-                            getOwner().createCustomView();
+                            getOwner().onCreate();
                         }
                     })
                     .create();
