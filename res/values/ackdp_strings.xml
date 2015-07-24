@@ -55,6 +55,11 @@
 	<string name="reset_option_message">Reset values to\nAndroid- or Settings default?</string>  
 	<string name="status_bar_clock_style_reset_message">Reset style</string>
 	
+	<!-- ShortCut picker -->
+    <string name="picker_activities">Activities</string>
+    <string name="select_custom_app_title">Select custom app</string>
+    <string name="select_custom_activity_title">Select custom activity</string>
+	
     <!-- Color Picker -->
     <string name="dialog_color_picker_title">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
@@ -911,4 +916,5 @@
 
     <!-- Performance menu, graphics options category -->
     <string name="graphics_title">Graphics and rendering</string>
+	
 </resources>
