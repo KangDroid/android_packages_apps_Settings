@@ -840,11 +840,6 @@
     <string name="protected_apps">Protected apps</string>
     <string name="saving_protected_components">Saving component state\u2026</string>
     <string name="launch_app">Launch app</string>
-	
-    <string name="spam_added_title">Added %1$s</string>
-    <string name="spam_last_blocked_title">Last blocked %1$s</string>
-    <string name="block_notifications_title">Filter notifications</string>
-    <string name="no_filters_title">No filters set</string>
     <string name="app_ops_ignored_count">Denied <xliff:g id="count" example="2 times">%s</xliff:g></string>
 	
     <!-- Profiles -->
@@ -944,5 +939,5 @@
     <string name="power_menu_sound_title">Sound panel</string>
     <string name="power_menu_bug_report_disabled">Bug reporting is disabled in development settings</string>
     <string name="power_menu_profiles_disabled">System profiles are disabled</string>
-	
+
 </resources>
