@@ -848,6 +848,7 @@
 
     <string name="profile_action_none">No action</string>
     <string name="profile_action_disabled">Disable</string>
+	<string name="profile_action_disable">Disable</string>
     <string name="profile_action_enable">Enable</string>
 
     <string name="profile_trigger_a2dp_connect">On A2DP connect</string>
