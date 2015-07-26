@@ -216,8 +216,7 @@ public class ApplicationsState {
         public boolean filterApp(ApplicationInfo info) {
             if ((info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
                 return true;
-            } else if ((info.flags & ApplicationInfo.FLAG_SYSTEM) == 0
-                    && (info.flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) ==0) {
+            } else if ((info.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
                 return true;
             }
             return false;
@@ -225,15 +224,16 @@ public class ApplicationsState {
     };
 
     public static final AppFilter ON_SD_CARD_FILTER = new AppFilter() {
+        final CanBeOnSdCardChecker mCanBeOnSdCardChecker
+                = new CanBeOnSdCardChecker();
+        
         public void init() {
+            mCanBeOnSdCardChecker.init();
         }
         
         @Override
         public boolean filterApp(ApplicationInfo info) {
-            if ((info.flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) != 0) {
-                return true;
-            }
-            return false;
+            return mCanBeOnSdCardChecker.check(info);
         }
     };
 
