@@ -144,7 +144,7 @@
 		<meta-data android:name="com.android.settings.FRAGMENT_CLASS"
 		android:value="com.android.settings.slim.DisplayRotation" />
 		<meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/boost_settings" />
+                android:resource="@id/kdp_ui_settings" />
 	</activity>
 
         <!-- Wireless Controls -->
