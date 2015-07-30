@@ -16,17 +16,23 @@
 
 package com.android.settings.kangdroid;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.preference.SwitchPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceGroup;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.SeekBarPreference;
 import android.provider.Settings;
-import android.provider.SearchIndexableResource;
+import android.provider.Settings.SettingNotFoundException;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -46,18 +52,24 @@ public class KangDroidMiscSettings extends SettingsPreferenceFragment implements
 	
 	private static final String SELINUX = "selinux";
 	private static final String RESTART_SYSTEMUI = "restart_systemui";
+    private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
+    private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
+    private static final String SCROLLINGCACHE_DEFAULT = "1";
 	
 	private SwitchPreference mSelinux;
 	private Preference mRestartSystemUI;
+	private ListPreference mScrollingCachePref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.kangdroid_misc_settings);
+        PreferenceScreen prefSet = getPreferenceScreen();
+        Activity activity = getActivity();
 		
-		mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
+		mRestartSystemUI = prefSet.findPreference(RESTART_SYSTEMUI);
 		
-        mSelinux = (SwitchPreference) findPreference(SELINUX);
+        mSelinux = (SwitchPreference) prefSet.findPreference(SELINUX);
         mSelinux.setOnPreferenceChangeListener(this);
 
         if (CMDProcessor.runSuCommand("getenforce").getStdout().contains("Enforcing")) {
@@ -67,6 +79,11 @@ public class KangDroidMiscSettings extends SettingsPreferenceFragment implements
             mSelinux.setChecked(false);
             mSelinux.setSummary(R.string.selinux_permissive_title);
         }
+		
+        mScrollingCachePref = (ListPreference) prefSet.findPreference(SCROLLINGCACHE_PREF);
+        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
+                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+        mScrollingCachePref.setOnPreferenceChangeListener(this);
     }
 	
     @Override
@@ -86,6 +103,11 @@ public class KangDroidMiscSettings extends SettingsPreferenceFragment implements
             }
             return true;
 			}
+        } else if (preference == mScrollingCachePref) {
+            if (objValue != null) {
+                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String)objValue);
+            return true;
+            }
 		}
         return false;
     }
