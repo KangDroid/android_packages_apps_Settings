@@ -81,6 +81,7 @@
     <string name="qs_title_performance">Performance</string>
     <string name="qs_title_nfc">NFC</string>
     <string name="qs_title_compass">Compass</string>
+	<string name="qs_tile_usb_tether">USB tethering</string>
 	<!-- END of QS Tiles Strings -->
 	
 	<!-- Volume Steps -->
