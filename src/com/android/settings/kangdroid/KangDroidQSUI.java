@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.settings.cyanogenmod;
+package com.android.settings.kangdroid;
 
 import android.os.Bundle;
 import android.preference.Preference;
@@ -22,13 +22,13 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.qs.QSTiles;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment {
+public class KangDroidQSUI extends SettingsPreferenceFragment {
     private Preference mQSTiles;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.notification_drawer_settings);
+        addPreferencesFromResource(R.xml.kangdroid_qs_ui_settings);
 
         mQSTiles = findPreference("qs_order");
     }
