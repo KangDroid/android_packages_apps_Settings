@@ -22,6 +22,8 @@
 	<string name="kdp_clock_title">Clock Settings</string>
 	<string name="navigation_settings_title">Navigation</string>
 	<string name="misc_settings_title">Miscellaneous Settings</string>
+	<string name="qs_settings_ui">QS UISettings</string>
+	<string name="category_navigation_ui">Navigation UI</string>
 	
 	<!-- KangDroid Settings - Category -->
 	<string name="kdp_status_bar_category_title">Status Bar</string>
@@ -32,6 +34,9 @@
 	<string name="icon_customizations_category">Various UI Settings</string>
 	<string name="advanced_clock_settings_category">Advanced clock settings</string>
 	<string name="category_general_title">General options</string>
+	<string name="quick_settings_category_title">QS UI Settings</string>
+	<string name="category_qs_main_title">Main QS Settings</string>
+	<string name="category_qs_advanced_title">Advanced QS Settings</string>
 	
 	<!-- KangDroid Settings - Default -->
     <string name="ok">OK</string>
