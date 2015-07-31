@@ -69,14 +69,6 @@
                 android:icon="@drawable/ic_settings_more"
                 />
 
-        <!-- Navigation -->
-        <dashboard-tile
-                android:id="@+id/navigation_settings"
-                android:icon="@drawable/ic_settings_navigation"
-                android:fragment="com.android.settings.slim.NavigationSettings"
-                android:title="@string/navigation_settings_title"
-                />
-
     </dashboard-category>
 
     <!-- DEVICE -->
@@ -169,18 +161,6 @@
         android:title="@string/profiles_settings_title"
         android:icon="@drawable/ic_settings_profiles"
             />
-
-        <!-- Themes -->
-        <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
-        <dashboard-tile
-            android:id="@+id/theme_settings"
-            android:title="@string/themes_settings_title"
-            android:icon="@drawable/ic_settings_themes">
-            <intent
-                android:action="android.intent.action.MAIN" >
-                <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
-            </intent>
-        </dashboard-tile>
 
 		<!-- Recents: KDP Customizations -->
         <dashboard-tile
