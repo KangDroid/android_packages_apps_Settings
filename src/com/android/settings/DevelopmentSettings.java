@@ -17,11 +17,6 @@
 
 package com.android.settings;
 
-import java.io.InputStreamReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.BufferedReader;
-
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
@@ -76,8 +71,6 @@ import android.widget.TextView;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.widget.SwitchBar;
-import com.android.settings.util.Helpers;
-import com.android.settings.util.CMDProcessor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,7 +105,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String ADB_TCPIP = "adb_over_network";
     private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
     private static final String ENABLE_TERMINAL = "enable_terminal";
-    private static final String RESTART_SYSTEMUI = "restart_systemui";
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String BT_HCI_SNOOP_LOG = "bt_hci_snoop_log";
     private static final String ENABLE_OEM_UNLOCK = "oem_unlock_enable";
@@ -206,8 +198,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private static String DEFAULT_LOG_RING_BUFFER_SIZE_IN_BYTES = "262144"; // 256K
 
-    private static final String SELINUX = "selinux";
-
     private IWindowManager mWindowManager;
     private IBackupManager mBackupManager;
     private DevicePolicyManager mDpm;
@@ -226,7 +216,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private SwitchPreference mAdbOverNetwork;
     private Preference mClearAdbKeys;
     private SwitchPreference mEnableTerminal;
-	private Preference mRestartSystemUI;
     private Preference mBugreport;
     private SwitchPreference mBugreportInPower;
     private SwitchPreference mKeepScreenOn;
@@ -278,8 +267,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private SwitchPreference mShowAllANRs;
     private SwitchPreference mKillAppLongpressBack;
-
-    private SwitchPreference mSelinux;
 
     private PreferenceScreen mProcessStats;
     private ListPreference mRootAccess;
@@ -355,8 +342,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             mEnableTerminal = null;
         }
 
-        mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
-
         mBugreport = findPreference(BUGREPORT);
         mBugreportInPower = findAndInitSwitchPref(BUGREPORT_IN_POWER_KEY);
         mKeepScreenOn = findAndInitSwitchPref(KEEP_SCREEN_ON);
@@ -365,17 +350,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         if (!showEnableOemUnlockPreference()) {
             removePreference(mEnableOemUnlock);
             mEnableOemUnlock = null;
-        }
-
-        mSelinux = (SwitchPreference) findPreference(SELINUX);
-        mSelinux.setOnPreferenceChangeListener(this);
-
-        if (CMDProcessor.runSuCommand("getenforce").getStdout().contains("Enforcing")) {
-            mSelinux.setChecked(true);
-            mSelinux.setSummary(R.string.selinux_enforcing_title);
-        } else {
-            mSelinux.setChecked(false);
-            mSelinux.setSummary(R.string.selinux_permissive_title);
         }
 
         mQuickBoot = findAndInitSwitchPref(ENABLE_QUICKBOOT);
@@ -1698,8 +1672,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                         Settings.Secure.ADB_PORT, -1);
                 updateAdbOverNetwork();
             }
-        } else if (preference == mRestartSystemUI) {
-            Helpers.restartSystemUI(); 
         } else if (preference == mClearAdbKeys) {
             if (mAdbKeysDialog != null) dismissDialogs();
             mAdbKeysDialog = new AlertDialog.Builder(getActivity())
@@ -1888,15 +1860,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 mRootDialog.setOnDismissListener(this);
             } else {
                 writeRootAccessOptions(newValue);
-            }
-            return true;
-        } else if (preference == mSelinux) {
-            if (newValue.toString().equals("true")) {
-                CMDProcessor.runSuCommand("setenforce 1");
-                mSelinux.setSummary(R.string.selinux_enforcing_title);
-            } else if (newValue.toString().equals("false")) {
-                CMDProcessor.runSuCommand("setenforce 0");
-                mSelinux.setSummary(R.string.selinux_permissive_title);
             }
             return true;
         }
