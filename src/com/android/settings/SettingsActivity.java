@@ -344,7 +344,8 @@ public class SettingsActivity extends Activity
 			KangDroidInfoSettings.class.getName(),
 			KangDroidClockSettings.class.getName(),
 			KangDroidAppSideBar.class.getName(),
-			KangDroidCarrierLabel.class.getName()
+			KangDroidCarrierLabel.class.getName(),
+			KangDroidMiscSettings.class.getName()
     };
 
 
