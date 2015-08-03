@@ -77,6 +77,12 @@
 		android:key="qs_colors"
 		android:title="@string/qs_colors_title"
 		android:fragment="com.android.settings.kangdroid.QSColors" />
+		
+        <!-- Notification colors -->
+        <PreferenceScreen
+                android:id="@+id/notification_colors"
+                android:title="@string/cat_colors_title"
+                android:fragment="com.android.settings.kangdroid.NotificationColorSettings" />
 
     <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
         android:key="qs_tiles_vibrate"
