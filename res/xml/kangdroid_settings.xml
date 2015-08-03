@@ -81,7 +81,7 @@
 		android:title="@string/lockscreen_settings_title">
 		
     <PreferenceScreen
-        android:id="@+id/lock_settings"
+        android:key="lock_settings"
         android:title="@string/rr_lockscreen_title"
         android:fragment="com.android.settings.kangdroid.KangDroidLockScreenSettings" /> 
 		
@@ -102,23 +102,10 @@
 		android:key="misc_settings"
 		android:title="@string/misc_settings_title">
 		
-    <!-- App sidebar -->
-    <PreferenceScreen
-         android:key="app_sidebar"
-         android:fragment="com.android.settings.kangdroid.KangDroidAppSideBar"
-         android:title="@string/app_sidebar_title"/>
-		
-    <!-- Circle app bar -->
-     <PreferenceScreen
-         android:key="app_circle_bar"
-         android:fragment="com.android.settings.crdroid.AppCircleBar"
-         android:title="@string/app_circle_bar_title"/>
-		 
-    <!-- Gesture anywhere -->
-     <PreferenceScreen
-         android:key="gesture_anywhere"
-         android:fragment="com.android.settings.crdroid.gestureanywhere.GestureAnywhereSettings"
-         android:title="@string/gesture_anywhere_title" />
+	<PreferenceScreen
+		android:key="misc_settings_screen"
+		android:title="@string/misc_settings_title"
+		android:fragment="com.android.settings.kangdroid.KangDroidMiscSettings" />
 		
 	</PreferenceCategory>
 		
