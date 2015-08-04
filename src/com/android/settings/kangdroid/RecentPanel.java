@@ -71,6 +71,14 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
             "recent_card_bg_color";
     private static final String RECENT_CARD_TEXT_COLOR =
             "recent_card_text_color";
+	private static final String PREF_CLEAR_ALL_BG_COLOR =
+            "android_recents_clear_all_bg_color";
+    private static final String PREF_CLEAR_ALL_ICON_COLOR =
+            "android_recents_clear_all_icon_color";
+
+    private static final int RED = 0xffDC4C3C;
+    private static final int WHITE = 0xffffffff;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private SwitchPreference mUseSlimRecents;
     private SwitchPreference mShowRunningTasks;
@@ -82,6 +90,8 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     private ColorPickerPreference mRecentPanelBgColor;
     private ColorPickerPreference mRecentCardBgColor;
     private ColorPickerPreference mRecentCardTextColor;
+    private ColorPickerPreference mClearAllIconColor;
+    private ColorPickerPreference mClearAllBgColor;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DEFAULT_BACKGROUND_COLOR = 0x00ffffff;
@@ -94,6 +104,12 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        boolean value;
+        int intvalue;
+        int index;
+        String hex;
+        int intHex;
+		
         if (preference == mUseSlimRecents) {
             Settings.System.putInt(getContentResolver(), Settings.System.USE_SLIM_RECENTS,
                     ((Boolean) newValue) ? 1 : 0);
@@ -166,6 +182,22 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
             Settings.System.putInt(getContentResolver(),
                 Settings.System.RECENTS_MAX_APPS, value);
             return true;
+        } else if (preference == mClearAllBgColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mClearAllIconColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
         }
         return false;
     }
@@ -237,6 +269,9 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     }
 
     private void initializeAllPreferences() {
+        int intvalue;
+        int intColor;
+        String hexColor;
         mUseSlimRecents = (SwitchPreference) findPreference(USE_SLIM_RECENTS);
         mUseSlimRecents.setOnPreferenceChangeListener(this);
 
@@ -318,6 +353,26 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
         mRecentPanelExpandedMode =
                 (ListPreference) findPreference(RECENT_PANEL_EXPANDED_MODE);
         mRecentPanelExpandedMode.setOnPreferenceChangeListener(this);
+		
+        mClearAllBgColor =
+        (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_BG_COLOR);
+        intColor = Settings.System.getInt(resolver,
+            Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR, RED); 
+        mClearAllBgColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mClearAllBgColor.setSummary(hexColor);
+        //mClearAllBgColor.setDefaultColors(RED, RED);
+        mClearAllBgColor.setOnPreferenceChangeListener(this);
+
+        mClearAllIconColor =
+		      (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
+        intColor = Settings.System.getInt(resolver,
+           Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR, WHITE); 
+        mClearAllIconColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mClearAllIconColor.setSummary(hexColor);
+        //mClearAllIconColor.setDefaultColors(WHITE, WHITE);
+        mClearAllIconColor.setOnPreferenceChangeListener(this);
     }
 
 }
