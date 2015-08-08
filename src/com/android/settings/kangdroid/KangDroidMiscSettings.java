@@ -61,6 +61,7 @@ public class KangDroidMiscSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.kangdroid_misc_settings);
+		PreferenceScreen prefSet = getPreferenceScreen();
 
 		mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
 		
