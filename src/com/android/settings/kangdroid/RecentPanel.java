@@ -104,11 +104,6 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        boolean value;
-        int intvalue;
-        int index;
-        String hex;
-        int intHex;
 		
         if (preference == mUseSlimRecents) {
             Settings.System.putInt(getContentResolver(), Settings.System.USE_SLIM_RECENTS,
@@ -183,17 +178,17 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
                 Settings.System.RECENTS_MAX_APPS, value);
             return true;
         } else if (preference == mClearAllBgColor) {
-            hex = ColorPickerPreference.convertToARGB(
+            String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mClearAllIconColor) {
-            hex = ColorPickerPreference.convertToARGB(
+            String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR, intHex);
             preference.setSummary(hex);
