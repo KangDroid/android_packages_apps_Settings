@@ -119,50 +119,50 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
                     ((Boolean) newValue) ? 1 : 0);
             return true;
         } else if (preference == mRecentPanelScale) {
-            int value = Integer.parseInt((String) newValue);
+            value = Integer.parseInt((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_PANEL_SCALE_FACTOR, value);
             return true;
         } else if (preference == mRecentPanelExpandedMode) {
-            int value = Integer.parseInt((String) newValue);
+            value = Integer.parseInt((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_PANEL_EXPANDED_MODE, value);
             return true;
         } else if (preference == mRecentPanelBgColor) {
-            String hex = ColorPickerPreference.convertToARGB(
+            hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             if (hex.equals("#00ffffff")) {
                 preference.setSummary(R.string.default_string);
             } else {
                 preference.setSummary(hex);
             }
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_PANEL_BG_COLOR,
                     intHex);
             return true;
         } else if (preference == mRecentCardBgColor) {
-            String hex = ColorPickerPreference.convertToARGB(
+            hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             if (hex.equals("#00ffffff")) {
                 preference.setSummary(R.string.default_string);
             } else {
                 preference.setSummary(hex);
             }
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_CARD_BG_COLOR,
                     intHex);
             return true;
         } else if (preference == mRecentCardTextColor) {
-            String hex = ColorPickerPreference.convertToARGB(
+            hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             if (hex.equals("#00ffffff")) {
                 preference.setSummary(R.string.default_string);
             } else {
                 preference.setSummary(hex);
             }
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_CARD_TEXT_COLOR,
                     intHex);
@@ -178,7 +178,7 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
                     ((Boolean) newValue) ? 1 : 0);
             return true;
         } else if (preference == mMaxApps) {
-            int value = Integer.parseInt((String) newValue);
+            value = Integer.parseInt((String) newValue);
             Settings.System.putInt(getContentResolver(),
                 Settings.System.RECENTS_MAX_APPS, value);
             return true;
