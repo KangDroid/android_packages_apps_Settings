@@ -153,9 +153,7 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        boolean value;
         int intvalue;
-        int index;
         String hex;
         int intHex;
         if (preference == mRecentsUseOmniSwitch) {
