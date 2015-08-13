@@ -19,9 +19,6 @@
 
 package com.android.settings.kangdroid;
 
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.R;
-
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
@@ -41,6 +38,10 @@ import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.R;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class RecentsActivitySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "OmniSwitch";
@@ -55,21 +56,39 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
             .setClassName(OMNISWITCH_PACKAGE_NAME, OMNISWITCH_PACKAGE_NAME + ".SettingsActivity");
 	private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
+	
+	private static final String PREF_CLEAR_ALL_BG_COLOR =
+            "android_recents_clear_all_bg_color";
+    private static final String PREF_CLEAR_ALL_ICON_COLOR =
+            "android_recents_clear_all_icon_color";
+
+    private static final int RED = 0xffDC4C3C;
+    private static final int WHITE = 0xffffffff;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private SwitchPreference mRecentsUseOmniSwitch;
     private Preference mOmniSwitchSettings;
     private boolean mOmniSwitchInitCalled;
 	private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
+    private ColorPickerPreference mClearAllIconColor;
+    private ColorPickerPreference mClearAllBgColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.kangdroid_recent_settings);
-
+		addPreferencesFromResource(R.xml.kangdroid_recent_settings);
+		initalizerecentsSettings();
+    }
+	
+	public void initalizerecentsSettings() {
+        int intvalue;
+        int intColor;
+        String hexColor;
+		
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
-
+		
         mRecentsUseOmniSwitch = (SwitchPreference)
                 prefSet.findPreference(RECENTS_USE_OMNISWITCH);
 
@@ -85,12 +104,6 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
         mOmniSwitchSettings = (Preference)
                 prefSet.findPreference(OMNISWITCH_START_SETTINGS);
         mOmniSwitchSettings.setEnabled(mRecentsUseOmniSwitch.isChecked());
-		initalizerecentsSettings();
-    }
-	
-	public void initalizerecentsSettings() {
-        PreferenceScreen prefSet = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
 		
         mRecentsClearAll = (SwitchPreference) prefSet.findPreference(SHOW_CLEAR_ALL_RECENTS);
         mRecentsClearAll.setChecked(Settings.System.getIntForUser(resolver,
@@ -103,6 +116,26 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
         mRecentsClearAllLocation.setValue(String.valueOf(location));
 		mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntry());
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
+		
+        mClearAllBgColor =
+        (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_BG_COLOR);
+        intColor = Settings.System.getInt(resolver,
+            Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR, RED); 
+        mClearAllBgColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mClearAllBgColor.setSummary(hexColor);
+        //mClearAllBgColor.setDefaultColors(RED, RED);
+        mClearAllBgColor.setOnPreferenceChangeListener(this);
+
+        mClearAllIconColor =
+		      (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
+        intColor = Settings.System.getInt(resolver,
+           Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR, WHITE); 
+        mClearAllIconColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mClearAllIconColor.setSummary(hexColor);
+        //mClearAllIconColor.setDefaultColors(WHITE, WHITE);
+        mClearAllIconColor.setOnPreferenceChangeListener(this);
 	}
 
     @Override
@@ -120,6 +153,11 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        boolean value;
+        int intvalue;
+        int index;
+        String hex;
+        int intHex;
         if (preference == mRecentsUseOmniSwitch) {
             boolean value = (Boolean) newValue;
             // if value has never been set before
@@ -142,6 +180,22 @@ public class RecentsActivitySettings extends SettingsPreferenceFragment implemen
             Settings.System.putIntForUser(getActivity().getContentResolver(),
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
             mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
+            return true;
+        } else if (preference == mClearAllBgColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mClearAllIconColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
 		}
 		return false;
