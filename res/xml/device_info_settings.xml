@@ -32,6 +32,12 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
+        <!-- Contributors cloud -->
+        <PreferenceScreen android:key="contributors_cloud"
+            android:title="@string/contributors_cloud_fragment_title"
+            android:fragment="com.android.settings.contributors.ContributorsCloudFragment" >
+        </PreferenceScreen>
+
 		<PreferenceScreen
 			android:title="@string/info_kangdroid_settings"
 			android:summary="@string/kangdroid_device_info_settings_summary"
