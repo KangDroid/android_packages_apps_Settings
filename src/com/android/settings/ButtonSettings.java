@@ -620,7 +620,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 com.android.internal.R.integer.config_buttonBrightnessSettingDefault);
 
         Settings.Secure.putInt(context.getContentResolver(),
-                Settings.Secure.NAVIGATION_BAR_SHOW, enabled ? 1 : 0);
+                Settings.System.NAVIGATION_BAR_SHOW, enabled ? 1 : 0);
         CMHardwareManager hardware = CMHardwareManager.getInstance(context);
         hardware.set(CMHardwareManager.FEATURE_KEY_DISABLE, enabled);
 
