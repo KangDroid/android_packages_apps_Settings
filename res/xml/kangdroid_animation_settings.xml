@@ -52,8 +52,8 @@
 	</PreferenceCategory>
 	
 	<PreferenceCategory
-		android:key="misc_again_category"
-		android:title="@string/misc_settings_title">
+		android:key="toast_category"
+		android:title="@string/toast_animation_category">
 		
     <!-- Toast Animation -->
      <ListPreference
@@ -62,6 +62,11 @@
         android:entries="@array/toast_animation_entries"
         android:entryValues="@array/toast_animation_values"
         android:persistent="false" />
+		
+     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="toast_icon"
+        android:title="@string/toast_icon_title"
+        android:defaultValue="true" />
 		
 	</PreferenceCategory>
 		
