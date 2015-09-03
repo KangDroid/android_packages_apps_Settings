@@ -834,6 +834,7 @@
     <string name="clock_font_light">Light</string>
     <string name="clock_font_light_italic">Light Italic</string>
     <string name="clock_font_normal">Normal</string>
+	<string name="clock_font_size_title">Font size</string>
 
     <!-- Unaccounted and overcounted battery stats -->
     <string name="show_unac_and_overcounted_stats_title">Show unaccounted/overcounted stats</string>

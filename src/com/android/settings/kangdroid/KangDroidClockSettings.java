@@ -67,6 +67,7 @@ import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.android.settings.crdroid.SeekBarPreference;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -83,6 +84,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_DATE_STYLE = "status_bar_date_style";
     private static final String STATUS_BAR_DATE_FORMAT = "status_bar_date_format";
     private static final String PREF_FONT_STYLE = "font_style";
+	private static final String PREF_FONT_SIZE  = "font_size";
 	private static final String CLOCK_USE_SECOND = "clock_use_second";
 	private static final String PREF_COLOR_PICKER = "clock_color";
 	
@@ -102,6 +104,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment
 	private SwitchPreference mClockUseSecond;
 	private ColorPickerPreference mColorPicker; 
 	private boolean mCheckPreferences;
+	private SeekBarPreference mStatusBarDateSize;
 	
 	
     @Override
@@ -227,6 +230,11 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment
                    Settings.System.STATUSBAR_CLOCK_FONT_STYLE, val);
            mFontStyle.setSummary(mFontStyle.getEntries()[index]);
            return true;
+        } else if (preference == mStatusBarDateSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUSBAR_CLOCK_FONT_SIZE, width);
+            return true;
        }
 	   return false;
    }
@@ -311,6 +319,11 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment
         }
         mColorPicker.setNewPreviewColor(intColor);
 		
+        mStatusBarDateSize = (SeekBarPreference) findPreference(PREF_FONT_SIZE);
+        mStatusBarDateSize.setValue(Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14));
+        mStatusBarDateSize.setOnPreferenceChangeListener(this);
+		
         setHasOptionsMenu(true);
         mCheckPreferences = true;
         return prefSet;
@@ -377,10 +390,12 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment
         if (clockStyle == 0) {
             mStatusBarDate.setEnabled(false);
             mStatusBarDateStyle.setEnabled(false);
+			mStatusBarDateSize.setEnabled(false);
             mStatusBarDateFormat.setEnabled(false);
         } else {
             mStatusBarDate.setEnabled(true);
             mStatusBarDateStyle.setEnabled(true);
+			mStatusBarDateSize.setEnabled(true);
             mStatusBarDateFormat.setEnabled(true);
         }
     }
