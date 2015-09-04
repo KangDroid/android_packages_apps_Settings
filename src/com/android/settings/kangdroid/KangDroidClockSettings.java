@@ -299,7 +299,7 @@ public class KangDroidClockSettings extends SettingsPreferenceFragment
         mFontStyle.setOnPreferenceChangeListener(this);
         mFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_FONT_STYLE,
-                5)));
+                0)));
         mFontStyle.setSummary(mFontStyle.getEntry());
 		
         mClockUseSecond = (SwitchPreference) prefSet.findPreference(CLOCK_USE_SECOND);
