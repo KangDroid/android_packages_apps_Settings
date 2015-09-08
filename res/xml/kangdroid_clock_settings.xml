@@ -53,14 +53,11 @@
         android:entryValues="@array/clock_font_style_values"
         android:title="@string/clock_font_style_title" />
 		
-        <com.android.settings.crdroid.SeekBarPreference
+        <ListPreference
             android:key="font_size"
-            android:title="@string/clock_font_size_title"
-            android:defaultValue="14"
-            android:max="23"
-            settings:min="4"
-            settings:unitsLeft=""
-            settings:unitsRight="dp" />
+            android:entries="@array/clock_font_size_entries"
+            android:entryValues="@array/clock_font_size_values"
+            android:title="@string/clock_font_size_title" />
 		
 	</PreferenceCategory>
 		
