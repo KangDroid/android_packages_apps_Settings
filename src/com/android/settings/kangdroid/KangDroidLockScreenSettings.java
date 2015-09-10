@@ -47,6 +47,7 @@ import com.android.settings.crdroid.SeekBarPreference;
 public class KangDroidLockScreenSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 	
 	private static final String CARRIERLABEL_ON_LOCKSCREEN="lock_screen_hide_carrier";
+	private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
 	private SwitchPreference mCarrierLabelOnLockScreen;
 	private SeekBarPreference mBlurRadius;
 
