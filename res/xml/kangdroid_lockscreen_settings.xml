@@ -39,19 +39,6 @@
         settings:advanced="true"/>
 		
 	</PreferenceCategory>
-	
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="lockscreen_see_through"
-        android:title="@string/lockscreen_see_through_title"
-        android:summary="@string/lockscreen_see_through_summary"
-        android:defaultValue="false" />
-
-        <com.android.settings.widget.SeekBarPreferenceCham
-        android:key="lockscreen_blur_radius"
-        android:title="@string/lockscreen_blur_radius"
-        android:max="25"
-        settings:min="0"
-        android:defaultValue="14" />  
 	  
     <!-- Hide carrier on lock screen -->
     <SwitchPreference
@@ -69,4 +56,18 @@
          android:title="@string/lock_screen_colors_title"
          android:summary="@string/lock_screen_color_settings_summary"
          android:fragment="com.android.settings.kangdroid.LockScreenColorSettings" />
+		 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+         android:key="lockscreen_see_through"
+         android:title="@string/lockscreen_see_through_title"
+         android:summary="@string/lockscreen_see_through_summary"
+         android:defaultValue="false" />
+
+    <com.android.settings.crdroid.SeekBarPreference
+        android:key="lockscreen_blur_radius"
+        android:title="@string/lockscreen_blur_radius"
+        android:dependency="lockscreen_see_through"
+        android:max="25"
+        settings:minimum="0"
+        settings:defaultVal="14" />
 </PreferenceScreen>

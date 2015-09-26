@@ -42,11 +42,13 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.util.Helpers;
+import com.android.settings.crdroid.SeekBarPreference;
 
 public class KangDroidLockScreenSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 	
 	private static final String CARRIERLABEL_ON_LOCKSCREEN="lock_screen_hide_carrier";
 	private SwitchPreference mCarrierLabelOnLockScreen;
+	private SeekBarPreference mBlurRadius;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,11 @@ public class KangDroidLockScreenSettings extends SettingsPreferenceFragment impl
         addPreferencesFromResource(R.xml.kangdroid_lockscreen_settings);
 		PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
+		
+        mBlurRadius = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+        mBlurRadius.setValue(Settings.System.getInt(resolver,
+                Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
+        mBlurRadius.setOnPreferenceChangeListener(this);
 		
         //CarrierLabel on LockScreen
         mCarrierLabelOnLockScreen = (SwitchPreference) findPreference(CARRIERLABEL_ON_LOCKSCREEN);
@@ -70,16 +77,21 @@ public class KangDroidLockScreenSettings extends SettingsPreferenceFragment impl
         }
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         final String key = preference.getKey();
         if (preference == mCarrierLabelOnLockScreen) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LOCK_SCREEN_HIDE_CARRIER,
-                    (Boolean) objValue ? 1 : 0);
+                    (Boolean) newValue ? 1 : 0);
             Helpers.restartSystemUI();
             return true;
-        }
+        } else if (preference == mBlurRadius) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(resolver,
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, width);
+            return true;
+		}
         return false;
     }
 
