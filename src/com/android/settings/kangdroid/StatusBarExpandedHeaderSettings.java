@@ -23,7 +23,9 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.Preference;
+import android.preference.ListPreference;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
@@ -71,6 +73,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
     public void refreshSettings() {
         PreferenceScreen prefs = getPreferenceScreen();
+		PreferenceScreen prefSet = getPreferenceScreen();
         if (prefs != null) {
             prefs.removeAll();
         }
