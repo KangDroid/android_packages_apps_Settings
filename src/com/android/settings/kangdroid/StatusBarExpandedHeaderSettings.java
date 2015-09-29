@@ -33,6 +33,7 @@ import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.util.Helpers;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
@@ -43,6 +44,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final String PREF_BG_COLOR = "expanded_header_background_color";
     private static final String PREF_TEXT_COLOR = "expanded_header_text_color";
     private static final String PREF_ICON_COLOR = "expanded_header_icon_color";
+	private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
+	private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
 
     private static final int DEFAULT_COLOR = 0xffffffff;
     private static final int DEFAULT_BG_COLOR = 0xff384248;
@@ -52,6 +55,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
     private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
+	private SwitchPreference mCustomHeader;
+	private ListPreference mCustomHeaderDefault;
     private ColorPickerPreference mBackgroundColor;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
@@ -121,6 +126,19 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
         mIconColor.setOnPreferenceChangeListener(this);
+		
+        // Status bar custom header
+        mCustomHeader = (SwitchPreference) prefSet.findPreference(PREF_CUSTOM_HEADER);
+        mCustomHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1));
+        mCustomHeader.setOnPreferenceChangeListener(this);
+
+        // Status bar custom header default
+		mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
+        mCustomHeaderDefault.setOnPreferenceChangeListener(this);
+        int customHeaderDefault = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
+        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
 
         setHasOptionsMenu(true);
     }
@@ -184,6 +202,23 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR, intHex);
             preference.setSummary(hex);
+            return true;
+        } else if (preference == mCustomHeader) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mCustomHeaderDefault) {
+            int customHeaderDefault = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(), 
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT,
+                    customHeaderDefault, UserHandle.USER_CURRENT);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    0);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    1);
             return true;
         }
         return false;

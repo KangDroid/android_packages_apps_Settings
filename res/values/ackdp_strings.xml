@@ -1177,4 +1177,11 @@
     <string name="lockscreen_see_through_title">Lockscreen blur</string>
     <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lockscreen.</string>
     <string name="lockscreen_blur_radius">Blur effect intensity</string>
+	
+	<string name="expanded_header_image">Header Image</string>
+    <string name="status_bar_custom_header_default_title">Select your images</string>
+    <string name="status_bar_custom_header_default_summary">Default, modern and poly HD</string>
+    <string name="custom_header_image_0">Default</string>
+    <string name="custom_header_image_1">Modern</string>
+    <string name="custom_header_image_2">Poly HD</string>
 </resources>
