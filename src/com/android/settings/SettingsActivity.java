@@ -138,6 +138,8 @@ import com.android.settings.kangdroid.KangDroidAppSideBar;
 import com.android.settings.kangdroid.KangDroidCarrierLabel;
 import com.android.settings.kangdroid.KangDroidMiscSettings;
 
+import cyanogenmod.providers.CMSettings;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -1497,7 +1499,7 @@ public class SettingsActivity extends Activity
         if (forceAdvancedMode) {
             return true;
         }
-        return (android.provider.Settings.Secure.getInt(context.getContentResolver(),
-                android.provider.Settings.Secure.ADVANCED_MODE, 0) == 1);
+        return (CMSettings.Secure.getInt(context.getContentResolver(),
+                CMSettings.Secure.ADVANCED_MODE, 0) == 1);
     }
 }
