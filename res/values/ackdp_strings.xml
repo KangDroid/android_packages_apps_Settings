@@ -652,11 +652,6 @@
 	<!-- Navring targets (enable/disable) -->
     <string name="navigation_ring_enable_title">Enable navigation rings</string>
 
-    <!-- Heads up touch outside -->
-    <string name="heads_up_touch_outside_title">Touch outside behavior</string>
-    <string name="heads_up_touch_outside_summary_enabled">Hide notification on touch outside and on home button press</string>
-    <string name="heads_up_touch_outside_summary_disabled">Do not hide notification after touch outside or on home button press</string>
-	
     <!-- Volume pane timeout -->
     <string name="category_panel_time_out">Panel timeout</string>
     <string name="volume_panel_time_out_title">Volume panel timeout</string>
@@ -988,8 +983,8 @@
     <string name="heads_up_colors_title">Custom Colors</string>
     <string name="heads_up_colors_summary">Customize heads up text and background color</string>
 
-    <!-- Heads up snooze -->
-    <string name="heads_up_snooze_title">Snooze timer</string>
+   <!-- Heads up snooze -->
+<!--    <string name="heads_up_snooze_title">Snooze timer</string>
     <string name="heads_up_snooze_summary">Swiping up on the heads up notification will snooze it for <xliff:g id="number">%d</xliff:g> minutes</string>
     <string name="heads_up_snooze_disabled_summary">Snooze timer is disabled</string>
     <string name="heads_up_snooze_1min">1 minute</string>
@@ -997,7 +992,7 @@
     <string name="heads_up_snooze_5min">5 minutes</string>
     <string name="heads_up_snooze_10min">10 minutes</string>
     <string name="heads_up_snooze_15min">15 minutes</string>
-    <string name="heads_up_snooze_20min">20 minutes</string>
+    <string name="heads_up_snooze_20min">20 minutes</string> -->
 	
     <!-- Disable torch when screen goes off -->
     <string name="disable_torch_screen_off_title">Disable torch on screen off</string>
@@ -1160,4 +1155,25 @@
     <string name="custom_header_image_0">Default</string>
     <string name="custom_header_image_1">Modern</string>
     <string name="custom_header_image_2">Poly HD</string>
+	
+    <!-- Heads up -->
+    <string name="heads_up_title">Heads up notification</string>
+    <string name="app_notification_enable_heads_up_title">Show heads up</string>
+    <string name="app_notification_enable_heads_up_summary">Show notifications from this app as heads up</string>
+    <string name="heads_up_snooze_title">Snooze timer</string>
+    <string name="heads_up_snooze_summary">If snooze button is pressed, disable heads up for <xliff:g id="number">%d</xliff:g> minutes</string>
+    <string name="heads_up_snooze_disabled_summary">Snooze timer is disabled</string>
+    <string name="heads_up_snooze_3min">3 minutes</string>
+    <string name="heads_up_snooze_5min">5 minutes</string>
+    <string name="heads_up_snooze_10min">10 minutes</string>
+    <string name="heads_up_snooze_15min">15 minutes</string>
+    <string name="heads_up_snooze_20min">20 minutes</string>
+    <string name="heads_up_time_out_title">Time out</string>
+    <string name="heads_up_time_out_summary">Heads up notification will show up for <xliff:g id="number">%d</xliff:g> seconds</string>
+    <string name="heads_up_time_out_never_summary">Heads up notification will show until it is dismissed</string>
+    <string name="heads_up_time_out_4sec">4 seconds</string>
+    <string name="heads_up_time_out_6sec">6 seconds</string>
+    <string name="heads_up_time_out_8sec">8 seconds</string>
+    <string name="heads_up_time_out_10sec">10 seconds</string>
+    <string name="heads_up_time_out_never">Never</string>
 </resources>
