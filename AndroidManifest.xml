@@ -1838,6 +1838,9 @@
         />
 
         <!-- Custom activities Start -->
+		
+        <!-- Heads up -->
+        <uses-permission android:name="android.permission.CHANGE_HEADS_UP_STATE" />
 
         <!-- CyanogenMod activities Start -->
         <activity android:name="Settings$ProfilesSettingsActivity"
