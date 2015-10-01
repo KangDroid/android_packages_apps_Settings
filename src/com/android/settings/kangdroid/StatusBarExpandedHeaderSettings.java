@@ -131,7 +131,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mIconColor.setOnPreferenceChangeListener(this);
 		
         // Status bar custom header
-        mCustomHeader = (SwitchPreference) prefSet.findPreference(PREF_CUSTOM_HEADER);
+        mCustomHeader = (SwitchPreference) findPreference(PREF_CUSTOM_HEADER);
         mCustomHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1));
         mCustomHeader.setOnPreferenceChangeListener(this);
