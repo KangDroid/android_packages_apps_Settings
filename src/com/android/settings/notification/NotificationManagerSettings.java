@@ -77,7 +77,7 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
                 int headsUpSnoozeTime = (Integer) newValue;
                 return Settings.System.putInt(getContentResolver(),
                         Settings.System.HEADS_UP_SNOOZE_TIME,
-                        headsUpSnooze * 60 * 1000);
+                        headsUpSnoozeTime * 60 * 1000);
             }
         });
         final int defaultSnoozeTime = systemUiResources.getInteger(systemUiResources.getIdentifier(
