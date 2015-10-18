@@ -28,7 +28,7 @@
         android:key="heads_up_notification"
         android:title="@string/heads_up_title" >
 
-        <com.android.settings.temasek.SeekBarPreference
+        <com.android.settings.crdroid.SeekBarPreference
                 android:key="heads_up_snooze_time"
                 android:title="@string/heads_up_snooze_title"
                 android:max="20"
@@ -37,7 +37,7 @@
                 settings:unitsRight="min"
                 android:persistent="false" />
 
-        <com.android.settings.temasek.SeekBarPreference
+        <com.android.settings.crdroid.SeekBarPreference
                 android:key="heads_up_time_out"
                 android:title="@string/heads_up_time_out_title"
                 android:max="10"
