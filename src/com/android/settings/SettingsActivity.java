@@ -130,7 +130,6 @@ import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.kangdroid.KangDroidSettings;
-import com.android.settings.kangdroid.HeadsUpSettings;
 import com.android.settings.kangdroid.ChangeLog;
 import com.android.settings.kangdroid.KangDroidInfoSettings;
 import com.android.settings.kangdroid.KangDroidClockSettings;
@@ -344,7 +343,6 @@ public class SettingsActivity extends Activity
             ExpandedDesktopPreferenceFragment.class.getName(),
 			KangDroidSettings.class.getName(),
             AmbientSettings.class.getName(),
-			HeadsUpSettings.class.getName(),
             DisplayRotation.class.getName(),
 			KangDroidInfoSettings.class.getName(),
 			KangDroidClockSettings.class.getName(),
