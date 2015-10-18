@@ -38,10 +38,10 @@
         android:title="@string/qs_four_columns_title"
         android:defaultValue="false" />
 
-    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-        android:key="qs_show_brightness_slider"
-        android:title="@string/qs_brightness_slider_title"
-        android:defaultValue="true"/>
+        <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/qs_brightness_slider_title"
+            android:defaultValue="true"/>
 		
     <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
         android:key="lockscreen_hide_qs_tiles_with_sensitive_data"
@@ -53,18 +53,11 @@
         android:title="@string/block_on_secure_keyguard_title"
         android:summary="@string/block_on_secure_keyguard_summary" />
 
-<<<<<<< HEAD
     <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
         android:key="qs_location_advanced"
         android:title="@string/qs_advanced_location_title"
         android:summary="@string/qs_advanced_location_summary"
         android:defaultValue="false" />
-=======
-        <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
-            android:key="qs_show_brightness_slider"
-            android:title="@string/qs_brightness_slider_title"
-            android:defaultValue="true"/>
->>>>>>> 219aad9... Switch to use CMSettings for settings not involved in bootclasspath
 
         <SwitchPreference
             android:key="enable_task_manager"
